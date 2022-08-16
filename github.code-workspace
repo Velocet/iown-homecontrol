@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: CC0-1.0
+// FileName: ./github.code-workspace
+// FileComment: <text> Virtual Workspace: https://code.visualstudio.com/api/extension-guides/virtual-workspaces. </text>
+//
+{
+  "folders": [
+    {
+      "uri": "vscode-vfs://github/Velocet/iown-homecontrol"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.remote-repositories",
+      "GitHub.remotehub",
+      "DavidAnson.vscode-markdownlint"
+    ]
+  },
+  "settings": {
+    "markdownlint.config": {
+      "MD047": false,
+      "MD041": false,
+      "MD031": false,
+      "MD013": false,
+      "MD012": false
+    },
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
+    "editor.useTabStops": false,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true
+  }
+}
