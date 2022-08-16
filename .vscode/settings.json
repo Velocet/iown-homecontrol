@@ -1,0 +1,18 @@
+{
+  "markdownlint.config": {
+    "MD047": false,
+    "MD041": false,
+    "MD031": false,
+    "MD013": false,
+    "MD012": false
+  },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "editor.useTabStops": false,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true
+}
