@@ -33,6 +33,14 @@ This project should document every bit of information about io-homecontrol and m
   - WiFi instead of 868 MHz ISM Band > io-homecontrol iomecontrol iomecntrl
 - [ ] Possible to flash Velux/Somfy firmware onto Ikea remotes?
 
+## Detailed Information
+
+Covered in the following documents are the details of the io-homecontrol protocols
+
+* [Radio](Radio.md)
+* [Link Layer](LinkLayer.md)
+* [Commands](Commands.md)
+
 ## Basic Information
 
 There is a low level lib thats accessable to members of the io-homecontrol board.
@@ -119,6 +127,7 @@ Overview of official hardware (eg. transceiver chips, MCUs, SOCs, remote control
   - Rexel Energeasy Connect
   - Somfy Connexoon
   - Somfy TaHoma
+    - SI4461 + STM32F101RCT6
 - Other Companies
   - SecuYou
   - Assa Abloy
