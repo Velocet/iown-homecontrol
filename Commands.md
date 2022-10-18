@@ -40,10 +40,10 @@ The originator parameter specifies what fired the command:
 
 ### Main parameter
 
-TARGET = 53504 = 0xD100
-CURRENT = 53760 = 0xD200
-DEFAULT = 54016 = 0xD300
-IGNORE = 54272 = 0xD400
+* TARGET = 53504 = 0xD100
+* CURRENT = 53760 = 0xD200
+* DEFAULT = 54016 = 0xD300
+* IGNORE = 54272 = 0xD400
 
 ### Manufacturer
 
@@ -132,12 +132,12 @@ Manufacturers have their own ID:
 
 ### 00: Activate func
 
-Command ID: 0x00 (1 byte)
-Command originator (1 byte)
-ACEI (1 byte)
-Main parameter (2 bytes)
-Functional parameter 1 (1 byte)
-Functional parameter 2 (1 byte)
+* Command ID: 0x00 (1 byte)
+* Command originator (1 byte)
+* ACEI (1 byte)
+* Main parameter (2 bytes)
+* Functional parameter 1 (1 byte)
+* Functional parameter 2 (1 byte)
 
 Example:
 ```
@@ -147,38 +147,34 @@ Command ID=0, Originator=1 (User), ACEI=0x43, MainParam=0xd200 (Current), FP1=0,
 
 ### 01: Activate mode
 
-Command ID: 0x01 (1 byte)
-Command originator (1 byte)
-ACEI (1 byte)
-Mode number (1 byte)
-Mode parameter (1 byte)
-Unknown (1 byte)
-Unknown (1 byte)
+* Command ID: 0x01 (1 byte)
+* Command originator (1 byte)
+* ACEI (1 byte)
+* Mode number (1 byte)
+* Mode parameter (1 byte)
+* Unknown (1 byte)
+* Unknown (1 byte)
 
 ### 03: Unknown
 
-Command ID: 0x03 (1 byte)
-Data? (3-6 bytes)
+* Command ID: 0x03 (1 byte)
+* Data? (3-6 bytes)
 
-### 04: Unknown
+### 04: Unknown, answer to 03
 
-Command ID: 0x04 (1 byte)
-Data? (6-20 bytes)
-
-**Note:** this frame does not have any HMAC
+* Command ID: 0x04 (1 byte)
+* Data? (6-20 bytes)
 
 ### 0c: Unknown
 
-Command ID: 0x0c (1 byte)
-Data? (4 bytes)
-
-**Note:** this frame does not have any HMAC
+* Command ID: 0x0c (1 byte)
+* Data? (4 bytes)
 
 ### 20: Private protocol
 
-Command ID: 0x20 (1 byte)
-Manufacturer ID (1 byte)
-Data
+* Command ID: 0x20 (1 byte)
+* Manufacturer ID (1 byte)
+* Data
 
 Example:
 ```
@@ -188,28 +184,28 @@ Command ID=0x20, Manufacturer=0x02 (SOMFY), Data=ff0143000c0000
 
 ### 21: Private protocol answer
 
-Command ID: 0x21 (1 byte)
-Manufacturer ID (1 byte)
-Data
+* Command ID: 0x21 (1 byte)
+* Manufacturer ID (1 byte)
+* Data
 
 ### 28: Discover
 
-Command ID: 0x28 (1 byte)
+* Command ID: 0x28 (1 byte)
 
-**Note:** this frame does not have any HMAC
+**Note:** this frame can be sent without authentication
 
 ### 29: Discover answer
 
-Command ID: 0x29 (1 byte)
-Node type and subtype (2 bytes): type on 10 bits and subtype on the remainer
-    Node type = (field >> 6) & 1023
-    Node subtype = field & 63
-Node address (3 bytes)
-Manufacturer ID (1 byte)
-Multi info byte (1 byte)
-Timestamp (2 bytes)
+* Command ID: 0x29 (1 byte)
+* Node type and subtype (2 bytes): type on 10 bits and subtype on the remainer
+  * Node type = (field >> 6) & 1023
+  * Node subtype = field & 63
+* Node address (3 bytes)
+* Manufacturer ID (1 byte)
+* Multi info byte (1 byte)
+* Timestamp (2 bytes)
 
-**Note:** the frame does not have any HMAC
+**Note:** this frame can be sent without authentication
 
 Example:
 ```
@@ -217,156 +213,200 @@ Example:
 ```
 Command ID = 0x29, node type = 1023 (REMOTE_CONTROLLER?), node subtype = 0, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 0
 
-
 ### 2a: Possible specialized discover
 
-Command ID: 0x2a (1 byte)
-?? (12 bytes)
+* Command ID: 0x2a (1 byte)
+* ?? (12 bytes)
 
-**Note 1:** observed after launching the box in discover mode
-**Note 2:** the frame does not have any HMAC
+**Note:** observed after launching the box in discover mode
 
 ### 2b: Possible specialized discover answer
 
-Parameters are similar to 0x29
+* Parameters are similar to 0x29
 
-Command ID: 0x2b (1 byte)
-Node type and subtype (2 bytes)
-    Node type = (field >> 6) & 1023
-    Node subtype = field & 63
-Node address (3 bytes)
-Manufacturer ID (1 byte)
-Multi info byte (1 byte)
-Timestamp (2 bytes)
-
-**Note:** the frame does not have any HMAC
+* Command ID: 0x2b (1 byte)
+* Node type and subtype (2 bytes)
+  * Node type = (field >> 6) & 1023
+  * Node subtype = field & 63
+* Node address (3 bytes)
+* Manufacturer ID (1 byte)
+* Multi info byte (1 byte)
+* Timestamp (2 bytes)
 
 ```
 2b 0d01 XXXXXX 0c cc 0fb8
 ```
 Command ID = 0x2b, node type = 52 (ELECTRICAL_HEATER), node subtype = 1, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 4024
 
-### 2c: Unknown
+### 2c: discover confirmation
 
-Command ID = 0x2c
+* Command ID = 0x2c
 
-No parameter. Some sort of discover ack? Sent by device, not box.
+No parameter. Some sort of discover ack?
 
-**Note:** the frame does not have any HMAC
+**Note:** the frame does not require authentication
+
+### 2d: discover confirmation ack, answer to 2c
+
+* Command ID = 0x2d
+
+No parameter
+
+**Note:** the frame does not require authentication
 
 ### 2e: Unknown
 
-Command ID: 0x2e (1 byte)
-?? (1 byte), 00 (TaHoma sent) and 02 (Sauter heater) observed
+* Command ID: 0x2e (1 byte)
+* ?? (1 byte), 00 (TaHoma sent) and 02 (Sauter heater) observed
 
 **Note 1:** observed after launching the box in discover mode
-**Note 2:** the frame does not have any HMAC
+**Note 2:** not authenticated?
 
 Example:
 ```
 2e 00
 ```
 
-### 30: Send 1W key?
+### 2f: Unknown, answer to 2e?
 
-Command ID: 0x30 (1 byte)
-16-byte random data (encrypted key?)
-Manufacturer ID (1 byte)
-?? (1 byte)
-Sequence number (2 bytes)
+* Command ID: 0x2f (1 byte)
+* ?? (1 byte), mirrors what is sent by 2e
 
-**Note 1:** this frame does not have any HMAC
-**Note 2:** the address seems to be derived from the last 3 bytes of the encrypted key. The encrypted key is specified in the QR code printed on the 1W controller label.
+Not authenticated?
+
+### 30: Send 1W key
+
+* Command ID: 0x30 (1 byte)
+* Encrypted key (16 bytes)
+* Manufacturer ID (1 byte)
+* ?? (1 byte)
+* Sequence number (2 bytes)
 
 Example:
 ```
-30 e79410dcb5dcb9f2d4c0d13c2f485b37 02 01 0c25
+30 7e60491f976adf653db0ed785e49a201 02 01 0c25
 ```
-Command ID=0x30, key?: e79410dcb5dcb9f2d4c0d13c2f485b37, manufacturer ID=0x02, ??=0x01, Sequence number=0x0c25
+Command ID=0x30, key?: 7e60491f976adf653db0ed785e49a201, manufacturer ID=0x02, ??=0x01, Sequence number=0x0c25
 
-### 31: Unknown
+### 31: Ask challenge
 
-Command ID: 0x31 (1 byte)
+* Command ID: 0x31 (1 byte)
+
+No parameter. Destination device answers with 0x3c.
+
+This command does not require authentication.
+
+### 32: Key Transfer
+
+* Command ID: 0x32 (1 byte)
+* Encrypted 2-Way Key (16 bytes)
+
+**Note:** the key is encrypted and depends of a challenge submitted before using 0x38 or 0x3c, see [LinkLayer](LinkLayer.md)
+
+### 33: Key transfer ack
+
+* Command ID: 0x33 (1 byte)
+
+No parameter. Is sent after each 0x32 request.
+
+### 36: Address request
+
+* Command ID: 0x36 (1 byte)
 
 No parameter.
-**Note:** this frame does not have any HMAC
 
+### 37: Address answer, answer to 36
 
-### 36: Unknown
-
-Command ID: 0x36 (1 byte)
-
-No parameter.
-
-**Note:** this frame does not have any HMAC
+* Command ID: 0x37 (1 byte)
+* Address (3 bytes)
 
 ### 38: Launch key transfer
 
-Command ID: 0x38 (1 byte)
-Data (6 bytes) same length as HMAC?
-
+* Command ID: 0x38 (1 byte)
+* Challenge (6 bytes)
 
 ### 39: Remove 1W controller
 
-Command ID: 0x39 (1 byte)
-??: (1 byte): 0x00 observed
+* Command ID: 0x39 (1 byte)
+* ??: (1 byte): 0x00 observed
 
-### 3d: Unknown
+### 3c: Challenge request
 
-Command ID: 0x3d (1 byte)
-Data? (6 bytes)
+* Command ID: 0x3c (1 byte)
+* Challenge data (6 bytes)
+
+Example:
+```
+3c 4d3e778460f1
+```
+Command ID=0x3c, challenge=4d3e778460f1
+
+### 3d: Challenge response
+
+* Command ID: 0x3d (1 byte)
+* Response data (6 bytes)
+
+Example:
+```
+3d 3ef8c09565f4
+```
+Command ID=0x3d, response=3ef8c09565f4
 
 ### 46: Unknown
 
-Command ID: 0x46 (1 byte)
-Data? (9 bytes)
+* Command ID: 0x46 (1 byte)
+* Data? (9 bytes)
 
-### 47: Unknown
+### 47: Unknown, answer to 46
 
-Command ID: 0x47 (1 byte)
-?? (1 byte)
-Data (4 bytes)
+* Command ID: 0x47 (1 byte)
+* Data (5 bytes)
 
 ### 48: Unknown
 
-Command ID: 0x48 (1 byte)
-Data? (9 bytes)
+* Command ID: 0x48 (1 byte)
+* Data? (9 bytes)
 
-### 4a: Unknown
+Not authenticated?
 
-Command ID: 0x4a (1 byte)
-Data? (3-13 bytes)
+### 49: Unknown, answer to 48
+
+* Command ID: 0x49 (1 byte)
+* Data? (4 bytes)
+
+Not authenticated?
+
+### 4a: Large data transfer request?
+
+* Command ID: 0x4a (1 byte)
+* Data? (3-13 bytes)
 
 ### 4b: Large data answer?
 
-Command ID: 0x4b (1 byte)
-?? (1 byte)
-Sequence number of data (1 byte)
-Data (1-18 bytes)
+* Command ID: 0x4b (1 byte)
+* ?? (1 byte)
+* Sequence number of data (1 byte)
+* Data (1-18 bytes)
 
 This command is chained to send large numbers of bytes.
 
 ### 50: Get name
 
-Command ID: 0x50 (1 byte)
+* Command ID: 0x50 (1 byte)
 
-No parameter.
-
-**Note:** this frame does not have any HMAC
+No parameter. Not Authenticated.
 
 ### 51: Get name answer
 
-Command ID: 0x51 (1 byte)
-Name (16 bytes ASCII)
+* Command ID: 0x51 (1 byte)
+* Name (16 bytes ASCII)
 
-**Note:** this frame does not have any HMAC
+Not authenticated.
 
 ### 52: Write name
 
-Command ID: 0x52 (1 byte)
-Data (16 bytes) ASCII
-
-**Note:** this frame does not have any HMAC
+* Command ID: 0x52 (1 byte)
+* Data (16 bytes) ASCII
 
 Example:
 ```
@@ -374,15 +414,33 @@ Example:
 ```
 Command ID=0x52, Data="Test"
 
+### 53: Write name ack
+
+* Command ID: 0x53 (1 byte)
+
+No parameter.
+
 ### 54: Get general info 1
 
-Command ID: 0x54 (1 byte)
+* Command ID: 0x54 (1 byte)
+
+### 55: General info 1 answer
+
+* Command ID: 0x55 (1 byte)
+* Value (14 bytes)
+
+Some parts of the value seem to be ASCII...
 
 ### 56: Get general info 2
 
-Command ID: 0x56 (1 byte)
+* Command ID: 0x56 (1 byte)
+
+### 57: General info 2 answer
+
+* Command ID: 0x57 (1 byte)
+* Value (16 bytes)
 
 ### fe: Unknown
 
-Command ID: 0xfe (1 byte)
-?? (1 byte)
+* Command ID: 0xfe (1 byte)
+* ?? (1 byte)
