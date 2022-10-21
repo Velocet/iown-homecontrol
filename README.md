@@ -1,3 +1,10 @@
+NOTE: ["Official" Telegram Group](https://t.me/iownHomecontrol)
+
+- Someone is in the process of writing a CC1101 implementation
+- **A lot** of information was gathered in the last months which is reviewed. The repo will be updated in the next few days.
+- Currently we are searching someone knowledgable with Flutter Reverse Engeneering
+- Feel free to ask questions in the Telegram group or contribute to this repo :)
+
 # iown-control / IOmecontrol
 
 This project should document every bit of information about io-homecontrol and make it a freely available protocol for everyone to use. Matter is right around the corner and still there are some companies that insist on using this proprietary crapload. It seems that at least Velux knows how shitty io-homecontrol is cause they are the only once who have implemented their own "KizBox".
