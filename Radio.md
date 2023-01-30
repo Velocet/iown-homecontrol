@@ -4,27 +4,26 @@
 
 The io-homecontrol protocol is constructed on 2-FSK encoded frames.
 
-- Channels:
-  - 1: 868.25 MHz (868.00 MHz – 868.60 MHz)
-  - 2: 868.95 MHz (868.70 MHz – 869.20 MHz)
-  - 3: 869.85 MHz (869.70 MHz – 870.00 MHz)
-- Band (Narrow): 12.5/25 kHz (> add 50 kHz rtl_433 Range)
-- Deviation: 20 kHz (> add another 40 kHz)
-- Data/Baud Rate: 38.4 kbps (bandwidth of 38,4kbs with 2-FSK)
+| Channel |   Start    |    End     |      Base      |
+| :-----: | :--------: | :--------: | :------------: |
+|    1    | 868.00 MHz | 868.60 MHz |   868.25 MHz   |
+|  **2**  | 868.70 MHz | 869.20 MHz | **868.95 MHz** |
+|    3    | 869.70 MHz | 870.00 MHz |   869.85 MHz   |
+
+- Deviation: 19,2 kHz
+- Baud Rate: 38.4 kbps
 - Encoding: NRZ
 - Modulation: 2-FSK
 - Standards: IEEE 802.15.4(g) / ETSI-300-200
 - Modes: Master, Slave, Beacon
-- Checks: CRC, preamble, start byte
+- Checks:
+  - Preamble + Sync Word ("Start Byte")
+  - Address / Broadcast
+  - CRC
 - Encoding (data): UART
+- Same Structure as SDN (Somfy Digital Network)
 
-|     Radio      | Channel |   Start    |    End     |    Base    |
-| :------------: | :-----: | :--------: | :--------: | :--------: |
-| io-homecontrol |    1    | 868.00 MHz | 868.60 MHz | 868.25 MHz |
-| io-homecontrol |    2    | 868.70 MHz | 869.20 MHz | 868.95 MHz |
-| io-homecontrol |    3    | 869.70 MHz | 870.00 MHz | 869.85 MHz |
-
-## Raw data sending
+## Raw Data Sending
 
 The data is transmitted as 8-bit bytes with 1 start bit (`0`) and a stop bit (`1`). Bytes are transmitted in order, but bits of each byte are swapped: the least significant bit is transmitted first.
 
