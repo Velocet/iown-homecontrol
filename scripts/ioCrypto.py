@@ -42,7 +42,7 @@ def computeChecksum(frame_byte: int, chksum1: int, chksum2: int) -> Tuple[int, i
 
   return (chksum2 ^ 0x55, ((tmpchksum << 1) ^ 0x5b) & 0xff)
 
-# If challenge is set, the function switches to 2-Way mode and sequence_number becomes mandatory
+# If challenge is set, the function switches to 2-Way mode and sequence_number becomes not mandatory
 # frame_data must include only the data part of the frame, command ID and parameters
 def constructInitialValue(frame_data: bytes, challenge: bytes = None, sequence_number: bytes = None) -> bytes:
   """
