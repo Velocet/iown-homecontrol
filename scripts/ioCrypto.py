@@ -246,4 +246,5 @@ def demo() -> None:
   frame = frame + bytes([crc & 0xff, (crc >> 8) & 0xff])
   print("  " + binascii.hexlify(frame).decode('utf-8'))
 
-demo()
+if "__main__" == __name__:
+  demo()
