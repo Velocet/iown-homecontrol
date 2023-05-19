@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import sys
-import struct
 import binascii
+import sys
+
+from ioCrypto import compute_crc_8408
 
 #### io-homecontrol definitions
 
@@ -41,18 +42,22 @@ class IoFrame:
     self.length = self.control_byte1 & 0x1f
     if self.length > len(rframe):
       raise ValueError("Frame is incomplete (bytes missing)")
-    self.end_frame = True if rframe[0] & 0x80 != 0 else False
-    self.start_frame = True if rframe[0] & 0x40 != 0 else False
+    self.end_frame = rframe[0] & 0x80 != 0
+    self.start_frame = rframe[0] & 0x40 != 0
     self.protocol_mode = IoFrame.Oneway if rframe[0] & 0x20 != 0 else IoFrame.TwoWay
     self.from_addr = rframe[2:5]
     self.to_addr = rframe[5:8]
-    self.use_beacon = True if rframe[1] & 0x80 != 0 else False
-    self.routed = True if rframe[1] & 0x40 != 0 else False
-    self.lpm = True if rframe[1] & 0x20 != 0 else False
+    self.use_beacon = rframe[1] & 0x80 != 0
+    self.routed = rframe[1] & 0x40 != 0
+    self.lpm = rframe[1] & 0x20 != 0
     self.protocol_version = rframe[1] & 0x03
     self.commandid = rframe[8]
     self.commanddata = rframe[9:self.length+1]
     self.crc = rframe[self.length+1:]
+
+  def is_correct(self) -> bool:
+    """Test whether the frame has a correct checksum"""
+    return compute_crc_8408(self.raw) == 0
 
   def __str__(self) -> str:
     return_string = ""
@@ -66,7 +71,7 @@ class IoFrame:
       return_string += f"protocol version={self.protocol_version})\n"
       return_string += f"  command ID=0x{self.commandid:02x}\n"
       return_string += f"  command data={binascii.hexlify(self.commanddata)}\n"
-      return_string += f"  CRC={binascii.hexlify(self.crc)}\n"
+      return_string += f"  CRC={binascii.hexlify(self.crc)} ({'correct' if self.is_correct() else 'incorrect'})\n"
       return return_string
     else:
       return "None"
