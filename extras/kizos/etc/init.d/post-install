@@ -1,0 +1,28 @@
+#!/bin/sh
+# Used to launch post-install script, information concerning
+# launched scripts are stored in persistent partition
+
+. /usr/share/kizosenv.sh
+[ -f /etc/default/rcS ] && . /etc/default/rcS
+
+case "$1" in
+  start)
+    /usr/share/post-install/post-install startall
+    if [ $? -ne 0 ]; then
+      exit 1
+    else
+      # random pool
+      /etc/init.d/urandom dump
+      # persistent partition backup
+      /usr/share/bsp/manage-persistent-spare.sh backup
+    fi
+    ;;
+  stop)
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+esac
+
+

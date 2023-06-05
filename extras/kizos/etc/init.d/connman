@@ -1,0 +1,137 @@
+#!/bin/sh
+
+DAEMON=/usr/sbin/connmand
+PIDFILE=/var/run/connmand.pid
+DESC="Connection Manager"
+
+if [ -f /etc/default/connman ] ; then
+	. /etc/default/connman
+fi
+
+[ -f /etc/default/rcS ] && . /etc/default/rcS
+
+debug(){
+  [ "$VERBOSE" != no ] && echo $*
+  return 0
+}
+
+nfsroot=0
+
+exec 9<&0 < /proc/mounts
+while read dev mtpt fstype rest; do
+	if test $mtpt = "/" ; then
+		case $fstype in
+		    nfs | nfs4)
+			nfsroot=1
+			break
+			;;
+		    *)
+			;;
+		esac
+	fi
+done
+
+do_start() {
+
+	mkdir -p /var/lib/connman
+	mkdir -p /var/run/connman
+	rm -f /var/lib/connman/*.config /var/lib/connman/settings
+	cp -a /usr/lib/connman/*.config /usr/lib/connman/settings \
+		  /var/lib/connman/
+
+	# Create an auto.config file for connman if there is a wifi.txt file created by internal
+	if [ -s /persistent/apps/overkiz/wifi.txt ]; then
+		wifiKey=
+		while IFS= read -r wifiLine; do
+			wifiLine="$(echo "${wifiLine}" | base64 -d)"
+			if [ -z "${wifiKey}" ]; then
+				wifiKey="${wifiLine}"
+			else
+				if [ "${wifiKey}" = "ssid" ]; then
+					ssid="$(printf '%s' "${wifiLine}" | hexdump -ve '/1 "%02x"')"
+				elif [ "${wifiKey}" = "passphrase" ]; then
+					passphrase="$(printf '%s' "${wifiLine}" \
+						| sed -e ':a;$!{N;ba;}s/\\/\\\\/g;s/\n/\\n/g;s/\r/\\r/g;s/ /\\s/g;s/\t/\\t/g')"
+				fi
+				wifiKey=
+			fi
+		done </persistent/apps/overkiz/wifi.txt
+		if [ -n "${ssid}" ] && [ -n "${passphrase}" ]; then
+			cat <<-EOF >/var/lib/connman/auto.config
+				[service_ovk_auto]
+				Type = wifi
+				SSID = ${ssid}
+				Passphrase = ${passphrase}
+				IPv6 = auto
+				IPv6.Privacy = enabled
+			EOF
+		fi
+	fi
+
+	EXTRA_PARAM=""
+	if test $nfsroot -eq 1 ; then
+	    NET_DEVS=`cat /proc/net/dev | sed -ne 's/^\([a-zA-Z0-9 ]*\):.*$/\1/p'`
+	    NET_ADDR=`cat /proc/cmdline | sed -ne 's/^.*ip=\([^ :]*\).*$/\1/p'`
+
+	    if [ ! -z "$NET_ADDR" ]; then
+		if [ "$NET_ADDR" = dhcp ]; then
+		    ethn=`ifconfig | grep "^eth" | sed -e "s/\(eth[0-9]\)\(.*\)/\1/"`
+		    if [ ! -z "$ethn" ]; then
+			EXTRA_PARAM="-I $ethn"
+		    fi
+		else
+		    for i in $NET_DEVS; do
+			ADDR=`ifconfig $i | sed 's/addr://g' | sed -ne 's/^.*inet \([0-9.]*\) .*$/\1/p'`
+			if [ "$NET_ADDR" = "$ADDR" ]; then
+			    EXTRA_PARAM="-I $i"
+			    break
+			fi
+		    done
+		fi
+	    fi
+	fi
+	if [ -f /usr/lib/connman/wired-setup ] ; then
+		. /usr/lib/connman/wired-setup
+	fi
+	$DAEMON $EXTRA_PARAM
+}
+
+do_stop() {
+	start-stop-daemon --stop --name connmand --quiet
+}
+
+case "$1" in
+  start)
+	debug "Starting $DESC"
+	do_start
+	;;
+  stop)
+	debug "Stopping $DESC"
+	do_stop
+	;;
+  restart|force-reload)
+	debug "Restarting $DESC"
+	do_stop
+	sleep 1
+	do_start
+	;;
+  status)
+	pid=$(cat $PIDFILE 2> /dev/null || echo)
+	if test -n "$pid"; then
+		[ "$(readlink /proc/$pid/exe)" = "$(readlink -f $DAEMON)" ] || exit 1
+	else
+		# There might be cases where PIDFILE is not filled (running in
+		# foreground?)
+		if ! pid=$(pidof -s ${DAEMON##*/}); then
+		  exit 1
+		fi
+	fi
+	echo "$pid"
+	;;
+  *)
+	echo "Usage: $0 {start|status|stop|restart|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

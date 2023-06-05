@@ -1,0 +1,586 @@
+14:00:50:557 -> ets Jul 29 2019 12:21:46
+14:00:50:557 -> 
+14:00:50:557 -> rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:50:563 -> configsip: 0, SPIWP:0xee
+14:00:50:565 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:50:570 -> mode:DIO, clock div:2
+14:00:50:573 -> load:0x3fff0018,len:4
+14:00:50:576 -> load:0x3fff001c,len:7960
+14:00:50:579 -> load:0x3d234c30,len:-1713843249
+14:00:50:604 -> 1150 mmu set 00010000, pos 00010000
+14:00:50:642 -> 1150 mmu set 00020000, pos 00020000
+14:00:50:680 -> 1150 mmu set 00030000, pos 00030000
+14:00:50:731 -> 1150 mmu set 00040000, pos 00040000
+14:00:50:757 -> 1150 mmu set 00050000, pos 00050000
+14:00:50:796 -> 1150 mmu set 00060000, pos 00060000
+14:00:50:835 -> 1150 mmu set 00070000, pos 00070000
+14:00:50:874 -> 1150 mmu set 00080000, pos 00080000
+14:00:50:900 -> ets Jul 29 2019 12:21:46
+14:00:50:900 -> 
+14:00:50:900 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:50:905 -> configsip: 0, SPIWP:0xee
+14:00:50:908 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:50:913 -> mode:DIO, clock div:2
+14:00:50:916 -> load:0x3fff0018,len:4
+14:00:50:919 -> load:0x3fff001c,len:7960
+14:00:50:923 -> load:0x40078000,len:17588
+14:00:50:928 -> load:0x40080400,len:5720
+14:00:50:931 -> csum err:0xd3!=0xd6
+14:00:50:931 -> ets_main.c 384 
+14:00:51:262 -> ets Jul 29 2019 12:21:46
+14:00:51:262 -> 
+14:00:51:262 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:51:263 -> configsip: 0, SPIWP:0xee
+14:00:51:263 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:51:263 -> mode:DIO, clock div:2
+14:00:51:263 -> load:0x3fff0018,len:4
+14:00:51:263 -> load:0x3fff001c,len:7960
+14:00:51:266 -> load:0x3d234c30,len:-1713843249
+14:00:51:291 -> 1150 mmu set 00010000, pos 00010000
+14:00:51:329 -> 1150 mmu set 00020000, pos 00020000
+14:00:51:369 -> 1150 mmu set 00030000, pos 00030000
+14:00:51:407 -> 1150 mmu set 00040000, pos 00040000
+14:00:51:445 -> 1150 mmu set 00050000, pos 00050000
+14:00:51:484 -> 1150 mmu set 00060000, pos 00060000
+14:00:51:522 -> 1150 mmu set 00070000, pos 00070000
+14:00:51:561 -> 1150 mmu set 00080000, pos 00080000
+14:00:51:587 -> ets Jul 29 2019 12:21:46
+14:00:51:587 -> 
+14:00:51:587 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:51:593 -> configsip: 0, SPIWP:0xee
+14:00:51:595 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:51:601 -> mode:DIO, clock div:2
+14:00:51:604 -> load:0x3fff0018,len:4
+14:00:51:607 -> load:0x3fff001c,len:7960
+14:00:51:611 -> load:0x9a988346,len:-419872627
+14:00:51:638 -> 1150 mmu set 00010000, pos 00010000
+14:00:51:681 -> 1150 mmu set 00020000, pos 00020000
+14:00:51:724 -> 1150 mmu set 00030000, pos 00030000
+14:00:51:779 -> 1150 mmu set 00040000, pos 00040000
+14:00:51:809 -> 1150 mmu set 00050000, pos 00050000
+14:00:51:852 -> 1150 mmu set 00060000, pos 00060000
+14:00:51:894 -> 1150 mmu set 00070000, pos 00070000
+14:00:51:931 -> ets Jul 29 2019 12:21:46
+14:00:51:931 -> 
+14:00:51:931 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:51:937 -> configsip: 0, SPIWP:0xee
+14:00:51:939 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:51:945 -> mode:DIO, clock div:2
+14:00:51:948 -> load:0x3fff0018,len:4
+14:00:51:951 -> load:0x3fff001c,len:7960
+14:00:51:953 -> load:0xf090536f,len:-2062515799
+14:00:51:982 -> 1150 mmu set 00010000, pos 00010000
+14:00:52:025 -> 1150 mmu set 00020000, pos 00020000
+14:00:52:068 -> 1150 mmu set 00030000, pos 00030000
+14:00:52:111 -> 1150 mmu set 00040000, pos 00040000
+14:00:52:154 -> 1150 mmu set 00050000, pos 00050000
+14:00:52:197 -> 1150 mmu set 00060000, pos 00060000
+14:00:52:240 -> 1150 mmu set 00070000, pos 00070000
+14:00:52:275 -> ets Jul 29 2019 12:21:46
+14:00:52:275 -> 
+14:00:52:275 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:52:292 -> flash read err, 988
+14:00:52:292 -> ets_main.c 384 
+14:00:52:619 -> ets Jul 29 2019 12:21:46
+14:00:52:619 -> 
+14:00:52:619 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:52:625 -> configsip: 0, SPIWP:0xee
+14:00:52:627 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:52:633 -> mode:DIO, clock div:2
+14:00:52:636 -> load:0x33ce3267,len:-1406519253
+14:00:52:669 -> 1150 mmu set 00010000, pos 00010000
+14:00:52:712 -> 1150 mmu set 00020000, pos 00020000
+14:00:52:755 -> 1150 mmu set 00030000, pos 00030000
+14:00:52:809 -> 1150 mmu set 00040000, pos 00040000
+14:00:52:844 -> 1150 mmu set 00050000, pos 00050000
+14:00:52:884 -> 1150 mmu set 00060000, pos 00060000
+14:00:52:927 -> 1150 mmu set 00070000, pos 00070000
+14:00:52:963 -> ets Jul 29 2019 12:21:46
+14:00:52:963 -> 
+14:00:52:963 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:52:970 -> configsip: 0, SPIWP:0xee
+14:00:52:971 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:52:977 -> mode:DIO, clock div:2
+14:00:52:980 -> load:0x3fff0018,len:4
+14:00:52:983 -> load:0x3fff001c,len:7960
+14:00:52:985 -> load:0x11f1aeec,len:-222732545
+14:00:53:307 -> ets Jul 29 2019 12:21:46
+14:00:53:307 -> 
+14:00:53:307 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:53:320 -> configsip: 0, SPIWP:0xee
+14:00:53:320 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:53:321 -> mode:DIO, clock div:2
+14:00:53:323 -> load:0x3fff0018,len:4
+14:00:53:327 -> load:0x3fff001c,len:7960
+14:00:53:329 -> load:0xee7ddca9,len:-701585321
+14:00:53:358 -> 1150 mmu set 00010000, pos 00010000
+14:00:53:401 -> 1150 mmu set 00020000, pos 00020000
+14:00:53:444 -> 1150 mmu set 00030000, pos 00030000
+14:00:53:487 -> 1150 mmu set 00040000, pos 00040000
+14:00:53:530 -> 1150 mmu set 00050000, pos 00050000
+14:00:53:573 -> 1150 mmu set 00060000, pos 00060000
+14:00:53:616 -> 1150 mmu set 00070000, pos 00070000
+14:00:53:651 -> ets Jul 29 2019 12:21:46
+14:00:53:651 -> 
+14:00:53:651 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:53:657 -> configsip: 0, SPIWP:0xee
+14:00:53:659 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:53:665 -> mode:DIO, clock div:2
+14:00:53:668 -> load:0x3fff0018,len:4
+14:00:53:670 -> load:0x3fff001c,len:7960
+14:00:53:673 -> load:0x11f1aeec,len:-222732545
+14:00:53:995 -> ets Jul 29 2019 12:21:46
+14:00:53:995 -> 
+14:00:53:995 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:54:001 -> configsip: 0, SPIWP:0xee
+14:00:54:004 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:54:009 -> mode:DIO, clock div:2
+14:00:54:014 -> load:0x3fff0018,len:4
+14:00:54:016 -> load:0x3fff001c,len:7960
+14:00:54:017 -> load:0x1a3c9d4f,len:-818503603
+14:00:54:339 -> ets Jul 29 2019 12:21:46
+14:00:54:339 -> 
+14:00:54:339 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:54:357 -> configsip: 0, SPIWP:0xee
+14:00:54:358 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:54:358 -> mode:DIO, clock div:2
+14:00:54:358 -> load:0x3fff0018,len:4
+14:00:54:358 -> load:0x3fff001c,len:7960
+14:00:54:361 -> load:0x3d234c30,len:-1713843249
+14:00:54:387 -> 1150 mmu set 00010000, pos 00010000
+14:00:54:425 -> 1150 mmu set 00020000, pos 00020000
+14:00:54:464 -> 1150 mmu set 00030000, pos 00030000
+14:00:54:502 -> 1150 mmu set 00040000, pos 00040000
+14:00:54:541 -> 1150 mmu set 00050000, pos 00050000
+14:00:54:580 -> 1150 mmu set 00060000, pos 00060000
+14:00:54:618 -> 1150 mmu set 00070000, pos 00070000
+14:00:54:657 -> 1150 mmu set 00080000, pos 00080000
+14:00:54:683 -> ets Jul 29 2019 12:21:46
+14:00:54:683 -> 
+14:00:54:683 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:54:689 -> configsip: 0, SPIWP:0xee
+14:00:54:692 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:54:697 -> mode:DIO, clock div:2
+14:00:54:700 -> load:0x3fff0018,len:4
+14:00:54:703 -> load:0x3fff001c,len:7960
+14:00:54:705 -> load:0x3d234c30,len:-1713843249
+14:00:54:731 -> 1150 mmu set 00010000, pos 00010000
+14:00:54:769 -> 1150 mmu set 00020000, pos 00020000
+14:00:54:808 -> 1150 mmu set 00030000, pos 00030000
+14:00:54:846 -> 1150 mmu set 00040000, pos 00040000
+14:00:54:885 -> 1150 mmu set 00050000, pos 00050000
+14:00:54:926 -> 1150 mmu set 00060000, pos 00060000
+14:00:54:962 -> 1150 mmu set 00070000, pos 00070000
+14:00:55:001 -> 1150 mmu set 00080000, pos 00080000
+14:00:55:027 -> ets Jul 29 2019 12:21:46
+14:00:55:027 -> 
+14:00:55:027 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:55:033 -> configsip: 0, SPIWP:0xee
+14:00:55:036 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:55:041 -> mode:DIO, clock div:2
+14:00:55:044 -> load:0x3fff0018,len:4
+14:00:55:047 -> load:0x3fff001c,len:7960
+14:00:55:050 -> load:0x920348b9,len:-1521681192
+14:00:55:078 -> 1150 mmu set 00010000, pos 00010000
+14:00:55:121 -> 1150 mmu set 00020000, pos 00020000
+14:00:55:164 -> 1150 mmu set 00030000, pos 00030000
+14:00:55:207 -> 1150 mmu set 00040000, pos 00040000
+14:00:55:250 -> 1150 mmu set 00050000, pos 00050000
+14:00:55:293 -> 1150 mmu set 00060000, pos 00060000
+14:00:55:336 -> 1150 mmu set 00070000, pos 00070000
+14:00:55:372 -> ets Jul 29 2019 12:21:46
+14:00:55:372 -> 
+14:00:55:372 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:55:386 -> configsip: 0, SPIWP:0xee
+14:00:55:386 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:55:386 -> mode:DIO, clock div:2
+14:00:55:388 -> load:0x3fff0018,len:4
+14:00:55:391 -> load:0x3fff001c,len:7960
+14:00:55:395 -> load:0x40078000,len:17588
+14:00:55:399 -> load:0xa8875d3f,len:-1433902392
+14:00:55:422 -> 1150 mmu set 00010000, pos 00010000
+14:00:55:465 -> 1150 mmu set 00020000, pos 00020000
+14:00:55:508 -> 1150 mmu set 00030000, pos 00030000
+14:00:55:551 -> 1150 mmu set 00040000, pos 00040000
+14:00:55:594 -> 1150 mmu set 00050000, pos 00050000
+14:00:55:637 -> 1150 mmu set 00060000, pos 00060000
+14:00:55:680 -> 1150 mmu set 00070000, pos 00070000
+14:00:55:716 -> ets Jul 29 2019 12:21:46
+14:00:55:716 -> 
+14:00:55:716 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:55:721 -> flash read err, 988
+14:00:55:725 -> ets_main.c 384 
+14:00:56:060 -> ets Jul 29 2019 12:21:46
+14:00:56:060 -> 
+14:00:56:060 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:56:066 -> configsip: 0, SPIWP:0xee
+14:00:56:068 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:56:074 -> mode:DIO, clock div:2
+14:00:56:077 -> load:0x3fff0018,len:4
+14:00:56:079 -> load:0x3fff001c,len:7960
+14:00:56:082 -> load:0xee7ddca9,len:-701585321
+14:00:56:111 -> 1150 mmu set 00010000, pos 00010000
+14:00:56:154 -> 1150 mmu set 00020000, pos 00020000
+14:00:56:197 -> 1150 mmu set 00030000, pos 00030000
+14:00:56:240 -> 1150 mmu set 00040000, pos 00040000
+14:00:56:283 -> 1150 mmu set 00050000, pos 00050000
+14:00:56:326 -> 1150 mmu set 00060000, pos 00060000
+14:00:56:369 -> 1150 mmu set 00070000, pos 00070000
+14:00:56:404 -> ets Jul 29 2019 12:21:46
+14:00:56:404 -> 
+14:00:56:404 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:56:423 -> flash read err, 988
+14:00:56:423 -> ets_main.c 384 
+14:00:56:749 -> ets Jul 29 2019 12:21:46
+14:00:56:749 -> 
+14:00:56:749 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:56:754 -> configsip: 0, SPIWP:0xee
+14:00:56:757 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x:DIO, clock div:2
+14:00:56:765 -> load:0x3fff0018,len:4
+14:00:56:768 -> load:0x3fff001c,len:7960
+14:00:56:771 -> load:0x3d234c30,len:-1713843249
+14:00:56:796 -> 1150 mmu set 00010000, pos 00010000
+00,hd_drv:0x00,wp_drv:0x00
+14:00:56:762 -> mode14:00:56:835 -> 1150 mmu set 00020000, pos 00020000
+14:00:56:881 -> 1150 mmu set 00030000, pos 00030000
+14:00:56:912 -> 1150 mmu set 00040000, pos 00040000
+14:00:56:951 -> 1150 mmu set 00050000, pos 00050000
+14:00:56:989 -> 1150 mmu set 00060000, pos 00060000
+14:00:57:027 -> 1150 mmu set 00070000, pos 00070000
+14:00:57:066 -> 1150 mmu set 00080000, pos 00080000
+14:00:57:093 -> ets Jul 29 2019 12:21:46
+14:00:57:093 -> 
+14:00:57:093 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:57:098 -> configsip: 0, SPIWP:0xee
+14:00:57:101 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:57:107 -> mode:DIO, clock div:2
+14:00:57:109 -> load:0x3fff0018,len:4
+14:00:57:112 -> load:0x3fff001c,len:7960
+14:00:57:116 -> load:0x40078000,len:17588
+14:00:57:121 -> load:0x40080400,len:5720
+14:00:57:124 -> csum err:0xa3!=0xe6
+14:00:57:124 -> ets_main.c 384 
+14:00:57:437 -> ets Jul 29 2019 12:21:46
+14:00:57:437 -> 
+14:00:57:437 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:57:443 -> configsip: 0, SPIWP:0xee
+14:00:57:445 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:57:472 -> mode:DIO, clock div:2
+14:00:57:472 -> load:0x3fff0018,len:4
+14:00:57:472 -> load:0x3fff001c,len:7960
+14:00:57:472 -> load:0x3d234c30,len:-1713843249
+14:00:57:485 -> 1150 mmu set 00010000, pos 00010000
+14:00:57:523 -> 1150 mmu set 00020000, pos 00020000
+14:00:57:566 -> 1150 mmu set 00030000, pos 00030000
+14:00:57:600 -> 1150 mmu set 00040000, pos 00040000
+14:00:57:639 -> 1150 mmu set 00050000, pos 00050000
+14:00:57:677 -> 1150 mmu set 00060000, pos 00060000
+14:00:57:716 -> 1150 mmu set 00070000, pos 00070000
+14:00:57:755 -> 1150 mmu set 00080000, pos 00080000
+14:00:57:781 -> ets Jul 29 2019 12:21:46
+14:00:57:781 -> 
+14:00:57:781 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:57:787 -> flash read err, 988
+14:00:57:791 -> ets_main.c 384 
+14:00:58:126 -> ets Jul 29 2019 12:21:46
+14:00:58:126 -> 
+14:00:58:126 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:58:131 -> configsip: 0, SPIWP:0xee
+14:00:58:134 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:58:140 -> mode:DIO, clock div:2
+14:00:58:143 -> load:0x3fff0018,len:4
+14:00:58:145 -> load:0x3fff001c,len:7960
+14:00:58:149 -> load:0x40078000,len:17588
+14:00:58:154 -> load:0xb8cc3afa,len:91847130
+14:00:58:176 -> 1150 mmu set 00010000, pos 00010000
+14:00:58:219 -> 1150 mmu set 00020000, pos 00020000
+14:00:58:262 -> 1150 mmu set 00030000, pos 00030000
+14:00:58:305 -> 1150 mmu set 00040000, pos 00040000
+14:00:58:347 -> 1150 mmu set 00050000, pos 00050000
+14:00:58:390 -> 1150 mmu set 00060000, pos 00060000
+14:00:58:433 -> 1150 mmu set 00070000, pos 00070000
+14:00:58:470 -> ets Jul 29 2019 12:21:46
+14:00:58:470 -> 
+14:00:58:470 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:58:475 -> flash read err, 988
+14:00:58:479 -> ets_main.c 384 
+14:00:58:814 -> ets Jul 29 2019 12:21:46
+14:00:58:814 -> 
+14:00:58:814 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:58:820 -> configsip: 0, SPIWP:0xee
+14:00:58:823 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:58:828 -> mode:DIO, clock div:2
+14:00:58:831 -> cmd len -184914413
+14:00:58:834 -> ets_main.c 384 
+14:00:59:159 -> ets Jul 29 2019 12:21:46
+14:00:59:159 -> 
+14:00:59:159 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:59:164 -> configsip: 0, SPIWP:0xee
+14:00:59:167 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:59:173 -> mode:DIO, clock div:2
+14:00:59:175 -> load:0x3fff0018,len:4
+14:00:59:178 -> load:0x3fff001c,len:7960
+14:00:59:181 -> load:0x4cccee52,len:1886025559
+14:00:59:210 -> 1150 mmu set 00010000, pos 00010000
+14:00:59:252 -> 1150 mmu set 00020000, pos 00020000
+14:00:59:295 -> 1150 mmu set 00030000, pos 00030000
+14:00:59:338 -> 1150 mmu set 00040000, pos 00040000
+14:00:59:380 -> 1150 mmu set 00050000, pos 00050000
+14:00:59:423 -> 1150 mmu set 00060000, pos 00060000
+14:00:59:466 -> 1150 mmu set 00070000, pos 00070000
+14:00:59:503 -> ets Jul 29 2019 12:21:46
+14:00:59:503 -> 
+14:00:59:503 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:59:508 -> configsip: 0, SPIWP:0xee
+14:00:59:511 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:59:517 -> mode:DIO, clock div:2
+14:00:59:520 -> load:0x3fff0018,len:4
+14:00:59:522 -> load:0x3fff001c,len:7960
+14:00:59:535 -> load:0x40078000,len:17588
+14:00:59:536 -> load:0xfe4c397b,len:1944114056
+14:00:59:554 -> 1150 mmu set 00010000, pos 00010000
+14:00:59:597 -> 1150 mmu set 00020000, pos 00020000
+14:00:59:640 -> 1150 mmu set 00030000, pos 00030000
+14:00:59:683 -> 1150 mmu set 00040000, pos 00040000
+14:00:59:726 -> 1150 mmu set 00050000, pos 00050000
+14:00:59:771 -> 1150 mmu set 00060000, pos 00060000
+14:00:59:812 -> 1150 mmu set 00070000, pos 00070000
+14:00:59:847 -> ets Jul 29 2019 12:21:46
+14:00:59:847 -> 
+14:00:59:847 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:00:59:853 -> configsip: 0, SPIWP:0xee
+14:00:59:856 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:00:59:861 -> mode:DIO, clock div:2
+14:00:59:864 -> load:0x3fff0018,len:4
+14:00:59:867 -> load:0x3fff001c,len:7960
+14:00:59:870 -> load:0x70bfb109,len:-1708308826
+14:00:59:899 -> 1150 mmu set 00010000, pos 00010000
+14:00:59:941 -> 1150 mmu set 00020000, pos 00020000
+14:00:59:984 -> 1150 mmu set 00030000, pos 00030000
+14:01:00:027 -> 1150 mmu set 00040000, pos 00040000
+14:01:00:070 -> 1150 mmu set 00050000, pos 00050000
+14:01:00:113 -> 1150 mmu set 00060000, pos 00060000
+14:01:00:156 -> 1150 mmu set 00070000, pos 00070000
+14:01:00:192 -> ets Jul 29 2019 12:21:46
+14:01:00:192 -> 
+14:01:00:192 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:00:197 -> configsip: 0, SPIWP:0xee
+14:01:00:200 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:00:206 -> mode:DIO, clock div:2
+14:01:00:208 -> load:0x3fff0018,len:4
+14:01:00:211 -> load:0x3fff001c,len:7960
+14:01:00:214 -> load:0x3d234c30,len:-1713843249
+14:01:00:239 -> 1150 mmu set 00010000, pos 00010000
+14:01:00:278 -> 1150 mmu set 00020000, pos 00020000
+14:01:00:316 -> 1150 mmu set 00030000, pos 00030000
+14:01:00:355 -> 1150 mmu set 00040000, pos 00040000
+14:01:00:394 -> 1150 mmu set 00050000, pos 00050000
+14:01:00:432 -> 1150 mmu set 00060000, pos 00060000
+14:01:00:471 -> 1150 mmu set 00070000, pos 00070000
+14:01:00:509 -> 1150 mmu set 00080000, pos 00080000
+14:01:00:536 -> ets Jul 29 2019 12:21:46
+14:01:00:536 -> 
+14:01:00:536 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:00:542 -> configsip: 0, SPIWP:0xee
+14:01:00:544 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:00:550 -> mode:DIO, clock div:2
+14:01:00:553 -> load:0x3fff0018,len:4
+14:01:00:567 -> load:0x3fff001c,len:7960
+14:01:00:567 -> load:0x40078000,len:17588
+14:01:00:567 -> load:0x40080400,len:5720
+14:01:00:568 -> csum err:0x73!=0xd6
+14:01:00:568 -> ets_main.c 384 
+14:01:00:881 -> ets Jul 29 2019 12:21:46
+14:01:00:881 -> 
+14:01:00:881 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:00:886 -> configsip: 0, SPIWP:0xee
+14:01:00:889 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:00:894 -> mode:DIO, clock div:2
+14:01:00:897 -> load:0x3fff0018,len:4
+14:01:00:900 -> load:0x3fff001c,len:7960
+14:01:00:903 -> load:0x1a3c9d4f,len:-818503603
+14:01:01:225 -> ets Jul 29 2019 12:21:46
+14:01:01:225 -> 
+14:01:01:225 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:01:231 -> configsip: 0, SPIWP:0xee
+14:01:01:234 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:01:239 -> mode:DIO, clock div:2
+14:01:01:242 -> load:0x3fff0018,len:4
+14:01:01:245 -> load:0x3fff001c,len:7960
+14:01:01:248 -> load:0xb9c5cfb7,len:829775932
+14:01:01:283 -> 1150 mmu set 00010000, pos 00010000
+14:01:01:319 -> 1150 mmu set 00020000, pos 00020000
+14:01:01:362 -> 1150 mmu set 00030000, pos 00030000
+14:01:01:405 -> 1150 mmu set 00040000, pos 00040000
+14:01:01:448 -> 1150 mmu set 00050000, pos 00050000
+14:01:01:491 -> 1150 mmu set 00060000, pos 00060000
+14:01:01:534 -> 1150 mmu set 00070000, pos 00070000
+14:01:01:569 -> ets Jul 29 2019 12:21:46
+14:01:01:569 -> 
+14:01:01:569 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:01:575 -> flash read err, 988
+14:01:01:579 -> ets_main.c 384 
+14:01:01:914 -> ets Jul 29 2019 12:21:46
+14:01:01:914 -> 
+14:01:01:914 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:01:919 -> configsip: 0, SPIWP:0xee
+14:01:01:922 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:01:928 -> mode:DIO, clock div:2
+14:01:01:931 -> load:0x3fff0018,len:4
+14:01:01:933 -> load:0x3fff001c,len:7960
+14:01:01:936 -> load:0x81d117e8,len:1850315500
+14:01:01:961 -> 1150 mmu set 00010000, pos 00010000
+14:01:02:000 -> 1150 mmu set 00020000, pos 00020000
+14:01:02:039 -> 1150 mmu set 00030000, pos 00030000
+14:01:02:077 -> 1150 mmu set 00040000, pos 00040000
+14:01:02:127 -> 1150 mmu set 00050000, pos 00050000
+14:01:02:154 -> 1150 mmu set 00060000, pos 00060000
+14:01:02:197 -> 1150 mmu set 00070000, pos 00070000
+14:01:02:231 -> 1150 mmu set 00080000, pos 00080000
+14:01:02:258 -> ets Jul 29 2019 12:21:46
+14:01:02:258 -> 
+14:01:02:258 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:02:264 -> configsip: 0, SPIWP:0xee
+14:01:02:266 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:02:272 -> mode:DIO, clock div:2
+14:01:02:275 -> load:0x3fff0018,len:4
+14:01:02:277 -> load:0x3fff001c,len:7960
+14:01:02:281 -> load:0x40078000,len:17588
+14:01:02:286 -> load:0x9f1f7a93,len:451803889
+14:01:02:309 -> 1150 mmu set 00010000, pos 00010000
+14:01:02:352 -> 1150 mmu set 00020000, pos 00020000
+14:01:02:395 -> 1150 mmu set 00030000, pos 00030000
+14:01:02:438 -> 1150 mmu set 00040000, pos 00040000
+14:01:02:481 -> 1150 mmu set 00050000, pos 00050000
+14:01:02:524 -> 1150 mmu set 00060000, pos 00060000
+14:01:02:567 -> 1150 mmu set 00070000, pos 00070000
+14:01:02:602 -> ets Jul 29 2019 12:21:46
+14:01:02:602 -> 
+14:01:02:602 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:02:608 -> configsip: 0, SPIWP:0xee
+14:01:02:611 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:02:616 -> mode:DIO, clock div:2
+14:01:02:619 -> load:0x3fff0018,len:4
+14:01:02:622 -> load:0x3fff001c,len:7960
+14:01:02:625 -> load:0x3fe4fa3d,len:-1642030664
+14:01:02:654 -> 1150 mmu set 00010000, pos 00010000
+14:01:02:697 -> 1150 mmu set 00020000, pos 00020000
+14:01:02:740 -> 1150 mmu set 00030000, pos 00030000
+14:01:02:782 -> 1150 mmu set 00040000, pos 00040000
+14:01:02:825 -> 1150 mmu set 00050000, pos 00050000
+14:01:02:868 -> 1150 mmu set 00060000, pos 00060000
+14:01:02:911 -> 1150 mmu set 00070000, pos 00070000
+14:01:02:947 -> ets Jul 29 2019 12:21:46
+14:01:02:947 -> 
+14:01:02:947 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:02:952 -> configsip: 0, SPIWP:0xee
+14:01:02:955 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:02:961 -> mode:DIO, clock div:2
+14:01:02:964 -> load:0x3fff0018,len:4
+14:01:02:966 -> load:0x3fff001c,len:7960
+14:01:02:970 -> load:0x40078000,len:17588
+14:01:02:976 -> load:0xb8cc3afa,len:91847130
+14:01:02:998 -> 1150 mmu set 00010000, pos 00010000
+14:01:03:040 -> 1150 mmu set 00020000, pos 00020000
+14:01:03:083 -> 1150 mmu set 00030000, pos 00030000
+14:01:03:126 -> 1150 mmu set 00040000, pos 00040000
+14:01:03:169 -> 1150 mmu set 00050000, pos 00050000
+14:01:03:216 -> 1150 mmu set 00060000, pos 00060000
+14:01:03:254 -> 1150 mmu set 00070000, pos 00070000
+14:01:03:291 -> ets Jul 29 2019 12:21:46
+14:01:03:291 -> 
+14:01:03:291 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:03:297 -> configsip: 0, SPIWP:0xee
+14:01:03:300 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:03:305 -> mode:DIO, clock div:2
+14:01:03:308 -> load:0x3fff0018,len:4
+14:01:03:311 -> load:0x3fff001c,len:7960
+14:01:03:315 -> load:0x40078000,len:17588
+14:01:03:320 -> load:0x3849dd11,len:658691181
+14:01:03:342 -> 1150 mmu set 00010000, pos 00010000
+14:01:03:385 -> 1150 mmu set 00020000, pos 00020000
+14:01:03:428 -> 1150 mmu set 00030000, pos 00030000
+14:01:03:471 -> 1150 mmu set 00040000, pos 00040000
+14:01:03:514 -> 1150 mmu set 00050000, pos 00050000
+14:01:03:557 -> 1150 mmu set 00060000, pos 00060000
+14:01:03:600 -> 1150 mmu set 00070000, pos 00070000
+14:01:03:636 -> ets Jul 29 2019 12:21:46
+14:01:03:636 -> 
+14:01:03:636 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:03:641 -> configsip: 0, SPIWP:0xee
+14:01:03:644 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:03:650 -> mode:DIO, clock div:2
+14:01:03:652 -> load:0x3fff0018,len:4
+14:01:03:655 -> load:0x3fff001c,len:7960
+14:01:03:678 -> load:0x3d234c30,len:-1713843249
+14:01:03:683 -> 1150 mmu set 00010000, pos 00010000
+14:01:03:722 -> 1150 mmu set 00020000, pos 00020000
+14:01:03:760 -> 1150 mmu set 00030000, pos 00030000
+14:01:03:799 -> 1150 mmu set 00040000, pos 00040000
+14:01:03:838 -> 1150 mmu set 00050000, pos 00050000
+14:01:03:876 -> 1150 mmu set 00060000, pos 00060000
+14:01:03:915 -> 1150 mmu set 00070000, pos 00070000
+14:01:03:953 -> 1150 mmu set 00080000, pos 00080000
+14:01:03:980 -> ets Jul 29 2019 12:21:46
+14:01:03:980 -> 
+14:01:03:980 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:03:986 -> configsip: 0, SPIWP:0xee
+14:01:03:988 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:03:994 -> mode:DIO, clock div:2
+14:01:03:997 -> load:0x3fff0018,len:4
+14:01:04:000 -> load:0x3fff001c,len:7960
+14:01:04:002 -> load:0xf090536f,len:-2062515799
+14:01:04:031 -> 1150 mmu set 00010000, pos 00010000
+14:01:04:074 -> 1150 mmu set 00020000, pos 00020000
+14:01:04:117 -> 1150 mmu set 00030000, pos 00030000
+14:01:04:160 -> 1150 mmu set 00040000, pos 00040000
+14:01:04:203 -> 1150 mmu set 00050000, pos 00050000
+14:01:04:246 -> 1150 mmu set 00060000, pos 00060000
+14:01:04:289 -> 1150 mmu set 00070000, pos 00070000
+14:01:04:325 -> ets Jul 29 2019 12:21:46
+14:01:04:325 -> 
+14:01:04:325 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:04:330 -> configsip: 0, SPIWP:0xee
+14:01:04:333 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:04:338 -> mode:DIO, clock div:2
+14:01:04:341 -> load:0x3fff0018,len:4
+14:01:04:344 -> load:0x3fff001c,len:7960
+14:01:04:347 -> load:0x3d234c30,len:-1713843249
+14:01:04:374 -> 1150 mmu set 00010000, pos 00010000
+14:01:04:411 -> 1150 mmu set 00020000, pos 00020000
+14:01:04:449 -> 1150 mmu set 00030000, pos 00030000
+14:01:04:488 -> 1150 mmu set 00040000, pos 00040000
+14:01:04:542 -> 1150 mmu set 00050000, pos 00050000
+14:01:04:565 -> 1150 mmu set 00060000, pos 00060000
+14:01:04:604 -> 1150 mmu set 00070000, pos 00070000
+14:01:04:642 -> 1150 mmu set 00080000, pos 00080000
+14:01:04:669 -> ets Jul 29 2019 12:21:46
+14:01:04:669 -> 
+14:01:04:669 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:04:675 -> configsip: 0, SPIWP:0xee
+14:01:04:677 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:04:683 -> mode:DIO, clock div:2
+14:01:04:686 -> load:0x3fff0018,len:4
+14:01:04:688 -> load:0x3fff001c,len:7960
+14:01:04:691 -> load:0xc8f2d41e,len:-2136415115
+14:01:04:720 -> 1150 mmu set 00010000, pos 00010000
+14:01:04:763 -> 1150 mmu set 00020000, pos 00020000
+14:01:04:806 -> 1150 mmu set 00030000, pos 00030000
+14:01:04:850 -> 1150 mmu set 00040000, pos 00040000
+14:01:04:891 -> 1150 mmu set 00050000, pos 00050000
+14:01:04:934 -> 1150 mmu set 00060000, pos 00060000
+14:01:04:977 -> 1150 mmu set 00070000, pos 00070000
+14:01:05:014 -> ets Jul 29 2019 12:21:46
+14:01:05:014 -> 
+14:01:05:014 -> rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+14:01:05:019 -> configsip: 0, SPIWP:0xee
+14:01:05:022 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+14:01:05:027 -> mode:DIO, clock div:2
+14:01:05:030 -> load:0x3fff0018,len:4
+14:01:05:033 -> load:0x3fff001c,len:7960
+14:01:05:037 -> load:0x40078000,len:17588
+14:01:05:041 -> load:0x5ddbb416,len:-1774982441
+14:01:05:064 -> 1150 mmu set 00010000, pos 00010000
+14:01:05:107 -> 1150 mmu set 00020000, pos 00020000
+14:01:05:150 -> 1150 mmu set 00030000, pos 00030000
+14:01:05:193 -> 1150 mmu set 00040000, pos 00040000

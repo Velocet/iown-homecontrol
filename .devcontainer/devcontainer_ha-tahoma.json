@@ -1,0 +1,70 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+  "image": "ghcr.io/ludeeus/devcontainer/integration:stable",
+  "name": "Overkiz (by Somfy) integration development",
+  "context": "..",
+  "appPort": [
+    "9123:8123"
+  ],
+  "postCreateCommand": "apt update && apt -y upgrade && pip3 install -r requirements_dev.txt && container install",
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "ibm.output-colorizer",
+    "ryanluker.vscode-coverage-gutters"
+  ],
+  "settings": {
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "/bin/bash"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "python.pythonPath": "/usr/bin/python",
+    "python.testing.pytestEnabled": true,
+    "python.analysis.autoSearchPaths": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+      "*.yaml": "home-assistant"
+    },
+    "editor.defaultFormatter": null,
+    "[javascript, yaml, json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }
+}
+// //TODO TO IMPLEMENT:
+// {
+//   "name": "Python 3",
+//   "build": {
+//     "dockerfile": "Dockerfile",
+//     "context": "..",
+//     "args": {
+//       "VARIANT": "3.10-bullseye"
+//     }
+//   },
+//   "settings": {
+//     "python.defaultInterpreterPath": "/usr/local/bin/python",
+//     "python.linting.enabled": true,
+//     "python.linting.pylintEnabled": true,
+//     "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+//     "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+//     "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+//     "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+//     "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+//     "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+//     "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+//     "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+//     "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+//     "clang-format.executable": "clang-format-11"
+//   },
+//   "postCreateCommand": "pip3 install --user platformio"
+// }

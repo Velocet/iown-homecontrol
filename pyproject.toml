@@ -1,0 +1,191 @@
+#!/usr/bin/env py
+# SPDX-FileName: /pyproject.toml
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-DataLicense: CC0-1.0
+# SPDX-Creator: Person: Velocet (git@mail.velocet.de)
+# SPDX-PackageName: iown-homecontrol
+# SPDX-PackageDownloadLocation: git+https://github.com/velocet/iown-homecontrol
+# SPDX-FileComment: Build System Requirements for Python Projects (PEP 518)
+# SPDX-Comment: Still to this day ... WhyTF is Python such a big mess? Every f*ck!ng time ^^
+# https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+[project]
+name            = "iown_homecontrol"
+version         = "23.6.0"
+description     = "io-homecontrol implementation for use with products from Somfy, Velux, etc."
+readme          = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.9"
+license         = { file = "LICENSE" }
+authors         = [{ name = "Velocet", email = "git@mail.velocet.de" }]
+maintainers     = [{ name = "Velocet", email = "git@mail.velocet.de" }]
+keywords = [
+  "iown-homecontrol",
+  "io-homecontrol",
+  "io homecontrol",
+  "iohomecontrol",
+  "velux",
+  "somfy",
+  "868MHz",
+]
+classifiers = [ # https://pypi.org/classifiers/
+  "Private :: Do Not Upload", # FIXME Remove after first functional version
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Environment :: Other Environment",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "License :: Free For Educational Use",
+  "License :: Free for non-commercial use",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Operating System :: Other OS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows :: Windows 11",
+  "Operating System :: POSIX :: BSD",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Operating System :: Unix",
+  "Programming Language :: C",
+  "Programming Language :: C++",
+  "Programming Language :: Other Scripting Engines",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation",
+  "Programming Language :: Python :: Implementation :: MicroPython",
+  "Topic :: Home Automation",
+  "Topic :: Documentation",
+  "Topic :: Education",
+  "Topic :: File Formats",
+  "Topic :: Other/Nonlisted Topic",
+  "Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+  "Topic :: Security :: Cryptography",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Documentation",
+  "Topic :: Software Development :: Embedded Systems",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Terminals :: Serial",
+  "Topic :: Utilities"
+]
+dependencies = [
+  "importlib-metadata",
+  "requests",
+  "tomli",
+  "pydocstyle",
+  "pydocstyle[toml]"
+]
+# dynamic = ["version", "readme"]
+#region rant
+# Why Python is a big clusterfuck could be seen here:
+# dynamic is defined here: https://packaging.python.org/en/latest/specifications/core-metadata/#dynamic-multiple-use
+#   So Name and Version are the only fields i cannot define as dynamic you say? SO THE TWO FIELDS THAT CHANGE THE MOST?
+# No problem .. it says there is more information in PEP643: https://peps.python.org/pep-0643/
+#   first thing you read there: Attention: This PEP is a historical document.
+#   It has a link .. back to the original page .. i mean .. this shit is over 2 years old
+# It's just not possible to define a dynamic version field .. fu python and your shitty versioning
+#   folder naming under windows? lets put python3.9 in programFiles (which makes no sense at all this way)
+#endregion rant
+
+[project.urls]
+homepage      = "https://homecontrol.io"
+documentation = "https://iown-homecontrol.github.io"
+repository    = "https://github.com/velocet/iown-homecontrol.git"
+changelog     = "https://github.com/velocet/iown-homecontrol/blob/master/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/velocet/iown-homecontrol/issues"
+
+[project.optional-dependencies]
+hard-encoding-detection = ["chardet"]
+dev = [
+    "build",
+    "chardet",
+    "pytest",
+    "pytest-cov",
+    "pytest-dependency",
+    # "Pygments",
+    # "ruff",
+    "tomli"
+]
+toml = ["tomli; python_version < '3.11'"]
+tests = [
+    "pytest",
+    "pytest-cov",
+    "pytest-dependency"
+]
+
+### [project.entry-points] # https://packaging.python.org/en/latest/specifications/entry-points/
+[project.scripts]          # console_scripts: https://packaging.python.org/en/latest/specifications/entry-points/
+codespell = "codespell_lib:_script_main"
+#iown-rf = "iown:main_rf"     # RF Implementation (868MHz)
+#iown-uart = "iown:main_uart" # KLF200/Set&Go_io Implementation
+#iown-cli = "iown:main_cli"   # Platform/Device agnostic CLI
+
+
+### [BUILD-TIME DEPENDENCIES](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/#build-time-dependencies)
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools","setuptools_scm[toml]",
+  "wheel",
+  "cython",
+  "tomli",
+  "toml",
+  "codespell",
+  "mkdocs",
+]
+
+### SETUPTOOLS
+[tool.setuptools.dynamic]
+version = { attr = "iown_homecontrol.VERSION" }
+readme = { file = ["README.md","docs/index.md",], content-type = "text/markdown" }
+[tool.setuptools.packages.find]
+exclude = ["dist", ".vscode", ".github", ".git"]
+[tool.setuptools_scm]
+write_to = "iown_homecontrol/_version.py"
+
+### [CODESPELL](https://github.com/codespell-project/codespell/blob/master/README.rst#using-a-config-file)
+#TODO ignore-words = './vscode/codespell-ignore.txt'
+[tool.codespell]
+ignore-words-list = 'iown,velocet,iown-homecontrol'
+skip = '**/.git,**/.pio,**/.vscode'
+### [PYLINT](https://pylint.readthedocs.io/en/latest/user_guide/configuration/all-options.html)
+[tool.pylint.main]
+py-version = "3.9"
+recursive = true
+suggestion-mode = true
+persistent = true
+clear-cache-post-run = true
+analyse-fallback-blocks = false
+jobs = 0
+ignore = [".git", "node_modules", ".github", ".git", "radiolib", ".vscode"]
+[tool.pylint.basic]
+include-naming-hint = true
+[tool.pylint.classes]
+check-protected-access-in-special-methods = true
+[tool.pylint.format]
+expected-line-ending-format = "LF"
+indent-after-paren = 4
+indent-string = "    "
+max-line-length = 128
+single-line-class-stmt = true
+single-line-if-stmt = true
+[tool.pylint.imports]
+allow-any-import-level = true
+[tool.pylint.logging]
+logging-format-style = "new"
+[tool.pylint.miscellaneous]
+notes = ["FIXME", "XXX", "TODO", "NOTE"]
+[tool.pylint.spelling]
+max-spelling-suggestions = 2
+spelling-ignore-words = "iown,iown-homecontrol,velocet"
+#TODO See codespell:ignore-words spelling-private-dict-file = ./.vscode/iown_codespell.dict
+[tool.pylint.variables]
+allow-global-unused-variables = false
+init-import = true

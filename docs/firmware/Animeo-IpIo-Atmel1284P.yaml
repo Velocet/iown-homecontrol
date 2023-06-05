@@ -1,0 +1,16 @@
+# human-readable summary of IPio_1284P.hex created with hexinfo.py (intelhex)
+# memory size: 7859070
+- file: 'sfy_IPio_1284P.hex'
+  entry: 0x00000000
+  # segments
+  data:
+  - { first: 0x00000000, last: 0x00000003, length: 0x00000004 }
+  - { first: 0x00000020, last: 0x00000023, length: 0x00000004 }
+  - { first: 0x00000034, last: 0x00000037, length: 0x00000004 }
+  - { first: 0x00000050, last: 0x0000005B, length: 0x0000000C }
+  - { first: 0x00000070, last: 0x00000077, length: 0x00000008 }
+  - { first: 0x000000BB, last: 0x000000EC, length: 0x00000032 }
+  - { first: 0x0000210D, last: 0x00002F80, length: 0x00000E74 }
+  - { first: 0x00003600, last: 0x00003813, length: 0x00000214 }
+  - { first: 0x00004600, last: 0x0001A08B, length: 0x00015A8C }
+  - { first: 0x0001FF00, last: 0x0001FFD3, length: 0x000000D4 }

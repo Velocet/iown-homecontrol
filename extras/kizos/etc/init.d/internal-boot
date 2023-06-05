@@ -1,0 +1,6 @@
+#!/bin/sh
+
+TMPDIR=/tmp
+BOOTFILE=$TMPDIR/boot
+
+touch $BOOTFILE

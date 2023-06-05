@@ -1,0 +1,17 @@
+# Syntax Coloring Map For iown-homecontrol
+#
+# Library Keyword list. When a keyword of any installed library is used in a sketch the Arduino IDE colors it.
+
+# This file would cause the Arduino IDE to highlight Test as a data type, and doSomething as a method / function.
+
+# KEYWORD TOKENTYPE   REFERENCE  RSYNTAXTEXTAREA
+
+# Datatypes (KEYWORD1)
+#Test    KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+#doSomething KEYWORD2
+
+# Instances (KEYWORD2)
+
+# Constants (LITERAL1)

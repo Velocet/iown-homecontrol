@@ -1,0 +1,1 @@
+$(function(){mkTool("invert-binary",function(t){for(var a=t.split("\n"),r="",o=0;o<a.length;o++){for(var e=a[o],n=0;n<e.length;n++)e[n]==0?r+="1":e[n]==1&&(r+="0");r+="\n"}return r},{exceptionFn:function(t){$("#action-error").show(),$("#action-error").text(t.message)}})});

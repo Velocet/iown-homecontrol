@@ -1,0 +1,107 @@
+// SPDX-FileName: devcontainer.json
+// SPDX-FileComment: iown-homecontrol DevContainer Development
+// SPDX-Description: Similar to launch.json for debugging, but to launch/attach a dev container and contains at least a reference to an image, Dockerfile, or docker-compose.yml and a few properties.
+{
+  // Dev Container Schema: Uncomment if validation fucks with you ... https://aka.ms/devcontainer.json
+  // "$schema": "./schema/devContainer.schema.json",
+  // "name": "ESPHome Dev",
+  "name": "iown-homecontrol",
+  // Dockerfile / Docker Compose file: https://containers.dev/guide/dockerfile
+  // Ubuntu-latest: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+  // "image": "ghcr.io/esphome/esphome-lint:dev",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  // Dev Container Features: https://containers.dev/features
+  // "features": {},
+  // Local Ports inside the Container.
+  // "forwardPorts": [],
+  // Connect as root: https://aka.ms/dev-containers-non-root
+  // "remoteUser": "root"
+  // TODO Unknon
+  // "appPort": 6052,
+
+  // https://containers.dev/implementors/json_reference/#lifecycle-scripts
+  // Run commands after the Container is created.
+  "postCreateCommand": [
+    "uname -a",
+    "script/devcontainer-post-create",
+    "pip3 install --user platformio"
+  ],
+  "runArgs": [
+    "--privileged",
+    "-e",
+    "ESPHOME_DASHBOARD_USE_PING=1"
+  ],
+
+  // Tool-Specific Properties.
+  "customizations": {
+    // Configure Properties: VS Code.
+    "vscode": {
+      // VSCode Extensions inside the Container
+      "extensions": [
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "github.vscode-pull-request-github",
+        "platformio.platformio-ide",
+        "ms-vscode.anycode",
+        "ms-vscode.anycode-cpp",
+        "ms-vscode.anycode-python",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "ms-python.python",
+        "ms-vscode.vscode-python-web-wasm",
+        "ms-python.vscode-pylance",
+        "visualstudioexptteam.vscodeintellicode",
+        "redhat.vscode-yaml",
+        "xaver.clang-format"
+      ],
+      // Default Container 'settings.json' to create.
+      "settings": {
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "modifications",
+        "editor.tabSize": 2,
+        "editor.useTabStops": false,
+        "files.encoding": "utf8",
+        "files.eol": "\n",
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "[markdown]": {
+          "diffEditor.ignoreTrimWhitespace": true,
+          "diffEditor.wordWrap": "off"
+        },
+        "files.exclude": {
+          "**/.*": true,
+          "**/_*": true,
+          "**/*.ini": true,
+          "**/*.code-*": true,
+          "**/LICENSE": true,
+          "**/CMakeLists.txt": true,
+          "**/sdkconfig*": true,
+          "**/version.txt": true,
+          "**/*.pyc": {
+            "when": "$(basename).py"
+          },
+          "**/__pycache__": true
+        },
+        "files.associations": {
+          "**/.vscode/*.json": "jsonc"
+        },
+        "git.repositoryScanIgnoredFolders": [
+          ".devcontainer",
+          ".github",
+          ".pio",
+          ".vscode"
+        ],
+        "yaml.customTags": [
+          "!secret scalar",
+          "!lambda scalar",
+          "!include_dir_named scalar",
+          "!include_dir_list scalar",
+          "!include_dir_merge_list scalar",
+          "!include_dir_merge_named scalar"
+        ]
+      }
+    }
+  }
+}

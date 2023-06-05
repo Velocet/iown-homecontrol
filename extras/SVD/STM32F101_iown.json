@@ -1,0 +1,2946 @@
+{
+  "brand": "STM",
+  "family": "F1",
+  "name": "STM32F101-iown",
+  "bits": 32,
+  "mode": 1,
+  "segments": [
+    {
+      "name": "ROM_",
+      "start": "0x00000",
+      "end": "0X3FFF0",
+      "size": "0X3FFF0",
+      "type": "CODE"
+    },
+    {
+      "name": "ROM",
+      "start": "0x8000000",
+      "end": "0X803FFF0",
+      "size": "0X3FFF0",
+      "type": "CODE"
+    },
+    {
+      "name": "STR",
+      "start": "0x8026038",
+      "end": "0x802A4D0",
+      "size": "0x4498",
+      "type": "CONST"
+    },
+    {
+      "name": "PAD",
+      "start": "0x802A4D0",
+      "end": "0X803FFF0",
+      "size": "0x15B20",
+      "type": "SEG_NULL"
+    },
+    {
+      "name": "MD5",
+      "start": "0X803FFF0",
+      "end": "0x8040000",
+      "size": "0x10",
+      "type": "CONST"
+    },
+    {
+      "name": "OPT",
+      "start": "0X1FFFF800",
+      "end": "0X1FFFF810",
+      "size": "0x10",
+      "type": "DATA"
+    },
+    {
+      "name": "RAM",
+      "start": "0x20000000",
+      "end": "0x20008000",
+      "size": "0x8000",
+      "type": "VOLATILE"
+    },
+    {
+      "name": "VTOR",
+      "start": "0x20008000",
+      "end": "0x20008800",
+      "size": "0x800",
+      "type": "VOLATILE"
+    }
+  ],
+  "peripherals": [
+    {
+      "name": "PWR",
+      "start": "0x40007000",
+      "end": "0x400073ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR",
+          "offset": "0x0"
+        },
+        {
+          "name": "CSR",
+          "offset": "0x4"
+        }
+      ]
+    },
+    {
+      "name": "RCC",
+      "start": "0x40021000",
+      "end": "0x400213ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR",
+          "offset": "0x0"
+        },
+        {
+          "name": "CFGR",
+          "offset": "0x4"
+        },
+        {
+          "name": "CIR",
+          "offset": "0x8"
+        },
+        {
+          "name": "APB2RSTR",
+          "offset": "0xc"
+        },
+        {
+          "name": "APB1RSTR",
+          "offset": "0x10"
+        },
+        {
+          "name": "AHBENR",
+          "offset": "0x14"
+        },
+        {
+          "name": "APB2ENR",
+          "offset": "0x18"
+        },
+        {
+          "name": "APB1ENR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "BDCR",
+          "offset": "0x20"
+        },
+        {
+          "name": "CSR",
+          "offset": "0x24"
+        }
+      ]
+    },
+    {
+      "name": "GPIOA",
+      "start": "0x40010800",
+      "end": "0x40010bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOB",
+      "start": "0x40010c00",
+      "end": "0x40010fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOC",
+      "start": "0x40011000",
+      "end": "0x400113ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOD",
+      "start": "0x40011400",
+      "end": "0x400117ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOE",
+      "start": "0x40011800",
+      "end": "0x40011bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOF",
+      "start": "0x40011c00",
+      "end": "0x40011fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "GPIOG",
+      "start": "0x40012000",
+      "end": "0x400123ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRL",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRH",
+          "offset": "0x4"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x8"
+        },
+        {
+          "name": "ODR",
+          "offset": "0xc"
+        },
+        {
+          "name": "BSRR",
+          "offset": "0x10"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x14"
+        },
+        {
+          "name": "LCKR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "AFIO",
+      "start": "0x40010000",
+      "end": "0x400103ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "EVCR",
+          "offset": "0x0"
+        },
+        {
+          "name": "MAPR",
+          "offset": "0x4"
+        },
+        {
+          "name": "EXTICR1",
+          "offset": "0x8"
+        },
+        {
+          "name": "EXTICR2",
+          "offset": "0xc"
+        },
+        {
+          "name": "EXTICR3",
+          "offset": "0x10"
+        },
+        {
+          "name": "EXTICR4",
+          "offset": "0x14"
+        },
+        {
+          "name": "MAPR2",
+          "offset": "0x1c"
+        }
+      ]
+    },
+    {
+      "name": "EXTI",
+      "start": "0x40010400",
+      "end": "0x400107ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "IMR",
+          "offset": "0x0"
+        },
+        {
+          "name": "EMR",
+          "offset": "0x4"
+        },
+        {
+          "name": "RTSR",
+          "offset": "0x8"
+        },
+        {
+          "name": "FTSR",
+          "offset": "0xc"
+        },
+        {
+          "name": "SWIER",
+          "offset": "0x10"
+        },
+        {
+          "name": "PR",
+          "offset": "0x14"
+        }
+      ]
+    },
+    {
+      "name": "RTC",
+      "start": "0x40002800",
+      "end": "0x40002bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CRH",
+          "offset": "0x0"
+        },
+        {
+          "name": "CRL",
+          "offset": "0x4"
+        },
+        {
+          "name": "PRLH",
+          "offset": "0x8"
+        },
+        {
+          "name": "PRLL",
+          "offset": "0xc"
+        },
+        {
+          "name": "DIVH",
+          "offset": "0x10"
+        },
+        {
+          "name": "DIVL",
+          "offset": "0x14"
+        },
+        {
+          "name": "CNTH",
+          "offset": "0x18"
+        },
+        {
+          "name": "CNTL",
+          "offset": "0x1c"
+        },
+        {
+          "name": "ALRH",
+          "offset": "0x20"
+        },
+        {
+          "name": "ALRL",
+          "offset": "0x24"
+        }
+      ]
+    },
+    {
+      "name": "IWDG",
+      "start": "0x40003000",
+      "end": "0x400033ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "KR",
+          "offset": "0x0"
+        },
+        {
+          "name": "PR",
+          "offset": "0x4"
+        },
+        {
+          "name": "RLR",
+          "offset": "0x8"
+        },
+        {
+          "name": "SR",
+          "offset": "0xc"
+        }
+      ]
+    },
+    {
+      "name": "WWDG",
+      "start": "0x40002c00",
+      "end": "0x40002fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR",
+          "offset": "0x0"
+        },
+        {
+          "name": "CFR",
+          "offset": "0x4"
+        },
+        {
+          "name": "SR",
+          "offset": "0x8"
+        }
+      ]
+    },
+    {
+      "name": "TIM2",
+      "start": "0x40000000",
+      "end": "0x400003ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR2_Output",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCMR2_Input",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x3c"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x40"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DMAR",
+          "offset": "0x4c"
+        }
+      ]
+    },
+    {
+      "name": "TIM3",
+      "start": "0x40000400",
+      "end": "0x400007ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR2_Output",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCMR2_Input",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x3c"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x40"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DMAR",
+          "offset": "0x4c"
+        }
+      ]
+    },
+    {
+      "name": "TIM4",
+      "start": "0x40000800",
+      "end": "0x40000bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR2_Output",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCMR2_Input",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x3c"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x40"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DMAR",
+          "offset": "0x4c"
+        }
+      ]
+    },
+    {
+      "name": "TIM5",
+      "start": "0x40000c00",
+      "end": "0x40000fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR2_Output",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCMR2_Input",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x3c"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x40"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DMAR",
+          "offset": "0x4c"
+        }
+      ]
+    },
+    {
+      "name": "TIM9",
+      "start": "0x40014c00",
+      "end": "0x40014fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        }
+      ]
+    },
+    {
+      "name": "TIM12",
+      "start": "0x40001800",
+      "end": "0x40001bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        }
+      ]
+    },
+    {
+      "name": "TIM11",
+      "start": "0x40015400",
+      "end": "0x400157ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        }
+      ]
+    },
+    {
+      "name": "TIM13",
+      "start": "0x40001c00",
+      "end": "0x40001fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        }
+      ]
+    },
+    {
+      "name": "TIM14",
+      "start": "0x40002000",
+      "end": "0x400023ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        }
+      ]
+    },
+    {
+      "name": "TIM6",
+      "start": "0x40001000",
+      "end": "0x400013ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        }
+      ]
+    },
+    {
+      "name": "TIM7",
+      "start": "0x40001400",
+      "end": "0x400017ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        }
+      ]
+    },
+    {
+      "name": "I2C1",
+      "start": "0x40005400",
+      "end": "0x400057ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "OAR1",
+          "offset": "0x8"
+        },
+        {
+          "name": "OAR2",
+          "offset": "0xc"
+        },
+        {
+          "name": "DR",
+          "offset": "0x10"
+        },
+        {
+          "name": "SR1",
+          "offset": "0x14"
+        },
+        {
+          "name": "SR2",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "TRISE",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "I2C2",
+      "start": "0x40005800",
+      "end": "0x40005bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "OAR1",
+          "offset": "0x8"
+        },
+        {
+          "name": "OAR2",
+          "offset": "0xc"
+        },
+        {
+          "name": "DR",
+          "offset": "0x10"
+        },
+        {
+          "name": "SR1",
+          "offset": "0x14"
+        },
+        {
+          "name": "SR2",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "TRISE",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "SPI1",
+      "start": "0x40013000",
+      "end": "0x400133ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DR",
+          "offset": "0xc"
+        },
+        {
+          "name": "CRCPR",
+          "offset": "0x10"
+        },
+        {
+          "name": "RXCRCR",
+          "offset": "0x14"
+        },
+        {
+          "name": "TXCRCR",
+          "offset": "0x18"
+        },
+        {
+          "name": "I2SCFGR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "I2SPR",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "SPI2",
+      "start": "0x40003800",
+      "end": "0x40003bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DR",
+          "offset": "0xc"
+        },
+        {
+          "name": "CRCPR",
+          "offset": "0x10"
+        },
+        {
+          "name": "RXCRCR",
+          "offset": "0x14"
+        },
+        {
+          "name": "TXCRCR",
+          "offset": "0x18"
+        },
+        {
+          "name": "I2SCFGR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "I2SPR",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "SPI3",
+      "start": "0x40003c00",
+      "end": "0x40003fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DR",
+          "offset": "0xc"
+        },
+        {
+          "name": "CRCPR",
+          "offset": "0x10"
+        },
+        {
+          "name": "RXCRCR",
+          "offset": "0x14"
+        },
+        {
+          "name": "TXCRCR",
+          "offset": "0x18"
+        },
+        {
+          "name": "I2SCFGR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "I2SPR",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "USART1",
+      "start": "0x40013800",
+      "end": "0x40013bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "SR",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR",
+          "offset": "0x4"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x8"
+        },
+        {
+          "name": "CR1",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x10"
+        },
+        {
+          "name": "CR3",
+          "offset": "0x14"
+        },
+        {
+          "name": "GTPR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "USART2",
+      "start": "0x40004400",
+      "end": "0x400047ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "SR",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR",
+          "offset": "0x4"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x8"
+        },
+        {
+          "name": "CR1",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x10"
+        },
+        {
+          "name": "CR3",
+          "offset": "0x14"
+        },
+        {
+          "name": "GTPR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "USART3",
+      "start": "0x40004800",
+      "end": "0x40004bff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "SR",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR",
+          "offset": "0x4"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x8"
+        },
+        {
+          "name": "CR1",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x10"
+        },
+        {
+          "name": "CR3",
+          "offset": "0x14"
+        },
+        {
+          "name": "GTPR",
+          "offset": "0x18"
+        }
+      ]
+    },
+    {
+      "name": "UART4",
+      "start": "0x40004c00",
+      "end": "0x40004fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "SR",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR",
+          "offset": "0x4"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x8"
+        },
+        {
+          "name": "CR1",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x10"
+        },
+        {
+          "name": "CR3",
+          "offset": "0x14"
+        }
+      ]
+    },
+    {
+      "name": "UART5",
+      "start": "0x40005000",
+      "end": "0x400053ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "SR",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR",
+          "offset": "0x4"
+        },
+        {
+          "name": "BRR",
+          "offset": "0x8"
+        },
+        {
+          "name": "CR1",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x10"
+        },
+        {
+          "name": "CR3",
+          "offset": "0x14"
+        }
+      ]
+    },
+    {
+      "name": "CRC",
+      "start": "0x40023000",
+      "end": "0x400233ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "DR",
+          "offset": "0x0"
+        },
+        {
+          "name": "IDR",
+          "offset": "0x4"
+        },
+        {
+          "name": "CR",
+          "offset": "0x8"
+        }
+      ]
+    },
+    {
+      "name": "FLASH",
+      "start": "0x40022000",
+      "end": "0x400223ff",
+      "size": "0x400",
+      "comment": "Flash Register",
+      "registers": [
+        {
+          "name": "ACR",
+          "offset": "0x0"
+        },
+        {
+          "name": "KEYR",
+          "offset": "0x4"
+        },
+        {
+          "name": "OPTKEYR",
+          "offset": "0x8"
+        },
+        {
+          "name": "SR",
+          "offset": "0xc"
+        },
+        {
+          "name": "CR",
+          "offset": "0x10"
+        },
+        {
+          "name": "AR",
+          "offset": "0x14"
+        },
+        {
+          "name": "OBR",
+          "offset": "0x1c"
+        },
+        {
+          "name": "WRPR",
+          "offset": "0x20"
+        }
+      ]
+    },
+    {
+      "name": "BKP",
+      "start": "0x40006c00",
+      "end": "0x40006fff",
+      "size": "0x400",
+      "comment": "Backup Register",
+      "registers": [
+        {
+          "name": "DR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "DR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "DR3",
+          "offset": "0x8"
+        },
+        {
+          "name": "DR4",
+          "offset": "0xc"
+        },
+        {
+          "name": "DR5",
+          "offset": "0x10"
+        },
+        {
+          "name": "DR6",
+          "offset": "0x14"
+        },
+        {
+          "name": "DR7",
+          "offset": "0x18"
+        },
+        {
+          "name": "DR8",
+          "offset": "0x1c"
+        },
+        {
+          "name": "DR9",
+          "offset": "0x20"
+        },
+        {
+          "name": "DR10",
+          "offset": "0x24"
+        },
+        {
+          "name": "DR11",
+          "offset": "0x3c"
+        },
+        {
+          "name": "DR12",
+          "offset": "0x40"
+        },
+        {
+          "name": "DR13",
+          "offset": "0x44"
+        },
+        {
+          "name": "DR14",
+          "offset": "0x48"
+        },
+        {
+          "name": "DR15",
+          "offset": "0x4c"
+        },
+        {
+          "name": "DR16",
+          "offset": "0x50"
+        },
+        {
+          "name": "DR17",
+          "offset": "0x54"
+        },
+        {
+          "name": "DR18",
+          "offset": "0x58"
+        },
+        {
+          "name": "DR19",
+          "offset": "0x5c"
+        },
+        {
+          "name": "DR20",
+          "offset": "0x60"
+        },
+        {
+          "name": "DR21",
+          "offset": "0x64"
+        },
+        {
+          "name": "DR22",
+          "offset": "0x68"
+        },
+        {
+          "name": "DR23",
+          "offset": "0x6c"
+        },
+        {
+          "name": "DR24",
+          "offset": "0x70"
+        },
+        {
+          "name": "DR25",
+          "offset": "0x74"
+        },
+        {
+          "name": "DR26",
+          "offset": "0x78"
+        },
+        {
+          "name": "DR27",
+          "offset": "0x7c"
+        },
+        {
+          "name": "DR28",
+          "offset": "0x80"
+        },
+        {
+          "name": "DR29",
+          "offset": "0x84"
+        },
+        {
+          "name": "DR30",
+          "offset": "0x88"
+        },
+        {
+          "name": "DR31",
+          "offset": "0x8c"
+        },
+        {
+          "name": "DR32",
+          "offset": "0x90"
+        },
+        {
+          "name": "DR33",
+          "offset": "0x94"
+        },
+        {
+          "name": "DR34",
+          "offset": "0x98"
+        },
+        {
+          "name": "DR35",
+          "offset": "0x9c"
+        },
+        {
+          "name": "DR36",
+          "offset": "0xa0"
+        },
+        {
+          "name": "DR37",
+          "offset": "0xa4"
+        },
+        {
+          "name": "DR38",
+          "offset": "0xa8"
+        },
+        {
+          "name": "DR39",
+          "offset": "0xac"
+        },
+        {
+          "name": "DR40",
+          "offset": "0xb0"
+        },
+        {
+          "name": "DR41",
+          "offset": "0xb4"
+        },
+        {
+          "name": "DR42",
+          "offset": "0xb8"
+        },
+        {
+          "name": "RTCCR",
+          "offset": "0x28"
+        },
+        {
+          "name": "CR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CSR",
+          "offset": "0x30"
+        }
+      ]
+    },
+    {
+      "name": "USB",
+      "start": "0x40005c00",
+      "end": "0x40005fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "EP0R",
+          "offset": "0x0"
+        },
+        {
+          "name": "EP1R",
+          "offset": "0x4"
+        },
+        {
+          "name": "EP2R",
+          "offset": "0x8"
+        },
+        {
+          "name": "EP3R",
+          "offset": "0xc"
+        },
+        {
+          "name": "EP4R",
+          "offset": "0x10"
+        },
+        {
+          "name": "EP5R",
+          "offset": "0x14"
+        },
+        {
+          "name": "EP6R",
+          "offset": "0x18"
+        },
+        {
+          "name": "EP7R",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CNTR",
+          "offset": "0x40"
+        },
+        {
+          "name": "ISTR",
+          "offset": "0x44"
+        },
+        {
+          "name": "FNR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DADDR",
+          "offset": "0x4c"
+        },
+        {
+          "name": "BTABLE",
+          "offset": "0x50"
+        }
+      ]
+    },
+    {
+      "name": "TIM1",
+      "start": "0x40012c00",
+      "end": "0x40012fff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "CR1",
+          "offset": "0x0"
+        },
+        {
+          "name": "CR2",
+          "offset": "0x4"
+        },
+        {
+          "name": "SMCR",
+          "offset": "0x8"
+        },
+        {
+          "name": "DIER",
+          "offset": "0xc"
+        },
+        {
+          "name": "SR",
+          "offset": "0x10"
+        },
+        {
+          "name": "EGR",
+          "offset": "0x14"
+        },
+        {
+          "name": "CCMR1_Output",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR1_Input",
+          "offset": "0x18"
+        },
+        {
+          "name": "CCMR2_Output",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCMR2_Input",
+          "offset": "0x1c"
+        },
+        {
+          "name": "CCER",
+          "offset": "0x20"
+        },
+        {
+          "name": "CNT",
+          "offset": "0x24"
+        },
+        {
+          "name": "PSC",
+          "offset": "0x28"
+        },
+        {
+          "name": "ARR",
+          "offset": "0x2c"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0x34"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x38"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x3c"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x40"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x48"
+        },
+        {
+          "name": "DMAR",
+          "offset": "0x4c"
+        },
+        {
+          "name": "RCR",
+          "offset": "0x30"
+        },
+        {
+          "name": "BDTR",
+          "offset": "0x44"
+        }
+      ]
+    },
+    {
+      "name": "SDIO",
+      "start": "0x40018000",
+      "end": "0x400183ff",
+      "size": "0x400",
+      "comment": "",
+      "registers": [
+        {
+          "name": "POWER",
+          "offset": "0x0"
+        },
+        {
+          "name": "CLKCR",
+          "offset": "0x4"
+        },
+        {
+          "name": "ARG",
+          "offset": "0x8"
+        },
+        {
+          "name": "CMD",
+          "offset": "0xc"
+        },
+        {
+          "name": "RESPCMD",
+          "offset": "0x10"
+        },
+        {
+          "name": "RESPI1",
+          "offset": "0x14"
+        },
+        {
+          "name": "RESP2",
+          "offset": "0x18"
+        },
+        {
+          "name": "RESP3",
+          "offset": "0x1c"
+        },
+        {
+          "name": "RESP4",
+          "offset": "0x20"
+        },
+        {
+          "name": "DTIMER",
+          "offset": "0x24"
+        },
+        {
+          "name": "DLEN",
+          "offset": "0x28"
+        },
+        {
+          "name": "DCTRL",
+          "offset": "0x2c"
+        },
+        {
+          "name": "DCOUNT",
+          "offset": "0x30"
+        },
+        {
+          "name": "STA",
+          "offset": "0x34"
+        },
+        {
+          "name": "ICR",
+          "offset": "0x38"
+        },
+        {
+          "name": "MASK",
+          "offset": "0x3c"
+        },
+        {
+          "name": "FIFOCNT",
+          "offset": "0x48"
+        },
+        {
+          "name": "FIFO",
+          "offset": "0x80"
+        }
+      ]
+    },
+    {
+      "name": "PPB",
+      "start": "0xE0000000",
+      "end": "0xE0002FFF",
+      "size": "0x3000",
+      "comment": "PPB: Private Peripheral Bus (External/Internal)",
+      "registers": [
+        {
+          "name": "ITM",
+          "offset": "0x0"
+        },
+        {
+          "name": "DWT",
+          "offset": "0x1000"
+        },
+        {
+          "name": "FPB",
+          "offset": "0x2000"
+        }
+      ]
+    },
+    {
+      "name": "PPB_SCS",
+      "start": "0xe000e000",
+      "end": "0xe000efff",
+      "size": "0x1000",
+      "comment": "PPB: System Control Space",
+      "registers": [
+        {
+          "name": "SCS",
+          "offset": "0x0"
+        },
+        {
+          "name": "SCB_ACTRL",
+          "offset": "0x8"
+        },
+        {
+          "name": "STK_CTRL",
+          "offset": "0x10"
+        },
+        {
+          "name": "STK_LOAD_",
+          "offset": "0x14"
+        },
+        {
+          "name": "STK_VAL",
+          "offset": "0x18"
+        },
+        {
+          "name": "STK_CALIB",
+          "offset": "0x1c"
+        },
+        {
+          "name": "NVIC_ISER0",
+          "offset": "0x100"
+        },
+        {
+          "name": "NVIC_ISER1",
+          "offset": "0x104"
+        },
+        {
+          "name": "NVIC_ICER0",
+          "offset": "0x180"
+        },
+        {
+          "name": "NVIC_ICER1",
+          "offset": "0x184"
+        },
+        {
+          "name": "NVIC_ISPR0",
+          "offset": "0x200"
+        },
+        {
+          "name": "NVIC_ISPR1",
+          "offset": "0x204"
+        },
+        {
+          "name": "NVIC_ICPR0",
+          "offset": "0x280"
+        },
+        {
+          "name": "NVIC_ICPR1",
+          "offset": "0x284"
+        },
+        {
+          "name": "NVIC_IABR0",
+          "offset": "0x300"
+        },
+        {
+          "name": "NVIC_IABR1",
+          "offset": "0x304"
+        },
+        {
+          "name": "NVIC_IPR0",
+          "offset": "0x400"
+        },
+        {
+          "name": "NVIC_IPR1",
+          "offset": "0x404"
+        },
+        {
+          "name": "NVIC_IPR2",
+          "offset": "0x408"
+        },
+        {
+          "name": "NVIC_IPR3",
+          "offset": "0x40c"
+        },
+        {
+          "name": "NVIC_IPR4",
+          "offset": "0x410"
+        },
+        {
+          "name": "NVIC_IPR5",
+          "offset": "0x414"
+        },
+        {
+          "name": "NVIC_IPR6",
+          "offset": "0x418"
+        },
+        {
+          "name": "NVIC_IPR7",
+          "offset": "0x41c"
+        },
+        {
+          "name": "NVIC_IPR8",
+          "offset": "0x420"
+        },
+        {
+          "name": "NVIC_IPR9",
+          "offset": "0x424"
+        },
+        {
+          "name": "NVIC_IPR10",
+          "offset": "0x428"
+        },
+        {
+          "name": "NVIC_IPR11",
+          "offset": "0x42c"
+        },
+        {
+          "name": "NVIC_IPR12",
+          "offset": "0x430"
+        },
+        {
+          "name": "NVIC_IPR13",
+          "offset": "0x434"
+        },
+        {
+          "name": "NVIC_IPR14",
+          "offset": "0x438"
+        },
+        {
+          "name": "SCB_CPUID",
+          "offset": "0xd00"
+        },
+        {
+          "name": "SCB_ICSR",
+          "offset": "0xd04"
+        },
+        {
+          "name": "SCB_VTOR",
+          "offset": "0xd08"
+        },
+        {
+          "name": "SCB_AIRCR",
+          "offset": "0xd0c"
+        },
+        {
+          "name": "SCB_SCR",
+          "offset": "0xd10"
+        },
+        {
+          "name": "SCB_CCR",
+          "offset": "0xd14"
+        },
+        {
+          "name": "SCB_SHPR1",
+          "offset": "0xd18"
+        },
+        {
+          "name": "SCB_SHPR2",
+          "offset": "0xd1c"
+        },
+        {
+          "name": "SCB_SHPR3",
+          "offset": "0xd20"
+        },
+        {
+          "name": "SCB_SHCRS",
+          "offset": "0xd24"
+        },
+        {
+          "name": "SCB_CFSR_UFSR_BFSR_MMFSR",
+          "offset": "0xd28"
+        },
+        {
+          "name": "SCB_HFSR",
+          "offset": "0xd2c"
+        },
+        {
+          "name": "SCB_MMFAR",
+          "offset": "0xd34"
+        },
+        {
+          "name": "SCB_BFAR",
+          "offset": "0xd38"
+        },
+        {
+          "name": "MPU_TYPER",
+          "offset": "0xd90"
+        },
+        {
+          "name": "MPU_CTRL",
+          "offset": "0xd94"
+        },
+        {
+          "name": "MPU_RNR",
+          "offset": "0xd98"
+        },
+        {
+          "name": "MPU_RBAR",
+          "offset": "0xd9c"
+        },
+        {
+          "name": "MPU_RASR",
+          "offset": "0xda0"
+        },
+        {
+          "name": "NVIC_STIR",
+          "offset": "0xf00"
+        }
+      ]
+    }
+  ],
+  "vector_table": [
+    {
+      "name": "stack_ptr",
+      "value": -1,
+      "addr": "0x0",
+      "comment": "StackPointer Initial Value"
+    },
+    {
+      "name": "reset",
+      "value": -1,
+      "addr": "0x4",
+      "comment": "Prio: -3"
+    },
+    {
+      "name": "NMI",
+      "value": -1,
+      "addr": "0x8",
+      "comment": "Prio:-2 @ NonMaskableInterrupt"
+    },
+    {
+      "name": "FAULT_Hard",
+      "value": -1,
+      "addr": "0xc",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_MemManage",
+      "value": -1,
+      "addr": "0x10",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Bus",
+      "value": -1,
+      "addr": "0x14",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Usage",
+      "value": -1,
+      "addr": "0x18",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Secure",
+      "value": -1,
+      "addr": "0x1c",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Unknown1",
+      "value": -1,
+      "addr": "0x20",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Unknown2",
+      "value": -1,
+      "addr": "0x24",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "FAULT_Unknown3",
+      "value": -1,
+      "addr": "0x28",
+      "comment": "Prio: -1"
+    },
+    {
+      "name": "SV_Call",
+      "value": -1,
+      "addr": "0x2c",
+      "comment": "Prio: 3"
+    },
+    {
+      "name": "SV_DbgMon",
+      "value": -1,
+      "addr": "0x30",
+      "comment": "Prio: 3"
+    },
+    {
+      "name": "SV_Unknown",
+      "value": -1,
+      "addr": "0x34",
+      "comment": "Prio: 3"
+    },
+    {
+      "name": "SV_Pending",
+      "value": -1,
+      "addr": "0x38",
+      "comment": "Prio: 5"
+    },
+    {
+      "name": "SysTick",
+      "value": -1,
+      "addr": "0x3c",
+      "comment": "Prio: 6"
+    },
+    {
+      "name": "WWDG",
+      "value": 0,
+      "comment": "IRQ: Watchdog",
+      "addr": "0x40"
+    },
+    {
+      "name": "PVD",
+      "value": 1,
+      "comment": "IRQ: PVD",
+      "addr": "0x44"
+    },
+    {
+      "name": "TAMPER",
+      "value": 2,
+      "comment": "IRQ: Tamper Pin",
+      "addr": "0x48"
+    },
+    {
+      "name": "RTC",
+      "value": 3,
+      "comment": "IRQ: Real Time Clock",
+      "addr": "0x4c"
+    },
+    {
+      "name": "FLASH",
+      "value": 4,
+      "comment": "IRQ: Flash",
+      "addr": "0x50"
+    },
+    {
+      "name": "RCC",
+      "value": 5,
+      "comment": "IRQ: RCC",
+      "addr": "0x54"
+    },
+    {
+      "name": "EXTI0",
+      "value": 6,
+      "comment": "IRQ: EXTI 0",
+      "addr": "0x58"
+    },
+    {
+      "name": "EXTI1",
+      "value": 7,
+      "comment": "IRQ: EXTI 1",
+      "addr": "0x5c"
+    },
+    {
+      "name": "EXTI2",
+      "value": 8,
+      "comment": "IRQ: EXTI 2",
+      "addr": "0x60"
+    },
+    {
+      "name": "EXTI3",
+      "value": 9,
+      "comment": "IRQ: EXTI 3",
+      "addr": "0x64"
+    },
+    {
+      "name": "EXTI4",
+      "value": 10,
+      "comment": "IRQ: EXTI 4",
+      "addr": "0x68"
+    },
+    {
+      "name": "DMA1_CH1",
+      "value": 11,
+      "comment": "",
+      "addr": "0x6c"
+    },
+    {
+      "name": "DMA1_CH2",
+      "value": 12,
+      "comment": "",
+      "addr": "0x70"
+    },
+    {
+      "name": "DMA1_CH3",
+      "value": 13,
+      "comment": "",
+      "addr": "0x74"
+    },
+    {
+      "name": "DMA1_CH4",
+      "value": 14,
+      "comment": "",
+      "addr": "0x78"
+    },
+    {
+      "name": "DMA1_CH5",
+      "value": 15,
+      "comment": "",
+      "addr": "0x7c"
+    },
+    {
+      "name": "DMA1_CH6",
+      "value": 16,
+      "comment": "",
+      "addr": "0x80"
+    },
+    {
+      "name": "DMA1_CH7",
+      "value": 17,
+      "comment": "",
+      "addr": "0x84"
+    },
+    {
+      "name": "ADC1_2",
+      "value": 18,
+      "comment": "",
+      "addr": "0x88"
+    },
+    {
+      "name": "USB_HP_CAN_TX",
+      "value": 19,
+      "comment": "",
+      "addr": "0x8c"
+    },
+    {
+      "name": "USB_LP_CAN_RX0",
+      "value": 20,
+      "comment": "",
+      "addr": "0x90"
+    },
+    {
+      "name": "CAN1_RX1",
+      "value": 21,
+      "comment": "",
+      "addr": "0x94"
+    },
+    {
+      "name": "CAN1_RX1",
+      "value": 21,
+      "comment": "",
+      "addr": "0x94"
+    },
+    {
+      "name": "CAN1_SCE",
+      "value": 22,
+      "comment": "",
+      "addr": "0x98"
+    },
+    {
+      "name": "CAN1_SCE",
+      "value": 22,
+      "comment": "",
+      "addr": "0x98"
+    },
+    {
+      "name": "EXTI9_5",
+      "value": 23,
+      "comment": "",
+      "addr": "0x9c"
+    },
+    {
+      "name": "TIM1_BRK",
+      "value": 24,
+      "comment": "",
+      "addr": "0xa0"
+    },
+    {
+      "name": "TIM1_UP",
+      "value": 25,
+      "comment": "",
+      "addr": "0xa4"
+    },
+    {
+      "name": "TIM1_TRG_COM",
+      "value": 26,
+      "comment": "",
+      "addr": "0xa8"
+    },
+    {
+      "name": "TIM1_CC",
+      "value": 27,
+      "comment": "",
+      "addr": "0xac"
+    },
+    {
+      "name": "TIM2",
+      "value": 28,
+      "comment": "",
+      "addr": "0xb0"
+    },
+    {
+      "name": "TIM3",
+      "value": 29,
+      "comment": "",
+      "addr": "0xb4"
+    },
+    {
+      "name": "TIM4",
+      "value": 30,
+      "comment": "",
+      "addr": "0xb8"
+    },
+    {
+      "name": "I2C1_EV",
+      "value": 31,
+      "comment": "",
+      "addr": "0xbc"
+    },
+    {
+      "name": "I2C1_ER",
+      "value": 32,
+      "comment": "",
+      "addr": "0xc0"
+    },
+    {
+      "name": "I2C2_EV",
+      "value": 33,
+      "comment": "",
+      "addr": "0xc4"
+    },
+    {
+      "name": "I2C2_ER",
+      "value": 34,
+      "comment": "",
+      "addr": "0xc8"
+    },
+    {
+      "name": "SPI1",
+      "value": 35,
+      "comment": "",
+      "addr": "0xcc"
+    },
+    {
+      "name": "SPI2",
+      "value": 36,
+      "comment": "",
+      "addr": "0xd0"
+    },
+    {
+      "name": "USART1",
+      "value": 37,
+      "comment": "",
+      "addr": "0xd4"
+    },
+    {
+      "name": "USART2",
+      "value": 38,
+      "comment": "",
+      "addr": "0xd8"
+    },
+    {
+      "name": "USART3",
+      "value": 39,
+      "comment": "",
+      "addr": "0xdc"
+    },
+    {
+      "name": "EXTI15_10",
+      "value": 40,
+      "comment": "",
+      "addr": "0xe0"
+    },
+    {
+      "name": "RTC_Alarm",
+      "value": 41,
+      "comment": "",
+      "addr": "0xe4"
+    },
+    {
+      "name": "USB_Wakeup",
+      "value": 42,
+      "comment": "",
+      "addr": "0xe8"
+    },
+    {
+      "name": "TIM8_BRK",
+      "value": 43,
+      "comment": "",
+      "addr": "0xec"
+    },
+    {
+      "name": "TIM8_UP",
+      "value": 44,
+      "comment": "",
+      "addr": "0xf0"
+    },
+    {
+      "name": "TIM8_TRG_COM",
+      "value": 45,
+      "comment": "",
+      "addr": "0xf4"
+    },
+    {
+      "name": "TIM8_CC",
+      "value": 46,
+      "comment": "",
+      "addr": "0xf8"
+    },
+    {
+      "name": "ADC3",
+      "value": 47,
+      "comment": "",
+      "addr": "0xfc"
+    },
+    {
+      "name": "FSMC",
+      "value": 48,
+      "comment": "",
+      "addr": "0x100"
+    },
+    {
+      "name": "SDIO",
+      "value": 49,
+      "comment": "",
+      "addr": "0x104"
+    },
+    {
+      "name": "TIM5",
+      "value": 50,
+      "comment": "",
+      "addr": "0x108"
+    },
+    {
+      "name": "SPI3",
+      "value": 51,
+      "comment": "",
+      "addr": "0x10c"
+    },
+    {
+      "name": "UART4",
+      "value": 52,
+      "comment": "",
+      "addr": "0x110"
+    },
+    {
+      "name": "UART5",
+      "value": 53,
+      "comment": "",
+      "addr": "0x114"
+    },
+    {
+      "name": "TIM6",
+      "value": 54,
+      "comment": "",
+      "addr": "0x118"
+    },
+    {
+      "name": "TIM7",
+      "value": 55,
+      "comment": "",
+      "addr": "0x11c"
+    },
+    {
+      "name": "DMA2_CH1",
+      "value": 56,
+      "comment": "",
+      "addr": "0x120"
+    },
+    {
+      "name": "DMA2_CH2",
+      "value": 57,
+      "comment": "",
+      "addr": "0x124"
+    },
+    {
+      "name": "DMA2_CH3",
+      "value": 58,
+      "comment": "",
+      "addr": "0x128"
+    },
+    {
+      "name": "DMA2_CH4_5",
+      "value": 59,
+      "comment": "",
+      "addr": "0x12c"
+    },
+    {
+      "name": "DMA2_CH6",
+      "value": 60,
+      "comment": "",
+      "addr": "0x130"
+    },
+    {
+      "name": "ADC_SD1_IRQ",
+      "value": 61,
+      "comment": "",
+      "addr": "0x134"
+    },
+    {
+      "name": "ADC_SD2_IRQ",
+      "value": 62,
+      "comment": "",
+      "addr": "0x138"
+    },
+    {
+      "name": "ADC_SD3_IRQ",
+      "value": 63,
+      "comment": "",
+      "addr": "0x13c"
+    },
+    {
+      "name": "USB_HP_IRQ",
+      "value": 74,
+      "comment": "",
+      "addr": "0x168"
+    },
+    {
+      "name": "USB_LP_IRQ",
+      "value": 75,
+      "comment": "",
+      "addr": "0x16c"
+    },
+    {
+      "name": "USB_WAKEUP_IRQ",
+      "value": 76,
+      "comment": "",
+      "addr": "0x170"
+    },
+    {
+      "name": "TIM19_IRQ",
+      "value": 78,
+      "comment": "",
+      "addr": "0x178"
+    },
+    {
+      "name": "FPU",
+      "value": 81,
+      "comment": "",
+      "addr": "0x184"
+    }
+  ]
+}

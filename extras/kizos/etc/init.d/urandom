@@ -1,0 +1,28 @@
+#!/bin/sh
+
+test -c /dev/urandom || exit 0
+
+RANDOM_SEED_FILE=/persistent/root/random-seed
+
+case "$1" in
+	start)
+		if [ -e $RANDOM_SEED_FILE ]; then
+			/usr/bin/krng $RANDOM_SEED_FILE
+			rm -f "$RANDOM_SEED_FILE"
+		fi
+		;;
+	stop|dump)
+		# Carry a random seed from shut-down to start-up;
+		# see documentation in linux/drivers/char/random.c
+		# bs=512 : /proc/sys/kernel/random/poolsize / 8
+		umask 077
+		dd if=/dev/urandom of=$RANDOM_SEED_FILE bs=512 count=1 \
+			>/dev/null 2>&1 || { echo "urandom stop: failed."; exit 1; }
+		;;
+	*)
+		echo "Usage: urandom {start|stop}" >&2
+		exit 1
+		;;
+esac
+
+exit 0

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+NAME="Coredump Enabler"
+CORE_PATTERN="| /usr/sbin/coredump-uploader --pid %p --signum %s --exec %E %e"
+
+test -x /usr/sbin/coredump-uploader || exit 1
+
+echo "$CORE_PATTERN" > /proc/sys/kernel/core_pattern
+ulimit -c unlimited
+
+exit 0
