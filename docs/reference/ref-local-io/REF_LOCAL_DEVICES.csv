@@ -1,0 +1,404 @@
+protocolType	typeId	name
+1	4504699139129346	Altus RS io
+1	4505798650757122	Altus RS io
+1	4506898162384898	Ilmo io
+1	4507997674012674	Ilmo io
+1	4509097185640450	Ilmo io
+1	4504699139194882	Maestria+ io
+1	4505798650822658	Maestria+ io
+1	4506898162450434	Maestria+ io
+1	4507997674078210	Maestria+ io
+1	4509097185705986	Maestria+ io
+1	4510196697333762	Maestria+ io
+1	4510196697268226	OXIMO 40 io
+1	4511296208896002	OXIMO 40 io
+1	4512395720523778	OXIMO 40 io
+1	4513495232151554	OXIMO 40 io
+1	4514594743779330	Oximo S Auto io
+1	4515694255407106	Oximo S Auto io
+1	4516793767034882	Oximo S Auto io
+1	4517893278662658	Oximo S Auto io
+1	4518992790290434	Oximo S Auto io
+1	4520092301918210	Oximo S Auto io
+1	4521191813545986	Oximo io
+1	4522291325173762	Oximo io
+1	4523390836801538	Oximo io
+1	4524490348429314	Oximo io
+1	4525589860057090	Oximo io
+1	4526689371684866	Oximo io
+1	4527788883312642	Oximo io
+1	4528888394940418	Oximo io
+1	4529987906568194	Oximo io
+1	4531087418195970	Oximo io
+1	4532186929823746	Oximo io
+1	4533286441451522	Oximo io
+1	4534385953079298	Oximo io
+1	4535485464707074	Oximo io
+1	4536584976334850	Oximo io
+1	4537684487962626	Oximo io
+1	4538783999590402	Oximo io
+1	4539883511218178	Oximo io
+1	4540983022845954	Oximo io
+1	4542082534473730	Oximo io
+1	4543182046101506	S&SO - RS100 AIR
+1	4544281557729282	S&SO - RS100 AIR
+1	4545381069357058	S&SO - RS100 AIR
+1	4546480580984834	S&SO - RS100 AIR
+1	4547580092612610	S&SO - RS100 AIR
+1	4548679604240386	S&SO - RS100 AIR
+1	4549779115868162	S&SO - RS100 AIR
+1	4550878627495938	S&SO - RS100 AIR
+1	4551978139123714	S&SO - RS100 io
+1	4553077650751490	S&SO - RS100 io
+1	4554177162379266	S&SO - RS100 io
+1	4555276674007042	S&SO - RS100 io
+1	4556376185634818	S&SO - RS100 io
+1	4557475697262594	S&SO - RS100 io
+1	4558575208890370	S&SO - RS100 io
+1	4559674720518146	S&SO - RS100 io
+1	4560774232145922	S&SO - RS100 io
+1	4561873743773698	S&SO - RS100 io
+1	4562973255401474	S&SO - RS100 io
+1	4564072767029250	S&SO - RS100 io
+1	4565172278657026	S&SO - RS100 io
+1	4566271790284802	S&SO - RS100 io
+1	4567371301912578	S&SO - RS100 io
+1	4568470813540354	S&SO - RS100 io
+1	4569570325168130	S&SO - RS100 io
+1	4570669836795906	S&SO - RS100 io
+1	4571769348423682	S&SO - RS100 io
+1	4572868860051458	S&SO - RS100 io
+1	4573968371679234	S&SO - RS100 io
+1	4575067883307010	S&SO - RS100 io
+1	4576167394934786	S&SO - RS100 io
+1	4577266906562562	S&SO - RS100 io
+1	4578366418190338	S&SO - RS100 io
+1	4579465929818114	S&SO - RS100 io
+1	4580565441445890	S&SO - RS100 io
+1	4581664953073666	S&SO - RS100 io
+1	4582764464701442	S&SO - RS100 io
+1	4583863976329218	S&SO - RS100 io
+1	4584963487956994	S&SO - RS100 io
+1	4586062999584770	S&SO - RS100 io
+1	4587162511212546	S&SO - RS100 io
+1	4588262022840322	S&SO - RS100 io
+1	4589361534468098	S&SO - RS100 ioHybrid
+1	4590461046095874	S&SO - RS100 ioHybrid
+1	4591560557723650	S&SO - RS100 ioHybrid
+1	4592660069351426	S&SO - RS100 ioHybrid
+1	4593759580979202	S&SO - RS100 ioHybrid
+1	4594859092606978	S&SO - RS100 ioHybrid
+1	4595958604234754	S&SO - RS100 ioHybrid
+1	4597058115862530	S&SO - RS100 ioHybrid
+1	4598157627490306	S&SO - RS100 ioHybrid
+1	4599257139118082	S&SO - RS100 ioHybrid
+1	4600356650745858	S&SO - RS100 ioHybrid
+1	4601456162373634	S&SO - RS100 ioHybrid
+1	4602555674001410	S&SO - RS100 ioHybrid
+1	4603655185629186	S&SO - RS100 ioHybrid
+1	4604754697256962	S&SO - RS100 ioHybrid
+1	4605854208884738	S&SO - RS100 ioHybrid
+1	4606953720512514	S&SO - RS100 ioHybrid
+1	4608053232140290	S&SO - RS100 ioHybrid
+1	4609152743768066	S&SO - RS100 ioHybrid
+1	4610252255395842	S&SO - RS100 ioHybrid
+1	4611351767023618	S&SO - RS100 ioHybrid
+1	4612451278651394	S&SO - RS100 ioHybrid
+1	4613550790279170	S&SO - RS100 ioHybrid
+1	4614650301906946	S&SO - RS100 ioHybrid
+1	4615749813534722	S&SO - RS100 ioHybrid
+1	4616849325162498	S&SO - RS100 ioHybrid
+1	4617948836790274	S&SO - RS100 ioHybrid
+1	4619048348418050	S&SO - RS100 ioHybrid
+1	4620147860045826	S&SO - RS100 ioHybrid
+1	4621247371673602	S&SO - RS100 ioHybrid
+1	4622346883301378	S&SO - RS100 ioHybrid
+1	4623446394929154	S&SO - RS100 ioHybrid
+1	4624545906556930	S&SO - RS100 ioHybrid
+1	4625645418184706	S&SO - RS100 ioHybrid
+1	4626744929812482	S&SO - RS100 ioHybrid
+1	4627844441440258	S&SO - RS100 ioHybrid
+1	4628943953068034	S&SO - RS100 ioHybrid
+1	4630043464695810	S&SO - RS100 ioHybrid
+1	4631142976323586	S&SO - RS100 ioHybrid
+1	4632242487951362	S&SO - RS100 ioHybrid
+1	4633341999579138	S&SO - RS100 ioHybrid
+1	4634441511206914	S&SO - RS100 ioHybrid
+1	4635541022834690	S&SO - RS100 ioHybrid
+1	4636640534462466	S&SO - RS100 ioHybrid
+1	4637740046090242	S&SO - RS100 ioHybrid
+1	4638839557718018	S&SO - RS100 ioHybrid
+1	4639939069345794	S&SO - RS100 ioHybrid
+1	4641038580973570	S&SO - RS100 ioHybrid
+1	4642138092601346	S&SO - RS100 ioHybrid
+1	4643237604229122	S&SO - RS100 ioHybrid
+1	4644337115856898	S&SO - RS100 ioHybrid
+1	4645436627484674	S&SO - RS100 ioHybrid
+1	4646536139112450	S&SO - RS100 ioHybrid
+1	4647635650740226	S&SO - RS100 ioHybrid
+1	4648735162368002	S&SO - RS100 ioHybrid
+1	4649834673995778	S&SO - RS100 ioHybrid
+1	4650934185623554	S&SO - RS100 ioHybrid
+1	4652033697251330	S&SO - RS100 ioHybrid
+1	4653133208879106	S&SO - RS100 ioHybrid
+1	4654232720506882	S&SO - RS100 ioHybrid
+1	4655332232134658	S&SO - RS100 ioHybrid
+1	4656431743762434	S&SO - RS100 ioHybrid
+1	4657531255390210	S&SO - RS100 ioHybrid
+1	4658630767017986	S&SO - RS100 ioHybrid
+1	4659730278645762	S&SO - RS100 ioHybrid
+1	4660829790273538	S&SO - RS100 ioHybrid
+1	4661929301901314	Solus io
+1	4663028813529090	Solus io
+1	4664128325156866	Solus io
+1	4511296208961538	Sunea Screen 40 io
+1	4504699140046850	Sunea Screen 40 io
+1	4512395720589314	Sunea Screen 40 io
+1	4505798651674626	Sunea Screen 40 io
+1	4513495232217090	Sunea,Sunea Screen
+1	4506898163302402	Sunea,Sunea Screen
+1	4507997674930178	Sunea,Sunea Screen
+1	4514594743844866	Sunea,Sunea Screen
+1	4509097186557954	Sunea,Sunea Screen
+1	4515694255472642	Sunea,Sunea Screen
+1	4510196698185730	Sunea,Sunea Screen
+1	4511296209813506	Sunea,Sunea Screen
+1	4516793767100418	Sunea,Sunea Screen
+1	4512395721441282	Sunea,Sunea Screen
+1	4517893278728194	Sunea,Sunea Screen
+1	4513495233069058	Sunea,Sunea Screen
+1	4518992790355970	Sunea,Sunea Screen
+1	4514594744696834	Sunea,Sunea Screen
+1	4515694256324610	Sunea,Sunea Screen
+1	4516793767952386	Sunea,Sunea Screen
+1	4517893279580162	Sunea,Sunea Screen
+1	4520092301983746	Sunea,Sunea Screen
+1	4518992791207938	Sunea,Sunea Screen
+1	4521191813611522	Sunea,Sunea Screen
+1	4520092302835714	Sunea,Sunea Screen
+1	4522291325239298	Sunilus,Sunilus Screen io
+1	4521191814463490	Sunilus,Sunilus Screen io
+1	4523390836867074	Sunilus,Sunilus Screen io
+1	4522291326091266	Sunilus,Sunilus Screen io
+1	4524490348494850	Sunilus,Sunilus Screen io
+1	4523390837719042	Sunilus,Sunilus Screen io
+1	4525589860122626	Sunilus,Sunilus Screen io
+1	4524490349346818	Sunilus,Sunilus Screen io
+1	4526689371750402	Sunilus,Sunilus Screen io
+1	4525589860974594	Sunilus,Sunilus Screen io
+1	4527788883378178	Sunilus,Sunilus Screen io
+1	4526689372602370	Sunilus,Sunilus Screen io
+1	0	Generic Product
+1	267	KizOTherm Bridge
+1	65536	Venetian Blind
+1	131072	Roller Shutter
+1	131073	Roller Shutter VELUX
+1	131074	Roller Shutter SOMFY
+1	131328	Adjustable Slats Roller Shutter
+1	131330	Adj. Slats Roller Shutter SOMFY
+1	131584	Projection Roller Shutter
+1	196608	Vertical Exterior Awning
+1	196609	Vertical Exterior Awning Velux
+1	196610	Vertical Exterior Awning SOMFY
+1	262144	Window Opener
+1	262145	Window Opener VELUX
+1	262401	Window Opener with integrated rain sensor VELUX
+1	327680	Garage Door Opener
+1	327682	Garage Door Opener SOMFY
+1	342528	Discrete Garage Door Opener
+1	342530	Discrete Garage Door Opener SOMFY
+1	393216	Dimmable Light
+1	393218	Dimmable Light - Somfy
+1	393471	FirstInnov Swimming Pool
+1	393472	Dimmable RGB Light
+1	393474	Dimmable RGB Light Somfy
+1	393730	Tunable White Receiver
+1	408064	On/Off Light
+1	408066	On/Off Light - Somfy
+1	2199023663618	On/Off Light - Somfy  - With battery status
+1	458752	Gate Opener
+1	458754	Gate Opener Wardrobe SOMFY
+1	473600	Discrete Gate Opener
+1	473602	Discrete Gate Opener SOMFY
+1	524288	Rolling Door Opener
+1	524290	Rolling Door Opener SOMFY
+1	589824	Door Lock
+1	589826	Door Lock SOMFY
+1	590080	Window Lock
+1	590090	Window Lock SECUYOU
+1	590336	Car Controller
+1	655360	Vertical Blind
+1	655361	Blind VELUX
+1	655362	Sonesse 40
+1	851968	Dual Roller Shutter
+1	917504	Heating Temperature Interface
+1	983040	Switch On/Off
+1	983552	Switch On/Off - micromodule
+1	983554	Light On/Off - micromodule SOMFY
+1	1048576	Horizontal Awning
+1	1048832	Pergola Rail Guided Awning
+1	2199023648770	Dimmable Light - micromodule SOMFY
+1	1048834	Pergola Rail Guided Awning SOMFY
+1	1114112	Exterior Venetian Blind
+1	1179648	Louver Blind
+1	1245184	Curtain track
+1	1310720	Ventilation point
+1	1310976	Ventilation Inlet
+1	1311232	Ventilation Transfer
+1	1311488	Ventilation Outlet
+1	1376256	Exterior Heating
+1	1376258	Exterior Heating SOMFY
+1	1391106	Discrete Exterior Heating SOMFY
+1	1441792	Heat Pump
+1	1442060	Pass APC Heat Pump (Atlantic)
+1	1442316	Pass APC Boiler (Atlantic)
+1	1507328	Alarm System
+1	1572864	Swinging Shutters
+1	1572866	Swinging Shutter Somfy
+1	1587714	Discrete Swinging Shutter Somfy
+1	1573120	Independant Swinging Shutters
+1	1769472	Sliding Window
+1	1769730	Sliding Window with lock SOMFY
+1	1835020	Pass APC Zone Control (Atlantic)
+1	1900544	Bioclimatic Pergola
+1	1900546	Bioclimatic Pergola Somfy
+1	1966080	Siren
+1	1966082	Indoor Siren SOMFY
+1	3342348	Domestic hot water production (Atlantic V2)
+1	3407872	Electrical heater
+1	3407884	Electrical heater (Atlantic)
+1	3408128	Electrical heater with adjustable temperature setpoint
+1	3408140	Electrical heater with adjustable temperature setpoint (Atlantic)
+1	3473420	Heat Recovery Ventilation (Atlantic)
+1	16711691	Gateway RSOverkiz
+1	4295032832	Light Inside Sensor
+1	4295098368	Temperature Inside Sensor
+1	4295163904	Temperature Outside Sensor
+1	4295229440	Wind Sensor
+1	4295360512	Sun Energy Outside Sensor
+1	4295426048	Relative Humidity Inside Sensor
+1	4295491584	Relative Humidity Outside Sensor
+1	4295557120	CO2 Sensor
+1	4295622656	CO Sensor
+1	4295688192	Light Outside Sensor
+1	4295753728	Cumulated Gas Consumption Sensor
+1	4295819264	Cumulated Water Consumption Sensor
+1	4295884800	Cumulated Thermal Energy Consumption Sensor
+1	4295950336	Cumulated Electrical Energy Consumption Sensor
+1	4295950348	Multi-Energy Consumption Sensor - GMDE (Atlantic)
+1	4303355904	Smoke sensor
+1	4303355906	Smoke sensor - Fumix SOMFY
+1	4303683584	Generic closure sensor
+1	4303683586	Closure sensor - DO SOMFY
+1	4303749120	Motion sensor
+1	4303749122	Motion sensor - DM SOMFY
+1	4303880192	Rain sensor
+1	4303880194	Rain sensor - ondeis SOMFY
+1	4311613440	Multi Type Sensor (single channel per type)
+1	1103823241218	IDEOI somfy multi type sensor (open close tilt window and Intrusion)
+1	2203334868994	IDEOI somfy multi type sensor (sliding window and Intrusion)
+1	4311678976	Generic pulse sensor (virgin)
+1	8656978944	Stack Master (V2)
+1	21475622912	Beacon
+1	25836847104	Remote Controller (1W)
+1	25836847616	Keygo Remote Controller
+1	25836847872	Izymo Remote Controller
+1	1099511628043	KizOTherm Bridge v2
+1	1099511758850	Roller Shutter With Low Speed Management SOMFY
+1	1099511759106	GradHermetic SOMFY
+1	1099511824386	Pergola Screen SOMFY
+1	1099511889922	Window Opener Uno
+1	1099511970306	Discrete Garage Door Opener SOMFY (Dexxo Smart io 800)
+1	1099512020994	Dimmable Light - Somfy  - Light Receiver 2017
+1	1099512021250	Dimmable RGB Light Somfy - Light Receiver 2017
+1	1099512021506	Tunable White Receiver - Light Receiver 2017
+1	1099512035842	On/Off Light - Somfy  - Light Receiver 2017
+1	1099512101378	Discrete Gate Opener SOMFY (Axovia 3S)
+1	1099512217602	Door Lock With Unknown Position
+1	1099512283138	Vertical Blind Uno
+1	1099512610818	Cyclic Standard Receiver SOMFY
+1	1099512611330	Switch On/Off - micromodule SOMFY
+1	1099512676354	Horizontal Awning Uno
+1	1099512676610	Pergola Warema SOMFY
+1	1099512741888	Exterior Venetian Blind with WP
+1	1099512872962	Curtain track Uno
+1	1099513004034	Heating Receiver io Dimming SOMFY
+1	1099513018882	Heating Receiver io On Off SOMFY
+1	1099513069836	Pass APC Hybrid Heat Pump (Atlantic)
+1	1099513397506	Sliding Window with lock SOMFY - Air
+1	1099513528322	Simple Bioclimatic Pergola Somfy
+1	2199025156098	Pergola Louver io
+1	1099514970124	Domestic hot water production (Atlantic)
+1	1099515035916	Electrical towel dryer (Atlantic - IC4)
+1	1103806726146	Thermostatic valve SOMFY
+1	1103815311362	Closure sensor - Slim DO SOMFY
+1	2199023386626	Roller Shutter With Low Speed Management SOMFY (WT)
+1	2199023386882	VR Holla SOMFY
+1	2199023452162	Vertical Exterior Awning Uno
+1	2199023598082	Discrete Garage Door Opener SOMFY (Rollixo IO)
+1	2199023729154	Discrete Gate Opener SOMFY (Axovia 200 3S)
+1	2199023910914	Sonesse 40 SOMFY
+1	2199024304130	Awning Receiver Uno SOMFY
+1	2199024304386	Pergola Rail Guided Awning SOMFY - Pergola CQFD
+1	2199024369666	Exterior Venetian Blind Uno
+1	2199026597900	Domestic hot water production (Atlantic V3)
+1	2199026663692	Electrical heater with adjustable temperature setpoint (Atlantic - BD1)
+1	2203318353922	Thermostat SOMFY
+1	3298535014402	Roller Shutter Uno SOMFY
+1	3298535079938	Pergola Side Screen SOMFY
+1	3298535225858	Discrete Garage Door Opener SOMFY (Metro Smart 800 IO)
+1	3298535356930	Discrete Gate Opener SOMFY (Ixengo 3S)
+1	3298535538690	Actuo 40 SOMFY
+1	3298535931906	Horizontal Awning Somfy - Sunea Sunilus CQFD
+1	3298535997442	Exterior Venetian Blind J4 with WP2
+1	3298538225676	Domestic hot water production (Atlantic V2 - AEX)
+1	3298538291468	Electrical heater with adjustable temperature setpoint (Atlantic - BD3.3)
+1	4398046642178	Roller Shutter Receiver Uno SOMFY
+1	4398046707714	Drop Arm Awning SOMFY
+1	4398046853634	Discrete Garage Door Opener SOMFY (Metro Smart 1000 IO)
+1	4398046984706	Discrete Gate Opener SOMFY (Invisio 3S)
+1	4398047166466	Optuo 40 SOMFY
+1	4398047559682	Horizontal Awning Somfy - Sunea Screen 40
+1	4398049853452	Domestic hot water production (Atlantic V2 - MURAL)
+1	4398049919244	Electrical towel dryer (Atlantic - IC3)
+1	5497558269954	Roller Shutter SOMFY - Altus RS
+1	5497558335490	Awning Valance SOMFY
+1	5497558481410	Discrete Garage Door Opener SOMFY (Dexxo Smart io 1000)
+1	5497558612482	Discrete Gate Opener SOMFY (Elixo 3S)
+1	5497558794242	Sonesse Wirefree
+1	5497559187458	Horizontal Awning Somfy - Sunea 50 CSI
+1	5497561481228	Domestic hot water production (Atlantic V2 - SPLIT)
+1	5497561547020	Electrical heater with adjustable temperature setpoint (Atlantic - BD3.3 without light)
+1	6597069897730	Roller Shutter SOMFY - Oximo 40
+1	14293651292162	Roller Shutter SOMFY with battery
+1	6597069963266	Screen Receiver Uno SOMFY
+1	6597070109186	Discrete Garage Door Opener SOMFY (Rollixo Smart IO)
+1	6597070240258	Discrete Gate Opener SOMFY (Elixo Smart)
+1	6597073109004	Domestic hot water production (Atlantic V2 - V2 TEC5)
+1	7696581525506	Roller Shutter SOMFY - Awmio - Oximo CQFD
+1	7696581591042	Vertical Exterior Awning SOMFY - AWMIO
+1	7696581868034	Discrete Gate Opener SOMFY (Roly Smart IO)
+1	7696584736780	Domestic hot water production (Atlantic V2 - CE FLAT C2)
+1	8796093153282	Roller Shutter SOMFY - Short Motor IO
+1	8796093218818	Vertical Exterior Awning SOMFY - Sunea Sunilus
+1	8796096364556	Domestic hot water production (Atlantic V2 - CE S4)
+1	9895604781058	Roller Shutter SOMFY - MicroModule IO
+1	9895604846594	Vertical Exterior Awning SOMFY - Slim Receiver
+1	9895607992332	Domestic hot water production (Atlantic V2 - CETHI V4)
+1	10995116408834	Roller Shutter With Low Speed Management SOMFY (AIR)
+1	10995116474370	Vertical Exterior Awning SOMFY - Universal Screen
+1	10995119620108	Domestic hot water production (Atlantic V2 - CV4E)
+1	12094628036610	Roller Shutter SOMFY - Ilmo 2 50
+1	12094628102146	Sunea 40 - Vertical Exterior Awning SOMFY
+1	13194139664386	Roller Shutter SOMFY - Solus P&P 50
+1	17592187158530	Exterior Venetian Blind - J4 IO
+1	18691698786306	Exterior Venetian Blind with WP - J4 IO
+1	20890722041858	Exterior Venetian Blind J4 with WP2  - J4 IO
+1	35184373202946	Exterior Venetian Blind - EVB RTX BRIDGE
+1	36283884830722	Exterior Venetian Blind with WP - EVB RTX BRIDGE
+1	38482908086274	Exterior Venetian Blind J4 with WP2 - EVB RTX BRIDGE
+1	52776559247362	Exterior Venetian Blind - J4 IO PROTECT
+1	53876070875138	Exterior Venetian Blind with WP - J4 IO PROTECT
+1	56075094130690	Exterior Venetian Blind J4 with WP2 - J4 IO PROTECT
+1	25836848128	Remote Controller (Public Trame)
+1	25836848384	V500 Remote Controller

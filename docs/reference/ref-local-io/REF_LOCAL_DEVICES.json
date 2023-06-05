@@ -1,0 +1,2017 @@
+[
+    {
+        "name": "Altus RS io",
+        "protocolType": 1,
+        "typeId": 4504699139129346
+    },
+    {
+        "name": "Altus RS io",
+        "protocolType": 1,
+        "typeId": 4505798650757122
+    },
+    {
+        "name": "Ilmo io",
+        "protocolType": 1,
+        "typeId": 4506898162384898
+    },
+    {
+        "name": "Ilmo io",
+        "protocolType": 1,
+        "typeId": 4507997674012674
+    },
+    {
+        "name": "Ilmo io",
+        "protocolType": 1,
+        "typeId": 4509097185640450
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4504699139194882
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4505798650822658
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4506898162450434
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4507997674078210
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4509097185705986
+    },
+    {
+        "name": "Maestria+ io",
+        "protocolType": 1,
+        "typeId": 4510196697333762
+    },
+    {
+        "name": "OXIMO 40 io",
+        "protocolType": 1,
+        "typeId": 4510196697268226
+    },
+    {
+        "name": "OXIMO 40 io",
+        "protocolType": 1,
+        "typeId": 4511296208896002
+    },
+    {
+        "name": "OXIMO 40 io",
+        "protocolType": 1,
+        "typeId": 4512395720523778
+    },
+    {
+        "name": "OXIMO 40 io",
+        "protocolType": 1,
+        "typeId": 4513495232151554
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4514594743779330
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4515694255407106
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4516793767034882
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4517893278662658
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4518992790290434
+    },
+    {
+        "name": "Oximo S Auto io",
+        "protocolType": 1,
+        "typeId": 4520092301918210
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4521191813545986
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4522291325173762
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4523390836801538
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4524490348429314
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4525589860057090
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4526689371684866
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4527788883312642
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4528888394940418
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4529987906568194
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4531087418195970
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4532186929823746
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4533286441451522
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4534385953079298
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4535485464707074
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4536584976334850
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4537684487962626
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4538783999590402
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4539883511218178
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4540983022845954
+    },
+    {
+        "name": "Oximo io",
+        "protocolType": 1,
+        "typeId": 4542082534473730
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4543182046101506
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4544281557729282
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4545381069357058
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4546480580984834
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4547580092612610
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4548679604240386
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4549779115868162
+    },
+    {
+        "name": "S&SO - RS100 AIR",
+        "protocolType": 1,
+        "typeId": 4550878627495938
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4551978139123714
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4553077650751490
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4554177162379266
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4555276674007042
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4556376185634818
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4557475697262594
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4558575208890370
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4559674720518146
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4560774232145922
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4561873743773698
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4562973255401474
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4564072767029250
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4565172278657026
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4566271790284802
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4567371301912578
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4568470813540354
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4569570325168130
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4570669836795906
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4571769348423682
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4572868860051458
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4573968371679234
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4575067883307010
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4576167394934786
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4577266906562562
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4578366418190338
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4579465929818114
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4580565441445890
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4581664953073666
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4582764464701442
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4583863976329218
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4584963487956994
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4586062999584770
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4587162511212546
+    },
+    {
+        "name": "S&SO - RS100 io",
+        "protocolType": 1,
+        "typeId": 4588262022840322
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4589361534468098
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4590461046095874
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4591560557723650
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4592660069351426
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4593759580979202
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4594859092606978
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4595958604234754
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4597058115862530
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4598157627490306
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4599257139118082
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4600356650745858
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4601456162373634
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4602555674001410
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4603655185629186
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4604754697256962
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4605854208884738
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4606953720512514
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4608053232140290
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4609152743768066
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4610252255395842
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4611351767023618
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4612451278651394
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4613550790279170
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4614650301906946
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4615749813534722
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4616849325162498
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4617948836790274
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4619048348418050
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4620147860045826
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4621247371673602
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4622346883301378
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4623446394929154
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4624545906556930
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4625645418184706
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4626744929812482
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4627844441440258
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4628943953068034
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4630043464695810
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4631142976323586
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4632242487951362
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4633341999579138
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4634441511206914
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4635541022834690
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4636640534462466
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4637740046090242
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4638839557718018
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4639939069345794
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4641038580973570
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4642138092601346
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4643237604229122
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4644337115856898
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4645436627484674
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4646536139112450
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4647635650740226
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4648735162368002
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4649834673995778
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4650934185623554
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4652033697251330
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4653133208879106
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4654232720506882
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4655332232134658
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4656431743762434
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4657531255390210
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4658630767017986
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4659730278645762
+    },
+    {
+        "name": "S&SO - RS100 ioHybrid",
+        "protocolType": 1,
+        "typeId": 4660829790273538
+    },
+    {
+        "name": "Solus io",
+        "protocolType": 1,
+        "typeId": 4661929301901314
+    },
+    {
+        "name": "Solus io",
+        "protocolType": 1,
+        "typeId": 4663028813529090
+    },
+    {
+        "name": "Solus io",
+        "protocolType": 1,
+        "typeId": 4664128325156866
+    },
+    {
+        "name": "Sunea Screen 40 io",
+        "protocolType": 1,
+        "typeId": 4511296208961538
+    },
+    {
+        "name": "Sunea Screen 40 io",
+        "protocolType": 1,
+        "typeId": 4504699140046850
+    },
+    {
+        "name": "Sunea Screen 40 io",
+        "protocolType": 1,
+        "typeId": 4512395720589314
+    },
+    {
+        "name": "Sunea Screen 40 io",
+        "protocolType": 1,
+        "typeId": 4505798651674626
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4513495232217090
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4506898163302402
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4507997674930178
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4514594743844866
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4509097186557954
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4515694255472642
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4510196698185730
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4511296209813506
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4516793767100418
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4512395721441282
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4517893278728194
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4513495233069058
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4518992790355970
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4514594744696834
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4515694256324610
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4516793767952386
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4517893279580162
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4520092301983746
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4518992791207938
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4521191813611522
+    },
+    {
+        "name": "Sunea,Sunea Screen",
+        "protocolType": 1,
+        "typeId": 4520092302835714
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4522291325239298
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4521191814463490
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4523390836867074
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4522291326091266
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4524490348494850
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4523390837719042
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4525589860122626
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4524490349346818
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4526689371750402
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4525589860974594
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4527788883378178
+    },
+    {
+        "name": "Sunilus,Sunilus Screen io",
+        "protocolType": 1,
+        "typeId": 4526689372602370
+    },
+    {
+        "name": "Generic Product",
+        "protocolType": 1,
+        "typeId": 0
+    },
+    {
+        "name": "KizOTherm Bridge",
+        "protocolType": 1,
+        "typeId": 267
+    },
+    {
+        "name": "Venetian Blind",
+        "protocolType": 1,
+        "typeId": 65536
+    },
+    {
+        "name": "Roller Shutter",
+        "protocolType": 1,
+        "typeId": 131072
+    },
+    {
+        "name": "Roller Shutter VELUX",
+        "protocolType": 1,
+        "typeId": 131073
+    },
+    {
+        "name": "Roller Shutter SOMFY",
+        "protocolType": 1,
+        "typeId": 131074
+    },
+    {
+        "name": "Adjustable Slats Roller Shutter",
+        "protocolType": 1,
+        "typeId": 131328
+    },
+    {
+        "name": "Adj. Slats Roller Shutter SOMFY",
+        "protocolType": 1,
+        "typeId": 131330
+    },
+    {
+        "name": "Projection Roller Shutter",
+        "protocolType": 1,
+        "typeId": 131584
+    },
+    {
+        "name": "Vertical Exterior Awning",
+        "protocolType": 1,
+        "typeId": 196608
+    },
+    {
+        "name": "Vertical Exterior Awning Velux",
+        "protocolType": 1,
+        "typeId": 196609
+    },
+    {
+        "name": "Vertical Exterior Awning SOMFY",
+        "protocolType": 1,
+        "typeId": 196610
+    },
+    {
+        "name": "Window Opener",
+        "protocolType": 1,
+        "typeId": 262144
+    },
+    {
+        "name": "Window Opener VELUX",
+        "protocolType": 1,
+        "typeId": 262145
+    },
+    {
+        "name": "Window Opener with integrated rain sensor VELUX",
+        "protocolType": 1,
+        "typeId": 262401
+    },
+    {
+        "name": "Garage Door Opener",
+        "protocolType": 1,
+        "typeId": 327680
+    },
+    {
+        "name": "Garage Door Opener SOMFY",
+        "protocolType": 1,
+        "typeId": 327682
+    },
+    {
+        "name": "Discrete Garage Door Opener",
+        "protocolType": 1,
+        "typeId": 342528
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY",
+        "protocolType": 1,
+        "typeId": 342530
+    },
+    {
+        "name": "Dimmable Light",
+        "protocolType": 1,
+        "typeId": 393216
+    },
+    {
+        "name": "Dimmable Light - Somfy",
+        "protocolType": 1,
+        "typeId": 393218
+    },
+    {
+        "name": "FirstInnov Swimming Pool",
+        "protocolType": 1,
+        "typeId": 393471
+    },
+    {
+        "name": "Dimmable RGB Light",
+        "protocolType": 1,
+        "typeId": 393472
+    },
+    {
+        "name": "Dimmable RGB Light Somfy",
+        "protocolType": 1,
+        "typeId": 393474
+    },
+    {
+        "name": "Tunable White Receiver",
+        "protocolType": 1,
+        "typeId": 393730
+    },
+    {
+        "name": "On/Off Light",
+        "protocolType": 1,
+        "typeId": 408064
+    },
+    {
+        "name": "On/Off Light - Somfy",
+        "protocolType": 1,
+        "typeId": 408066
+    },
+    {
+        "name": "On/Off Light - Somfy  - With battery status",
+        "protocolType": 1,
+        "typeId": 2199023663618
+    },
+    {
+        "name": "Gate Opener",
+        "protocolType": 1,
+        "typeId": 458752
+    },
+    {
+        "name": "Gate Opener Wardrobe SOMFY",
+        "protocolType": 1,
+        "typeId": 458754
+    },
+    {
+        "name": "Discrete Gate Opener",
+        "protocolType": 1,
+        "typeId": 473600
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY",
+        "protocolType": 1,
+        "typeId": 473602
+    },
+    {
+        "name": "Rolling Door Opener",
+        "protocolType": 1,
+        "typeId": 524288
+    },
+    {
+        "name": "Rolling Door Opener SOMFY",
+        "protocolType": 1,
+        "typeId": 524290
+    },
+    {
+        "name": "Door Lock",
+        "protocolType": 1,
+        "typeId": 589824
+    },
+    {
+        "name": "Door Lock SOMFY",
+        "protocolType": 1,
+        "typeId": 589826
+    },
+    {
+        "name": "Window Lock",
+        "protocolType": 1,
+        "typeId": 590080
+    },
+    {
+        "name": "Window Lock SECUYOU",
+        "protocolType": 1,
+        "typeId": 590090
+    },
+    {
+        "name": "Car Controller",
+        "protocolType": 1,
+        "typeId": 590336
+    },
+    {
+        "name": "Vertical Blind",
+        "protocolType": 1,
+        "typeId": 655360
+    },
+    {
+        "name": "Blind VELUX",
+        "protocolType": 1,
+        "typeId": 655361
+    },
+    {
+        "name": "Sonesse 40",
+        "protocolType": 1,
+        "typeId": 655362
+    },
+    {
+        "name": "Dual Roller Shutter",
+        "protocolType": 1,
+        "typeId": 851968
+    },
+    {
+        "name": "Heating Temperature Interface",
+        "protocolType": 1,
+        "typeId": 917504
+    },
+    {
+        "name": "Switch On/Off",
+        "protocolType": 1,
+        "typeId": 983040
+    },
+    {
+        "name": "Switch On/Off - micromodule",
+        "protocolType": 1,
+        "typeId": 983552
+    },
+    {
+        "name": "Light On/Off - micromodule SOMFY",
+        "protocolType": 1,
+        "typeId": 983554
+    },
+    {
+        "name": "Horizontal Awning",
+        "protocolType": 1,
+        "typeId": 1048576
+    },
+    {
+        "name": "Pergola Rail Guided Awning",
+        "protocolType": 1,
+        "typeId": 1048832
+    },
+    {
+        "name": "Dimmable Light - micromodule SOMFY",
+        "protocolType": 1,
+        "typeId": 2199023648770
+    },
+    {
+        "name": "Pergola Rail Guided Awning SOMFY",
+        "protocolType": 1,
+        "typeId": 1048834
+    },
+    {
+        "name": "Exterior Venetian Blind",
+        "protocolType": 1,
+        "typeId": 1114112
+    },
+    {
+        "name": "Louver Blind",
+        "protocolType": 1,
+        "typeId": 1179648
+    },
+    {
+        "name": "Curtain track",
+        "protocolType": 1,
+        "typeId": 1245184
+    },
+    {
+        "name": "Ventilation point",
+        "protocolType": 1,
+        "typeId": 1310720
+    },
+    {
+        "name": "Ventilation Inlet",
+        "protocolType": 1,
+        "typeId": 1310976
+    },
+    {
+        "name": "Ventilation Transfer",
+        "protocolType": 1,
+        "typeId": 1311232
+    },
+    {
+        "name": "Ventilation Outlet",
+        "protocolType": 1,
+        "typeId": 1311488
+    },
+    {
+        "name": "Exterior Heating",
+        "protocolType": 1,
+        "typeId": 1376256
+    },
+    {
+        "name": "Exterior Heating SOMFY",
+        "protocolType": 1,
+        "typeId": 1376258
+    },
+    {
+        "name": "Discrete Exterior Heating SOMFY",
+        "protocolType": 1,
+        "typeId": 1391106
+    },
+    {
+        "name": "Heat Pump",
+        "protocolType": 1,
+        "typeId": 1441792
+    },
+    {
+        "name": "Pass APC Heat Pump (Atlantic)",
+        "protocolType": 1,
+        "typeId": 1442060
+    },
+    {
+        "name": "Pass APC Boiler (Atlantic)",
+        "protocolType": 1,
+        "typeId": 1442316
+    },
+    {
+        "name": "Alarm System",
+        "protocolType": 1,
+        "typeId": 1507328
+    },
+    {
+        "name": "Swinging Shutters",
+        "protocolType": 1,
+        "typeId": 1572864
+    },
+    {
+        "name": "Swinging Shutter Somfy",
+        "protocolType": 1,
+        "typeId": 1572866
+    },
+    {
+        "name": "Discrete Swinging Shutter Somfy",
+        "protocolType": 1,
+        "typeId": 1587714
+    },
+    {
+        "name": "Independant Swinging Shutters",
+        "protocolType": 1,
+        "typeId": 1573120
+    },
+    {
+        "name": "Sliding Window",
+        "protocolType": 1,
+        "typeId": 1769472
+    },
+    {
+        "name": "Sliding Window with lock SOMFY",
+        "protocolType": 1,
+        "typeId": 1769730
+    },
+    {
+        "name": "Pass APC Zone Control (Atlantic)",
+        "protocolType": 1,
+        "typeId": 1835020
+    },
+    {
+        "name": "Bioclimatic Pergola",
+        "protocolType": 1,
+        "typeId": 1900544
+    },
+    {
+        "name": "Bioclimatic Pergola Somfy",
+        "protocolType": 1,
+        "typeId": 1900546
+    },
+    {
+        "name": "Siren",
+        "protocolType": 1,
+        "typeId": 1966080
+    },
+    {
+        "name": "Indoor Siren SOMFY",
+        "protocolType": 1,
+        "typeId": 1966082
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2)",
+        "protocolType": 1,
+        "typeId": 3342348
+    },
+    {
+        "name": "Electrical heater",
+        "protocolType": 1,
+        "typeId": 3407872
+    },
+    {
+        "name": "Electrical heater (Atlantic)",
+        "protocolType": 1,
+        "typeId": 3407884
+    },
+    {
+        "name": "Electrical heater with adjustable temperature setpoint",
+        "protocolType": 1,
+        "typeId": 3408128
+    },
+    {
+        "name": "Electrical heater with adjustable temperature setpoint (Atlantic)",
+        "protocolType": 1,
+        "typeId": 3408140
+    },
+    {
+        "name": "Heat Recovery Ventilation (Atlantic)",
+        "protocolType": 1,
+        "typeId": 3473420
+    },
+    {
+        "name": "Gateway RSOverkiz",
+        "protocolType": 1,
+        "typeId": 16711691
+    },
+    {
+        "name": "Light Inside Sensor",
+        "protocolType": 1,
+        "typeId": 4295032832
+    },
+    {
+        "name": "Temperature Inside Sensor",
+        "protocolType": 1,
+        "typeId": 4295098368
+    },
+    {
+        "name": "Temperature Outside Sensor",
+        "protocolType": 1,
+        "typeId": 4295163904
+    },
+    {
+        "name": "Wind Sensor",
+        "protocolType": 1,
+        "typeId": 4295229440
+    },
+    {
+        "name": "Sun Energy Outside Sensor",
+        "protocolType": 1,
+        "typeId": 4295360512
+    },
+    {
+        "name": "Relative Humidity Inside Sensor",
+        "protocolType": 1,
+        "typeId": 4295426048
+    },
+    {
+        "name": "Relative Humidity Outside Sensor",
+        "protocolType": 1,
+        "typeId": 4295491584
+    },
+    {
+        "name": "CO2 Sensor",
+        "protocolType": 1,
+        "typeId": 4295557120
+    },
+    {
+        "name": "CO Sensor",
+        "protocolType": 1,
+        "typeId": 4295622656
+    },
+    {
+        "name": "Light Outside Sensor",
+        "protocolType": 1,
+        "typeId": 4295688192
+    },
+    {
+        "name": "Cumulated Gas Consumption Sensor",
+        "protocolType": 1,
+        "typeId": 4295753728
+    },
+    {
+        "name": "Cumulated Water Consumption Sensor",
+        "protocolType": 1,
+        "typeId": 4295819264
+    },
+    {
+        "name": "Cumulated Thermal Energy Consumption Sensor",
+        "protocolType": 1,
+        "typeId": 4295884800
+    },
+    {
+        "name": "Cumulated Electrical Energy Consumption Sensor",
+        "protocolType": 1,
+        "typeId": 4295950336
+    },
+    {
+        "name": "Multi-Energy Consumption Sensor - GMDE (Atlantic)",
+        "protocolType": 1,
+        "typeId": 4295950348
+    },
+    {
+        "name": "Smoke sensor",
+        "protocolType": 1,
+        "typeId": 4303355904
+    },
+    {
+        "name": "Smoke sensor - Fumix SOMFY",
+        "protocolType": 1,
+        "typeId": 4303355906
+    },
+    {
+        "name": "Generic closure sensor",
+        "protocolType": 1,
+        "typeId": 4303683584
+    },
+    {
+        "name": "Closure sensor - DO SOMFY",
+        "protocolType": 1,
+        "typeId": 4303683586
+    },
+    {
+        "name": "Motion sensor",
+        "protocolType": 1,
+        "typeId": 4303749120
+    },
+    {
+        "name": "Motion sensor - DM SOMFY",
+        "protocolType": 1,
+        "typeId": 4303749122
+    },
+    {
+        "name": "Rain sensor",
+        "protocolType": 1,
+        "typeId": 4303880192
+    },
+    {
+        "name": "Rain sensor - ondeis SOMFY",
+        "protocolType": 1,
+        "typeId": 4303880194
+    },
+    {
+        "name": "Multi Type Sensor (single channel per type)",
+        "protocolType": 1,
+        "typeId": 4311613440
+    },
+    {
+        "name": "IDEOI somfy multi type sensor (open close tilt window and Intrusion)",
+        "protocolType": 1,
+        "typeId": 1103823241218
+    },
+    {
+        "name": "IDEOI somfy multi type sensor (sliding window and Intrusion)",
+        "protocolType": 1,
+        "typeId": 2203334868994
+    },
+    {
+        "name": "Generic pulse sensor (virgin)",
+        "protocolType": 1,
+        "typeId": 4311678976
+    },
+    {
+        "name": "Stack Master (V2)",
+        "protocolType": 1,
+        "typeId": 8656978944
+    },
+    {
+        "name": "Beacon",
+        "protocolType": 1,
+        "typeId": 21475622912
+    },
+    {
+        "name": "Remote Controller (1W)",
+        "protocolType": 1,
+        "typeId": 25836847104
+    },
+    {
+        "name": "Keygo Remote Controller",
+        "protocolType": 1,
+        "typeId": 25836847616
+    },
+    {
+        "name": "Izymo Remote Controller",
+        "protocolType": 1,
+        "typeId": 25836847872
+    },
+    {
+        "name": "KizOTherm Bridge v2",
+        "protocolType": 1,
+        "typeId": 1099511628043
+    },
+    {
+        "name": "Roller Shutter With Low Speed Management SOMFY",
+        "protocolType": 1,
+        "typeId": 1099511758850
+    },
+    {
+        "name": "GradHermetic SOMFY",
+        "protocolType": 1,
+        "typeId": 1099511759106
+    },
+    {
+        "name": "Pergola Screen SOMFY",
+        "protocolType": 1,
+        "typeId": 1099511824386
+    },
+    {
+        "name": "Window Opener Uno",
+        "protocolType": 1,
+        "typeId": 1099511889922
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Dexxo Smart io 800)",
+        "protocolType": 1,
+        "typeId": 1099511970306
+    },
+    {
+        "name": "Dimmable Light - Somfy  - Light Receiver 2017",
+        "protocolType": 1,
+        "typeId": 1099512020994
+    },
+    {
+        "name": "Dimmable RGB Light Somfy - Light Receiver 2017",
+        "protocolType": 1,
+        "typeId": 1099512021250
+    },
+    {
+        "name": "Tunable White Receiver - Light Receiver 2017",
+        "protocolType": 1,
+        "typeId": 1099512021506
+    },
+    {
+        "name": "On/Off Light - Somfy  - Light Receiver 2017",
+        "protocolType": 1,
+        "typeId": 1099512035842
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Axovia 3S)",
+        "protocolType": 1,
+        "typeId": 1099512101378
+    },
+    {
+        "name": "Door Lock With Unknown Position",
+        "protocolType": 1,
+        "typeId": 1099512217602
+    },
+    {
+        "name": "Vertical Blind Uno",
+        "protocolType": 1,
+        "typeId": 1099512283138
+    },
+    {
+        "name": "Cyclic Standard Receiver SOMFY",
+        "protocolType": 1,
+        "typeId": 1099512610818
+    },
+    {
+        "name": "Switch On/Off - micromodule SOMFY",
+        "protocolType": 1,
+        "typeId": 1099512611330
+    },
+    {
+        "name": "Horizontal Awning Uno",
+        "protocolType": 1,
+        "typeId": 1099512676354
+    },
+    {
+        "name": "Pergola Warema SOMFY",
+        "protocolType": 1,
+        "typeId": 1099512676610
+    },
+    {
+        "name": "Exterior Venetian Blind with WP",
+        "protocolType": 1,
+        "typeId": 1099512741888
+    },
+    {
+        "name": "Curtain track Uno",
+        "protocolType": 1,
+        "typeId": 1099512872962
+    },
+    {
+        "name": "Heating Receiver io Dimming SOMFY",
+        "protocolType": 1,
+        "typeId": 1099513004034
+    },
+    {
+        "name": "Heating Receiver io On Off SOMFY",
+        "protocolType": 1,
+        "typeId": 1099513018882
+    },
+    {
+        "name": "Pass APC Hybrid Heat Pump (Atlantic)",
+        "protocolType": 1,
+        "typeId": 1099513069836
+    },
+    {
+        "name": "Sliding Window with lock SOMFY - Air",
+        "protocolType": 1,
+        "typeId": 1099513397506
+    },
+    {
+        "name": "Simple Bioclimatic Pergola Somfy",
+        "protocolType": 1,
+        "typeId": 1099513528322
+    },
+    {
+        "name": "Pergola Louver io",
+        "protocolType": 1,
+        "typeId": 2199025156098
+    },
+    {
+        "name": "Domestic hot water production (Atlantic)",
+        "protocolType": 1,
+        "typeId": 1099514970124
+    },
+    {
+        "name": "Electrical towel dryer (Atlantic - IC4)",
+        "protocolType": 1,
+        "typeId": 1099515035916
+    },
+    {
+        "name": "Thermostatic valve SOMFY",
+        "protocolType": 1,
+        "typeId": 1103806726146
+    },
+    {
+        "name": "Closure sensor - Slim DO SOMFY",
+        "protocolType": 1,
+        "typeId": 1103815311362
+    },
+    {
+        "name": "Roller Shutter With Low Speed Management SOMFY (WT)",
+        "protocolType": 1,
+        "typeId": 2199023386626
+    },
+    {
+        "name": "VR Holla SOMFY",
+        "protocolType": 1,
+        "typeId": 2199023386882
+    },
+    {
+        "name": "Vertical Exterior Awning Uno",
+        "protocolType": 1,
+        "typeId": 2199023452162
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Rollixo IO)",
+        "protocolType": 1,
+        "typeId": 2199023598082
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Axovia 200 3S)",
+        "protocolType": 1,
+        "typeId": 2199023729154
+    },
+    {
+        "name": "Sonesse 40 SOMFY",
+        "protocolType": 1,
+        "typeId": 2199023910914
+    },
+    {
+        "name": "Awning Receiver Uno SOMFY",
+        "protocolType": 1,
+        "typeId": 2199024304130
+    },
+    {
+        "name": "Pergola Rail Guided Awning SOMFY - Pergola CQFD",
+        "protocolType": 1,
+        "typeId": 2199024304386
+    },
+    {
+        "name": "Exterior Venetian Blind Uno",
+        "protocolType": 1,
+        "typeId": 2199024369666
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V3)",
+        "protocolType": 1,
+        "typeId": 2199026597900
+    },
+    {
+        "name": "Electrical heater with adjustable temperature setpoint (Atlantic - BD1)",
+        "protocolType": 1,
+        "typeId": 2199026663692
+    },
+    {
+        "name": "Thermostat SOMFY",
+        "protocolType": 1,
+        "typeId": 2203318353922
+    },
+    {
+        "name": "Roller Shutter Uno SOMFY",
+        "protocolType": 1,
+        "typeId": 3298535014402
+    },
+    {
+        "name": "Pergola Side Screen SOMFY",
+        "protocolType": 1,
+        "typeId": 3298535079938
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Metro Smart 800 IO)",
+        "protocolType": 1,
+        "typeId": 3298535225858
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Ixengo 3S)",
+        "protocolType": 1,
+        "typeId": 3298535356930
+    },
+    {
+        "name": "Actuo 40 SOMFY",
+        "protocolType": 1,
+        "typeId": 3298535538690
+    },
+    {
+        "name": "Horizontal Awning Somfy - Sunea Sunilus CQFD",
+        "protocolType": 1,
+        "typeId": 3298535931906
+    },
+    {
+        "name": "Exterior Venetian Blind J4 with WP2",
+        "protocolType": 1,
+        "typeId": 3298535997442
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - AEX)",
+        "protocolType": 1,
+        "typeId": 3298538225676
+    },
+    {
+        "name": "Electrical heater with adjustable temperature setpoint (Atlantic - BD3.3)",
+        "protocolType": 1,
+        "typeId": 3298538291468
+    },
+    {
+        "name": "Roller Shutter Receiver Uno SOMFY",
+        "protocolType": 1,
+        "typeId": 4398046642178
+    },
+    {
+        "name": "Drop Arm Awning SOMFY",
+        "protocolType": 1,
+        "typeId": 4398046707714
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Metro Smart 1000 IO)",
+        "protocolType": 1,
+        "typeId": 4398046853634
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Invisio 3S)",
+        "protocolType": 1,
+        "typeId": 4398046984706
+    },
+    {
+        "name": "Optuo 40 SOMFY",
+        "protocolType": 1,
+        "typeId": 4398047166466
+    },
+    {
+        "name": "Horizontal Awning Somfy - Sunea Screen 40",
+        "protocolType": 1,
+        "typeId": 4398047559682
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - MURAL)",
+        "protocolType": 1,
+        "typeId": 4398049853452
+    },
+    {
+        "name": "Electrical towel dryer (Atlantic - IC3)",
+        "protocolType": 1,
+        "typeId": 4398049919244
+    },
+    {
+        "name": "Roller Shutter SOMFY - Altus RS",
+        "protocolType": 1,
+        "typeId": 5497558269954
+    },
+    {
+        "name": "Awning Valance SOMFY",
+        "protocolType": 1,
+        "typeId": 5497558335490
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Dexxo Smart io 1000)",
+        "protocolType": 1,
+        "typeId": 5497558481410
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Elixo 3S)",
+        "protocolType": 1,
+        "typeId": 5497558612482
+    },
+    {
+        "name": "Sonesse Wirefree",
+        "protocolType": 1,
+        "typeId": 5497558794242
+    },
+    {
+        "name": "Horizontal Awning Somfy - Sunea 50 CSI",
+        "protocolType": 1,
+        "typeId": 5497559187458
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - SPLIT)",
+        "protocolType": 1,
+        "typeId": 5497561481228
+    },
+    {
+        "name": "Electrical heater with adjustable temperature setpoint (Atlantic - BD3.3 without light)",
+        "protocolType": 1,
+        "typeId": 5497561547020
+    },
+    {
+        "name": "Roller Shutter SOMFY - Oximo 40",
+        "protocolType": 1,
+        "typeId": 6597069897730
+    },
+    {
+        "name": "Roller Shutter SOMFY with battery",
+        "protocolType": 1,
+        "typeId": 14293651292162
+    },
+    {
+        "name": "Screen Receiver Uno SOMFY",
+        "protocolType": 1,
+        "typeId": 6597069963266
+    },
+    {
+        "name": "Discrete Garage Door Opener SOMFY (Rollixo Smart IO)",
+        "protocolType": 1,
+        "typeId": 6597070109186
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Elixo Smart)",
+        "protocolType": 1,
+        "typeId": 6597070240258
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - V2 TEC5)",
+        "protocolType": 1,
+        "typeId": 6597073109004
+    },
+    {
+        "name": "Roller Shutter SOMFY - Awmio - Oximo CQFD",
+        "protocolType": 1,
+        "typeId": 7696581525506
+    },
+    {
+        "name": "Vertical Exterior Awning SOMFY - AWMIO",
+        "protocolType": 1,
+        "typeId": 7696581591042
+    },
+    {
+        "name": "Discrete Gate Opener SOMFY (Roly Smart IO)",
+        "protocolType": 1,
+        "typeId": 7696581868034
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - CE FLAT C2)",
+        "protocolType": 1,
+        "typeId": 7696584736780
+    },
+    {
+        "name": "Roller Shutter SOMFY - Short Motor IO",
+        "protocolType": 1,
+        "typeId": 8796093153282
+    },
+    {
+        "name": "Vertical Exterior Awning SOMFY - Sunea Sunilus",
+        "protocolType": 1,
+        "typeId": 8796093218818
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - CE S4)",
+        "protocolType": 1,
+        "typeId": 8796096364556
+    },
+    {
+        "name": "Roller Shutter SOMFY - MicroModule IO",
+        "protocolType": 1,
+        "typeId": 9895604781058
+    },
+    {
+        "name": "Vertical Exterior Awning SOMFY - Slim Receiver",
+        "protocolType": 1,
+        "typeId": 9895604846594
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - CETHI V4)",
+        "protocolType": 1,
+        "typeId": 9895607992332
+    },
+    {
+        "name": "Roller Shutter With Low Speed Management SOMFY (AIR)",
+        "protocolType": 1,
+        "typeId": 10995116408834
+    },
+    {
+        "name": "Vertical Exterior Awning SOMFY - Universal Screen",
+        "protocolType": 1,
+        "typeId": 10995116474370
+    },
+    {
+        "name": "Domestic hot water production (Atlantic V2 - CV4E)",
+        "protocolType": 1,
+        "typeId": 10995119620108
+    },
+    {
+        "name": "Roller Shutter SOMFY - Ilmo 2 50",
+        "protocolType": 1,
+        "typeId": 12094628036610
+    },
+    {
+        "name": "Sunea 40 - Vertical Exterior Awning SOMFY",
+        "protocolType": 1,
+        "typeId": 12094628102146
+    },
+    {
+        "name": "Roller Shutter SOMFY - Solus P&P 50",
+        "protocolType": 1,
+        "typeId": 13194139664386
+    },
+    {
+        "name": "Exterior Venetian Blind - J4 IO",
+        "protocolType": 1,
+        "typeId": 17592187158530
+    },
+    {
+        "name": "Exterior Venetian Blind with WP - J4 IO",
+        "protocolType": 1,
+        "typeId": 18691698786306
+    },
+    {
+        "name": "Exterior Venetian Blind J4 with WP2  - J4 IO",
+        "protocolType": 1,
+        "typeId": 20890722041858
+    },
+    {
+        "name": "Exterior Venetian Blind - EVB RTX BRIDGE",
+        "protocolType": 1,
+        "typeId": 35184373202946
+    },
+    {
+        "name": "Exterior Venetian Blind with WP - EVB RTX BRIDGE",
+        "protocolType": 1,
+        "typeId": 36283884830722
+    },
+    {
+        "name": "Exterior Venetian Blind J4 with WP2 - EVB RTX BRIDGE",
+        "protocolType": 1,
+        "typeId": 38482908086274
+    },
+    {
+        "name": "Exterior Venetian Blind - J4 IO PROTECT",
+        "protocolType": 1,
+        "typeId": 52776559247362
+    },
+    {
+        "name": "Exterior Venetian Blind with WP - J4 IO PROTECT",
+        "protocolType": 1,
+        "typeId": 53876070875138
+    },
+    {
+        "name": "Exterior Venetian Blind J4 with WP2 - J4 IO PROTECT",
+        "protocolType": 1,
+        "typeId": 56075094130690
+    },
+    {
+        "name": "Remote Controller (Public Trame)",
+        "protocolType": 1,
+        "typeId": 25836848128
+    },
+    {
+        "name": "V500 Remote Controller",
+        "protocolType": 1,
+        "typeId": 25836848384
+    }
+]

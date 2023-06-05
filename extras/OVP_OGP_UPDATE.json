@@ -1,0 +1,218 @@
+{
+  "core": {
+    "pollinterval": 60,
+    "webdav-root": "remote.php\/webdav"
+  },
+  "bruteforce": {
+    "delay": 0
+  },
+  "files": {
+    "bigfilechunking": true,
+    "blacklisted_files": [
+      ".htaccess"
+    ],
+    "directEditing": {
+      "url": "https:\/\/ogp-update.overkiz.com\/ocs\/v2.php\/apps\/files\/api\/v1\/directEditing",
+      "etag": "f04030fc05cebbb2ab8b98f195a370b9"
+    }
+  },
+  "activity": {
+    "apiv2": [
+      "filters",
+      "filters-api",
+      "previews",
+      "rich-strings"
+    ]
+  },
+  "circles": {
+    "version": "22.2.0",
+    "status": {
+      "globalScale": false
+    },
+    "settings": {
+      "frontendEnabled": true,
+      "allowedCircles": 131071,
+      "allowedUserTypes": 31,
+      "membersLimit": -1
+    },
+    "circle": {
+      "constants": {
+        "flags": {
+          "1": "Einzeln",
+          "2": "Pers\u00f6nlich",
+          "4": "System",
+          "8": "Sichtbar",
+          "16": "Offen",
+          "32": "Einladen",
+          "64": "Betrittsanfrage",
+          "128": "Freunde",
+          "256": "Passwortgesch\u00fctzt",
+          "512": "Kein Besitzer",
+          "1024": "Versteckt",
+          "2048": "Backend",
+          "4096": "Lokal",
+          "8192": "Root",
+          "16384": "Einladung zu Kreis",
+          "32768": "Federated",
+          "65536": "Einh\u00e4ngepunkt"
+        },
+        "source": {
+          "core": {
+            "1": "Nextcloud-Benutzer",
+            "2": "Nextcloud-Gruppe",
+            "4": "E-Mail-Adresse",
+            "8": "Kontakt",
+            "16": "Kreis",
+            "10000": "Nextcloud-App"
+          },
+          "extra": {
+            "10001": "Circles App",
+            "10002": "Admin Command Line"
+          }
+        }
+      },
+      "config": {
+        "coreFlags": [
+          1,
+          2,
+          4
+        ],
+        "systemFlags": [
+          512,
+          1024,
+          2048
+        ]
+      }
+    },
+    "member": {
+      "constants": {
+        "level": {
+          "1": "Mitglied",
+          "4": "Moderator",
+          "8": "Administrator",
+          "9": "Eigent\u00fcmer"
+        }
+      },
+      "type": {
+        "0": "single",
+        "1": "user",
+        "2": "group",
+        "4": "mail",
+        "8": "contact",
+        "16": "circle",
+        "10000": "app"
+      }
+    }
+  },
+  "ocm": {
+    "enabled": true,
+    "apiVersion": "1.0-proposal1",
+    "endPoint": "https:\/\/ogp-update.overkiz.com\/ocm",
+    "resourceTypes": [
+      {
+        "name": "file",
+        "shareTypes": [
+          "user",
+          "group"
+        ],
+        "protocols": {
+          "webdav": "\/public.php\/webdav\/"
+        }
+      }
+    ]
+  },
+  "dav": {
+    "chunking": "1.0"
+  },
+  "password_policy": {
+    "minLength": 10,
+    "enforceNonCommonPassword": true,
+    "enforceNumericCharacters": false,
+    "enforceSpecialCharacters": false,
+    "enforceUpperLowerCase": false,
+    "api": {
+      "generate": "https:\/\/ogp-update.overkiz.com\/ocs\/v2.php\/apps\/password_policy\/api\/v1\/generate",
+      "validate": "https:\/\/ogp-update.overkiz.com\/ocs\/v2.php\/apps\/password_policy\/api\/v1\/validate"
+    }
+  },
+  "provisioning_api": {
+    "version": "1.12.0",
+    "AccountPropertyScopesVersion": 2,
+    "AccountPropertyScopesFederationEnabled": true
+  },
+  "theming": {
+    "name": "OGP Updater",
+    "url": "https:\/\/ogp-update.com",
+    "slogan": "Administration panel",
+    "color": "#393D38",
+    "color-text": "#ffffff",
+    "color-element": "#393D38",
+    "color-element-bright": "#393D38",
+    "color-element-dark": "#393D38",
+    "logo": "https:\/\/ogp-update.overkiz.com\/apps\/theming\/image\/logo?useSvg=1&v=18",
+    "background": "#393D38",
+    "background-plain": true,
+    "background-default": true,
+    "logoheader": "https:\/\/ogp-update.overkiz.com\/apps\/theming\/image\/logo?useSvg=1&v=18",
+    "favicon": "https:\/\/ogp-update.overkiz.com\/apps\/theming\/image\/logo?useSvg=1&v=18"
+  },
+  "user_status": {
+    "enabled": true,
+    "supports_emoji": true
+  },
+  "weather_status": {
+    "enabled": true
+  },
+  "files_sharing": {
+    "api_enabled": true,
+    "public": {
+      "enabled": true,
+      "password": {
+        "enforced": false,
+        "askForOptionalPassword": false
+      },
+      "expire_date": {
+        "enabled": false
+      },
+      "multiple_links": true,
+      "expire_date_internal": {
+        "enabled": false
+      },
+      "expire_date_remote": {
+        "enabled": false
+      },
+      "send_mail": false,
+      "upload": true,
+      "upload_files_drop": true
+    },
+    "resharing": true,
+    "user": {
+      "send_mail": false,
+      "expire_date": {
+        "enabled": true
+      }
+    },
+    "group_sharing": true,
+    "group": {
+      "enabled": true,
+      "expire_date": {
+        "enabled": true
+      }
+    },
+    "default_permissions": 31,
+    "federation": {
+      "outgoing": true,
+      "incoming": true,
+      "expire_date": {
+        "enabled": true
+      },
+      "expire_date_supported": {
+        "enabled": true
+      }
+    },
+    "sharee": {
+      "query_lookup_default": false,
+      "always_show_unique": true
+    }
+  }
+}

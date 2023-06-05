@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="65" android:versionName="1.0.1-simu" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.simu.livein2" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:theme="@style/AppTheme" android:label="@string/simu_app_name" android:icon="@drawable/ic_launcher" android:name="com.modulotech.kizyplay.KizyPlay" android:allowBackup="true" android:hardwareAccelerated="true" android:supportsRtl="true" android:roundIcon="@drawable/ic_launcher" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:theme="@style/AppTheme" android:label="@string/simu_app_name" android:name="com.modulotech.kizyplay.activities.SimuStartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter/>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SimuLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.NewInstallActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.PairingTutorialActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingChooseRTSDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingTypeChooseActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SimuSmartDetailTriggerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.scenario.SimuScenarioDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.ConnectionTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.ConnectionTypeLoadingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.ScanQrCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.PairingTypeChooseActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.SIMURegisterBoxPinActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.SIMURegisterPersonnalInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.RegisterTermsActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SimuMainActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SimuDeviceSteeringActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingMainActivity" android:screenOrientation="portrait" android:parentActivityName="com.modulotech.kizyplay.activities.SimuMainActivity"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingActuatorActivity" android:screenOrientation="portrait" android:parentActivityName="com.modulotech.kizyplay.activities.pairing.SimuPairingChooseRTSDeviceActivity"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingRemoteActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.ConnectionExitInfoActivity" android:screenOrientation="portrait" android:parentActivityName="com.modulotech.kizyplay.activities.ConnectionTypeActivity"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.scenario.SimuScenarioAddEquipmentActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.scenario.SimuScenarioDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.SimuScheduleDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.SimuScheduleAddActionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.group.GroupListActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.group.GroupDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.group.GroupDeviceSteeringActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SimuSmartAddDeviceConditionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SimuSmartAddDeviceTriggerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuUnpairActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.SimuScheduleDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SimuKeyActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SimuSmartNewDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingDisclaimerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuHelpPairingActivityBHz" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.SimuScheduleActionSetTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.remote.SimuRemoteTriggerChooseActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.remote.SimuRemoteDeviceActionEditActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuPairingDeviceTestActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.SimuKeyPairingSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.installer.SimuKeyReceiveActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.installer.SimuKeySendActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.installer.SimuKeyManageActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SimuSmartDetailDeviceConditionActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.modulotech.kizyplay.activities.register.smartkiz.TimerService" android:enabled="true" android:exported="false"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.RegisterBoxPinActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.RegisterPersonnalInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.RegisterFinishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.bulc.RegisterBulcPlugActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.bulc.RegisterSetWifiPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.bulc.RegisterBulcFinishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.adhoc.RegisterAdHocInstructionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.adhoc.RegisterAdHocWifiConnectionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.adhoc.RegisterAdHocSsidPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.MainActivity" android:launchMode="singleTask" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/ToolBarWhiteArrow" android:name="com.modulotech.kizyplay.activities.DeviceSteeringActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.SensorSteeringActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme.ToolbarWhite" android:name="com.modulotech.kizyplay.activities.scenario.ScenarioDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/ToolBarWhiteArrow" android:name="com.modulotech.kizyplay.activities.scenario.ScenarioDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.scenario.ScenarioAddEquipmentActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.ScheduleDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.ScheduleAddActionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.ScheduleDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.schedule.ScheduleActionSetTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartDetailTriggerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartAddDeviceConditionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartAddDeviceTriggerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartNewDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.smart.SmartDetailDeviceConditionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.remote.RemoteTriggerChooseActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.remote.RemoteDeviceActionEditActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme.ToolbarWhite" android:name="com.modulotech.kizyplay.activities.pairing.PairingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.PairingChooseRTSDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.PairingSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.PairingBrandsActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.BrandsListDevicesActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme.ToolbarWhite" android:name="com.modulotech.kizyplay.activities.pairing.PairingDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.PairingDeviceTestActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingDisclaimerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingDiscoverGatewaysActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingChooseGatewayActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.bft.BftPairingFinishActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.somfy.SomfyThermostatActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.pairing.DiscoveredDevicesActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme" android:name="com.modulotech.kizyplay.activities.register.smartkiz.SmartKizActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="cd5ae710bc112300cbb4feb3456aa7eebd3499b4"/>
+        <activity android:name="fr.modulotech.nfc.activity.NFCActivity" android:screenOrientation="portrait"/>
+        <activity android:name="fr.modulotech.qrcode.activity.QRActivity"/>
+        <provider android:name="com.crashlytics.android.CrashlyticsInitProvider" android:exported="false" android:authorities="com.simu.livein2.crashlyticsinitprovider" android:initOrder="100"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.simu.livein2.firebaseinitprovider" android:initOrder="100"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

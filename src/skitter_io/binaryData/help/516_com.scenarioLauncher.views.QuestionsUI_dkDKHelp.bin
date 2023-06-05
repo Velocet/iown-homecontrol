@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<help>
+
+<category name="Min installation">
+<topic title="Min installation">
+<question title="Jeg kan ikke starte opbevaringsprocessen for produkterne">Slut en Skitter til din computer, og klik derefter på "Installation ikke korrekt". Sørg for, at dine produkter er tændt.</question>
+<question title="Nye produkter vises ikke">Sørg for, at dine produkter er tændt. Afslut Skit’Easy, og genstart derefter. Klik på fanen "Min installation", og derefter på knappen "Installation ikke korrekt". </question>
+<question title="Jeg kan ikke hente de produkter, der allerede er gemt på fjernbetjeningens sender (uden Skitter)">Sørg for, at fjernbetjeningens sender korrekt kontrollerer de produkter, du ønsker at tilføje menuen "Min installation". Fastslå derefter, om fjernbetjeningens sender har feedbackfunktion (logo "2" med dobbeltpil) eller ikke har feedbackfunktion (logo "1" med enkeltpil). Følg derefter installationsproceduren ved at klikke på "Installation ikke korrekt" på fanen "Min installation".</question>
+<question title="Applikationen stiller mig ikke længere spørgsmålet: &quot;Har du en fjernbetjeningssender med feedbackfunktion?&quot;">Din Skit’Easy-brugerflade har allerede gemt produkterne, og har hentet deres sikkerhedsnøgle Det kan være, at visse produkter i dit hjem har en anden sikkerhedsnøgle. Du må tilkalde en tekniker for at gemme disse produkter i din Skitter Easy-brugerflade. Hvis du er tekniker, kan du finde adgangskoden i vejledningen for "Skitter-installatører". </question>
+</topic>
+</category>
+<category name="Mine scenarier">
+<topic title="Mine scenarier">
+<question title="Jeg kan ikke oprette et scenarie">På fanen "Mine scenarier" skal du klikke på "Opret et nyt scenarie".  Træk og slip de produkter, du vil tilføje dit scenarie til de tomme felter nedenfor. Klik på hvert produkt, som du lige har tilføjet, for at ændre dets position i scenariet. Bekræft: Dit scenarie er nu oprettet.</question>
+<question title="Jeg kan ikke længere huske et scenaries virkning">Se dine scenarier på fanen "Mine scenarier". Derefter skal du klikke på det scenarie, du ønsker, for at se hvert produkts position. Du kan også klikke på "Test" for at se scenariets virkning i realtid.</question>
+</topic>
+</category>
+<category name="Mine Skitters">
+<topic title="Mine Skitters">
+<question title="Min Skitter vises ikke i Skit’Easy">Slut din Skitter til din computer vha. det medfølgende USB-kabel.</question>
+<question title="Jeg kan ikke indlæse et scenarie i min Skitter">Sørg for, at din Skitter er korrekt tilsluttet din computer vha. det medfølgende USB-kabel. Klik på fanen "Mine Skitters", og træk derefter det scenarie, der skal indlæses, til billedet, der repræsenterer din Skitter. Klik derefter på "Synkronisér".</question>
+<question title="Scenariet, der køres af en Skitter, passer ikke til det scenarie, jeg vil have">Tilslut Skitter'en til din computer, og kontrollér derefter i menuen "Mine Skitters", at scenarierne, der er gemt på denne Skitter, er scenarier, som du vil have. Hvis ikke, skal du trække de scenarier, du vil have, til Skitter'en, og derefter klikke på "Synkronisér".</question>
+</topic>
+</category>
+<category name="System">
+<topic title="System">
+<question title="Jeg kender ikke adgangskoden til at komme ind i funktionerne i menuen &quot;System&quot;">Funktionerne i menuen "System" kræver aktivering af vedligeholdelsestilstanden. Vedligeholdelsestilstanden er forbeholdt teknikere. Hvis du er tekniker, kan du finde adgangskoden i vejledningen for "Skitter-installatører".</question>
+<question title="Efter generering af en nøgle, eller modtagelse af en nøgle, virker overførslen til produktet ikke">Sørg for, at dine io-homecontrol-produkter er tændt under denne proces. Hvis fejlen vedbliver, skal du afkoble din Skitter og derefter køre dine scenarier i nærheden af produkterne. Hvis alle dine produkter fungerer, er den genererede nøgle blevet korrekt overført til produkterne.</question>
+<question title="Skitter Easy kan ikke modtage sikkerhedsnøglen fra en fjernbetjeningssender">Kontrollér, at fjernbetjeningen sender i tilstanden Nøgleoverførsel. Dernæst skal du bringe fjernbetjeningssenderen i nærheden af Skitter'en og køre modtagelsesprocessen for sikkerhedsnøglen.</question>
+<question title="Jeg kan ikke sende sikkerhedsnøglen til en fjernbetjeningssender">Klik på "Send sikkerhedsnøgle" fra SkitterEasy, og kør derefter modtagelsesprocessen for sikkerhedsnøglen på den valgte fjernbetjeningssender. Sørg for, at fjernbetjeningssenderen befinder sig i nærheden af Skitter'en.</question>
+</topic>
+</category></help>

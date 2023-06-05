@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<help>
+
+<category name="Mijn installatie">
+<topic title="Mijn installatie">
+<question title="Ik kan het proces voor het opslaan van toepassingen niet starten">Sluit een Skitter aan op uw computer en klik vervolgens op "producten toevoegen". Zorg ervoor dat uw toepassingen zijn ingeschakeld.</question>
+<question title="Nieuwe toepassingen worden niet weergegeven">Zorg ervoor dat uw toepassingen zijn ingeschakeld. Sluit Skit’Easy af en start het opnieuw. Klik op het tabblad "Mijn installatie" en vervolgens op de knop "producten toevoegen". </question>
+<question title="Ik kan geen toepassingen ophalen die al zijn opgeslagen in een afstandsbediening (excl. Skitter)">Controleer dat de afstandsbediening de producten die u wilt toevoegen aan het menu "Mijn installatie" correct bestuurt. Kijk vervolgens of uw afstandsbediening een terugmeld-functie (logo "2" met dubbele pijl) heeft of niet (logo "1" met enkele pijl). Volg daarna de installatieprocedure door te klikken op "producten toevoegen" op het tabblad "Mijn installatie".</question>
+<question title="De toepassing stelt mij niet langer de vraag: &quot;Hebt u een afstandsbediening met terugmeld-functie?&quot;">Uw Skit’Easy-interface heeft de toepassingen al opgeslagen en heeft hun beveiligingssleutel opgehaald. Mogelijk hebben bepaalde toepassingen in uw huis een andere beveiligingssleutel. Neem contact op met een professionele installateur om deze toepassingen op te slaan in uw Skitter Easy-interface. Als u een professionele installateur bent, vindt u het wachtwoord in de instructies voor Skitter-"installateurs". </question>
+</topic>
+</category>
+<category name="Mijn scenario's">
+<topic title="Mijn scenario's">
+<question title="Ik kan geen scenario aanmaken">Klik onder het tabblad "Mijn scenario's" op "Nieuw scenario aanmaken".  Sleep de producten die u aan uw scenario wilt toevoegen in de lege vakken eronder. Klik op elk product dat u zojuist hebt toegevoegd om de positie van het product die in het scenario moet worden opgeslagen te wijzigen. Bevestig: uw scenario is aangemaakt.</question>
+<question title="Ik herinner mij het effect van een scenario niet meer">Raadpleeg uw scenario's op het tabblad "Mijn scenario's". Klik vervolgens op het gewenste scenario en bekijk de positie van elke toepassing. U kunt ook op "Testen" klikken om de effecten van het scenario in real time te bekijken. </question>
+</topic>
+</category>
+<category name="Mijn Skitters">
+<topic title="Mijn Skitters">
+<question title="Mijn Skitter wordt niet weergegeven in Skit’Easy">Sluit uw Skitter aan op uw computer met de bijgeleverde USB-kabel.</question>
+<question title="Ik kan geen scenario in mijn Skitter laden">Zorg ervoor dat uw Skitter correct op uw computer is aangesloten met de bijgeleverde USB-kabel. Klik op het tabblad "Mijn Skitters" en sleep vervolgens het scenario dat u wilt laden op de afbeelding die uw Skitter voorstelt. Klik daarna op "Synchroniseren". </question>
+<question title="Het scenario dat de Skitter uitvoert komt niet overeen met mijn gewenste scenario">Sluit de Skitter aan op uw computer en controleer vervolgens in het menu "Mijn Skitters" dat de scenario's die in deze Skitter zijn opgeslagen uw gewenste scenario's zijn. Zo niet, sleep de gewenste scenario's dan naar de Skitter en klik daarna op "Synchroniseren".</question>
+</topic>
+</category>
+<category name="Systeem">
+<topic title="Systeem">
+<question title="Ik ken het wachtwoord niet dat toegang geeft tot de functies van het menu &quot;Systeem&quot;">Voor de functies van het menu "Systeem" moet de onderhoudsmodus worden geactiveerd. Deze onderhoudsmodus is voorbehouden voor professionele installateurs. Als u een professionele installateur bent, vindt u het wachtwoord in de instructies voor Skitter-"installateurs".</question>
+<question title="Na het genereren of ontvangen van een sleutel mislukt de overdracht van de sleutel naar de toepassingen">Zorg ervoor dat uw io-homecontrol-toepassingen zijn ingeschakeld tijdens dit proces. Als het probleem zich blijft voordoen, koppelt u de Skitter los en voert u de scenario's dicht bij de toepassingen uit. Als al uw toepassingen werken, is de gegenereerde sleutel correct overgedragen naar uw toepassingen.</question>
+<question title="Skitter Easy kan de beveiligingssleutel niet ontvangen van een afstandsbediening">Controleer dat de afstandsbediening in de sleuteloverdrachtmodus staat. Breng de afstandsbediening vervolgens dicht bij de Skitter en voer het proces voor het ontvangen van de beveiligingssleutel opnieuw uit.</question>
+<question title="Ik kan de beveiligingssleutel niet verzenden naar een afstandsbediening">Klik op "Beveiligingssleutel verzenden" in Skitter Easy en voer vervolgens het proces voor het ontvangen van de beveiligingssleutel uit op de gekozen afstandsbediening. Zorg ervoor dat de afstandsbediening zich dicht bij de Skitter bevindt.</question>
+</topic>
+</category></help>

@@ -1,0 +1,5242 @@
+[
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4504699139129346,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4505798650757122,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4506898162384898,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4507997674012674,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4509097185640450,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4504699139194882,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4505798650822658,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4506898162450434,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4507997674078210,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4509097185705986,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4510196697333762,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4510196697268226,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4511296208896002,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4512395720523778,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4513495232151554,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4514594743779330,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4515694255407106,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4516793767034882,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4517893278662658,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4518992790290434,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4520092301918210,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4521191813545986,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4522291325173762,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4523390836801538,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4524490348429314,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4525589860057090,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4526689371684866,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4527788883312642,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4528888394940418,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4529987906568194,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4531087418195970,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4532186929823746,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4533286441451522,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4534385953079298,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4535485464707074,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4536584976334850,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4537684487962626,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4538783999590402,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4539883511218178,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4540983022845954,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4542082534473730,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4543182046101506,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4544281557729282,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4545381069357058,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4546480580984834,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4547580092612610,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4548679604240386,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4549779115868162,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4550878627495938,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4551978139123714,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4553077650751490,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4554177162379266,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4555276674007042,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4556376185634818,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4557475697262594,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4558575208890370,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4559674720518146,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4560774232145922,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4561873743773698,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4562973255401474,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4564072767029250,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4565172278657026,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4566271790284802,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4567371301912578,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4568470813540354,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4569570325168130,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4570669836795906,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4571769348423682,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4572868860051458,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4573968371679234,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4575067883307010,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4576167394934786,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4577266906562562,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4578366418190338,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4579465929818114,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4580565441445890,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4581664953073666,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4582764464701442,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4583863976329218,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4584963487956994,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4586062999584770,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4587162511212546,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4588262022840322,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4589361534468098,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4590461046095874,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4591560557723650,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4592660069351426,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4593759580979202,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4594859092606978,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4595958604234754,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4597058115862530,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4598157627490306,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4599257139118082,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4600356650745858,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4601456162373634,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4602555674001410,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4603655185629186,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4604754697256962,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4605854208884738,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4606953720512514,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4608053232140290,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4609152743768066,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4610252255395842,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4611351767023618,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4612451278651394,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4613550790279170,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4614650301906946,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4615749813534722,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4616849325162498,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4617948836790274,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4619048348418050,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4620147860045826,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4621247371673602,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4622346883301378,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4623446394929154,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4624545906556930,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4625645418184706,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4626744929812482,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4627844441440258,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4628943953068034,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4630043464695810,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4631142976323586,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4632242487951362,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4633341999579138,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4634441511206914,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4635541022834690,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4636640534462466,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4637740046090242,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4638839557718018,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4639939069345794,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4641038580973570,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4642138092601346,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4643237604229122,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4644337115856898,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4645436627484674,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4646536139112450,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4647635650740226,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4648735162368002,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4649834673995778,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4650934185623554,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4652033697251330,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4653133208879106,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4654232720506882,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4655332232134658,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4656431743762434,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4657531255390210,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4658630767017986,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4659730278645762,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4660829790273538,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4661929301901314,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4663028813529090,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4664128325156866,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4511296208961538,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4504699140046850,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4512395720589314,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4505798651674626,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4513495232217090,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4506898163302402,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4507997674930178,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4514594743844866,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4509097186557954,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4515694255472642,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4510196698185730,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4511296209813506,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4516793767100418,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4512395721441282,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4517893278728194,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4513495233069058,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4518992790355970,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4514594744696834,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4515694256324610,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4516793767952386,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4517893279580162,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4520092301983746,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4518992791207938,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4521191813611522,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4520092302835714,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4522291325239298,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4521191814463490,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4523390836867074,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4522291326091266,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4524490348494850,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4523390837719042,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4525589860122626,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4524490349346818,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4526689371750402,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4525589860974594,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4527788883378178,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4526689372602370,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 0,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:KizOThermIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 267,
+        "uiClass": "HeatingSystem",
+        "widget": "KizOThermBridge"
+    },
+    {
+        "controllable": "io:KizOThermRoomTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 267,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermBoilerTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 267,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermDHWTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 267,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermOutsideTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 267,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:VenetianBlindIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 65536,
+        "uiClass": "VenetianBlind",
+        "widget": "PositionableVenetianBlind"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131072,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterVeluxIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131073,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableTiltedRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131074,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:AdjustableSlatsRollerShutterIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131328,
+        "uiClass": "AdjustableSlatsRollerShutter",
+        "widget": "PositionableOrOrientableRollerShutter"
+    },
+    {
+        "controllable": "io:AdjustableSlatsRollerShutterIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131330,
+        "uiClass": "AdjustableSlatsRollerShutter",
+        "widget": "PositionableOrOrientableRollerShutter"
+    },
+    {
+        "controllable": "io:ProjectionRollerShutterIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 131584,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableProjectionRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 196608,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningVeluxIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 196609,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 196610,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:WindowOpenerGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 262144,
+        "uiClass": "Window",
+        "widget": "PositionableWindow"
+    },
+    {
+        "controllable": "io:WindowOpenerVeluxIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 262145,
+        "uiClass": "Window",
+        "widget": "PositionableTiltedWindow"
+    },
+    {
+        "controllable": "io:WindowOpenerVeluxIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 262401,
+        "uiClass": "Window",
+        "widget": "PositionableTiltedWindow"
+    },
+    {
+        "controllable": "io:GarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 327680,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoor"
+    },
+    {
+        "controllable": "io:GarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 327682,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoor"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 342528,
+        "uiClass": "GarageDoor",
+        "widget": "DiscretePositionableGarageDoor"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 342530,
+        "uiClass": "GarageDoor",
+        "widget": "DiscretePositionableGarageDoor"
+    },
+    {
+        "controllable": "io:DimmableLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393216,
+        "uiClass": "Light",
+        "widget": "DimmerLight"
+    },
+    {
+        "controllable": "io:DimmableLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393218,
+        "uiClass": "Light",
+        "widget": "DimmerLight"
+    },
+    {
+        "controllable": "io:SwimmingPoolIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393471,
+        "uiClass": "SwimmingPool",
+        "widget": "SwimmingPool"
+    },
+    {
+        "controllable": "io:DimmableRGBLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393472,
+        "uiClass": "Light",
+        "widget": "DimmerRGBColouredLight"
+    },
+    {
+        "controllable": "io:DimmableRGBLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393474,
+        "uiClass": "Light",
+        "widget": "DimmerRGBColouredLight"
+    },
+    {
+        "controllable": "io:DimmableColorTemperatureLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 393730,
+        "uiClass": "Light",
+        "widget": "DimmerColorTemperatureLight"
+    },
+    {
+        "controllable": "io:OnOffLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 408064,
+        "uiClass": "Light",
+        "widget": "StatefulOnOffLight"
+    },
+    {
+        "controllable": "io:OnOffLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 408066,
+        "uiClass": "Light",
+        "widget": "StatefulOnOffLight"
+    },
+    {
+        "controllable": "io:OnOffLightMicroModuleSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023663618,
+        "uiClass": "Light",
+        "widget": "StatefulOnOffLight"
+    },
+    {
+        "controllable": "io:GateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 458752,
+        "uiClass": "Gate",
+        "widget": "PositionableGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:GateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 458754,
+        "uiClass": "Gate",
+        "widget": "PositionableGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 473600,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 473602,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:RollingDoorOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 524288,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoor"
+    },
+    {
+        "controllable": "io:RollingDoorOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 524290,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoor"
+    },
+    {
+        "controllable": "io:DoorLockIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 589824,
+        "uiClass": "DoorLock",
+        "widget": "DoorLock"
+    },
+    {
+        "controllable": "io:DoorLockIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 589826,
+        "uiClass": "DoorLock",
+        "widget": "DoorLock"
+    },
+    {
+        "controllable": "io:WindowLockIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 590080,
+        "uiClass": "DoorLock",
+        "widget": "WindowLock"
+    },
+    {
+        "controllable": "io:WindowLockIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 590090,
+        "uiClass": "DoorLock",
+        "widget": "WindowLock"
+    },
+    {
+        "controllable": "io:CarLockIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 590336,
+        "uiClass": "DoorLock",
+        "widget": "CarLock"
+    },
+    {
+        "controllable": "io:CarButtonIODeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 590336,
+        "uiClass": "CarButtonSensor",
+        "widget": "CarButtonSensor"
+    },
+    {
+        "controllable": "io:CarButtonIODeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 590336,
+        "uiClass": "CarButtonSensor",
+        "widget": "CarButtonSensor"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 655360,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindVeluxIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 655361,
+        "uiClass": "Screen",
+        "widget": "PositionableTiltedScreen"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 655362,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:DualRollerShutterIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 851968,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableDualRollerShutter"
+    },
+    {
+        "controllable": "io:HeatingTemperatureInterfaceIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 917504,
+        "uiClass": "HeatingSystem",
+        "widget": "HeatingTemperatureInterface"
+    },
+    {
+        "controllable": "io:OnOffIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 983040,
+        "uiClass": "OnOff",
+        "widget": "StatefulOnOff"
+    },
+    {
+        "controllable": "io:SwitchMicroModuleIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 983552,
+        "uiClass": "OnOff",
+        "widget": "TimedOnOff"
+    },
+    {
+        "controllable": "io:LightMicroModuleSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 983554,
+        "uiClass": "Light",
+        "widget": "TimedOnOffLight"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1048576,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:PergolaRailGuidedAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1048832,
+        "uiClass": "Pergola",
+        "widget": "PergolaHorizontalAwning"
+    },
+    {
+        "controllable": "io:DimmableLightMicroModuleSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023648770,
+        "uiClass": "Light",
+        "widget": "DimmerLight"
+    },
+    {
+        "controllable": "io:PergolaRailGuidedAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1048834,
+        "uiClass": "Pergola",
+        "widget": "PergolaHorizontalAwning"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1114112,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlind"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1179648,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1245184,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:VentilationPointIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1310720,
+        "uiClass": "VentilationSystem",
+        "widget": "VentilationInlet"
+    },
+    {
+        "controllable": "io:VentilationPointAirInletIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1310976,
+        "uiClass": "VentilationSystem",
+        "widget": "VentilationInlet"
+    },
+    {
+        "controllable": "io:VentilationPointAirTransferIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1311232,
+        "uiClass": "VentilationSystem",
+        "widget": "VentilationTransfer"
+    },
+    {
+        "controllable": "io:VentilationPointAirOutletIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1311488,
+        "uiClass": "VentilationSystem",
+        "widget": "VentilationOutlet"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1376256,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:ExteriorHeatingIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1376258,
+        "uiClass": "ExteriorHeatingSystem",
+        "widget": "DimmerExteriorHeating"
+    },
+    {
+        "controllable": "io:DiscreteExteriorHeatingIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1391106,
+        "uiClass": "ExteriorHeatingSystem",
+        "widget": "DiscreteExteriorHeating"
+    },
+    {
+        "controllable": "io:HeatPumpIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1441792,
+        "uiClass": "HeatPumpSystem",
+        "widget": "HeatPump"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatPumpMainComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1442060,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatPump"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCDHWComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 1,
+        "typeId": 1442060,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "AtlanticPassAPCDHW"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCOutsideTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TotalElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:DHWRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:HeatingRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:CoolingRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingAndCoolingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 1,
+        "typeId": 1442060,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 9,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingAndCoolingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 10,
+        "type": 1,
+        "typeId": 1442060,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 11,
+        "type": 2,
+        "typeId": 1442060,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCBoilerMainComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1442316,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCBoiler"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCDHWComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 1,
+        "typeId": 1442316,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "AtlanticPassAPCDHW"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCOutsideTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TotalFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:DHWRelatedFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:HeatingRelatedFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 1,
+        "typeId": 1442316,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 9,
+        "type": 1,
+        "typeId": 1442316,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 10,
+        "type": 2,
+        "typeId": 1442316,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AlarmIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1507328,
+        "uiClass": "Alarm",
+        "widget": "StatefulAlarmController"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1572864,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:SwingingShutterSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1572866,
+        "uiClass": "SwingingShutter",
+        "widget": "SwingingShutter"
+    },
+    {
+        "controllable": "io:DiscreteSwingingShutterSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1587714,
+        "uiClass": "SwingingShutter",
+        "widget": "SwingingShutter"
+    },
+    {
+        "controllable": "io:UnknownIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1573120,
+        "uiClass": "Generic",
+        "widget": "IOGeneric"
+    },
+    {
+        "controllable": "io:PositionableSlidingWindowComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1769472,
+        "uiClass": "Window",
+        "widget": "PositionableSlidingWindow"
+    },
+    {
+        "controllable": "io:PositionableAndLockableSlidingWindowComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1769730,
+        "uiClass": "Window",
+        "widget": "PositionableAndLockableSlidingWindow"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlMainComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCZoneControl"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 9,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 10,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 11,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 12,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 13,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 14,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 15,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneControlZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 16,
+        "type": 1,
+        "typeId": 1835020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 17,
+        "type": 2,
+        "typeId": 1835020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:BioclimaticPergolaIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1900544,
+        "uiClass": "Pergola",
+        "widget": "BioclimaticPergola"
+    },
+    {
+        "controllable": "io:BioclimaticPergolaIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1900546,
+        "uiClass": "Pergola",
+        "widget": "BioclimaticPergola"
+    },
+    {
+        "controllable": "io:SirenIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1966080,
+        "uiClass": "Siren",
+        "widget": "IOSiren"
+    },
+    {
+        "controllable": "io:SomfyIndoorSimpleSirenIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1966082,
+        "uiClass": "Siren",
+        "widget": "IOSiren"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 3342348,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 3342348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:ElectricalHeaterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3407872,
+        "uiClass": "HeatingSystem",
+        "widget": "ElectricalHeater"
+    },
+    {
+        "controllable": "io:AtlanticElectricalHeaterIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3407884,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalHeater"
+    },
+    {
+        "controllable": "io:ElectricalHeaterWithAdjustableTemperatureSetpointGenericIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3408128,
+        "uiClass": "HeatingSystem",
+        "widget": "ElectricalHeaterWithAdjustableTemperatureSetpoint"
+    },
+    {
+        "controllable": "io:AtlanticElectricalHeaterWithAdjustableTemperatureSetpointIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 3408140,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalHeaterWithAdjustableTemperatureSetpoint"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 3408140,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:ContactIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 3408140,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 3408140,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 3408140,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticHeatRecoveryVentilationIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 3473420,
+        "uiClass": "VentilationSystem",
+        "widget": "AtlanticHeatRecoveryVentilation"
+    },
+    {
+        "controllable": "io:CO2IOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "AirSensor",
+        "widget": "CO2Sensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 3473420,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:RSOverkizIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 16711691,
+        "uiClass": "Generic",
+        "widget": "unknown"
+    },
+    {
+        "controllable": "io:LightIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295032832,
+        "uiClass": "LightSensor",
+        "widget": "LuminanceSensor"
+    },
+    {
+        "controllable": "io:TemperatureIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295098368,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TemperatureIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295163904,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:WindIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295229440,
+        "uiClass": "WindSensor",
+        "widget": "WindSpeedSensor"
+    },
+    {
+        "controllable": "io:SunEnergyIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295360512,
+        "uiClass": "SunSensor",
+        "widget": "SunEnergySensor"
+    },
+    {
+        "controllable": "io:RelativeHumidityIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295426048,
+        "uiClass": "HumiditySensor",
+        "widget": "RelativeHumiditySensor"
+    },
+    {
+        "controllable": "io:RelativeHumidityIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295491584,
+        "uiClass": "HumiditySensor",
+        "widget": "RelativeHumiditySensor"
+    },
+    {
+        "controllable": "io:CO2IOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295557120,
+        "uiClass": "AirSensor",
+        "widget": "CO2Sensor"
+    },
+    {
+        "controllable": "io:COIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295622656,
+        "uiClass": "AirSensor",
+        "widget": "COSensor"
+    },
+    {
+        "controllable": "io:LightIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295688192,
+        "uiClass": "LightSensor",
+        "widget": "LuminanceSensor"
+    },
+    {
+        "controllable": "io:GasHeaterConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 2,
+        "typeId": 4295753728,
+        "uiClass": "GasSensor",
+        "widget": "GasHeaterConsumptionSensor"
+    },
+    {
+        "controllable": "io:GasDHWConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 4295753728,
+        "uiClass": "GasSensor",
+        "widget": "GasDHWConsumptionSensor"
+    },
+    {
+        "controllable": "io:CumulatedWaterConsumptionIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295819264,
+        "uiClass": "WaterSensor",
+        "widget": "CumulativeWaterConsumptionSensor"
+    },
+    {
+        "controllable": "io:CumulatedThermalEnergyConsumptionIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295884800,
+        "uiClass": "ThermalEnergySensor",
+        "widget": "CumulativeThermalEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4295950336,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:TotalElectricalEnergyConsumptionIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:HeatingElectricalEnergyConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:DHWElectricalEnergyConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AirConditioningElectricalEnergyConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:PlugsElectricalEnergyConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:OtherElectricalEnergyConsumptionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:DomesticHotWaterTankComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 1,
+        "typeId": 4295950348,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterTank"
+    },
+    {
+        "controllable": "io:ElectricityMeterComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 1,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "AtlanticMultiMeterElectricSensor"
+    },
+    {
+        "controllable": "io:EnergyConsumptionSensorsConfigurationComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 9,
+        "type": 1,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "AtlanticMultiMeterElectricConfiguration"
+    },
+    {
+        "controllable": "io:EnergyConsumptionSensorsHeatPumpComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 10,
+        "type": 1,
+        "typeId": 4295950348,
+        "uiClass": "ElectricitySensor",
+        "widget": "AtlanticMultiMeterElectricHeatPump"
+    },
+    {
+        "controllable": "io:SmokeIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303355904,
+        "uiClass": "SmokeSensor",
+        "widget": "SmokeSensor"
+    },
+    {
+        "controllable": "io:SomfySmokeIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303355906,
+        "uiClass": "SmokeSensor",
+        "widget": "SmokeSensor"
+    },
+    {
+        "controllable": "io:ContactIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303683584,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:SomfyContactIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303683586,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303749120,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:SomfyOccupancyIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303749122,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:RainIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303880192,
+        "uiClass": "RainSensor",
+        "widget": "RainSensor"
+    },
+    {
+        "controllable": "io:SomfyRainIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4303880194,
+        "uiClass": "RainSensor",
+        "widget": "RainSensor"
+    },
+    {
+        "controllable": "io:WindowStateSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 2,
+        "typeId": 4311613440,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionEventSensor"
+    },
+    {
+        "controllable": "io:IntrusionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 4311613440,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionSensor"
+    },
+    {
+        "controllable": "io:WindowStateSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 2,
+        "typeId": 1103823241218,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionEventSensor"
+    },
+    {
+        "controllable": "io:SomfyIDEOIIntrusionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 1103823241218,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionSensor"
+    },
+    {
+        "controllable": "io:SlidingWindowStateSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 2,
+        "typeId": 2203334868994,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionEventSensor"
+    },
+    {
+        "controllable": "io:SomfyIDEOIIntrusionSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 2203334868994,
+        "uiClass": "ContactSensor",
+        "widget": "IntrusionSensor"
+    },
+    {
+        "controllable": "io:GenericPulseSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 4311678976,
+        "uiClass": "unknown",
+        "widget": "unknown"
+    },
+    {
+        "controllable": "io:StackComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 5,
+        "typeId": 8656978944,
+        "uiClass": "ProtocolGateway",
+        "widget": "IOStack"
+    },
+    {
+        "controllable": "io:BeaconIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 6,
+        "typeId": 21475622912,
+        "uiClass": "NetworkComponent",
+        "widget": "Repeater"
+    },
+    {
+        "controllable": "io:IORemoteController",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 4,
+        "typeId": 25836847104,
+        "uiClass": "RemoteController",
+        "widget": "RemoteControllerOneWay"
+    },
+    {
+        "controllable": "io:KeygoController",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 4,
+        "typeId": 25836847616,
+        "uiClass": "RemoteController",
+        "widget": "RemoteControllerOneWay"
+    },
+    {
+        "controllable": "io:IzymoController",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 4,
+        "typeId": 25836847872,
+        "uiClass": "RemoteController",
+        "widget": "RemoteControllerOneWay"
+    },
+    {
+        "controllable": "io:KizOThermV2IOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1099511628043,
+        "uiClass": "HeatingSystem",
+        "widget": "KizOThermV2Bridge"
+    },
+    {
+        "controllable": "io:KizOThermRoomTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 1099511628043,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermBoilerTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1099511628043,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermDHWTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 1099511628043,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:KizOThermOutsideTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1099511628043,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099511758850,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:GradHermeticIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099511759106,
+        "uiClass": "AdjustableSlatsRollerShutter",
+        "widget": "PositionableOrOrientableRollerShutter"
+    },
+    {
+        "controllable": "io:PergolaScreenIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099511824386,
+        "uiClass": "Pergola",
+        "widget": "PositionableAndStretchablePergolaScreen"
+    },
+    {
+        "controllable": "io:WindowOpenerUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099511889922,
+        "uiClass": "Window",
+        "widget": "PositionableWindowUno"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerWithPartialPositionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099511970306,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoorWithPartialPosition"
+    },
+    {
+        "controllable": "io:DimmableLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512020994,
+        "uiClass": "Light",
+        "widget": "DimmerLight"
+    },
+    {
+        "controllable": "io:DimmableRGBLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512021250,
+        "uiClass": "Light",
+        "widget": "DimmerRGBColouredLight"
+    },
+    {
+        "controllable": "io:DimmableColorTemperatureLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512021506,
+        "uiClass": "Light",
+        "widget": "DimmerColorTemperatureLight"
+    },
+    {
+        "controllable": "io:OnOffLightIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512035842,
+        "uiClass": "Light",
+        "widget": "StatefulOnOffLight"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512101378,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:LockUnlockDoorLockWithUnknownPositionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512217602,
+        "uiClass": "DoorLock",
+        "widget": "LockUnlockDoorLockWithUnknownPosition"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512283138,
+        "uiClass": "Screen",
+        "widget": "PositionableScreenUno"
+    },
+    {
+        "controllable": "io:CyclicStandardReceiverIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512610818,
+        "uiClass": "Generic",
+        "widget": "CyclicGeneric"
+    },
+    {
+        "controllable": "io:SwitchMicroModuleSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512611330,
+        "uiClass": "OnOff",
+        "widget": "TimedOnOff"
+    },
+    {
+        "controllable": "io:HorizontalAwningUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512676354,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwningUno"
+    },
+    {
+        "controllable": "io:PergolaHorizontalUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512676610,
+        "uiClass": "Pergola",
+        "widget": "PergolaHorizontalAwningUno"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWPIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512741888,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP"
+    },
+    {
+        "controllable": "io:CurtainTrackUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099512872962,
+        "uiClass": "Curtain",
+        "widget": "CurtainTrackUno"
+    },
+    {
+        "controllable": "io:SimpleExteriorHeatingIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099513004034,
+        "uiClass": "ExteriorHeatingSystem",
+        "widget": "DimmerExteriorHeating"
+    },
+    {
+        "controllable": "io:DiscreteExteriorHeatingIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099513018882,
+        "uiClass": "ExteriorHeatingSystem",
+        "widget": "DiscreteExteriorHeating"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatPumpMainComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1099513069836,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatPump"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCDHWComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 1,
+        "typeId": 1099513069836,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "AtlanticPassAPCDHW"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCOutsideTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:TotalElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:DHWRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:HeatingRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:CoolingRelatedElectricalEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingAndCoolingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 1,
+        "typeId": 1099513069836,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 9,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingAndCoolingZoneComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 10,
+        "type": 1,
+        "typeId": 1099513069836,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticPassAPCHeatingAndCoolingZone"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCZoneTemperatureSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 11,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCHeatingFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 12,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCECSFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 13,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticPassAPCTotalFossilEnergyConsumptionSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 14,
+        "type": 2,
+        "typeId": 1099513069836,
+        "uiClass": "ConsumptionSensor",
+        "widget": "CumulativeFossilEnergyConsumptionSensor"
+    },
+    {
+        "controllable": "io:PositionableAndLockableSlidingWindowComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099513397506,
+        "uiClass": "Window",
+        "widget": "PositionableAndLockableSlidingWindow"
+    },
+    {
+        "controllable": "io:SimpleBioclimaticPergolaIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 1099513528322,
+        "uiClass": "Pergola",
+        "widget": "BioclimaticPergola"
+    },
+    {
+        "controllable": "io:SimpleBioclimaticPergolaIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199025156098,
+        "uiClass": "Pergola",
+        "widget": "BioclimaticPergola"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1099514970124,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 1099514970124,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticElectricalTowelDryerIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1099515035916,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalTowelDryer"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:LightIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "LightSensor",
+        "widget": "LuminanceSensor"
+    },
+    {
+        "controllable": "io:RelativeHumidityIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "HumiditySensor",
+        "widget": "RelativeHumiditySensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 1099515035916,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:HeatingValveIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 1103806726146,
+        "uiClass": "HeatingSystem",
+        "widget": "ValveHeatingTemperatureInterface"
+    },
+    {
+        "controllable": "io:TemperatureIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 1103806726146,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:SomfyBasicContactIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 2,
+        "typeId": 1103815311362,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023386626,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:VRHollaIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023386882,
+        "uiClass": "AdjustableSlatsRollerShutter",
+        "widget": "PositionableOrProgressiveOrientableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023452162,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreenUno"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023598082,
+        "uiClass": "GarageDoor",
+        "widget": "DiscretePositionableGarageDoor"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023729154,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199023910914,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:AwningReceiverUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199024304130,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwningUno"
+    },
+    {
+        "controllable": "io:PergolaRailGuidedAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199024304386,
+        "uiClass": "Pergola",
+        "widget": "PergolaHorizontalAwning"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 2199024369666,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindUno"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV3IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 2199026597900,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 2199026597900,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticElectricalHeaterWithAdjustableTemperatureSetpointIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 2199026663692,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalHeaterWithAdjustableTemperatureSetpoint"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 2199026663692,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:ContactIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 2199026663692,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 2199026663692,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 2199026663692,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:HeatingThermostatIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 2203318353922,
+        "uiClass": "HeatingSystem",
+        "widget": "ThermostatHeatingTemperatureInterface"
+    },
+    {
+        "controllable": "io:TemperatureIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 2203318353922,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:RelativeHumidityIOSystemSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 2203318353922,
+        "uiClass": "HumiditySensor",
+        "widget": "RelativeHumiditySensor"
+    },
+    {
+        "controllable": "io:RollerShutterUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535014402,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterUno"
+    },
+    {
+        "controllable": "io:PergolaSideScreenIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535079938,
+        "uiClass": "Pergola",
+        "widget": "PergolaSideScreen"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerWithPartialPositionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535225858,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoorWithPartialPosition"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535356930,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535538690,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535931906,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWP2IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 3298535997442,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP2"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_AEX_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 3298538225676,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 3298538225676,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticElectricalHeaterWithAdjustableTemperatureSetpointIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 3298538291468,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalHeaterWithAdjustableTemperatureSetpoint"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 3298538291468,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:ContactIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 3298538291468,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 3298538291468,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 3298538291468,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticDimmableLightIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 1,
+        "typeId": 3298538291468,
+        "uiClass": "Light",
+        "widget": "DimmerLight"
+    },
+    {
+        "controllable": "io:RollerShutterUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398046642178,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterUno"
+    },
+    {
+        "controllable": "io:DropArmAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398046707714,
+        "uiClass": "Awning",
+        "widget": "DropArmAwning"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerWithPartialPositionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398046853634,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoorWithPartialPosition"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398046984706,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398047166466,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 4398047559682,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_MURAL_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 4398049853452,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 4398049853452,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticElectricalTowelDryer_IC3_IOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 4398049919244,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalTowelDryer"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:LightIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "LightSensor",
+        "widget": "LuminanceSensor"
+    },
+    {
+        "controllable": "io:RelativeHumidityIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "HumiditySensor",
+        "widget": "RelativeHumiditySensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 6,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 7,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "core:WeatherSystemSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 8,
+        "type": 2,
+        "typeId": 4398049919244,
+        "uiClass": "WeatherSensor",
+        "widget": "WeatherForecastSensor"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497558269954,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:AwningValanceIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497558335490,
+        "uiClass": "Awning",
+        "widget": "AwningValance"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerWithPartialPositionIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497558481410,
+        "uiClass": "GarageDoor",
+        "widget": "PositionableGarageDoorWithPartialPosition"
+    },
+    {
+        "controllable": "io:SlidingDiscreteGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497558612482,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:VerticalInteriorBlindWithBatterySomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497558794242,
+        "uiClass": "Screen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:HorizontalAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 5497559187458,
+        "uiClass": "Awning",
+        "widget": "PositionableHorizontalAwning"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_SPLIT_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 5497561481228,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 5497561481228,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:AtlanticElectricalHeaterWithAdjustableTemperatureSetpointIOComponent",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 5497561547020,
+        "uiClass": "HeatingSystem",
+        "widget": "AtlanticElectricalHeaterWithAdjustableTemperatureSetpoint"
+    },
+    {
+        "controllable": "io:TemperatureInCelciusIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 5497561547020,
+        "uiClass": "TemperatureSensor",
+        "widget": "TemperatureSensor"
+    },
+    {
+        "controllable": "io:ContactIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 3,
+        "type": 2,
+        "typeId": 5497561547020,
+        "uiClass": "ContactSensor",
+        "widget": "ContactSensor"
+    },
+    {
+        "controllable": "io:OccupancyIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 4,
+        "type": 2,
+        "typeId": 5497561547020,
+        "uiClass": "OccupancySensor",
+        "widget": "OccupancySensor"
+    },
+    {
+        "controllable": "io:CumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 0,
+        "protocolType": 1,
+        "subsystemId": 5,
+        "type": 2,
+        "typeId": 5497561547020,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 6597069897730,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:RollerShutterWithBatterySomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 14293651292162,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:ScreenReceiverUnoIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 6597069963266,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreenUno"
+    },
+    {
+        "controllable": "io:DiscreteGarageOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 6597070109186,
+        "uiClass": "GarageDoor",
+        "widget": "DiscretePositionableGarageDoor"
+    },
+    {
+        "controllable": "io:SlidingDiscreteFullyPedestriableGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 6597070240258,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_TEC5_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 6597073109004,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 6597073109004,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 7696581525506,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 7696581591042,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:SlidingDiscreteFullyPedestriableGateOpenerIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 7696581868034,
+        "uiClass": "Gate",
+        "widget": "SlidingDiscreteGateWithPedestrianPosition"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_CE_FLAT_C2_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 7696584736780,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 7696584736780,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 8796093153282,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 8796093218818,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_CE_S4_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 8796096364556,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 8796096364556,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:MicroModuleRollerShutterSomfyIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 9895604781058,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 9895604846594,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_CETHI_V4_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 9895607992332,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 9895607992332,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:RollerShutterWithLowSpeedManagementIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 10995116408834,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutterWithLowSpeedManagement"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 10995116474370,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:AtlanticDomesticHotWaterProductionV2_CV4E_IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 1,
+        "type": 1,
+        "typeId": 10995119620108,
+        "uiClass": "WaterHeatingSystem",
+        "widget": "DomesticHotWaterProduction"
+    },
+    {
+        "controllable": "io:DHWCumulatedElectricalEnergyConsumptionIOSystemDeviceSensor",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 2,
+        "type": 2,
+        "typeId": 10995119620108,
+        "uiClass": "ElectricitySensor",
+        "widget": "CumulativeElectricPowerConsumptionSensor"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 12094628036610,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:VerticalExteriorAwningIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 12094628102146,
+        "uiClass": "ExteriorScreen",
+        "widget": "PositionableScreen"
+    },
+    {
+        "controllable": "io:RollerShutterGenericIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 13194139664386,
+        "uiClass": "RollerShutter",
+        "widget": "PositionableRollerShutter"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 17592187158530,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlind"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWPIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 18691698786306,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWP2IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 20890722041858,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP2"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 35184373202946,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlind"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWPIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 36283884830722,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWP2IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 38482908086274,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP2"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 52776559247362,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlind"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWPIOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 53876070875138,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP"
+    },
+    {
+        "controllable": "io:ExteriorVenetianBlindWithWP2IOComponent",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 1,
+        "typeId": 56075094130690,
+        "uiClass": "ExteriorVenetianBlind",
+        "widget": "PositionableExteriorVenetianBlindWithWP2"
+    },
+    {
+        "controllable": "io:GenericOneWayController",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 4,
+        "typeId": 25836848128,
+        "uiClass": "RemoteController",
+        "widget": "RemoteControllerOneWay"
+    },
+    {
+        "controllable": "io:V500Controller",
+        "localPairing": 1,
+        "protocolType": 1,
+        "subsystemId": 0,
+        "type": 4,
+        "typeId": 25836848384,
+        "uiClass": "RemoteController",
+        "widget": "RemoteControllerOneWay"
+    }
+]
