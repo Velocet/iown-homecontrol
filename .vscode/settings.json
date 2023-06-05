@@ -9,7 +9,7 @@
   "editor.detectIndentation": false,
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
-  "editor.useTabStops": false,
+  "editor.useTabStops": true,
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.insertFinalNewline": true,

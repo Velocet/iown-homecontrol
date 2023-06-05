@@ -1,21 +1,18 @@
 # Logs / Reports
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+#logs
+*-error.log*
+*-debug.log*
+report.*.json
 
 # Runtime/Compiled data
-build/Release
+#build/Release
 pids
 *.pid
 *.seed
-*.pid.lock
+*.lock
 
 # Dependencies
-node_modules/
+node_modules/*
 .npm
 .node_repl_history
 
@@ -24,4 +21,4 @@ node_modules/
 .env
 .env.test
 .cache
-.cache/
+.cache/*
