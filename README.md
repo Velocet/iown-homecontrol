@@ -111,10 +111,10 @@ OEM Hardware Overview (eg. transceiver chips, MCUs, SOCs, remote controls)
   - KLR 200 - (2w) Remote Control Pad
   - KUX 100 - (1w) Remote Control (long, like KLF 31x)
   - KUX 110 - (2w) Controller for wired products (via 24V +/-) via io-Homecontrol (KUX 100 successor)
-  - KLI 310 - (1w) Remote Control
-  - KLI 311 - (1w) Remote Control Window
-  - KLI 312 - (1w) Remote Control Inner
-  - KLI 313 - (1w) Remote Control Outer
+  - KLI 310 - (1w) Wall Mounted Remote Control for Universal Usage
+  - KLI 311 - (1w) Wall Mounted Remote Control for Window
+  - KLI 312 - (1w) Wall Mounted Remote Control for Inner Sun Blind
+  - [KLI 313 - (1w) Wall Mounted Remote Control for Outer Sun Blind](/products/velux/kli_313.md)
   - KIX 300 - Package: KIG 300, Raumklimasensor, Abwesenheitsschalter
     - VELUX ACTIVE indoor climate control KIX 300
     - Gateway KLG 300/3LG E01/NXG01E
@@ -128,12 +128,13 @@ OEM Hardware Overview (eg. transceiver chips, MCUs, SOCs, remote controls)
 - Overkiz Minibox
   - Cozytouch Branding
     - Atlantic
-    - Thermor 
+    - Thermor
   - Cotherm I-Vista
   - Hitachi HI-KUMO
   - Nexity Eugénie
   - Rexel Energeasy Connect
   - Somfy Connexoon
+  - [Somfy SMOOVE Origin IO](/products/somfy/smoove_origin_io.md)
   - Somfy TaHoma
     - SI4461 + STM32F101RCT6
 - Other Manufacturers
