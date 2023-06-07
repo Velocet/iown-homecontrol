@@ -2292,23 +2292,16 @@ Command ID=0, Originator=1 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0,
   - Manufacturer = 0x02 (Somfy)
   - Data = FF 0143000C0000
 
-Manufacture Specific Private Commands. These get defined and interpreted differently for every OEM.
+Manufacturer Specific Private Commands. These get defined and interpreted differently for every OEM.
 
-- Example: Thermor I2G = `20 0C 61 0103 C300`
+- Example: Thermor Heaters with I2G card
+  = `20 0C 61 0103 C300` (`0C` is Atlantic) ->
+
   - `61 0103 C3 00`: `C3` (dec: 195) is 19.5°C set with button
   - `61 0103 D2 00`: `D2` (dec: 210) is 21.0°C set with button
-     AC MaPa F1 F1
-  20 - Base Command: WritePrivate
-  Parameter:
-     02 - Main Parameter
-          Function Parameter:
-        -  - 4 more FP
-            02 - stop_after_save_limit
-            04 - enter_settings_mode
-            05 - save_lower_end_limit
-            06 - save_upper_end_limit
-            .. - ???
-            DF save_settings
+  - `61 0100 00` : `00` AUTO, `01` MANUAL, `02` PROG   
+  - `61 010f 1d   34   13   07   04   04   e7   07` : TimeStamp of the device (Manualy done at setup)
+            UNK  MIN  HOU  DAY  UNK  MON  YEA  UNK
 
 ### 21: Private Protocol Response
 
