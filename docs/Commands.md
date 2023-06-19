@@ -2268,7 +2268,8 @@ Command ID=0, Originator=1 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0,
 
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
-
+  Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
+  
 ### 04: Private Command Answer
 
 - Command ID: 0x04 (1 byte)
@@ -2278,6 +2279,12 @@ Command ID=0, Originator=1 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0,
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
+  
+### 19: Unknown
+
+- Command ID: 0x19 (1 byte)
+- Data? (1 byte)
+  Example: 2W S 1 E 0       FROM 842E3      TO 20E52E       CMD 19  DATA(1)02 or 04 or 07
 
 ### 1A: Answer: Set Sensor Value
 
