@@ -391,6 +391,11 @@ D1 00 F00F00 FEEFEE 29 FFC0 FEEFEE 0C CC 0000 1234
 ## Discover confirmation ack
 88 00 F00F00 FEEFEE 2D 1234
 ```
+Must send a 0x38 key transfer, just after the 0x2d discover confirmation ack to effectivly have the device added
+```TEXT
+// Controller ask for key transfer using challenge 123456789ABC
+4E 04 FEEFEE F00F00 38 123456789ABC 23B6
+```
 
 ### 2-way: Specialized Discover
 
