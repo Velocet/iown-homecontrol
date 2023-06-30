@@ -2693,7 +2693,7 @@ See General Info 2 for decoding
 
 - Command ID: 0xFE (1 byte)
 - ?? (1 byte)
-
+Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
 > **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode
 
 ### FF Communication Gateway Receiver
