@@ -230,29 +230,6 @@ OEM Hardware Overview (eg. transceiver chips, MCUs, SOCs, remote controls)
 - Naming Scheme: ABC nnn (nAB Cnn DD)
   - ABC nnn
   - n = / AB = | C = / nn = | DD = Region (WW > WorldWide / EU > Europe / US > US of A)
-- KLF  50 - Wall Switch
-- KLF 100 - Interface (see [Controling Velux Windows With Fibaro](https://k2aab.com/home-automation/sub-page-1/controling-velux-windows-with-fibaro/))
-- KLF 200 - Internet Gateway/Interface
-- KRX 100 - (2w) Remote Controller with Screen (KLF 102 > 3LF D02)
-- KLR 100 - (2w) Remote Control with Screen
-- KLR 200 - (2w) Remote Control Pad
-- KUX 100 - (1w) Remote Control (long, like KLF 31x)
-- KUX 110 - (2w) Controller for wired products (via 24V +/-) (KUX 100 successor)
-- KLI 310 - (1w) Remote Control
-- KLI 311 - (1w) Remote Control Window
-- KLI 312 - (1w) Remote Control Inner
-- KLI 313 - (1w) Remote Control Outer
-- KIX 300 - Package: KIG 300, Raumklimasensor, Abwesenheitsschalter
-  - VELUX ACTIVE indoor climate control KIX 300
-  - Gateway KLG 300/3LG E01/NXG01E
-  - Climate Sensor KLA 300/3LA E06/NXS01
-  - Departure Switch KLN 300/3LN E01/NXD01E
-- KIG 300 - Internet Gateway NXG01E / NXG01C / NXS01 / NXD01E
-- KRD 100 - Remote Socket (1W)
-- KMX 100 - UNKNOWN
-- KMX 200 - UNKNOWN
-- KLA 130 - UNKNOWN
-
 - VELUX INTEGRA® (ioHc) Products
   - roof windows GGL (----21), GGU (----21)
   - Solar roof windows GGL (----30), GGU (----30)
@@ -262,38 +239,52 @@ OEM Hardware Overview (eg. transceiver chips, MCUs, SOCs, remote controls)
   - conversion kit KMX 200 (3MX A01, 3LA A01, 3LR A01) for roof windows GHL, GHU, GPL, GPU, GTL, GTU, VKU
   - Solar conversion kits KSX 100 (3SM B01, 3SD B01, 3LR A01), KSX 100K (3SM BK01, 3LR A02) for roof windows GGL, GGU
   - Control pad KLR 200 (3LR A02)
+- KLF  50 - Wall Switch
+- KLF 100 - Interface (see [Controling Velux Windows With Fibaro](https://k2aab.com/home-automation/sub-page-1/controling-velux-windows-with-fibaro/))
+- KLF 200 - Internet Gateway/Interface
+- KRX 100 - (2w) Remote Controller with Screen (KLF 102 > 3LF D02)
+- KLR 100 - (2w) Remote Control with Screen
+- KLR 200 - (2w) Remote Control Pad
+- KUX 100 - (1w) Remote Control (long, like KLF 31x)
+- KUX 110 - (2w) Controller for wired products (via 24V +/-) via io-Homecontrol (KUX 100 successor)
+- KLI 310 - (1w) Wall Mounted Remote Control for Universal Usage
+- KLI 311 - (1w) Wall Mounted Remote Control for Window
+- KLI 312 - (1w) Wall Mounted Remote Control for Inner Sun Blind
+- [KLI 313 - (1w) Wall Mounted Remote Control for Outer Sun Blind](/products/velux/kli_313.md)
+- KIX 300 - Package: KIG 300, Raumklimasensor, Abwesenheitsschalter
+  - VELUX ACTIVE indoor climate control KIX 300
+  - Gateway KLG 300/3LG E01/NXG01E
+  - Climate Sensor KLA 300/3LA E06/NXS01
+  - Departure Switch KLN 300/3LN E01/NXD01E
+- KIG 300 - Internet Gateway NXG01E / NXG01C / NXS01 / NXD01E
+- KRD 100 - Remote Socket (1w)
+- KMX 100 - UNKNOWN
+- KMX 200 - UNKNOWN
+- KLA 130 - UNKNOWN
 
 </details>
 
 ## Links
 
 - FCC: [VELUX America Inc.](https://fccid.io/XSG)
-
-### RTL-SDR
-
-- [Universal Radio Hacker](https://github.com/jopohl/urh)
-- [SDRangel](https://github.com/f4exb/sdrangel)
-- [inspectrum](https://github.com/miek/inspectrum)
-- [HDSDR](http://www.hdsdr.de/)
-
-### Kizbox Rooting
-
-- TaHoma: [Somfy TaHoma Jailbreak](https://github.com/Aldohrs/tahoma-jailbreak)
-- Connexoon: [No clouds, just sunshine. Disconnecting Somfy Connexoon from the cloud.](https://blog.unauthorizedaccess.nl/2021/04/07/no-clouds-just-sunshine.html)
-- CozyTouch: [CozyTouch Rooting the CozyTouch aka KizBox Mini](https://www.lafois.com/2020/11/07/rooting-the-cozytouch-aka-kizbox-mini-part-1/)
-
 - [FLOSS @ Overkiz](https://floss.overkiz.com)
-- [https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/at91-kizbox.dts]
-
-### Online Discussions
-
-- [https://github.com/merbanan/rtl_433/issues/1376]
-- [https://github.com/RFD-FHEM/RFFHEM/issues/984]
-- [https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413]
-
-#### Velux Blinds
-
-- [No KUX, just Loxone](https://smarthome.exposed/controlling-velux-windows/)
-- [Velux SML Rolläden „ablernen“ bzw. resetten](https://wolf-u.li/5920/velux-sml-rollaeden-ablernen-bzw-resetten/)
-- [snipsvelux](https://github.com/Psychokiller1888/snipsvelux)
-- [VeluxIR](https://github.com/zschub/VeluxIR) - IR protocol for old Velux remotes
+  - [https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/at91-kizbox.dts]
+- Kizbox Rooting
+  - TaHoma: [Somfy TaHoma Jailbreak](https://github.com/Aldohrs/tahoma-jailbreak)
+  - Connexoon: [No clouds, just sunshine. Disconnecting Somfy Connexoon from the cloud.](https://blog.unauthorizedaccess.nl/2021/04/07/no-clouds-just-sunshine.html)
+  - CozyTouch: [CozyTouch Rooting the CozyTouch aka KizBox Mini](https://www.lafois.com/2020/11/07/rooting-the-cozytouch-aka-kizbox-mini-part-1/)
+- Software
+  - RTL-SDR
+    - [Universal Radio Hacker](https://github.com/jopohl/urh)
+    - [SDRangel](https://github.com/f4exb/sdrangel)
+    - [inspectrum](https://github.com/miek/inspectrum)
+    - [HDSDR](http://www.hdsdr.de/)
+- Online Discussions
+  - [https://github.com/merbanan/rtl_433/issues/1376]
+  - [https://github.com/RFD-FHEM/RFFHEM/issues/984]
+  - [https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413]
+  - Velux Blinds
+    - [No KUX, just Loxone](https://smarthome.exposed/controlling-velux-windows/)
+    - [Velux SML Rolläden „ablernen“ bzw. resetten](https://wolf-u.li/5920/velux-sml-rollaeden-ablernen-bzw-resetten/)
+    - [snipsvelux](https://github.com/Psychokiller1888/snipsvelux)
+    - [VeluxIR](https://github.com/zschub/VeluxIR) - IR protocol for old Velux remotes

@@ -1,6 +1,6 @@
 # KizOS Images
 
-In this folder you will find the extracted updates Somfy provided online. At the time of this writing all known download locations (expect for 'Animeo IP') are gone.
+In this folder you will find the extracted updates Somfy provided online. At the time of this writing all known download locations (except for 'Animeo IP') are gone.
 
 Somfy provides updates in their own format (BPK/BPK2) which is implemented in Barebox. The source code is available and can be found in the extras folder. Sadly the [official git](https://www.gitorious.org/libbpk) is offline.
 
@@ -60,7 +60,7 @@ hwid=$(sed 's/^.*=//;s/.$//')
 mkbpk -x $bpk "$name:0x$hwid:$partition.$name"
 kernel:0x0:AnimeoIP_1.0.1.654-kernel.uImage
 $(basename):0x0:AnimeoIP_1.0.1.654-kernel.uImage
-  case "$string" in 
+  case "$string" in
     *bootloader*)
       # Do stuff
       ;;
@@ -92,7 +92,7 @@ Bpk partitions:
 $> iownbpk -x ./$image.bpk2 $partition:$hardware_id:$image-$parition.$partitionType
 
 # AnimeoIP_1.0.1.654-picocom-release.bpk
-iownbpk -l ./AnimeoIP_1.0.1.654-picocom-release.bpk 
+iownbpk -l ./AnimeoIP_1.0.1.654-picocom-release.bpk
 iownbpk -x ./AnimeoIP_1.0.1.654-picocom-release.bpk kernel:0x0:AnimeoIP_1.0.1.654-kernel.uImage
 iownbpk -x ./AnimeoIP_1.0.1.654-picocom-release.bpk version:0x0:AnimeoIP_1.0.1.654-version.txt
 iownbpk -x ./AnimeoIP_1.0.1.654-picocom-release.bpk rootfs:0x0:AnimeoIP_1.0.1.654-rootfs.img
