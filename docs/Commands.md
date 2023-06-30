@@ -2234,8 +2234,10 @@ TBD
 - Functional Parameter 2 (1 byte)
 
 Example: `00 01 43 D200 00 00`
+Command ID=0x00, Originator=0x01 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0, FP2=0
 
-Command ID=0, Originator=1 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0, FP2=0
+Example: `10:59:35.734 > 2W S 1 E 0       FROM 842E3      TO FE90EE       CMD 0   DATA(6)03 e7 6400 0000`
+Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 ### 01: Activate Mode
 
