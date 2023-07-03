@@ -2270,12 +2270,13 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
-  Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
+  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 3   DATA(3)030000
   
 ### 04: Private Command Answer
 
 - Command ID: 0x04 (1 byte)
 - Data? (6-20 bytes)
+  Example: 2W S 0 E 1       FROM 0xDevice     TO 0xBox        CMD 4   DATA(14)0500000000000000 0xBox 030000
 
 ### 0C: Unknown
 
@@ -2286,7 +2287,7 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x19 (1 byte)
 - Data? (1 byte)
-  Example: 2W S 1 E 0       FROM 842E3      TO 20E52E       CMD 19  DATA(1)02 or 04 or 07
+  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 19  DATA(1)02 or 03 or 04 or 07
 
 ### 1A: Answer: Set Sensor Value
 
@@ -2702,8 +2703,9 @@ See General Info 2 for decoding
 
 - Command ID: 0xFE (1 byte)
 - ?? (1 byte)
-Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
+Example : `11:14:41.320 > 2W S 0 E 1       FROM 0xBox      TO 0xDevice       CMD FE  DATA(1)08`
 > **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode
+> **Note**: When DATA == 0x05, then this is NOERROR, when answering to CMD 0x19
 
 ### FF Communication Gateway Receiver
 
