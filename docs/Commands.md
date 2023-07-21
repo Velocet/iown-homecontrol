@@ -2281,6 +2281,7 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
+  Example: 2W S 1 E 0       FROM 842E3      TO 904C09       CMD C   DATA(4)d8000000
   
 ### 19: Unknown
 
@@ -2546,6 +2547,7 @@ Not authenticated?
 ### 50: Get Name
 
 - Command ID: 0x50 (1 byte)
+  Example: 2W S 1 E 0       FROM 842E3      TO DA2EE6       CMD 50  DATA(0)
 
 **Note**: No Parameter. Not Authenticated.
 
