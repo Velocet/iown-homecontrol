@@ -898,20 +898,21 @@ Velux KLI3xx one way controllers are used to control:
 - KLI312  internal blinds
 - KLI313  external shutters
 
-Observing frames sent from controllers while registering to devices, has been observed that:
+Analyzing frames sent from controllers while registering to devices, has been observed that:
 - KLI311 sends broadcast messages (commands 0x39 and 0x30) to broadcast address 0x00013f
 - KLI312 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x000007f and 0x0002bf
 - KLI313 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x0000bf, 0x0000ff and 0x00037f
 
-Address     filler    Type     Subt.
---------  --------- ---------- ------
-0x00003f  b00000000 0000000000 111111   all
-0x00013f  b00000000 0000000100 111111   window 1 (Window opener)
-0x00007f  b00000000 0000000001 111111   blind 1 (Venetian Blind)
-0x0002bf  b00000000 0000001010 111111   blind 2 (Blind)
-0x0000bf  b00000000 0000000010 111111   shutter 1 (Roller Shutter)
-0x0000ff  b00000000 0000000011 111111   shutter 2 (Awning - External for window)
-0x00037f  b00000000 0000001101 111111   shutter 3 (Dual Shutter)
+
+| ADDRESS  |  FILLER  |   TYPE      | SUB TYPE | NAME                                     |
+| :------- | :------: | ----------: | :------- | :--------------------------------------- |
+| 0x00003f | 00000000 | 00000000 00 | 111111   | All                                      |
+| 0x00013f | 00000000 | 00000001 00 | 111111   | window 1 (Window opener)                 |
+| 0x00007f | 00000000 | 00000000 01 | 111111   | blind 1 (Venetian Blind)                 |
+| 0x0002bf | 00000000 | 00000010 10 | 111111   | blind 2 (Blind)                          |
+| 0x0000bf | 00000000 | 00000000 10 | 111111   | shutter 1 (Roller Shutter)               |
+| 0x0000ff | 00000000 | 00000000 11 | 111111   | shutter 2 (Awning - External for window) |
+| 0x00037f | 00000000 | 00000011 01 | 111111   | shutter 3 (Dual Shutter)                 |
 
 Given that, we can desume that Broadcast Addresses are built this way:
 - 1 byte as 0x00
