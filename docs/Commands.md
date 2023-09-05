@@ -2315,6 +2315,7 @@ TBD
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
+  Example: 2W S 1 E 0       FROM 842E3      TO 904C09       CMD C   DATA(4)d8000000
   Example: 2W S 1 E 0      FROM 842E3      TO DA2EE6       CMD C   DATA(4)d8000000
 
 ### 0D: Unknown (Answer to 0x0C)
@@ -2588,6 +2589,7 @@ Not authenticated?
 ### 50: Get Name
 
 - Command ID: 0x50 (1 byte)
+  Example: 2W S 1 E 0       FROM 842E3      TO DA2EE6       CMD 50  DATA(0)
 
 **Note**: No Parameter. Not Authenticated.
 
