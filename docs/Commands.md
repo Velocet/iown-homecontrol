@@ -890,6 +890,35 @@ Unconfirmed: The Node Type defines the Command IDs and corresponding Parameters.
 
 > NOTE: Only values in the *HEX* row reflect the actual data. You can also get these values when combining *TYPE* and *SUBTYPE* binary rows.
 
+#### Node Type + Sub Type & Broadcast addresses
+
+This Type & Sub Type classification has been observed to be used also for Broadcast Addresses (at least with Velux).
+Velux KLI3xx one way controllers are used to control:
+- KLI311  Windows Opener
+- KLI312  internal blinds
+- KLI313  external shutters
+
+Analyzing frames sent from controllers while registering to devices, has been observed that:
+- KLI311 sends broadcast messages (commands 0x39 and 0x30) to broadcast address 0x00013f
+- KLI312 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x000007f and 0x0002bf
+- KLI313 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x0000bf, 0x0000ff and 0x00037f
+
+
+| ADDRESS  |  FILLER  |   TYPE      | SUB TYPE | NAME                                     |
+| :------- | :------: | ----------: | :------- | :--------------------------------------- |
+| 0x00003f | 00000000 | 00000000 00 | 111111   | All                                      |
+| 0x00013f | 00000000 | 00000001 00 | 111111   | window 1 (Window opener)                 |
+| 0x00007f | 00000000 | 00000000 01 | 111111   | blind 1 (Venetian Blind)                 |
+| 0x0002bf | 00000000 | 00000010 10 | 111111   | blind 2 (Blind)                          |
+| 0x0000bf | 00000000 | 00000000 10 | 111111   | shutter 1 (Roller Shutter)               |
+| 0x0000ff | 00000000 | 00000000 11 | 111111   | shutter 2 (Awning - External for window) |
+| 0x00037f | 00000000 | 00000011 01 | 111111   | shutter 3 (Dual Shutter)                 |
+
+Given that, we can desume that Broadcast Addresses are built this way:
+- 1 byte as 0x00
+- 10 bits for the device Type
+- 6 bits set to 1 (all subtypes)
+
 ##### Group Types
 
 - 0 = User
@@ -2271,7 +2300,7 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
   Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
-  
+
 ### 04: Private Command Answer
 
 - Command ID: 0x04 (1 byte)
