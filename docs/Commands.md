@@ -2312,7 +2312,8 @@ TBD
 
 - Command ID: 0x04 (1 byte)
 - Data? (6-20 bytes)
-  Example: 2W S 0 E 1       FROM 0xDevice     TO 0xBox        CMD 4   DATA(14)0500000000000000 0xBox 030000
+  Example 2W S 0 E 1       FROM 0xDevice      TO 0xBox/Gateway        CMD 4   DATA(14)05 800000000000009a5065010000
+  First byte of DATA is the same as CMD 0xFE: The Error Code. 0x05 is OK
 
 ### 0C: Unknown
 
