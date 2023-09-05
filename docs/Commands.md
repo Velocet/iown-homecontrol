@@ -890,6 +890,35 @@ Unconfirmed: The Node Type defines the Command IDs and corresponding Parameters.
 
 > NOTE: Only values in the *HEX* row reflect the actual data. You can also get these values when combining *TYPE* and *SUBTYPE* binary rows.
 
+#### Node Type + Sub Type & Broadcast addresses
+
+This Type & Sub Type classification has been observed to be used also for Broadcast Addresses (at least with Velux).
+Velux KLI3xx one way controllers are used to control:
+- KLI311  Windows Opener
+- KLI312  internal blinds
+- KLI313  external shutters
+
+Analyzing frames sent from controllers while registering to devices, has been observed that:
+- KLI311 sends broadcast messages (commands 0x39 and 0x30) to broadcast address 0x00013f
+- KLI312 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x000007f and 0x0002bf
+- KLI313 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x0000bf, 0x0000ff and 0x00037f
+
+
+| ADDRESS  |  FILLER  |   TYPE      | SUB TYPE | NAME                                     |
+| :------- | :------: | ----------: | :------- | :--------------------------------------- |
+| 0x00003f | 00000000 | 00000000 00 | 111111   | All                                      |
+| 0x00013f | 00000000 | 00000001 00 | 111111   | window 1 (Window opener)                 |
+| 0x00007f | 00000000 | 00000000 01 | 111111   | blind 1 (Venetian Blind)                 |
+| 0x0002bf | 00000000 | 00000010 10 | 111111   | blind 2 (Blind)                          |
+| 0x0000bf | 00000000 | 00000000 10 | 111111   | shutter 1 (Roller Shutter)               |
+| 0x0000ff | 00000000 | 00000000 11 | 111111   | shutter 2 (Awning - External for window) |
+| 0x00037f | 00000000 | 00000011 01 | 111111   | shutter 3 (Dual Shutter)                 |
+
+Given that, we can desume that Broadcast Addresses are built this way:
+- 1 byte as 0x00
+- 10 bits for the device Type
+- 6 bits set to 1 (all subtypes)
+
 ##### Group Types
 
 - 0 = User
@@ -2233,11 +2262,15 @@ TBD
 - Functional Parameter 1 (1 byte)
 - Functional Parameter 2 (1 byte)
 
-Example: `00 01 43 D200 00 00`
-Command ID=0x00, Originator=0x01 (User), ACEI=0x43, MainParam=0xD200 (Current), FP1=0, FP2=0
+> Example: `00 01 43 D200 00 00`
+> |Command ID=0x00|Originator=0x01 (User)|ACEI=0x43|MainParam=0xD200 (Current)|FP1=0|FP2=0|
+> 2W Example:
+> 2W S 1 E 0       FROM 842E3      TO FE90EE       CMD 0   DATA(6)03 e7 6400 0000
+> Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
+> 1W Example:
+> 1W S 1 E 1 B 0 R 0 LPM 0 V 0 U1 0 U2 0 U3 0      FROM 28DB36     TO 3F   CMD 0   DATA(14)0167d2000000    SEQ 247B        MAC 3cd2ad870771
 
-Example: `10:59:35.734 > 2W S 1 E 0       FROM 842E3      TO FE90EE       CMD 0   DATA(6)03 e7 6400 0000`
-Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
+
 
 ### 01: Activate Mode
 
@@ -2248,6 +2281,7 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 - Mode parameter (1 byte)
 - Unknown (1 byte)
 - Unknown (1 byte)
+1W Example: `1W S 1 E 1 B 0 R 0 LPM 1 V 0 U1 0 U2 0 U3 0      FROM 9A5CA0     TO 3F   CMD 1   DATA(13)0143000131      SEQ 1848        MAC 13f3e59def08`
 
 <!-- ### 02: Direct Command / Manual Order
 
@@ -2270,8 +2304,10 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
-  Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
+  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 3   DATA(3)030000
   
+  Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
+
 ### 04: Private Command Answer
 
 - Command ID: 0x04 (1 byte)
@@ -2283,12 +2319,20 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
+  Example: 2W S 1 E 0       FROM 842E3      TO 904C09       CMD C   DATA(4)d8000000
+  Example: 2W S 1 E 0      FROM 842E3      TO DA2EE6       CMD C   DATA(4)d8000000
+
+### 0D: Unknown (Answer to 0x0C)
+
+- Command ID: 0x0c (1 byte)
+- Data? (5 bytes)
+  Example: 2W S 0 E 1      FROM DA2EE6     TO 842E3        CMD D   DATA(5)05aa0d0000
   
-### 19: Unknown
+### 19: Unknown (Followed by 0xFE)
 
 - Command ID: 0x19 (1 byte)
 - Data? (1 byte)
-  Example: 2W S 1 E 0       FROM 842E3      TO 20E52E       CMD 19  DATA(1)02 or 04 or 07
+  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 19  DATA(1)02 or 03 or 04 or 07
 
 ### 1A: Answer: Set Sensor Value
 
@@ -2306,10 +2350,11 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 Manufacture Specific Private Commands. These get defined and interpreted differently for every OEM.
 
 - Example: Thermor I2G = `20 0C 61 0103 C300`
+  - `AC MaPa F1 F1`
   - `61 0103 C3 00`: `C3` (dec: 195) is 19.5°C set with button
   - `61 0103 D2 00`: `D2` (dec: 210) is 21.0°C set with button
-     AC MaPa F1 F1
-  20 - Base Command: WritePrivate
+
+  ### 20 - Base Command: WritePrivate
   Parameter:
      02 - Main Parameter
           Function Parameter:
@@ -2548,6 +2593,7 @@ Not authenticated?
 ### 50: Get Name
 
 - Command ID: 0x50 (1 byte)
+  Example: 2W S 1 E 0       FROM 842E3      TO DA2EE6       CMD 50  DATA(0)
 
 **Note**: No Parameter. Not Authenticated.
 
@@ -2670,12 +2716,7 @@ See General Info 2 for decoding
 ### E1: Bootloader Device / Bootloader ACK
 
 - TBD
-
-  COMMAND_TYPE__SERVICE                                :int = 240; // 0xF0
-  COMMAND_TYPE__SERVICE_ACK                            :int = 241; // 0xF1
-  COMMAND_TYPE__SERVICE_STATUS                         :int = 242; // 0xF2
-  COMMAND_TYPE__SERVICE_STATUS_ACK                     :int = 243; // 0xF3
-
+  
 ### Fx: Service Commands
 
 #### F0: Send Raw Message / Find Hardware ("Service")
@@ -2704,8 +2745,11 @@ See General Info 2 for decoding
 
 - Command ID: 0xFE (1 byte)
 - ?? (1 byte)
-Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
+Example : `11:14:41.320 > 2W S 0 E 1       FROM 0xBox      TO 0xDevice       CMD FE  DATA(1)08`
 > **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode
+> **Note**: When DATA == 0x05, then this is NOERROR, when answering to CMD 0x19
+Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
+- `05` is NO ERROR
 
 ### FF Communication Gateway Receiver
 
