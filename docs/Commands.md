@@ -2310,8 +2310,15 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
+  Example: 2W S 1 E 0      FROM 842E3      TO DA2EE6       CMD C   DATA(4)d8000000
 
-### 19: Unknown
+### 0D: Unknown (Answer to 0x0C)
+
+- Command ID: 0x0c (1 byte)
+- Data? (5 bytes)
+  Example: 2W S 0 E 1      FROM DA2EE6     TO 842E3        CMD D   DATA(5)05aa0d0000
+  
+### 19: Unknown (Followed by 0xFE)
 
 - Command ID: 0x19 (1 byte)
 - Data? (1 byte)
@@ -2333,10 +2340,11 @@ Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
 Manufacture Specific Private Commands. These get defined and interpreted differently for every OEM.
 
 - Example: Thermor I2G = `20 0C 61 0103 C300`
+  - `AC MaPa F1 F1`
   - `61 0103 C3 00`: `C3` (dec: 195) is 19.5°C set with button
   - `61 0103 D2 00`: `D2` (dec: 210) is 21.0°C set with button
-     AC MaPa F1 F1
-  20 - Base Command: WritePrivate
+
+  ### 20 - Base Command: WritePrivate
   Parameter:
      02 - Main Parameter
           Function Parameter:
@@ -2697,12 +2705,7 @@ See General Info 2 for decoding
 ### E1: Bootloader Device / Bootloader ACK
 
 - TBD
-
-  COMMAND_TYPE__SERVICE                                :int = 240; // 0xF0
-  COMMAND_TYPE__SERVICE_ACK                            :int = 241; // 0xF1
-  COMMAND_TYPE__SERVICE_STATUS                         :int = 242; // 0xF2
-  COMMAND_TYPE__SERVICE_STATUS_ACK                     :int = 243; // 0xF3
-
+  
 ### Fx: Service Commands
 
 #### F0: Send Raw Message / Find Hardware ("Service")
@@ -2732,7 +2735,8 @@ See General Info 2 for decoding
 - Command ID: 0xFE (1 byte)
 - ?? (1 byte)
 Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
-> **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode
+> **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode 
+- `05` is NO ERROR
 
 ### FF Communication Gateway Receiver
 
