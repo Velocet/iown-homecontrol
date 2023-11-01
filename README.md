@@ -32,7 +32,7 @@ Documentation and Implementation of the *io-homecontrol*® protocol in support o
 - Clone Remote with a LoRa32 (ESP32+868MHz RF module) (maybe repurpose ZigBee USB Stick?)
 - Clone Remote (1W) with repurposed Ikea remote (8€...)?
 - Create new PCB ([see those guys from poland...](http://techniline.com/index.php/en/intelligent-buildings/item/6-velux-window-actuator-regular-with-intelligent-building))
-- Emulate Remote Control/Gateway firmware (eg. via QEMU)
+- Emulate Remote Control/Gateway firmware (eg. via QEMU or RENODE)
 
 ## Protocol
 
