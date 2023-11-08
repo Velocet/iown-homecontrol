@@ -1,0 +1,30 @@
+using "platforms/cpus/TahomaCpu.repl"
+
+//Can be used
+//progButton: Miscellaneous.Button @ gpioPortC
+//    -> gpioPortC@0
+//resetButton: Miscellaneous.Button @ gpioPortC
+//    -> gpioPortC@0
+//userButton: Miscellaneous.Button @ gpioPortC
+//    -> gpioPortC@0
+
+//Look at renode Peripheral Mocks DummySPISlave.cs
+
+//led: Miscellaneous.LED @ PWM 0x00000000
+//PWM:
+//    0 -> led@0
+
+//BUTTON: Miscellaneous.Button @ GPIO_C 0
+//LED: Miscellaneous.LED @ GPIO_A 8
+
+//radio: Wireless.CC2520 @ SPI_1
+//    1 -> gpio@4
+//    2 -> gpio@5
+//    3 -> gpio@6
+//    4 -> gpio@29
+
+//gpio:
+//    0 -> radio@0
+//    1 -> radio@1
+
+//lm74: Sensors.TI_LM74 @ spi0
