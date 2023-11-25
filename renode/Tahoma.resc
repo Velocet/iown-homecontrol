@@ -1,0 +1,116 @@
+:name: Tahoma 
+:description: This script runs Tahoma on STM32F101.
+
+# load your fixed implementation of the model
+#include @firmware/STM32_UART_Fix.cs
+
+include @firmware/SI446X.cs
+#include @firmware/DummySPI_SI446X.cs
+using sysbus
+
+$name?="Tahoma"
+mach create $name
+
+machine LoadPlatformDescription @platforms/boards/TahomaBoard.repl
+machine LoadPlatformDescriptionFromString "BUTTON: Miscellaneous.Button @ GPIO_C 0 { IRQ -> GPIO_C@0 }"
+machine LoadPlatformDescriptionFromString "RESET: Miscellaneous.Button @ GPIO_C 7 { IRQ -> GPIO_C@7 }"
+#machine LoadPlatformDescriptionFromString "dummySlave: Mocks.DummySPISlave @ SPI_1"
+#machine LoadPlatformDescriptionFromString "radio: Wireless.CC2520 @ SPI_1"
+
+# Create a new wireless transmission medium. This command adds the `wireless` object to the emulation.
+#emulation CreateIEEE802_15_4Medium "wireless"
+# The radio is using a range-based medium (with the `Range` set to `11`).
+# If not set, the default SimpleMediumFunction will be used (where range is not relevant).
+#wireless SetRangeWirelessFunction 11
+# Each radio device has to be connected to a wireless medium. Two devices can communicate
+# if they are connected to the same medium.
+# In this situation the radio is accessible via an SPI bus.
+#connector Connect SPI_1.radio wireless
+# Each radio in a machine can have its position set independently.
+#wireless SetPosition SPI_1.radio 0 0 0
+
+#logLevel -1 SPI_1.dummySpi
+logLevel -1 SPI_1.radio
+logLevel 3 GPIO_A.LED
+logLevel 3 GPIO_C.BUTTON
+logLevel 3 GPIO_C.RESET
+#logLevel -1 GPIO_C.resetButton
+#logLevel -1 GPIO_C.userButton
+
+sysbus.GPIO_C.BUTTON Toggle
+sysbus.GPIO_C.RESET Toggle
+
+logLevel 1 # 0
+logFile @firmware/allLog.txt
+logLevel -1 file # -1
+#sysbus LogAllPeripheralsAccess true
+#sysbus.USART_1 AddLineHook "" "Antmicro.Renode.Emulator.Exit()"
+#sysbus.USART_3 AddLineHook "" "Antmicro.Renode.Emulator.Exit()"
+sysbus.USART_1 AddLineHook " " "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error,line)"
+sysbus.USART_3 AddLineHook " " "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error,line)"
+
+#cpu AddHook 0x08025b3c "Antmicro.Renode.Logging.Logger.Log(LogLevel.Warning, '    CreateOverkizGenericObject_0x08025b3c')"
+
+cpu AddHook 0x0800087c "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'bootLoader_testValidity_87c')"
+#cpu AddHook 0x0800083c "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    bootLoader_testValidity_83c')"
+#cpu AddHook 0x080003cc "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '        PrintStateOfSYNCHRO_0x080003cc')"
+#cpu AddHook 0x08000490 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '            PrintStateOfSYNCHRO_0x08000490')"
+
+cpu AddHook 0x08018700 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'LED_setGPIOApin8_TIMCtrlPWMOutputs_0x08018700')"
+
+cpu AddHook 0x0801f26c "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'Setup_STM32')"
+cpu AddHook 0x0800c0d8 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'MainInit')"
+cpu AddHook 0x08018410 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'MainSetupSystem_GPIO_A,B,C')"
+cpu AddHook 0x08020bcc "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'SFY_OS_Init')"
+cpu AddHook 0x080084a4 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'ProductionTask_OS_Init')"
+cpu AddHook 0x08008268 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'Application_OS_Init')"
+cpu AddHook 0x08017ebc "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'ioStack_OS_Init')"
+cpu AddHook 0x080067ec "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'GPIOC_TestInputDataBit_pin7')"
+cpu AddHook 0x080072b0 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    InitUSART1_115200_0x080072b0')"
+cpu AddHook 0x08003620 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, 'Appli_Init_0x0803620')"
+cpu AddHook 0x080132d8 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    TransactionHandler_Init_0x80132d8')"
+cpu AddHook 0x080177cc "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '        TransactionHandler_Init_0x080177cc')"
+cpu AddHook 0x080143e0 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '            Call_Init_38400_USART3&GPIOA_SPI_RCC_EXTI_0x080143e0')"
+cpu AddHook 0x08024824 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '                  Init_38400_USART3GPIOB&SPIGPIOA_RCC_EXTI_0x08024824')"
+cpu AddHook 0x08014584 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '        Call sub_0x08014584')"
+cpu AddHook 0x08024b70 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '        switchData0x20007C50_0x08024b70')"
+cpu AddHook 0x08016f64 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '        Return with sub_8016f64')"
+cpu AddHook 0x08012ff0 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    ioStack1WController_Init_0x08012ff0')"
+cpu AddHook 0x08012008 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    ioStack2WController_Init_0x08012008')"
+cpu AddHook 0x080120b4 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    Call_SystemKey2W_Init_0x080120b4')"
+cpu AddHook 0x08006550 "Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    TestProduction_Init_0x08006550')"
+
+#sysbus AddWatchpointHook 0x080261b4 Word Read "Antmicro.Renode.Emulator.Exit()"
+#"Antmicro.Renode.Logging.Logger.Log(LogLevel.Error, '    Read _TestProduction_ %s _0x80261b4')"
+
+#"Antmicro.Renode.Emulator.Exit()" //"print 'MainSetup'"
+
+#Connected to a internetbox 
+#emulation CreateSwitch "switch1"
+#emulation CreateTap "tap0" "tap"
+#connector Connect host.tap switch1
+
+$bin?=@firmware/sfy-io-homecontrol-boot-stm32-20220823081517.bin
+
+showAnalyzer USART_1
+#showAnalyzer usart2
+showAnalyzer USART_3
+#showAnalyzer usart4
+#showAnalyzer usart5
+
+macro reset
+"""
+    sysbus LoadBinary $bin 0x8000000
+    sysbus.cpu VectorTableOffset 0x8000000
+    # sysbus.cpu LogFunctionNames true true
+    # sysbus.cpu LogFunctionNames true "uart irq"
+
+    # Can be usefull to know how to do that
+    # Write 2 NOP instructions (ARM Thumb) at address 0xdeadbeef
+    #sysbus WriteByte 0x01 0x80261b4
+    ### set registers ###
+    # cpu SetRegisterUnsafe 2 0x40000100 # atags
+    # cpu PC 0x40008040
+"""
+
+runMacro $reset
