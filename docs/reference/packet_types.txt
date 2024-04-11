@@ -1,0 +1,56 @@
+main command ids for ApplicationProxy:
+10         IoPlug
+11         IoNetwork
+E1         BootloaderDevice
+FF         CommunicationGatewayReceiver
+E0         BootloaderCommandProxyFrame
+
+ObjectSynchronizer sub command ids
+.. E2      Read      Object  Synchro
+.. E4      Write     Object  Synchro
+.. E6      Erase All Objects Synchro
+
+Other
+10 00      IoPlug
+
+11 03      IoNetwork::session ack?
+11 06      IoNetwork::StartIoNetwork
+11 00 00   IoDiscoverNodesSession
+11 00 01   IoKeySettingSession
+11 00 02   IoKeyGettingSession
+11 00 03   IoKeyUpdateSession
+11 00 04   IoKeyGivingSession
+11 00 05   IoKeyCheckingSession
+11 00 07   IoConfigurationStateSession
+11 00 08   IoSettingByStimuliSession
+11 00 09   IoSettingByExplicitCommand
+11 00 0B   IoObjectsTransferWithRCMSession
+11 00 0C   IoPrepareDataSession
+11 00 10   IoObjectsTransferSession
+11 00 20   IoActionStartSession
+11 00 21   IoActionStatusSession
+11 00 22   IoIdentifyNodeSession
+11 00 23   IoPriorityManagementSession
+11 00 24   IoReadPresetPositionSession
+11 00 25   IoWritePresetPositionSession
+11 00 26   IoRemovePresetPositionSession
+11 00 27   IoSetNameSession
+11 00 28   IoGetNameSession
+11 00 29   IoGetGeneralInfoSession
+11 00 2A   IoSetGeneralInfoSession
+11 00 2C   IoResetActuatorSession
+11 00 2D   IoStartInBootloaderModeSession
+11 00 40   IoSensorStatusSession
+11 00 41   IoSubscribeSensorEventSession
+11 00 43   IoEventReceptionSession
+11 00 45   IoListeningPeriodSession
+11 00 46   IoListeningSensorSession
+
+The second byte is some kind of session control code. Something like this:
+  00 start session
+  01 start session ack
+  02 data; third byte indicates whether more data follows, this is used for array data
+  03 data ack
+Most messages are subdivided in what I call blocks.
+Each block has an id byte, a size byte, and the data. The blocks are terminated with 0xff.
+Sometimes, additional data is added before the first block, this depends on the message type.

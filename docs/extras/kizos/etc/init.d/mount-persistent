@@ -1,0 +1,52 @@
+#!/bin/sh
+
+. /usr/share/kizosenv.sh
+. /usr/share/image-update-functions.sh
+[ -f /etc/default/rcS ] && . /etc/default/rcS
+
+PERSISTENT_VOLUME_SIZE="3145728" # 3 MiB
+
+format_persistent_volume()
+{
+  ubi_resizeifneeded "$PERSISTENT_VOLUME_NAME" "$PERSISTENT_VOLUME_SIZE" "dynamic" || return 1
+  PERSISTENT_VOLUME_DEVICE="$(ubi-find "$PERSISTENT_VOLUME_NAME")"
+
+  if have_encryption ; then
+    mkfs.ubifs -y "$PERSISTENT_VOLUME_DEVICE" --cipher AES-256-XTS --key /etc/security/system-key
+  else
+    mkfs.ubifs -y "$PERSISTENT_VOLUME_DEVICE"
+  fi
+  [ -d "$PERSISTENTDIR" ] || mkdir "$PERSISTENTDIR"
+  mount -o rw -o sync -o chk_data_crc -t ubifs "$PERSISTENT_VOLUME_DEVICE" "$PERSISTENTDIR"
+}
+
+case $1 in
+start)
+  [ "${VERBOSE}" != "no" ] && echo -n "Starting ${0##*/}..."
+  grep -q "$PERSISTENTDIR" /proc/mounts || mount -o rw -o sync -o chk_data_crc -t ubifs "$PERSISTENTDIR" 2>/dev/null || format_persistent_volume
+  if ! /usr/share/bsp/manage-persistent-spare.sh "restore" ; then
+    echo "can't restore persistent"
+  fi
+  ;;
+
+stop)
+  [ "${VERBOSE}" != "no" ] && echo -n "Stopping ${0##*/}..."
+  grep -q "$PERSISTENTDIR" /proc/mounts && umount "$PERSISTENTDIR"
+  ;;
+
+status)
+  [ "${VERBOSE}" != "no" ] && echo -n "Status ${0##*/}..."
+  grep -q "$PERSISTENTDIR" /proc/mounts
+  ;;
+
+restart|reload)
+  $0 stop > /dev/null
+  $0 start > /dev/null
+  ;;
+
+*)
+  echo "Usage: $0 {start|stop|status|restart|reload}"
+  exit 1
+  ;;
+esac
+

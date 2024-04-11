@@ -1,0 +1,56 @@
+#/bin/sh -e
+
+. /usr/share/model.sh
+
+start() {
+  /etc/init.d/usb-gpio start
+
+  case "$MODEL" in
+    tahoma2rts)
+      ln -sf ttyS2 /dev/rtx
+      ;;
+    tahoma2|kizbox2)
+      ln -sf ttyS2 /dev/rtx
+      ln -sf ttyS3 /dev/io
+      ;;
+    tahoma2-3heads)
+      ln -sf ttyS2 /dev/rtx
+      ln -sf ttyS3 /dev/io
+      ln -sf ttyS1 /dev/wmbus
+      ;;
+  esac
+}
+
+stop() {
+  #Remove any alias present
+  rm -f /dev/rtx /dev/io /dev/zbee
+
+  /etc/init.d/usb-gpio stop
+}
+
+case "$1" in
+  start)
+    shift
+    start
+    ;;
+
+  stop)
+    shift
+    stop
+    ;;
+
+  restart|reload)
+    shift
+    stop || true
+    sleep 1
+    start
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop|restart|reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
+

@@ -1,0 +1,12 @@
+---
+blank_issues_enabled: true
+contact_links:
+  - name: Issue Tracker
+    url: https://github.com/velocet/iown-homecontrol/issues
+    about: Please create bug reports in the dedicated issue tracker.
+  - name: Feature Request Tracker
+    url: https://github.com/velocet/iown-homecontrol/feature-requests
+    about: Please create feature requests in the dedicated feature request tracker.
+  - name: Frequently Asked Question
+    url: https://github.com/velocet/iown-homecontrol/README.md
+    about: Please contact us in our chat!

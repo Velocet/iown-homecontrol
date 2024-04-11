@@ -1,5 +1,4 @@
 # Logs / Reports
-#logs
 *-error.log*
 *-debug.log*
 report.*.json
@@ -22,3 +21,6 @@ node_modules/*
 .env.test
 .cache
 .cache/*
+
+# PlatformIO
+.pio

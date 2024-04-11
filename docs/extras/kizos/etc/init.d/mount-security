@@ -1,0 +1,100 @@
+#!/bin/sh
+. /usr/share/kizosenv.sh
+[ -f /etc/default/rcS ] && . /etc/default/rcS
+
+PERSISTENT_UPDATE_DIR="$PERSISTENTDIR_BOOT/update"
+
+upgrade_volume(){
+  size=$(stat -c %s "$(readlink -f "$2")" 2>/dev/null) || return 1
+  ubi_resizeifneeded "$1" "$size" "static" || return 1
+
+  # Update partition
+  device_to_update="$(ubi-find "$1")"
+  ubiupdatevol "$device_to_update" "$2" || return 1
+}
+
+copy_volume(){
+  . /usr/share/image-update-functions.sh
+  ubi=$(ubi-find "$1")
+  dd if="$ubi" of="/tmp/sectmp.ubi" status=none
+  if upgrade_volume "$2" /tmp/sectmp.ubi; then
+    rm -f /tmp/sectmp.ubi
+
+    if [ -f "$PERSISTENT_UPDATE_DIR/$1.txt" ]; then
+      cp "$PERSISTENT_UPDATE_DIR/$1.txt" "$PERSISTENT_UPDATE_DIR/$2.txt"
+    else
+      rm -f "$PERSISTENT_UPDATE_DIR/$2.txt"
+    fi
+    return 0
+  fi
+  return 1
+}
+
+check_security(){
+  if mount_security; then
+    # Not encryption means security is in the UBI volume
+    if ! have_encryption ; then
+      if [ -f "$PERSISTENT_UPDATE_DIR/security-has-been-updated" ]; then
+        # Update version "active"
+        /usr/sbin/version-update update --silent "$SECURITY_VOLUME_NAME" active "$PERSISTENT_UPDATE_DIR/${SECURITY_VOLUME_NAME}.txt"
+        # Force trigger the post-install as the security partition update is a
+        # success.
+        /usr/share/post-install/post-install reset kizbox-security
+
+        copy_volume "$SECURITY_VOLUME_NAME" "$SECURITY_SPARE_VOLUME_NAME" || return 1
+        /usr/sbin/version-update update --silent "$SECURITY_SPARE_VOLUME_NAME" inactive "$PERSISTENT_UPDATE_DIR/${SECURITY_SPARE_VOLUME_NAME}.txt"
+        rm "$PERSISTENT_UPDATE_DIR/security-has-been-updated"
+      fi
+    fi
+  else
+    logger -t kizos -p user.err "[mount-security]: failed to use the main partition."
+    if ! mount_security_spare; then
+      /usr/share/hw-default missingsn
+    fi
+    logger -t kizos -p user.warn "[mount-security]: using the spare partition."
+    # Use security-spare and flash back security partition
+    if ! have_encryption ; then
+      copy_volume "$SECURITY_SPARE_VOLUME_NAME" "$SECURITY_VOLUME_NAME" || return 1
+      echo "ERROR: Security partition update failure. rolling back." | upload
+
+      if [ -f "$PERSISTENT_UPDATE_DIR/security-has-been-updated" ]; then
+        /usr/sbin/version-update update --silent "$SECURITY_VOLUME_NAME" failed "$PERSISTENT_UPDATE_DIR/${SECURITY_VOLUME_NAME}.txt"
+        rm "$PERSISTENT_UPDATE_DIR/security-has-been-updated"
+      fi
+    #else
+      # We don't have the tools to copy security-spare into security here
+      # Moreover due to the switch_root and the potentially ro mounting points
+      # we can't notify systemcheck to do the copy.
+      #:
+    fi
+  fi
+}
+
+case $1 in
+start)
+  [ "${VERBOSE}" != "no" ] && echo -n "Starting ${0##*/}..."
+  if ! grep -qw "$OVKSECURITYDIR" /proc/mounts ; then
+    check_security || /usr/share/hw-default gnlerr
+  fi
+  ;;
+
+stop)
+  [ "${VERBOSE}" != "no" ] && echo -n "Stopping ${0##*/}..."
+  mount | grep -q "$OVKSECURITYDIR" && umount "$OVKSECURITYDIR"
+  ;;
+
+status)
+  mount | grep -q "$OVKSECURITYDIR"
+  ;;
+
+restart|reload)
+  $0 stop > /dev/null
+  $0 start > /dev/null
+  ;;
+
+*)
+  echo "Usage: $0 {start|stop|status|restart|reload}"
+  exit 1
+  ;;
+esac
+

@@ -1,0 +1,51 @@
+name: Bug Report
+description: File a bug report.
+title: "[BUG]: "
+labels: ["bug", "triage"]
+projects: ["velocet/iown-homecontrol"]
+assignees:
+  - velocet
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: WazUp?
+      description: What did you expect to happen?
+      placeholder: Tell_Us_Everything
+      value: "???"
+    validations:
+      required: false
+  - type: dropdown
+    id: Architecture
+    attributes:
+      label: Architecture?
+      description: MCU Architecture?
+      multiple: false
+      options:
+        - ESP32 (Default)
+        - 1.0.3 (Edge)
+      default: 0
+    validations:
+      required: false
+  - type: dropdown
+    id: Radio
+    attributes:
+      label: Radio?
+      description: Radio Module?
+      multiple: false
+      options:
+        - SX12xx (RFxx)
+        - Si4xxx
+        - C11xx
+        - Other
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: Paste any relevant logs. NOTE: Will be auto formatted into code. No need for backticks.
+      render: shell
