@@ -10,11 +10,14 @@ copyright: "copyleft &copy; iown-homecontrol"
 # TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
 
 exclude_docs: |
-  */
-  */*
-  *.*
-  !assets/
-  !*.md
+  boards/
+  datasheets/
+  devices/
+  extras/
+  firmware/
+  pdf/
+  pics/
+  reference/
 
 nav:
   - 'index': 'index.md'
@@ -34,7 +37,6 @@ nav:
 
 plugins:
   - privacy:
-      enabled: !ENV [CI, false]
       assets: true
       assets_fetch: true
 
