@@ -24,3 +24,6 @@ node_modules/*
 
 # PlatformIO
 .pio
+
+# mkdocs
+site/

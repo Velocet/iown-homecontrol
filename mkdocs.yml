@@ -1,0 +1,90 @@
+site_name: "iown-homecontrol"
+site_url: https://velocet.github.io/iown-homecontrol/   # canonical URL of the site
+site_description: "iown-homecontrol: Open Source io-homecontrol Documentation"
+site_author: Velocet
+
+repo_url: https://github.com/velocet/iown-homecontrol/  # provides a link to your repository on each page
+edit_uri: edit/main/docs/
+copyright: "copyleft &copy; iown-homecontrol"
+
+# TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
+
+exclude_docs: |
+  */
+  */*
+  *.*
+  !assets/
+  !*.md
+
+nav:
+  - 'index': 'index.md'
+  - 'Layer 1': 'Radio.md'
+  - 'Layer 2': 'LinkLayer.md'
+  - 'Commands': 'Commands.md'
+  - 'Misc':
+    - 'Devices': devices.md
+    - 'QEMU Emulation': emulation-qemu-static.md
+    - 'Firmware': firmware.md
+    - 'KizOS':
+      - 'KizOS Images': kizos_images.md
+      - 'KizOS Linux': kizos_linux.md
+      - 'KizOS RE': kizos_re.md
+    - 'MicroPython': 'MicroPython.md'
+    - 'Atlantic Thermor 2W Commands': 'ThermorAtlantic_2W_Commands.md'
+
+plugins:
+  - privacy:
+      enabled: !ENV [CI, false]
+      assets: true
+      assets_fetch: true
+
+extra:
+  homepage: https://github.com/velocet/iown-homecontrol
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/MPEb7dTNdN
+      name: iown-Discord
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/iownHomecontrol
+      name: iown-Telegram
+
+theme:
+  name: material
+  font:
+    text: Open Sans
+    code: Source Code Pro
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
+  palette:
+    primary: grey       # blue grey
+    accent: light blue
+  features:
+    - header.autohide
+    - navigation.footer
+    # - navigation.prune
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - toc.integrate
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: topix
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: false
+      pygments_lang_class: true
+      auto_title: true
+      linenums: false
+  # - pymdownx.tasklist:
+  #     custom_checkbox: true
+  #     clickable_checkbox: false

@@ -230,9 +230,9 @@ stm32flash -b 115200 -k $TARGET_TTY
 | 0x10C4 | 0x8293 | SiLabs EM357  |                                                       |
 | 0x10C4 | 0x8A5E | SiLabs EM3588 |                                                       |
 | 0x22B3 |        |               | Somfy USB to Serial (usbser) Virtual Com Driver (VCD) |
-| 0x22B3 | 0x0000 | Skitter io    | Skitter io Bootloader                                            |
-| 0x22B3 | 0x0001 | Set&Go io     | Set&Go io Firmware Loader (SFU)                           |
-| 0x22B3 | 0x0032 | Skitter io    | Skitter io Device                                  |
-| 0x22B3 | 0x0033 | Set&Go io     | Set&Go io Device                                |
+| 0x22B3 | 0x0000 | Skitter io    | Skitter io Bootloader                                 |
+| 0x22B3 | 0x0001 | Set&Go io     | Set&Go io Firmware Loader (SFU)                       |
+| 0x22B3 | 0x0032 | Skitter io    | Skitter io Device                                     |
+| 0x22B3 | 0x0033 | Set&Go io     | Set&Go io Device                                      |
 
 > [[PATCH 06/20] USB: serial: ftdi: Add "Overkiz" FTDI devices VID/PID](https://floss.overkiz.com/build/2022.6/at91-kizbox2/linux-overkiz-5.4.208-r4/0006-USB-serial-ftdi-Add-Overkiz-FTDI-devices-VID-PID.patch)
