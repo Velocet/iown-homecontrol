@@ -6,7 +6,7 @@
       "type": "shell",
       "command": "${command:python.interpreterPath}",
       "args": [
-        "./script/clang-tidy.py"
+        "./scripts/clang-tidy.py"
       ],
       "problemMatcher": [
         {

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
+  "name": "LoRa32",
+  "version": "0.6.9",
+  "description": "Automatic configuration for LoRa32 boards (HelTec, LilyGo/TTGO, etc.) with builtin support for RadioLib (LoRaWAN).",
+  "keywords": "iown, io-homecontrol, iohomecontrol, iohome, LoRa32, ESP32, FSK, 2FSK, LoRa, LoRaWAN, RadioLib",
+  "homepage": "https://velocet.github.io/iown-homecontrol",
+  "repository":
+  {
+      "type": "git",
+      "url": "https://github.com/velocet/iown-homecontrol",
+      "branch": "LoRa32"
+  },
+  "authors":
+  {
+      "name": "Velocet",
+      "email": "git@mail.velocet.de",
+      "url": "https://velocet.github.io/",
+      "maintainer": true
+  },
+  "license": "CC-BY-SA-4.0",
+  "frameworks": "Arduino",
+  "platforms": "espressif32",
+  "headers": "LoRa32.h",
+  "dependencies":[
+    {
+      "name": "RadioLib",
+      "version": "https://github.com/jgromes/RadioLib"
+    }
+  ],
+  "build":
+  {
+      "libLDFMode": "chain+"
+  }
+}

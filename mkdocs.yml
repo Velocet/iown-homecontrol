@@ -1,9 +1,9 @@
-site_name: "iown-homecontrol"
-site_url: https://velocet.github.io/iown-homecontrol/   # canonical URL of the site
-site_description: "iown-homecontrol: Open Source io-homecontrol Documentation"
-site_author: Velocet
+site_name: 'iown-homecontrol'
+site_url: 'https://velocet.github.io/iown-homecontrol/'
+site_description: 'iown-homecontrol: Open Source io-homecontrol Documentation'
+site_author: 'Velocet'
 
-repo_url: https://github.com/velocet/iown-homecontrol/  # provides a link to your repository on each page
+repo_url: 'https://github.com/velocet/iown-homecontrol/'
 edit_uri: edit/main/docs/
 copyright: "copyleft &copy; iown-homecontrol"
 

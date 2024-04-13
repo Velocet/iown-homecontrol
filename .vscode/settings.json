@@ -1,23 +1,88 @@
 {
-  "markdownlint.config": {
-    "MD047": false,
-    "MD041": false,
-    "MD031": false,
-    "MD013": false,
-    "MD012": false
-  },
+  "C_Cpp.autoAddFileAssociations": true,
+  "C_Cpp.autocomplete": "default",
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "C_Cpp.clang_format_path": "C:\\Program Files\\LLVM\\bin\\clang-tidy.exe",
+  "C_Cpp.clang_format_sortIncludes": false,
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": false,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.codeAnalysis.clangTidy.path": "C:\\Program Files\\LLVM\\bin\\clang-format.exe",
+  "C_Cpp.codeAnalysis.clangTidy.useBuildPath": false,
+  "C_Cpp.codeFolding": "enabled",
+  "C_Cpp.configurationWarnings": "enabled",
+  "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
+  "C_Cpp.default.compileCommands": "compile_commands.json",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c17",
+  "C_Cpp.default.mergeConfigurations": true,
+  "C_Cpp.dimInactiveRegions": true,
+  "C_Cpp.doxygen.generatedStyle": "/**",
+  "C_Cpp.enhancedColorization": "enabled",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.hover": "default",
+  "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores": false,
+  "C_Cpp.vcFormat.newLine.beforeCatch": false,
+  "C_Cpp.vcFormat.newLine.beforeElse": false,
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeWhileInDoWhile": false,
+  "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction": true,
+  "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType": true,
+  "C_Cpp.vcFormat.newLine.scopeBracesOnSeparateLines": false,
+  "C_Cpp.vcFormat.wrap.preserveBlocks": "allOneLineScopes",
   "editor.detectIndentation": false,
   "editor.formatOnSave": false,
+  "editor.largeFileOptimizations": false,
   "editor.tabSize": 2,
   "editor.useTabStops": true,
   "files.encoding": "utf8",
   "files.eol": "\n",
+  "files.exclude": {},
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "yaml.schemas": {
-    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  "files.watcherExclude": {
+    "**/.cache/": true,
+    "**/.devcontainer/": true,
+    "**/.git/": true,
+    "**/.github/": true,
+    "**/.pio/": true,
+    "**/.trunk/": true,
+    "**/.vscode/": true,
+    "**/node_modules/": true
   },
+  "git.repositoryScanIgnoredFolders": [
+    ".cache",
+    ".devcontainer",
+    ".git",
+    ".github",
+    ".pio",
+    ".trunk",
+    ".vscode",
+    "node_modules"
+  ],
+  "markdownlint.config": {
+    "MD012": false,
+    "MD013": false,
+    "MD031": false,
+    "MD041": false,
+    "MD047": false
+  },
+  "search.exclude": {
+    "**/.cache": true,
+    "**/.devcontainer": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.pio": true,
+    "**/.trunk": true,
+    "**/.vscode": true,
+    "**/node_modules": true
+  },
+  "vscode-serial-monitor.lineEnding": "\n",
   "yaml.customTags": [
     "!ENV scalar",
     "!ENV sequence",
@@ -26,6 +91,7 @@
     "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
   ],
-  "vscode-serial-monitor.lineEnding": "\n",
-  "editor.largeFileOptimizations": false
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  }
 }
