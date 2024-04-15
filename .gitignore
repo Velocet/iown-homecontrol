@@ -4,14 +4,14 @@
 report.*.json
 
 # Runtime/Compiled data
-#build/Release
+build/
 pids
 *.pid
 *.seed
 *.lock
 
 # Dependencies
-node_modules/*
+node_modules/
 .npm
 .node_repl_history
 
@@ -20,15 +20,21 @@ node_modules/*
 .env
 .env.test
 .cache
-.cache/*
+.cache/
 
 # PlatformIO
 .pio
+compile_commands.json
+
+# VSCode
 .vscode/.browse.c_cpp.db*
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-compile_commands.json
 
 # mkdocs
 site/
+
+# Private
+src_nope/
+NOTES.md
