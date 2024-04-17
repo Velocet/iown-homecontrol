@@ -12,13 +12,15 @@ Most of this stuff documents Somfy related images as there are no Velux images :
 
 ## Overview
 
-Somfy/Overkiz is using the STM32 Standard Peripheral Library for everything STM32.
+The STM32 firmware is based on uC/OS II with a custom Somfy HAL and uses the official STM32 Standard Peripheral Library.
 
-Somfy uses mostly STM32F101RCT6 in Gateways, Remotes and Actuators.
-Velux uses mostly SiLabs EFR/EFM series.
-Head over to the [Hardware](hardware.md) section where this information is collected.
+Other firmware used by Overkiz is based on ContikiOS.
 
-Overkiz Firmware Naming Scheme: `$usage-[$type]-$mcu-$datetime.$ext`
+- Somfy uses mostly STM32F101RCT6 in Gateways, Remotes and Actuators.
+- Velux uses mostly SiLabs EFR/EFM series.
+- Head over to the [Hardware](hardware.md) section where this information is collected.
+
+- Somfy/Overkiz Firmware Naming Scheme: `$usage-[$type]-$mcu-$datetime.$ext`
 
 - $usage: rf protocol or usage
 - $type is optional and can be one of three:
@@ -37,8 +39,52 @@ Get Bootloader Type: `stm32-helper-generic /dev/$tty -r 3 -b 115200 | head -n 1`
 Known Bootloader Types:
 
 - Ideal RF
-  - 02EB02
+  - 02EB02 !!! Possible Si4461 Firmware Patch Address?
   - 02EB03
+
+### Firmware Data
+
+This section of data can be found in every firmware (io-homecontrol, RTS, IdealRF, etc.) from Somfy/Overkiz.
+
+It consists of the following values:
+- Default Serial Number: `SN12345678`
+- Default Test Parameter: `abcdefghijklm`
+- Default Calibration Data: `0E4EC40EBD0B0F4AD4`
+- Bootloader Type: `000000`
+
+These values can be found at the end of the firmware and is in the following form:
+
+> `$SN$TstParam$Cal$BootloaderType = SN12345678abcdefghijklm0E4EC40EBD0B0F4AD4000000`
+
+RTS Data
+
+```SHELL
+00 30 00
+08 00 53
+4E 00 00
+00 00 00
+00 00 00
+00 04 08
+0C 10 14 # Test Parameter
+00 00 00 # Test Parameter
+0E 4E C4 # Calibration Data
+0E BD 0B # Calibration Data
+0F 4A D4 # Calibration Data
+00 00 00 # Bootloader Type
+```
+## Unknown stuff
+
+This peace can be found in the firmware and a Github search reveals that it is being used in regex (eg. base64)
+- `0x18,0x1C,0x20,0x24,0x28,   0,   0,   0,0x40,0x44,0x48,0x4C,0x50,0x54,0x58,   0`
+
+Another comment points to this:
+> ```PYTHON
+> SEQUENCE_LENGTH = 80  # from McMahan et al AISTATS 2017
+> # Vocabulary re-used from the Federated Learning for Text Generation tutorial.
+> # https://www.tensorflow.org/federated/tutorials/federated_learning_for_text_generation
+> CHAR_VOCAB = list("dhlptx@DHLPTX $(,048cgkoswCGKOSW[_#'/37;?bfjnrvzBFJNRVZ\"&*.26:\naeimquyAEIMQUY]!%)-159\r")
+> ```
+
 
 ## io-homecontrol
 
@@ -176,10 +222,11 @@ MD5        = A8F8C4643AC1EC9585B51950FBD49F95
 
 #### SiLabs Threads
 
-> [What version gecko-sdk should I choose for updating standard bootloader for EFM32GG230F512?](https://community.silabs.com/s/question/0D58Y00008C4gaoSAB/what-version-geckosdk-should-i-choose-for-updating-standard-bootloader-for-efm32gg230f512?language=en_US)
-> [C548874603 Files](https://community.silabs.com/s/profile/related/0051M000007jlN3QAI/OwnedContentDocuments?language=en_US)
+This is a thread from a Velux employee asking about one of the bootloaders which seems to be used by the KLR200/KLR300 devices. It even includes a AES decryption key which seems to be a placeholder but if anyone wants to try i am happing to report the results here.
 
-- C548874603 (VELUX A/S) asked a question
+Download [C548874603 Files](https://community.silabs.com/s/profile/related/0051M000007jlN3QAI/OwnedContentDocuments?language=en_US)
+
+- C548874603 (VELUX A/S) asked a question: [What version gecko-sdk should I choose for updating standard bootloader for EFM32GG230F512?](https://community.silabs.com/s/question/0D58Y00008C4gaoSAB/what-version-geckosdk-should-i-choose-for-updating-standard-bootloader-for-efm32gg230f512?language=en_US)
   > I have copied the uart bootloader source code from `an0003_efm32_uart_bootloader`. I want to make some changes and use it with *EFM32GG230F512*.
   > It seems, from information in the application note, that the included bin files are built using Gecko-SDK 1.0.
   > If I open a new project in Simplicity Studio and select *EFM32GG230F512*, then SDK Version 3.2 is downloaded.
@@ -206,7 +253,6 @@ MD5        = A8F8C4643AC1EC9585B51950FBD49F95
   > I can find `CMU_HFPERCLKEN0_UART1` in include files for other processors like e.g. `efm32gg280f1024.h`.
   >
   > Why is this, and other, defines missing? If I can use any version of Geco-SDK, including 3.2, then I would expect all necessary defines to be present.
-
 - C548874603 (VELUX A/S)
   > I have run into a new problem with my *EFM32GG230F512* project. About 3 years ago I updated the standard bootloader for *EFM32G230* to use interrupt driven AES. This works fine.
   >
@@ -220,7 +266,6 @@ MD5        = A8F8C4643AC1EC9585B51950FBD49F95
   > I tried to increase the size of vectorTable, but that leads to:
   > `Error[Lp025]: absolute section .noinit (bootloader.o #12) ([0x2000'00bc-0x2000'00bd]) overlaps with absolute section .noinit (bootloader.o #10) ([0x2000'0000-0x2000'00ef])`
   > So how am I to go about using `AES_IRQn` for the *EFM32GG230F512*?
-
 - [Is Flags of a OSFlagPost() buffered when "receiver" not waiting in the corresponding OSFlagPend()?](https://community.silabs.com/s/question/0D58Y00008Q5ueRSAR/is-flags-of-a-osflagpost-buffered-when-receiver-not-waiting-in-the-corresponding-osflagpend?language=en_US)
   > We use OSFlagPost() to signal a task that interrupt ISR's has been called, to let the task do the "heavy" work. Several flags are included in the flag group, to support several interrupts
   >

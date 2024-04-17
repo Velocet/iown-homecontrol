@@ -75,10 +75,10 @@ A CMD can define a _Function_ as the intended MP.
 | OSB    | Outside Sensor Box                           |
 | RD     | RailDIN                                      |
 |        |                                              |
-|ZIC     | InstallCode |
-|DI      | DeviceId |
-|BPC     | BPinCode |
-|IR      | IndustrialReference |
+| ZIC    | InstallCode                                  |
+| DI     | DeviceId                                     |
+| BPC    | BPinCode                                     |
+| IR     | IndustrialReference                          |
 
 ### io-homecontrol implementations/bridges
 
@@ -757,7 +757,7 @@ Every “Application Profile” is linked to a different NodeType
 
 ##### Generic Profiles
 
-Only known is the number of predefined functions per Device Type that are always available. These are mandatory:
+We (at least) know the number of predefined functions per Device Type that are always available. These are mandatory.
 
 - Actuator: 13
   - Up
@@ -2161,26 +2161,26 @@ This data is from *Set&Go io* XML definitions.
 
 #### SIMU
 
-| CMD   | NAME |
-| ---: |  :------------------ |
-| 0x0003 | SMF_SAP_SETTINGS_GET |
-| 0x0004 | SMF_SAP_SETTINGS_SET |
-| 0x0005 | SMF_HAND_SHAKE |
-| 0x0100 | SMF_CONFIG_GET |
-| 0x0101 | SMF_CONFIG_SET |
-| 0x0200 | SMF_RTS_EXEC |
-| 0x0201 | SMF_RTS_EXEC_SCENE |
+| CMD    | NAME                    |
+| -----: | :---------------------- |
+| 0x0003 | SMF_SAP_SETTINGS_GET    |
+| 0x0004 | SMF_SAP_SETTINGS_SET    |
+| 0x0005 | SMF_HAND_SHAKE          |
+| 0x0100 | SMF_CONFIG_GET          |
+| 0x0101 | SMF_CONFIG_SET          |
+| 0x0200 | SMF_RTS_EXEC            |
+| 0x0201 | SMF_RTS_EXEC_SCENE      |
 | 0x0202 | SMF_RTS_SUN_ON_OFF_EXEC |
-| 0x0300 | SMF_LOG_GET |
-| 0x0301 | SMF_LOG_CLEAR |
-| 0x0400 | SMF_TIME_GET |
-| 0x0401 | SMF_TIME_SET |
-| 0x5000 | SM_GET_INFO |
-| 0x6000 | SMF_REBOOT_COLA |
-| 0x6001 | SMF_QUERY_COLA_INFO |
-| 0x6002 | SMF_OPEN_COLA_UPDATE |
-| 0x6003 | SMF_PUSH_COLA_DATA |
-| 0x6004 | SMF_CLOSE_COLA_UPDATE |
+| 0x0300 | SMF_LOG_GET             |
+| 0x0301 | SMF_LOG_CLEAR           |
+| 0x0400 | SMF_TIME_GET            |
+| 0x0401 | SMF_TIME_SET            |
+| 0x5000 | SM_GET_INFO             |
+| 0x6000 | SMF_REBOOT_COLA         |
+| 0x6001 | SMF_QUERY_COLA_INFO     |
+| 0x6002 | SMF_OPEN_COLA_UPDATE    |
+| 0x6003 | SMF_PUSH_COLA_DATA      |
+| 0x6004 | SMF_CLOSE_COLA_UPDATE   |
 
 ## Command IDs
 
@@ -2305,7 +2305,7 @@ TBD
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
   Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 3   DATA(3)030000
-  
+
   Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
 
 ### 04: Private Command Answer
@@ -2315,7 +2315,7 @@ TBD
   Example 2W S 0 E 1       FROM 0xDevice      TO 0xBox/Gateway        CMD 4   DATA(14)05 800000000000009a5065010000
   First byte of DATA is the same as CMD 0xFE: The Error Code. 0x05 is OK
 
-### 0C: Unknown
+### 0C: Unknown (IoPrepareDataSession?)
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
@@ -2334,7 +2334,7 @@ TBD
 - Command ID: 0x0c (1 byte)
 - Data? (5 bytes)
   Example: 2W S 0 E 1      FROM DA2EE6     TO 842E3        CMD D   DATA(5)05aa0d0000
-  
+
 ### 19: Unknown (Followed by 0xFE)
 
 - Command ID: 0x19 (1 byte)
@@ -2723,7 +2723,7 @@ See General Info 2 for decoding
 ### E1: Bootloader Device / Bootloader ACK
 
 - TBD
-  
+
 ### Fx: Service Commands
 
 #### F0: Send Raw Message / Find Hardware ("Service")

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<slots>
+	<slot1>
+		<file>WRTSI_lo_v0517.bin</file>
+		<majorVersion>5</majorVersion>
+		<minorVersion>17</minorVersion>
+		<size>150980</size>
+		<md5>BADE351287D32C1D8641F4AF28B8C976</md5>
+		<compileDate>1438058529</compileDate>
+		<buildAddress>1900</buildAddress>
+	</slot1>
+	<slot2>
+		<file>WRTSI_hi_v0517.bin</file>
+		<majorVersion>5</majorVersion>
+		<minorVersion>17</minorVersion>
+		<size>150996</size>
+		<md5>481BA6A10B3EB1797CBB6E0D18C04423</md5>
+		<compileDate>1438058529</compileDate>
+		<buildAddress>1900</buildAddress>
+	</slot2>
+</slots>
