@@ -24,6 +24,18 @@
           ]
         }
       ]
+    },
+    {
+      "type": "PlatformIO",
+      "task": "Build",
+      "problemMatcher": [
+        "$platformio"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "label": "PlatformIO: Build"
     }
   ]
 }

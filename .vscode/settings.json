@@ -93,5 +93,13 @@
   ],
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "files.associations": {
+    "*.plist": "xml",
+    "*.strings": "xml",
+    "*.stringsdict": "xml",
+    "*.svd": "xml",
+    "*.json": "jsonc",
+    "*.js": "c"
   }
 }
