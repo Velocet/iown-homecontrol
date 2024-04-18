@@ -1,2 +1,12 @@
-# Normalize line endings to LF in the repository
-* text eol=lf
+# Default behavior if core.autocrlf is not set.
+* text=auto
+
+
+# Declare text files to be normalized and converted to native line endings on checkout.
+# Uncomment to normalize line endings to LF in the repository
+#* text eol=lf
+
+
+# Declare text files that have CRLF line endings on checkout.
+*.bat text eol=crlf
+*.sln text eol=crlf
