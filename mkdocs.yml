@@ -28,8 +28,8 @@ nav:
   - 'Layer 1': 'RADIO.md'
   - 'Layer 2': 'LinkLayer.md'
   - 'Commands': 'COMMANDS.md'
-    - 'Atlantic Thermor': 'COMMANDS-2W-ThermorAtlantic.md'
   - 'Parameter': 'PARAMETER.md'
+  - 'Atlantic Thermor': 'COMMANDS-2W-ThermorAtlantic.md'
   - 'Devices': 'DEVICES.md'
   - 'Misc':
     - 'RTL-SDR': 'rtlsdr.md'
