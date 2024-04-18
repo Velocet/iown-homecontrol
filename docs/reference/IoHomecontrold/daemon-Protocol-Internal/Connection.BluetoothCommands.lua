@@ -1,0 +1,5 @@
+﻿return {
+	NO_COMMAND = 0,
+	STOP_BLUETOOTH = 2,
+	WIFI_SCAN = 1
+}

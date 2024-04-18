@@ -1,0 +1,20 @@
+<actuator commercial-name="Lighting receiver ON/OFF io" type-name="Lighting receiver io SOMFY" sw-version="5113142A04">
+  <managed-io-object-arrays>
+    <io-objects-array id="0000"/>
+  </managed-io-object-arrays>
+  <additional-info>
+    <manage-temporary-io-key value="yes"/>
+  </additional-info>
+  <readjust-sequence>
+    <setting-operation        step="0" type="reset-settings"/>
+  </readjust-sequence>
+  <io-sessions-configuration>
+    <io-session type="io-reset-actuator-sequence-session"   config-id="io-reset-actuator-sequence-session-explicit-cmd"/>
+    <io-session type="io-update-actuator-data-session"      config-id="io-actuator-update-data-session-specific-objects-transfer"/>
+    <io-session type="io-read-setting-status-session"       config-id="io-actuator-read-setting-status-session-specific-objects-transfer"/>
+    <io-session type="io-get-installer-infos-session"       config-id="io-get-installer-infos-data-session-all-objects-of-list"/>
+    <io-session type="io-set-installer-infos-session"       config-id="io-set-installer-infos-data-session-write-object-transfer"/>
+  </io-sessions-configuration>
+</actuator>
+
+

@@ -1,0 +1,21 @@
+﻿return {
+	["at91-kizbox2"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox2"),
+	["at91-kizbox2-ec"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox2-ec"),
+	["at91-kizbox2-simu"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox2-simu"),
+	["at91-kizbox2-tahoma"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox2-tahoma"),
+	["at91-kizboxmini"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini"),
+	["at91-kizboxmini-connexoon"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-connexoon"),
+	["at91-kizboxmini-connexoon-rts"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-connexoon-rts"),
+	["at91-kizboxmini-ideal"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-ideal"),
+	["at91-kizboxmini-RD"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-RD"),
+	["at91-kizboxmini-RD-nexity"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-RD-nexity"),
+	["at91-kizboxmini-RD-pichet"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-RD-pichet"),
+	["at91-kizboxmini-RD-tahoma"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-RD-tahoma"),
+	["at91-kizboxmini-smartkiz"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-smartkiz"),
+	["at91-kizboxmini-tahoma-bee"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizboxmini-tahoma-bee"),
+	["at91-kizbox3"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox3"),
+	["at91-kizbox3-tahoma-switch"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox3-tahoma-switch"),
+	["at91-kizbox3-cozytouchV2"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox3-cozytouchV2"),
+	["at91-kizbox3-RD"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox3-RD"),
+	["at91-kizbox3-RD-tahoma"] = require("Overkiz.HomeAutomation.Protocol.Internal.Boards.Definitions.at91-kizbox3-RD-tahoma")
+}
