@@ -1,12 +1,12 @@
-﻿local var_0_0 = require("Overkiz.HomeAutomation.Shared.IoHomecontrolOvp.Node.nodeModel")
+﻿local nodeModel = require("Overkiz.HomeAutomation.Shared.IoHomecontrolOvp.Node.nodeModel")
 local var_0_1 = require("Overkiz.HomeAutomation.Protocol.IoHomecontrol.Parameter.factory")
 local var_0_2 = require("Overkiz.HomeAutomation.Protocol.IoHomecontrol.Parameter.Private.Factory.manufacturerParametersFactory")
 local var_0_3 = require("Overkiz.HomeAutomation.Protocol.IoHomecontrol.log")
 local var_0_4 = require("Overkiz.HomeAutomation.Protocol.IoHomecontrol.Parameter.Private.Somfy.constants")
-local var_0_5 = require("Overkiz.utilities")
-local var_0_6 = require("pl.List")
+local utilities = require("Overkiz.utilities")
+local plList = require("pl.List")
 local var_0_7 = {}
-local var_0_8 = {
+local weekdays = {
 	Saturday = 6,
 	Wednesday = 3,
 	Thursday = 4,
@@ -18,10 +18,10 @@ local var_0_8 = {
 local var_0_9 = {
 	randomRange = 360,
 	hour = 0,
-	weekday = var_0_8.everyday
+	weekday = weekdays.everyday
 }
 local var_0_10 = {
-	weekday = var_0_8.Monday,
+	weekday = weekdays.Monday,
 	hour = var_0_9.hour,
 	randomRange = var_0_9.randomRange
 }
@@ -30,18 +30,18 @@ local var_0_11 = {
 	hour = var_0_9.hour,
 	randomRange = var_0_9.randomRange
 }
-local var_0_12 = {
+local randomRange20 = {
 	randomRange = 20
 }
-local var_0_13 = {
+local randomRange0 = {
 	randomRange = 0
 }
-local var_0_14 = {
+local SERVEGO = {
 	SERVEGO = "serv-e-go"
 }
 
 var_0_7.objects = {
-	[var_0_4.object0000] = {
+	[ParameterPrivateSomfyConstants.object0000] = {
 		parameter = 5,
 		name = "List of objects arrays managed",
 		data = {
@@ -51,12 +51,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.object1000] = {
+	[ParameterPrivateSomfyConstants.object1000] = {
 		parameter = 5,
 		name = "Hardware platform",
 		data = {
@@ -66,12 +66,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.object6100] = {
+	[ParameterPrivateSomfyConstants.object6100] = {
 		parameter = 5,
 		name = "Product Identification",
 		data = {
@@ -81,12 +81,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.object6101] = {
+	[ParameterPrivateSomfyConstants.object6101] = {
 		parameter = 5,
 		name = "General information",
 		data = {
@@ -96,12 +96,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.object6102] = {
+	[ParameterPrivateSomfyConstants.object6102] = {
 		parameter = 5,
 		name = "Memory dump",
 		data = {
@@ -111,11 +111,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.object6103] = {
+	[ParameterPrivateSomfyConstants.object6103] = {
 		parameter = 5,
 		name = "Two way configuration data",
 		data = {
@@ -125,12 +125,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.object6104] = {
+	[ParameterPrivateSomfyConstants.object6104] = {
 		parameter = 5,
 		name = "Settings",
 		data = {
@@ -140,12 +140,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.object6105] = {
+	[ParameterPrivateSomfyConstants.object6105] = {
 		parameter = 5,
 		name = "Advanced feedback",
 		data = {
@@ -155,12 +155,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.object8001] = {
+	[ParameterPrivateSomfyConstants.object8001] = {
 		parameter = 5,
 		name = "Software version",
 		data = {
@@ -170,12 +170,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.object8002] = {
+	[ParameterPrivateSomfyConstants.object8002] = {
 		parameter = 5,
 		name = "General Info 2",
 		data = {
@@ -185,11 +185,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.object8003] = {
+	[ParameterPrivateSomfyConstants.object8003] = {
 		parameter = 5,
 		name = "Name",
 		data = {
@@ -199,13 +199,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.object8101] = {
+	[ParameterPrivateSomfyConstants.object8101] = {
 		parameter = 5,
 		name = "Gate type",
 		data = {
@@ -215,12 +215,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA100] = {
+	[ParameterPrivateSomfyConstants.objectA100] = {
 		parameter = 8,
 		name = "Operating mode",
 		data = {
@@ -230,13 +230,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA101] = {
+	[ParameterPrivateSomfyConstants.objectA101] = {
 		parameter = 8,
 		name = "Total control timed closing",
 		data = {
@@ -246,13 +246,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA102] = {
+	[ParameterPrivateSomfyConstants.objectA102] = {
 		parameter = 8,
 		name = "Pedestrian control operating mode",
 		data = {
@@ -262,13 +262,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA103] = {
+	[ParameterPrivateSomfyConstants.objectA103] = {
 		parameter = 8,
 		name = "Pedestrian control short timed mode",
 		data = {
@@ -278,13 +278,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA104] = {
+	[ParameterPrivateSomfyConstants.objectA104] = {
 		parameter = 8,
 		name = "Pedestrian control long timed mode",
 		data = {
@@ -294,13 +294,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA105] = {
+	[ParameterPrivateSomfyConstants.objectA105] = {
 		parameter = 8,
 		name = "Orange light warning",
 		data = {
@@ -310,13 +310,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA106] = {
+	[ParameterPrivateSomfyConstants.objectA106] = {
 		parameter = 8,
 		name = "Closing speed",
 		data = {
@@ -326,13 +326,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA107] = {
+	[ParameterPrivateSomfyConstants.objectA107] = {
 		parameter = 8,
 		name = "Opening speed",
 		data = {
@@ -342,13 +342,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA108] = {
+	[ParameterPrivateSomfyConstants.objectA108] = {
 		parameter = 8,
 		name = "Closing slowdown zone",
 		data = {
@@ -358,13 +358,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA109] = {
+	[ParameterPrivateSomfyConstants.objectA109] = {
 		parameter = 8,
 		name = "Opening slowdown zone",
 		data = {
@@ -374,13 +374,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10A] = {
+	[ParameterPrivateSomfyConstants.objectA10A] = {
 		parameter = 8,
 		name = "Motor1/Motor2 offset when closing",
 		data = {
@@ -390,13 +390,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10B] = {
+	[ParameterPrivateSomfyConstants.objectA10B] = {
 		parameter = 8,
 		name = "Motor1/Motor2 offset when opening",
 		data = {
@@ -406,13 +406,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10C] = {
+	[ParameterPrivateSomfyConstants.objectA10C] = {
 		parameter = 8,
 		name = "Motor1 closing torque",
 		data = {
@@ -422,13 +422,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10D] = {
+	[ParameterPrivateSomfyConstants.objectA10D] = {
 		parameter = 8,
 		name = "Motor1 opening torque",
 		data = {
@@ -438,13 +438,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10E] = {
+	[ParameterPrivateSomfyConstants.objectA10E] = {
 		parameter = 8,
 		name = "Motor1 closing slowdown torque",
 		data = {
@@ -454,13 +454,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA10F] = {
+	[ParameterPrivateSomfyConstants.objectA10F] = {
 		parameter = 8,
 		name = "Motor1 opening slowdown torque limitation",
 		data = {
@@ -470,13 +470,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA110] = {
+	[ParameterPrivateSomfyConstants.objectA110] = {
 		parameter = 8,
 		name = "Motor2 closing torque",
 		data = {
@@ -486,13 +486,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA111] = {
+	[ParameterPrivateSomfyConstants.objectA111] = {
 		parameter = 8,
 		name = "Motor2 opening torque",
 		data = {
@@ -502,13 +502,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA112] = {
+	[ParameterPrivateSomfyConstants.objectA112] = {
 		parameter = 8,
 		name = "Motor2 closing slowdown torque",
 		data = {
@@ -518,13 +518,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA113] = {
+	[ParameterPrivateSomfyConstants.objectA113] = {
 		parameter = 8,
 		name = "Motor2 opening slowdown torque",
 		data = {
@@ -534,13 +534,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA114] = {
+	[ParameterPrivateSomfyConstants.objectA114] = {
 		parameter = 8,
 		name = "Id of motor direction",
 		data = {
@@ -550,12 +550,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA116] = {
+	[ParameterPrivateSomfyConstants.objectA116] = {
 		parameter = 8,
 		name = "Obstacle detection sensivity",
 		data = {
@@ -565,13 +565,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA117] = {
+	[ParameterPrivateSomfyConstants.objectA117] = {
 		parameter = 8,
 		name = "Photocells activation",
 		data = {
@@ -581,13 +581,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA118] = {
+	[ParameterPrivateSomfyConstants.objectA118] = {
 		parameter = 8,
 		name = "Safety edge activation",
 		data = {
@@ -597,13 +597,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA119] = {
+	[ParameterPrivateSomfyConstants.objectA119] = {
 		parameter = 8,
 		name = "Programmable activation",
 		data = {
@@ -613,13 +613,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11A] = {
+	[ParameterPrivateSomfyConstants.objectA11A] = {
 		parameter = 8,
 		name = "Programmable safety input - Functionning",
 		data = {
@@ -629,13 +629,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11B] = {
+	[ParameterPrivateSomfyConstants.objectA11B] = {
 		parameter = 8,
 		name = "Programmable safety input - Action",
 		data = {
@@ -645,13 +645,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11C] = {
+	[ParameterPrivateSomfyConstants.objectA11C] = {
 		parameter = 8,
 		name = "Wired control inputs mode",
 		data = {
@@ -661,13 +661,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11D] = {
+	[ParameterPrivateSomfyConstants.objectA11D] = {
 		parameter = 8,
 		name = "Lighting area output",
 		data = {
@@ -677,13 +677,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11E] = {
+	[ParameterPrivateSomfyConstants.objectA11E] = {
 		parameter = 8,
 		name = "Lighting area time delay",
 		data = {
@@ -693,13 +693,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA11F] = {
+	[ParameterPrivateSomfyConstants.objectA11F] = {
 		parameter = 8,
 		name = "Auxiliary output",
 		data = {
@@ -709,13 +709,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA120] = {
+	[ParameterPrivateSomfyConstants.objectA120] = {
 		parameter = 8,
 		name = "Auxiliary output time delay",
 		data = {
@@ -725,13 +725,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA121] = {
+	[ParameterPrivateSomfyConstants.objectA121] = {
 		parameter = 8,
 		name = "Electric lock output",
 		data = {
@@ -741,13 +741,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA122] = {
+	[ParameterPrivateSomfyConstants.objectA122] = {
 		parameter = 8,
 		name = "Gate type",
 		data = {
@@ -757,13 +757,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA124] = {
+	[ParameterPrivateSomfyConstants.objectA124] = {
 		parameter = 8,
 		name = "Additional thrust when closing",
 		data = {
@@ -773,13 +773,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA126] = {
+	[ParameterPrivateSomfyConstants.objectA126] = {
 		parameter = 8,
 		name = "Pedestrian opening position",
 		data = {
@@ -789,13 +789,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA129] = {
+	[ParameterPrivateSomfyConstants.objectA129] = {
 		parameter = 8,
 		name = "Product programming interface",
 		data = {
@@ -805,12 +805,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA12B] = {
+	[ParameterPrivateSomfyConstants.objectA12B] = {
 		parameter = 8,
 		name = "Closing slowdown speed",
 		data = {
@@ -820,13 +820,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA12C] = {
+	[ParameterPrivateSomfyConstants.objectA12C] = {
 		parameter = 8,
 		name = "Opening slowdown speed",
 		data = {
@@ -836,13 +836,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA132] = {
+	[ParameterPrivateSomfyConstants.objectA132] = {
 		parameter = 8,
 		name = "Id of action control",
 		data = {
@@ -852,12 +852,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA133] = {
+	[ParameterPrivateSomfyConstants.objectA133] = {
 		parameter = 8,
 		name = "Id of Intermediary position",
 		data = {
@@ -867,13 +867,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA134] = {
+	[ParameterPrivateSomfyConstants.objectA134] = {
 		parameter = 8,
 		name = "Timed closing",
 		data = {
@@ -883,13 +883,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA137] = {
+	[ParameterPrivateSomfyConstants.objectA137] = {
 		parameter = 8,
 		name = "Id of Pop position",
 		data = {
@@ -899,12 +899,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA138] = {
+	[ParameterPrivateSomfyConstants.objectA138] = {
 		parameter = 8,
 		name = "Id of Access Actuator location of current position",
 		data = {
@@ -914,12 +914,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA12A] = {
+	[ParameterPrivateSomfyConstants.objectA12A] = {
 		parameter = 8,
 		name = "Anti-trapping activaction",
 		data = {
@@ -929,13 +929,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA203] = {
+	[ParameterPrivateSomfyConstants.objectA203] = {
 		parameter = 8,
 		name = "Safety Edge - Type",
 		data = {
@@ -945,13 +945,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA205] = {
+	[ParameterPrivateSomfyConstants.objectA205] = {
 		parameter = 8,
 		name = "Motor travel length mm",
 		data = {
@@ -961,13 +961,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA223] = {
+	[ParameterPrivateSomfyConstants.objectA223] = {
 		parameter = 8,
 		name = "Aditional thrust when closing",
 		data = {
@@ -977,12 +977,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA224] = {
+	[ParameterPrivateSomfyConstants.objectA224] = {
 		parameter = 8,
 		name = "Photocells latest autotest status",
 		data = {
@@ -992,12 +992,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA226] = {
+	[ParameterPrivateSomfyConstants.objectA226] = {
 		parameter = 8,
 		name = "Product setting status",
 		data = {
@@ -1007,13 +1007,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA227] = {
+	[ParameterPrivateSomfyConstants.objectA227] = {
 		parameter = 8,
 		name = "Active power supply",
 		data = {
@@ -1023,12 +1023,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA228] = {
+	[ParameterPrivateSomfyConstants.objectA228] = {
 		parameter = 8,
 		name = "Wired total control input status",
 		data = {
@@ -1038,12 +1038,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA229] = {
+	[ParameterPrivateSomfyConstants.objectA229] = {
 		parameter = 8,
 		name = "Wired pedestrian control input status",
 		data = {
@@ -1053,12 +1053,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA22A] = {
+	[ParameterPrivateSomfyConstants.objectA22A] = {
 		parameter = 8,
 		name = "Photocells input status",
 		data = {
@@ -1068,12 +1068,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA22B] = {
+	[ParameterPrivateSomfyConstants.objectA22B] = {
 		parameter = 8,
 		name = "Safety edge input status",
 		data = {
@@ -1083,12 +1083,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA22C] = {
+	[ParameterPrivateSomfyConstants.objectA22C] = {
 		parameter = 8,
 		name = "Wicket door safety input status",
 		data = {
@@ -1098,12 +1098,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA232] = {
+	[ParameterPrivateSomfyConstants.objectA232] = {
 		parameter = 8,
 		name = "Garage door type",
 		data = {
@@ -1113,12 +1113,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA233] = {
+	[ParameterPrivateSomfyConstants.objectA233] = {
 		parameter = 8,
 		name = "Photocells latest autotest status",
 		data = {
@@ -1128,12 +1128,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA234] = {
+	[ParameterPrivateSomfyConstants.objectA234] = {
 		parameter = 8,
 		name = "Latest programmable autotest status",
 		data = {
@@ -1143,12 +1143,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA235] = {
+	[ParameterPrivateSomfyConstants.objectA235] = {
 		parameter = 8,
 		name = "Software version",
 		data = {
@@ -1158,12 +1158,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA236] = {
+	[ParameterPrivateSomfyConstants.objectA236] = {
 		parameter = 8,
 		name = "Technical reference",
 		data = {
@@ -1173,12 +1173,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA237] = {
+	[ParameterPrivateSomfyConstants.objectA237] = {
 		parameter = 8,
 		name = "Number of RTX 1W remote",
 		data = {
@@ -1188,12 +1188,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA238] = {
+	[ParameterPrivateSomfyConstants.objectA238] = {
 		parameter = 8,
 		name = "Id of industrialisation of manufacturing date",
 		data = {
@@ -1203,12 +1203,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA239] = {
+	[ParameterPrivateSomfyConstants.objectA239] = {
 		parameter = 8,
 		name = "Commercial name",
 		data = {
@@ -1218,12 +1218,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA23A] = {
+	[ParameterPrivateSomfyConstants.objectA23A] = {
 		parameter = 8,
 		name = "Technical product",
 		data = {
@@ -1233,12 +1233,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA23C] = {
+	[ParameterPrivateSomfyConstants.objectA23C] = {
 		parameter = 8,
 		name = "Daughter board sofware version",
 		data = {
@@ -1248,12 +1248,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA23D] = {
+	[ParameterPrivateSomfyConstants.objectA23D] = {
 		parameter = 8,
 		name = "Daughter board hardware version",
 		data = {
@@ -1263,12 +1263,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA23E] = {
+	[ParameterPrivateSomfyConstants.objectA23E] = {
 		parameter = 8,
 		name = "Hardware version",
 		data = {
@@ -1278,12 +1278,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA246] = {
+	[ParameterPrivateSomfyConstants.objectA246] = {
 		parameter = 8,
 		name = "Safety edge latest autotest status",
 		data = {
@@ -1293,12 +1293,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA247] = {
+	[ParameterPrivateSomfyConstants.objectA247] = {
 		parameter = 8,
 		name = "Wicket door safety input latest autotest status",
 		data = {
@@ -1308,12 +1308,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA249] = {
+	[ParameterPrivateSomfyConstants.objectA249] = {
 		parameter = 8,
 		name = "24v power supply for accessories",
 		data = {
@@ -1323,12 +1323,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA24A] = {
+	[ParameterPrivateSomfyConstants.objectA24A] = {
 		parameter = 8,
 		name = "Last results on fall autotests",
 		data = {
@@ -1338,12 +1338,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA318] = {
+	[ParameterPrivateSomfyConstants.objectA318] = {
 		parameter = 8,
 		name = "Number of local orders",
 		data = {
@@ -1353,12 +1353,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA319] = {
+	[ParameterPrivateSomfyConstants.objectA319] = {
 		parameter = 8,
 		name = "Number of remote orders",
 		data = {
@@ -1368,12 +1368,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA328] = {
+	[ParameterPrivateSomfyConstants.objectA328] = {
 		parameter = 8,
 		name = "fall prevention input state",
 		data = {
@@ -1383,12 +1383,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA332] = {
+	[ParameterPrivateSomfyConstants.objectA332] = {
 		parameter = 8,
 		name = "Public event list",
 		data = {
@@ -1398,11 +1398,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.objectA400] = {
+	[ParameterPrivateSomfyConstants.objectA400] = {
 		parameter = 8,
 		name = "Total number of cycles",
 		data = {
@@ -1412,12 +1412,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA401] = {
+	[ParameterPrivateSomfyConstants.objectA401] = {
 		parameter = 8,
 		name = "Number of cycles for pedestrian control",
 		data = {
@@ -1427,12 +1427,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA402] = {
+	[ParameterPrivateSomfyConstants.objectA402] = {
 		parameter = 8,
 		name = "Number of cycles since latest self learning",
 		data = {
@@ -1442,12 +1442,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA403] = {
+	[ParameterPrivateSomfyConstants.objectA403] = {
 		parameter = 8,
 		name = "Number of global rescaling",
 		data = {
@@ -1457,12 +1457,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA404] = {
+	[ParameterPrivateSomfyConstants.objectA404] = {
 		parameter = 8,
 		name = "Number of global obstacle detections",
 		data = {
@@ -1472,12 +1472,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA405] = {
+	[ParameterPrivateSomfyConstants.objectA405] = {
 		parameter = 8,
 		name = "Number of obstacle detections in opening",
 		data = {
@@ -1487,12 +1487,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA406] = {
+	[ParameterPrivateSomfyConstants.objectA406] = {
 		parameter = 8,
 		name = "Number of obstacle detections in closing",
 		data = {
@@ -1502,12 +1502,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA407] = {
+	[ParameterPrivateSomfyConstants.objectA407] = {
 		parameter = 8,
 		name = "Number of obstacle dectections since latest self learning",
 		data = {
@@ -1517,12 +1517,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA409] = {
+	[ParameterPrivateSomfyConstants.objectA409] = {
 		parameter = 8,
 		name = "List of last 10 defaults",
 		data = {
@@ -1532,12 +1532,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA40E] = {
+	[ParameterPrivateSomfyConstants.objectA40E] = {
 		parameter = 8,
 		name = "Id of RTX info request",
 		data = {
@@ -1547,13 +1547,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA40F] = {
+	[ParameterPrivateSomfyConstants.objectA40F] = {
 		parameter = 8,
 		name = "Number of 1w remote controls paired to lighting",
 		data = {
@@ -1563,13 +1563,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA410] = {
+	[ParameterPrivateSomfyConstants.objectA410] = {
 		parameter = 8,
 		name = "Number of 1w remote controls paired to auxiliary",
 		data = {
@@ -1579,13 +1579,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA411] = {
+	[ParameterPrivateSomfyConstants.objectA411] = {
 		parameter = 8,
 		name = "Number of 1w remote controls paired to auxiliary output",
 		data = {
@@ -1595,13 +1595,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA416] = {
+	[ParameterPrivateSomfyConstants.objectA416] = {
 		parameter = 8,
 		name = "Number of remote orders for motor 3S",
 		data = {
@@ -1611,12 +1611,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA417] = {
+	[ParameterPrivateSomfyConstants.objectA417] = {
 		parameter = 8,
 		name = "Number of remote orders for light and auxiliary 3S",
 		data = {
@@ -1626,12 +1626,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA418] = {
+	[ParameterPrivateSomfyConstants.objectA418] = {
 		parameter = 8,
 		name = "Number of obstacle detections",
 		data = {
@@ -1641,12 +1641,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA419] = {
+	[ParameterPrivateSomfyConstants.objectA419] = {
 		parameter = 8,
 		name = "Number of obstacle dectections since latest learning",
 		data = {
@@ -1656,12 +1656,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA41C] = {
+	[ParameterPrivateSomfyConstants.objectA41C] = {
 		parameter = 8,
 		name = "Total number of cycles",
 		data = {
@@ -1671,12 +1671,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA41D] = {
+	[ParameterPrivateSomfyConstants.objectA41D] = {
 		parameter = 8,
 		name = "Number of cycles for pedestrian control",
 		data = {
@@ -1686,12 +1686,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA41E] = {
+	[ParameterPrivateSomfyConstants.objectA41E] = {
 		parameter = 8,
 		name = "Number of cycles  since latest self learning",
 		data = {
@@ -1701,12 +1701,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA41F] = {
+	[ParameterPrivateSomfyConstants.objectA41F] = {
 		parameter = 8,
 		name = "Number of global rescaling for 3S",
 		data = {
@@ -1716,12 +1716,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA44D] = {
+	[ParameterPrivateSomfyConstants.objectA44D] = {
 		parameter = 8,
 		name = "Number of 1w remote controls paired to motor for total control",
 		data = {
@@ -1731,13 +1731,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA44E] = {
+	[ParameterPrivateSomfyConstants.objectA44E] = {
 		parameter = 8,
 		name = "Number of 1w remote controls paired to motor for pedestrian control",
 		data = {
@@ -1747,13 +1747,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA450] = {
+	[ParameterPrivateSomfyConstants.objectA450] = {
 		parameter = 8,
 		name = "Id system key 2 stored",
 		data = {
@@ -1763,11 +1763,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.objectA451] = {
+	[ParameterPrivateSomfyConstants.objectA451] = {
 		parameter = 8,
 		name = "Name",
 		data = {
@@ -1777,13 +1777,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA503] = {
+	[ParameterPrivateSomfyConstants.objectA503] = {
 		parameter = 8,
 		name = "Reset historical counters",
 		data = {
@@ -1793,11 +1793,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.objectA504] = {
+	[ParameterPrivateSomfyConstants.objectA504] = {
 		parameter = 8,
 		name = "Go into Factory mode",
 		data = {
@@ -1807,11 +1807,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.objectA600] = {
+	[ParameterPrivateSomfyConstants.objectA600] = {
 		parameter = 8,
 		name = "1W transmitter address",
 		data = {
@@ -1821,11 +1821,11 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	},
-	[var_0_4.objectA601] = {
+	[ParameterPrivateSomfyConstants.objectA601] = {
 		parameter = 5,
 		name = "Power Line measurement",
 		data = {
@@ -1835,12 +1835,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA602] = {
+	[ParameterPrivateSomfyConstants.objectA602] = {
 		parameter = 5,
 		name = "Statistics data",
 		data = {
@@ -1850,12 +1850,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA603] = {
+	[ParameterPrivateSomfyConstants.objectA603] = {
 		parameter = 5,
 		name = "Product setting data",
 		data = {
@@ -1865,12 +1865,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA604] = {
+	[ParameterPrivateSomfyConstants.objectA604] = {
 		parameter = 5,
 		name = "Profile io",
 		data = {
@@ -1880,12 +1880,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA606] = {
+	[ParameterPrivateSomfyConstants.objectA606] = {
 		parameter = 5,
 		name = "Operating temperature data",
 		data = {
@@ -1895,12 +1895,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA607] = {
+	[ParameterPrivateSomfyConstants.objectA607] = {
 		parameter = 5,
 		name = "One way pairing data",
 		data = {
@@ -1910,13 +1910,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA608] = {
+	[ParameterPrivateSomfyConstants.objectA608] = {
 		parameter = 5,
 		name = "",
 		data = {
@@ -1926,12 +1926,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA609] = {
+	[ParameterPrivateSomfyConstants.objectA609] = {
 		parameter = 5,
 		name = "Travel control Positions",
 		data = {
@@ -1941,13 +1941,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60A] = {
+	[ParameterPrivateSomfyConstants.objectA60A] = {
 		parameter = 5,
 		name = "End limit detection",
 		data = {
@@ -1957,12 +1957,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60B] = {
+	[ParameterPrivateSomfyConstants.objectA60B] = {
 		parameter = 5,
 		name = "Position Adjustement",
 		data = {
@@ -1972,12 +1972,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60C] = {
+	[ParameterPrivateSomfyConstants.objectA60C] = {
 		parameter = 5,
 		name = "10 lines of 16 char",
 		data = {
@@ -1991,13 +1991,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60C_SENSOR] = {
+	[ParameterPrivateSomfyConstants.objectA60C_SENSOR] = {
 		parameter = 5,
 		name = "10 lines of 16 char",
 		data = {
@@ -2011,13 +2011,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_13,
+			onDelayedStart = randomRange0,
 			onRecurrence = var_0_11
 		}
 	},
-	[var_0_4.objectA60D] = {
+	[ParameterPrivateSomfyConstants.objectA60D] = {
 		parameter = 5,
 		name = "number of paired masters 1W",
 		data = {
@@ -2027,12 +2027,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60E] = {
+	[ParameterPrivateSomfyConstants.objectA60E] = {
 		parameter = 5,
 		name = "Sensors settings",
 		data = {
@@ -2042,12 +2042,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA60F] = {
+	[ParameterPrivateSomfyConstants.objectA60F] = {
 		parameter = 5,
 		name = "Reset statistic informations",
 		data = {
@@ -2057,12 +2057,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA610] = {
+	[ParameterPrivateSomfyConstants.objectA610] = {
 		parameter = 5,
 		name = "OEM initial settings",
 		data = {
@@ -2072,12 +2072,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA612] = {
+	[ParameterPrivateSomfyConstants.objectA612] = {
 		parameter = 5,
 		name = "Actuator P&P current mode",
 		data = {
@@ -2087,13 +2087,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_10
 		}
 	},
-	[var_0_4.objectA613] = {
+	[ParameterPrivateSomfyConstants.objectA613] = {
 		parameter = 5,
 		name = "Last Events",
 		data = {
@@ -2103,13 +2103,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12,
+			onDelayedStart = randomRange20,
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA614] = {
+	[ParameterPrivateSomfyConstants.objectA614] = {
 		parameter = 5,
 		name = "Production Info",
 		data = {
@@ -2119,12 +2119,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_13
+			onDelayedStart = randomRange0
 		}
 	},
-	[var_0_4.objectA615] = {
+	[ParameterPrivateSomfyConstants.objectA615] = {
 		parameter = 5,
 		name = "OEM tracability",
 		data = {
@@ -2134,12 +2134,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_13
+			onDelayedStart = randomRange0
 		}
 	},
-	[var_0_4.objectA617] = {
+	[ParameterPrivateSomfyConstants.objectA617] = {
 		parameter = 5,
 		name = "Speed management",
 		data = {
@@ -2149,12 +2149,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA618] = {
+	[ParameterPrivateSomfyConstants.objectA618] = {
 		parameter = 5,
 		name = "Back to Factory Mode Informations",
 		data = {
@@ -2164,12 +2164,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectA619] = {
+	[ParameterPrivateSomfyConstants.objectA619] = {
 		parameter = 5,
 		name = "Torque Curves",
 		data = {
@@ -2179,12 +2179,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA61A] = {
+	[ParameterPrivateSomfyConstants.objectA61A] = {
 		parameter = 5,
 		name = "Product life history",
 		data = {
@@ -2194,12 +2194,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA61B] = {
+	[ParameterPrivateSomfyConstants.objectA61B] = {
 		parameter = 5,
 		name = "Number of hard/soft obstacles motorisations",
 		data = {
@@ -2209,12 +2209,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectA61C] = {
+	[ParameterPrivateSomfyConstants.objectA61C] = {
 		parameter = 5,
 		name = "Sliding window motorisation",
 		data = {
@@ -2224,12 +2224,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectB000] = {
+	[ParameterPrivateSomfyConstants.objectB000] = {
 		parameter = 5,
 		name = "Window static description",
 		data = {
@@ -2239,13 +2239,13 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_13,
+			onDelayedStart = randomRange0,
 			onRecurrence = var_0_11
 		}
 	},
-	[var_0_4.objectB001] = {
+	[ParameterPrivateSomfyConstants.objectB001] = {
 		parameter = 5,
 		name = "Window dynamic description",
 		data = {
@@ -2255,12 +2255,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
 			onRecurrence = var_0_9
 		}
 	},
-	[var_0_4.objectB002] = {
+	[ParameterPrivateSomfyConstants.objectB002] = {
 		parameter = 5,
 		name = "Horizontal rotation direction",
 		data = {
@@ -2270,12 +2270,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_13
+			onDelayedStart = randomRange0
 		}
 	},
-	[var_0_4.objectFFFD] = {
+	[ParameterPrivateSomfyConstants.objectFFFD] = {
 		parameter = 5,
 		name = "DEBUG",
 		data = {
@@ -2285,12 +2285,12 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			},
-			onDelayedStart = var_0_12
+			onDelayedStart = randomRange20
 		}
 	},
-	[var_0_4.objectFFFF] = {
+	[ParameterPrivateSomfyConstants.objectFFFF] = {
 		parameter = 5,
 		name = "Data from PDG structure",
 		data = {
@@ -2300,7 +2300,7 @@ var_0_7.objects = {
 		},
 		refresh = {
 			technical = {
-				var_0_14.SERVEGO
+				SERVEGO.SERVEGO
 			}
 		}
 	}
@@ -2321,15 +2321,15 @@ local function var_0_15(arg_1_0, arg_1_1)
 end
 
 function var_0_7.createFactoryParameters(arg_2_0)
-	local var_2_0 = tostring(var_0_0.getProfile(arg_2_0))
-	local var_2_1 = var_0_6(var_0_5.tableExtract(arg_2_0.generalinfo[1], 1, 7)):map(string.char):join()
-	local var_2_2 = var_0_5.tableExtract(arg_2_0.generalinfo[1], 8, 3)
+	local var_2_0 = tostring(nodeModel.getProfile(arg_2_0))
+	local var_2_1 = plList(utilities.tableExtract(arg_2_0.generalinfo[1], 1, 7)):map(string.char):join()
+	local var_2_2 = utilities.tableExtract(arg_2_0.generalinfo[1], 8, 3)
 	local var_2_3 = "Overkiz.HomeAutomation.Protocol.IoHomecontrol.Parameter.Private.Somfy."
 
 	local function var_2_4(arg_3_0)
-		if arg_3_0 == var_0_0.class.ACTUATOR then
+		if arg_3_0 == nodeModel.class.ACTUATOR then
 			return var_2_3 .. "C0."
-		elseif arg_3_0 == var_0_0.class.SENSOR then
+		elseif arg_3_0 == nodeModel.class.SENSOR then
 			return var_2_3 .. "C1."
 		else
 			error("node class " .. tostring(arg_3_0) .. "isn't handled")
@@ -2350,7 +2350,7 @@ function var_0_7.createFactoryParameters(arg_2_0)
 				end
 
 				if var_0_15(var_2_7.index, var_2_2) then
-					var_0_3:info("Factory: Found an index: " .. var_2_7.index .. ". It should be greater than " .. var_0_6(var_2_2):map(string.char):join() .. " to support this device in serv-e-go.")
+					var_0_3:info("Factory: Found an index: " .. var_2_7.index .. ". It should be greater than " .. plList(var_2_2):map(string.char):join() .. " to support this device in serv-e-go.")
 
 					return false
 				end
@@ -2361,7 +2361,7 @@ function var_0_7.createFactoryParameters(arg_2_0)
 			if var_2_8 then
 				for iter_2_0, iter_2_1 in pairs(var_2_8) do
 					var_0_3:info("Factory : Create object parameter " .. string.format("0x%02X", iter_2_1.id) .. "(" .. iter_2_1.id .. ")-'" .. iter_2_1.name .. "' for node " .. arg_2_0.address)
-					var_0_1:create(var_0_5.tableDeepCopy(iter_2_1), arg_2_0)
+					var_0_1:create(utilities.tableDeepCopy(iter_2_1), arg_2_0)
 				end
 			end
 
