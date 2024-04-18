@@ -92,18 +92,18 @@ If not explicitly mentioned every board version is supported.
 
 <div align="center" width="100%">
 
-| Channel  | Mode |  Start    |    End    |   CENTER   |
-| ----: | :-----: | :-------: | :-------: | :--------: |
-| 1    |  2W    | 868,0 MHz | 868,6 MHz | **868,25 MHz** |
-| 2 | 1W/2W     | 868,7 MHz | 869,2 MHz | **868,95 MHz** |
-| 3   | 2W    | 869,7 MHz | 870,0 MHz | **869,85 MHz** |
+| Channel | Mode  | CENTER         | Start     | End       |
+| ------: | :---: | :------------: | :-------: | :-------: |
+| 1       | 2W    | **868,25 MHz** | 868,0 MHz | 868,6 MHz |
+| 2       | 1W/2W | **868,95 MHz** | 868,7 MHz | 869,2 MHz |
+| 3       | 2W    | **869,85 MHz** | 869,7 MHz | 870,0 MHz |
 
 io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes.
 
 </div>
 
 - 1W (OneWay): Uni-Directional (1 Channel)
-- 2W (TwoWay): Bi-Directional (3 Channels)
+- 2W (TwoWay):  Bi-Directional (3 Channels)
 - Modulation: FSK with 19,2 kHz deviation (Encoding: NRZ)
 - Data/Baud Rate: 38400 bps (Encoding: UART 8N1)
 - Frequency Hopping (FHSS): 2,7ms (Patent: 3ms) per Channel
