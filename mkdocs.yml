@@ -5,12 +5,13 @@ site_author: 'Velocet'
 
 repo_url: 'https://github.com/velocet/iown-homecontrol/'
 edit_uri: edit/main/docs/
+
 copyright: "copyleft &copy; iown-homecontrol"
 
 # TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
 
 # Directory where the output HTML and other files are created
-site_dir: '.github/site
+site_dir: '.github/site'
 
 exclude_docs: |
   boards/
@@ -24,19 +25,21 @@ exclude_docs: |
 
 nav:
   - 'index': 'index.md'
-  - 'Layer 1': 'Radio.md'
+  - 'Layer 1': 'RADIO.md'
   - 'Layer 2': 'LinkLayer.md'
-  - 'Commands': 'Commands.md'
+  - 'Commands': 'COMMANDS.md'
+    - 'Atlantic Thermor': 'COMMANDS-2W-ThermorAtlantic.md'
+  - 'Parameter': 'PARAMETER.md'
+  - 'Devices': 'DEVICES.md'
   - 'Misc':
-    - 'Devices': devices.md
-    - 'QEMU Emulation': emulation-qemu-static.md
-    - 'Firmware': firmware.md
-    - 'KizOS':
-      - 'KizOS Images': kizos_images.md
-      - 'KizOS Linux': kizos_linux.md
-      - 'KizOS RE': kizos_re.md
+    - 'RTL-SDR': 'rtlsdr.md'
     - 'MicroPython': 'MicroPython.md'
-    - 'Atlantic Thermor 2W Commands': 'ThermorAtlantic_2W_Commands.md'
+    - 'Firmware': 'firmware.md'
+    - 'KizOS':
+      - 'KizOS Images': 'kizos_images.md'
+      - 'KizOS Linux': 'kizos_linux.md'
+      - 'KizOS RE': 'kizos_re.md'
+      - 'QEMU Emulation': 'emulation-qemu-static.md'
 
 plugins:
   - privacy:
