@@ -2,9 +2,6 @@ meta:
   id: iohomecontrol_protocol_body
   title: io-homecontrol Frame
   endian: le
-  xref:
-    rfc: 791
-    wikidata: Q11103
   license: CC0-1.0
   ks-version: 0.8
   imports:
@@ -21,7 +18,7 @@ doc: |
   IDs for these payloads named "protocol numbers".
 
   This is effectively a "router" type: it expects to get protocol number as a parameter, and then invokes relevant type parser based on that parameter.
-  
+
                  d[0]                              d[1]
   7   6   5   4   3   2   1   0     7   6   5   4   3   2   1   0
   a4  a3  a2  a1  a0  b8  b7  b6    b5  b4  b3  b2  b1  b0  c1  c0
@@ -51,7 +48,15 @@ seq:
         'command_enum::032_prv': parameter_prv
         'command_enum::255_undefined': parameter_na
 instances:
-  protocol:
+  controlbyte1:
+    pos: 0
+    type:
+    value: protocol_num
+    enum: command_enum
+  controlbyte1:
+    value: protocol_num
+    enum: command_enum
+
     value: protocol_num
     enum: command_enum
 types:
