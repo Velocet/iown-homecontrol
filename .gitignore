@@ -20,11 +20,11 @@ node_modules/
 .env
 .env.test
 .cache
-.cache/
 
-# PlatformIO
+# PlatformIO/Arduino
 .pio
 compile_commands.json
+.development
 
 # VSCode
 .vscode/.browse.c_cpp.db*
@@ -34,7 +34,8 @@ compile_commands.json
 
 # mkdocs
 site/
+.github/site
+.github/site/
 
 # Private
-src_nope/
-NOTES.md
+.private

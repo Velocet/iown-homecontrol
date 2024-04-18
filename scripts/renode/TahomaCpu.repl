@@ -1,0 +1,277 @@
+flash: Memory.MappedMemory @ sysbus 0x00000000 
+    size: 0x20000000 
+sram: Memory.MappedMemory @ sysbus 0x20000000 
+    size: 0x02000000 
+fsmcBank1: Memory.MappedMemory @ sysbus 0x60000000
+    size: 0x20000000
+//fsmcBank2: Memory.MappedMemory @ sysbus 0x80000000
+//    size: 0x20000000
+fsmcRegister: Memory.MappedMemory @ sysbus 0xA0000000
+    size: 0x20000000
+bitbandPeripherals: Miscellaneous.BitBanding @ sysbus <0x42000000, +0x2000000> 
+    peripheralBase: 0x40000000
+bitbandSram: Miscellaneous.BitBanding @ sysbus <0x22000000, +0x2000000>
+    peripheralBase: 0x20000000
+
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m3"
+    nvic: nvic
+
+//i2c1: I2C.STM32F4_I2C @ sysbus <0x40005400, +0x400>
+//    EventInterrupt -> nvic@31
+//    ErrorInterrupt -> nvic@32
+//i2c2: I2C.STM32F4_I2C @ sysbus <0x40005800, +0x400>
+//    EventInterrupt -> nvic@33
+//    ErrorInterrupt -> nvic@34
+
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    priorityMask: 0xF0
+    systickFrequency: 72000000
+    IRQ -> cpu@0
+exti: IRQControllers.STM32F4_EXTI @ sysbus 0x40010400
+    numberOfOutputLines: 32
+//    [0-4] -> nvic@[6-10]
+//    [5-9] -> nvicInput23@[0-4]
+//    [10-15] -> nvicInput40@[0-5]
+
+//nvicInput23: Miscellaneous.CombinedInput @ none
+//    numberOfInputs: 5
+//    -> nvic@23
+
+//nvicInput40: Miscellaneous.CombinedInput @ none
+//    numberOfInputs: 6
+//    -> nvic@40
+
+//USART_1: UART.STM32_UART_Fix @ sysbus <0x40013800, +0x400>
+USART_1: UART.STM32_UART @ sysbus <0x40013800, +0x400>
+//    GPIOA rx 9 tx 10
+    IRQ -> nvic@37 //Verified
+    frequency: 115200 //9600
+//usart2: UART.STM32_UART @ sysbus <0x40004400, +0x400>
+//    -> nvic@38
+//USART_3: UART.STM32_UART_Fix @ sysbus <0x40004800, +0x400>
+USART_3: UART.STM32_UART @ sysbus <0x40004800, +0x400>
+    IRQ -> nvic@39 //Verified
+    frequency: 38400
+//usart4: UART.STM32_UART @ sysbus <0x40004C00, +0x400>
+//    -> nvic@52
+//usart5: UART.STM32_UART @ sysbus <0x40005000, +0x400>
+//    -> nvic@53
+
+LED: Miscellaneous.LED @ GPIO_A
+// Dont use STM32F1GPIOPort
+GPIO_A: GPIOPort.STM32_GPIOPort @ sysbus <0x40010800, +0x400>
+    modeResetValue: 0xA8000000
+//    pullUpPullDownResetValue: 0x00000100
+    outputSpeedResetValue: 0x000000C0
+    numberOfAFs: 8
+    8 -> LED@0
+//    [0-7,9-15] -> exti@[0-7,9-15]
+GPIO_B: GPIOPort.STM32_GPIOPort @ sysbus <0x40010C00, +0x400>
+    modeResetValue: 0xA8000000
+//    pullUpPullDownResetValue: 0x00000100
+    outputSpeedResetValue: 0x000000C0
+    numberOfAFs: 8
+    [0-15] -> exti@[0-15]
+//BUTTON: Miscellaneous.Button @ GPIO_C 0
+GPIO_C: GPIOPort.STM32_GPIOPort @ sysbus <0x40011000, +0x400>
+    modeResetValue: 0xA8000000
+    pullUpPullDownResetValue: 0x00000200
+    outputSpeedResetValue: 0x000000C0
+    numberOfAFs: 8
+//    0 -> BUTTON@0
+//    type: Type.Out
+    [0-15] -> exti@[0-15]
+//GPIO_D: GPIOPort.STM32F1GPIOPort @ sysbus <0x40011400, +0x400>
+//    [0-15] -> exti@[0-15]
+//GPIO_E: GPIOPort.STM32F1GPIOPort @ sysbus <0x40011800, +0x400>
+//    [0-15] -> exti@[0-15]
+//GPIO_F: GPIOPort.STM32F1GPIOPort @ sysbus <0x40011C00, +0x400>
+//    [0-15] -> exti@[0-15]
+//GPIO_G: GPIOPort.STM32F1GPIOPort @ sysbus <0x40012000, +0x400>
+//    [0-15] -> exti@[0-15]
+
+//dma: DMA.STM32LDMA @ sysbus 0x40020000
+//    [0-7] -> nvic@[11-17,47]
+
+IWDG: Timers.STM32_IndependentWatchdog @ sysbus <0x40003000, +0x400>
+    frequency: 32000
+    windowOption: true
+    defaultPrescaler: 0x0
+
+PWR: Miscellaneous.STM32L0_PWR @ sysbus <0x40007000, +0x400>
+//    -> exti@16
+
+//lptim1: Timers.STM32L0_LpTimer @ sysbus 0x40007C00
+//    frequency: 0x1000000
+//    -> exti@29
+
+CRC: CRC.STM32F0_CRC @ sysbus <0x40023000, +0x400>
+    configurablePoly: true
+
+//RTC: STM32L_RTC @ sysbus <0x40002800, +0x400>
+//    -> exti@20
+
+//Enable PLL
+//RCC_CFGR_PLLON: Python.PythonPeripheral @ sysbus 0x42420060
+//    size: 0x4
+//    initable: false
+//    filename: "scripts/pydev/repeater.py"
+
+//Loop RCC INIT ESSENTIAL PART VALUE 0x02020200
+RCC_CR: Python.PythonPeripheral @ sysbus 0x40021000
+    size: 0x4
+    initable: false
+    script: "request.value=0x20a0a00"
+//0x380402 = HSI*16 = 64MHz
+RCC_CFGR: Python.PythonPeripheral @ sysbus 0x40021004
+    size: 0x4
+    initable: false
+    script: "request.value=0x08"
+RCC_CIR: Python.PythonPeripheral @ sysbus 0x40021008
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+//RCC_BDCR: Python.PythonPeripheral @ sysbus 0x40021020
+//    size: 0x4
+//    initable: false
+//    script: "request.value=0x20a0a00"
+//Needed, used by loop part 2 search for some bitset
+RCC_CSR: Python.PythonPeripheral @ sysbus 0x40021024
+    size: 0x4
+    initable: false
+    script: "request.value=0xffffffff"
+FLASH_ACR: Python.PythonPeripheral @ sysbus 0x40022000
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+FLASH_OBR: Python.PythonPeripheral @ sysbus 0x4002201c
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+FLASH_KEYR: Python.PythonPeripheral @ sysbus 0x40022004
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+FLASH_OPTKEYR: Python.PythonPeripheral @ sysbus 0x40022008
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+FLASH_CR: Python.PythonPeripheral @ sysbus 0x40022010
+    size: 0x4
+    initable: false
+    script: "request.value=0x01"
+//Loop FLASH ESSENTIAL VALUE 0x04
+FLASH_SR: Python.PythonPeripheral @ sysbus 0x4002200c
+    size: 0x4
+    initable: false
+    script: "request.value=0x04"
+//PART 2
+
+BKP: Python.PythonPeripheral @ sysbus 0x40006c00
+    size: 0x400
+    initable: true
+    script: "request.value=0x00"
+RCC_APB1RSTR: Python.PythonPeripheral @ sysbus 0x40021010
+    size: 0x4
+    initable: false
+    script: "request.value=0x00"
+RCC_APB1ENR: Python.PythonPeripheral @ sysbus 0x4002101C
+    size: 0x4
+    initable: false
+    script: "request.value=0x00"
+RCC_APB2ENR: Python.PythonPeripheral @ sysbus 0x40021018
+    size: 0x4
+    initable: false
+    script: "request.value=0x00" 
+AFIO_EXTICR1: Python.PythonPeripheral @ sysbus 0x40010008
+    size: 0x4
+    initable: false
+    script: "request.value=0x00"
+
+radio: Wireless.SI446X @ SPI_1
+    1 -> GPIO_A@7
+    2 -> GPIO_A@6
+    3 -> GPIO_A@5
+    4 -> GPIO_A@4
+//    5 -> GPIO_A@3
+//dummySlave: Mocks.DummySPI_SI446X @ SPI_1 
+
+SPI_1: SPI.STM32SPI @ sysbus 0x40013000
+//    -> nvic@25
+
+//SPI_CR1: Python.PythonPeripheral @ sysbus 0x40013000
+//    size: 0x4
+//    initable: true
+//    script: "request.value=0x00"
+//SPI_CRCPR: Python.PythonPeripheral @ sysbus 0x40013010
+//    size: 0x4
+//    initable: true
+//    script: "request.value=0x07"
+//SPI_I2SCFGR: Python.PythonPeripheral @ sysbus 0x4001301c
+//    size: 0x4
+//    initable: true
+//    script: "request.value=0x00"
+//GetFlagStatus must be set and not reset
+//NOT USED ? Needed for SPI_SendReceiveData...
+//SPI_DR: Python.PythonPeripheral @ sysbus 0x4001300c
+//    size: 0x4
+//    initable: true
+//    script: "request.value=0x00"
+//SPI_SR: Python.PythonPeripheral @ sysbus 0x40013008
+//    size: 0x4
+//    initable: true
+//    script: '''
+//if request.isInit:
+//    lastVal = 0
+//else:
+//    lastVal = 1 - lastVal
+//    request.value = lastVal  * 0xFFFFffff
+//#self.ErrorLog("%s on FLIPFLOP at 0x%x, value 0x%x" % (str(request.type), request.offset, request.value))
+//'''
+
+//    script: '''
+//#SPI_getFlagStatus return return (Flag & *(SPI + offset 8)) != 0;
+//if request.isInit:
+//   lastVal = 0
+//   type = str(request.type)
+//   offset = request.offset
+//   value = request.value
+//if request.isWrite:
+//   type = str(request.type)
+//   offset = request.offset
+//   value = request.value
+//elif request.isRead and lastVal == 1:
+//   lastVal = lastVal + 1
+//   type = str(request.type)
+//   offset = request.offset
+//   value = request.value
+//self.ErrorLog("%s at offset 0x%x, value 0x%x " % (type, offset, value))
+//'''
+
+PWM: Python.PythonPeripheral @ sysbus 0x400112c00
+    size: 0x4
+    initable: true
+    script: "request.value=0x00"
+//New
+RCC_APB2RSTR: Python.PythonPeripheral @ sysbus 0x4002100C
+    size: 0x4
+    initable: false
+    script: "request.value=0x00"
+
+sysbus:
+    init:
+        ApplySVD @firmware/stm32f101_patched.svd //STM32F101_iown.svd //
+        //Tag <0x40011008 0x4> "GPIOCpin7" 0xff
+
+        //Tag <0xE0007000 0x100> "PWM"
+        //Tag <0x420e0020 4> "CR_DBP_BB"
+        //SilenceRange <0x02010000 0x1000>
+        //Tag <0x40021000 4> "RCC_CR" 0x2020202
+        //Tag <0x40021004 4> "RCC_CFGR" 0xFFFFFFFF
+        //Tag <0x40021008 4> "RCC_CIR" 0xFFFFFFFF
+
+        //Tag <0x40022010, 0x40022013> "FLASH_CR" 0xFFFFFFFF
+        //Tag <0x40022000 32> "FLASH_SR" 0xFFFFFFFF
+        //Tag <0x40022000, 0x40022000> "FLASH_ACR" 0xFFFFFFFF
+        

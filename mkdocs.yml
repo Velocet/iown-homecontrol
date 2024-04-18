@@ -9,6 +9,9 @@ copyright: "copyleft &copy; iown-homecontrol"
 
 # TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
 
+# Directory where the output HTML and other files are created
+site_dir: '.github/site
+
 exclude_docs: |
   boards/
   datasheets/
