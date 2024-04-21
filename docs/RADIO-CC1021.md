@@ -19,6 +19,7 @@ I think there are 6 channels. 3 Rx and 3 Tx channels and each Rx channel is conn
 > AA = Config Registers Addr | DD = Data | W/R = Write/Read to/from CC1021
 > Frequency register A is use for RX. Frequency register B is use for TX
 
+```
 AA DD W/R
 04 3A W Frequency register 2A - 8 MSB of frequency control word A
 08 3A W Frequency register 2B - 8 MSB of frequency control word B
@@ -49,7 +50,7 @@ AA DD W/R
   RX fdev should be TX fdev for FSK and for GFSK at 100 kBaud data rate and above.
 10 22 W Channel filter / RSSI control register
   receiver channel bandwidth < 153.6 kHz
-  Decimation clock divisor: 
+  Decimation clock divisor:
 11 65 W VGA control register 1
   Sets the number of consecutive samples at or above carrier sense level before carrier sense is indicated (for example, on LOCK pin): Set carrier sense after second sample at or above carrier sense level
   Sets the number of consecutive samples below carrier sense level before carrier sense indication (for example, on lock pin) is reset: 1: Carrier sense reset after 2nd sample below carrier sense level. Reduce chance of losing carrier sense due to noise.
@@ -114,5 +115,6 @@ CC1021 TX channel 3
 09 3D = Frequency register 1B
 0A 99 = Frequency register 0B
 > Start Over
+```
 
 Maybe someone can calculator the Rx/Tx frekvens from the hex code in Frequency register A/B from cc1021 datasheet. CC1021 use 14.7456 MHz Crystal oscillator.

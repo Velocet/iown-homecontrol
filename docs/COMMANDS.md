@@ -2509,7 +2509,7 @@ This command does not require authentication.
 - Command ID: 0x32 (1 byte)
 - Encrypted 2-Way Key (16 bytes)
 
-**Note:** The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3c, see [LinkLayer](LinkLayer.md)
+**Note:** The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3c, see [LinkLayer](LINKLAYER.md)
 
 ### 33: Find Actuator Ack = Key Transfer Ack
 

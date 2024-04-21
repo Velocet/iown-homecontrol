@@ -18,7 +18,7 @@ Other firmware used by Overkiz is based on ContikiOS.
 
 - Somfy uses mostly STM32F101RCT6 in Gateways, Remotes and Actuators.
 - Velux uses mostly SiLabs EFR/EFM series.
-- Head over to the [Hardware](hardware.md) section where this information is collected.
+- Head over to the [Devices](DEVICES.md) section where this information is collected.
 
 - Somfy/Overkiz Firmware Naming Scheme: `$usage-[$type]-$mcu-$datetime.$ext`
 

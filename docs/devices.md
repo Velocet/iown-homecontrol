@@ -1,9 +1,6 @@
 # io-homecontrol Devices
 
-<!--
-TODO Link to sub pages for the different products with more indepth knowledge
- -->
-
+<!-- TODO Link to sub pages for the different products with more indepth knowledge -->
 
 # OEM Hardware <!-- TODO make table with mcus, etc. -->
 
@@ -11,14 +8,12 @@ List of supported OEM hardware including pictures and hardware description (if a
 
 ## Somfy
 
-
 - Situo 1 io (1W) (via [reddit](https://www.reddit.com/r/AskElectronics/comments/cz8trb/need_help_identifying_rf_ic_nr3_x6_046/))
   - MCU: STM8L151C8U6 GH22C VG CHN 723 (UART: 38834 Baud = 38400, the difference is related to the STM8's internal clock)
   - RF: [Semtech SX1243](https://www.semtech.com/products/wireless-rf/frequency-shift-keying-fsk/sx1243#datasheets)
 - TaHoma
   - MCU: STM32F101RCT6
   - RF: Si4461
-
 
 ## Velux
 
@@ -58,7 +53,7 @@ List of supported OEM hardware including pictures and hardware description (if a
 - KLI 310 - (1w) Wall Mounted Remote Control for Universal Usage
 - KLI 311 - (1w) Wall Mounted Remote Control for Window
 - KLI 312 - (1w) Wall Mounted Remote Control for Inner Sun Blind
-- [KLI 313 - (1w) Wall Mounted Remote Control for Outer Sun Blind](/products/velux/kli_313.md)
+- [KLI 313 - (1w) Wall Mounted Remote Control for Outer Sun Blind](devices/Velux/KLI31x/README.md)
 - KIX 300 - Package: KIG 300, Raumklimasensor, Abwesenheitsschalter
   - VELUX ACTIVE indoor climate control KIX 300
   - Gateway KLG 300/3LG E01/NXG01E
@@ -69,7 +64,6 @@ List of supported OEM hardware including pictures and hardware description (if a
 - KMX 100 - UNKNOWN
 - KMX 200 - UNKNOWN
 - KLA 130 - UNKNOWN
-
 
 This page lists devices for which their internal hardware (eg.: MCU, SoC, RF, etc.) is known.
 
@@ -91,11 +85,6 @@ The default password for animeo products is `somfy`.
 | Overkiz  |                          | 0x123D |     |                   | ZigBee |       |                             |
 | Atlantic |                          | 0x125B |     |                   | ZigBee |       |                             |
 | Somfy    | SDN Gateway (USA)        |        |     | 04:91:62:68:EF:20 |        |       |                             |
-|          |                          |        |     |                   |        |       |                             |
-|          |                          |        |     |                   |        |       |                             |
-|          |                          |        |     |                   |        |       |                             |
-|          |                          |        |     |                   |        |       |                             |
-|          |                          |        |     |                   |        |       |                             |
 |          |                          |        |     |                   |        |       |                             |
 
 - Somfy TaHoma (Overkiz_KB1 = KizBox1): Ref. 5067437X03. PIN: 0201-0568-4011. MAC: F8:81:1A:00:02:38
