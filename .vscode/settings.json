@@ -26,6 +26,7 @@
     ".git": true,
     ".github": true,
     ".pio": true,
+    ".private": true,
     ".trunk": true,
     ".vscode": true,
     "site": true
@@ -88,17 +89,17 @@
     ".git": true,
     ".github": true,
     ".pio": true,
+    ".private": true,
     ".trunk": true,
     ".vscode": true,
     "site": true
   },
-  "git.repositoryScanIgnoredFolders": [ // see:search.exclude
+  "git.repositoryScanIgnoredFolders": [
     ".cache",
     ".devcontainer",
-    ".github",
     ".pio",
+    ".private",
     ".trunk",
-    ".vscode",
     "site"
   ],
   "markdownlint.config": {
@@ -114,6 +115,7 @@
     ".git": true,
     ".github": true,
     ".pio": true,
+    ".private": true,
     ".trunk": true,
     ".vscode": true,
     "site": true
