@@ -2,41 +2,55 @@
 
 This document lists the known io-homecontrol "Command IDs" (CMD), their corresponding parameters and structure.
 
-If you want to have a look for yourself, here are some starting points for reverse engeneering:
-
-```SHELL
-# KizBox2 (kb2) / MiniBox (eg. Connexoon)
-
-> /apps/overkiz/io-homecontrol/bin/io-homecontrold
-> /apps/overkiz/io-homecontrol/lib/Overkiz/HomeAutomation/Shared/IoHomecontrolOvp/Daemon.so
-> /apps/overkiz/share/knowledge/io/ref-local-io.db
-# io-homecontrol libs
-> /root/usr/lib/libIoHomecontrol.so.0
-> /root/usr/lib/libIoHomecontrolOTL.so.0   # OTL = OverTheLine
-> /root/usr/lib/libIoHomecontrolProxy.so.0
-# io-homecontrol firmware for STM32F101RC
-/apps/overkiz/share/io-homecontrol/bin/io-homecontrol-boot-stm32-$DATETIME.bin # Bootloader + App
-/apps/overkiz/share/io-homecontrol/bin/io-homecontrol-stm32-$DATETIME.bin      # App
-```
-
 ## Basics
 
+These basics should help you understand which wording is used to find parameter information inside the LuaJIT files.
+
 > The io-homecontrol® concept is built on the idea of different "applications" or "profiles". Each vendor has to implement a basic set of standard profiles but can also implement its own set of pre-defined profiles.
->
-> The automatically activated encryption key is issued by the Sender on first use. For each command the Receiver generates a random number that is send back. Sender and Receiver perform calculations based on this random number and the encryption key.
->
-> ... constantly monitor three sub-wavebands ranging from 868 to 870 MHz: Before sending a command, the transmitter listens to each of the three frequencies and selects a free one. When a product does not react immediately the command is also emitted on one of the other frequencies.
 
-A Session in the context of io-homecontrol is a predefined *Action*. As an example this *Action* could be the exchange of a key or the opening of a window and could consist of one or more frames. A Session also defines things down to the length of the preamble, intergap frame length, etc. A typical (1W) Session consists of 4 repeated Frames. You can read more about this in the Radio documentation.
+A Session in the context of io-homecontrol is a predefined *Action*. As an example this *Action* could be the exchange of a key or the opening of a window and could consist of one or more packets (with each consisting of 4 frame).
+A *Use Case* (UC) is the payload of an io-homecontrol frame. Each UC consists of a *Command ID* (CMD) and corresponding _Parameter_ (MP = *MainParameter*) with up to 16 _Functional Parameter_ (FP). The MP is predefined by the CMD. Not every command has a MP. If it has a MP it is either a value or predefined _Function_.
+Commands are combined in groups of _Command Types_.
 
-A _Use Case_ (UC) is the payload of an io-homecontrol frame.
-Each UC consists of a _Command ID_ (CMD) and (optional) corresponding _Main Parameter_ (MP) and up to 16 _Functional Parameter_ (FP).
-Those CMD can be combined in groups of _Command Types_.
-A CMD can define a _Function_ as the intended MP.
+### Naming & Wording & Abbreviations
 
-<!-- better/more explanation .. see other docs -->
+<details><summary>Naming Conventions & Wording</summary>
 
-### Abbreviations and Definitions
+> Based on the official iohc wording and [Ethernet Frame](https://en.wikipedia.org/wiki/Ethernet_frame) description.
+
+- Session: Abstraction describing the whole communication process for one action (eg. close windows)
+- Action: A command executed by the actuator
+- Layer 1: Packet = Physical (RF/Radio)
+- Packet: Breaks down a session transmission into chunks with each containing a preamble, sync word, frame and interpacket gap.
+- Carrier Sense: In case of iohc the abuse of the preamble as detection of an incoming signal. Normally just a unmodulated signal.
+- Ramp Up Phase: Time it takes for the radio to initiate the power amplifier.
+- Preamble: Sequence of a repeating bit pattern (0101010101...) to synchronize the receiver clock with the sender clock and determine the baud rate. At the same time this is also used to announce a transmission to wake-up a receiver from a low-power mode.
+- Sync Word (SFD = Start Frame Delimiter): Breaks the preamble and signals the start of the frame.
+- Frame: Data after the sync word including the CRC.
+- Postamble: Same as preamble but this time it is to signal the end of a transmission.
+- (Interframe/Interpacket) Gap: Time between a repeated packet transmission of a session.
+- Layer 2: Frame = Data Link
+- Transmission Control / Header: Describes a header (CtrlByte1/2) which holds information about the iohc protocol and frame
+- MAC Header: Sender & Receiver NodeID in EUI/OUI-48 form
+- NodeID: built-in 3-bytes device address (LSBF!)
+  - Used in every communication to identify the transmitter and the receiver(s).
+  - Programmed during manufacturing and "cannot be changed" (which is untrue as we will see later...).
+  - Predefined ranges exist to differentiate manufacturers, types, etc.
+  - Found on the device labels in plain text and as barcode/qr-code.
+  - > "NodeIDs are recycled on a 3 to 5 years basis, depending on the product sales."
+  - > "NodeID can be considered unique per installation/home."
+  - Broadcasts are valid OUI-48 when Bit-Reversed and then Bit-Inverted (see LSBF). 00:00:3F > Reverse > Invert = 03:FF:FF.
+    - See: [Universal vs. Local Bit](https://en.wikipedia.org/wiki/MAC_address#Universal_vs._local_(U/L_bit))
+    - Mentioned in SDN (Somfy Digital Network) documents and observable via SDN Frame Builder
+- Payload: Variable length field after the MAC header excluding the CRC which holds the usable data aka Message
+- CRC (FCS = Frame Check Sequence): Calculated over the Frame. ([CRC/CRC16-CCITT](https://srecord.sourceforge.net/crc16-ccitt.html) vs. [CRC16-KERMIT](https://reveng.sourceforge.io/crc-catalogue/16.htm#crc.cat.crc-16-kermit))
+
+</details>
+
+<details><summary>Abbreviations</summary>
+
+> ![NOTE]
+> Those values are taken from the ioHome firmware and LuaJIT files and represent only official abbreviations.
 
 | Abr.   | Meaning                                      |
 | -----: | :------------------------------------------- |
@@ -60,14 +74,13 @@ A CMD can define a _Function_ as the intended MP.
 | GRP    | Group                                        |
 | SID    | SystemID                                     |
 | POS    | Current Position                             |
-|        |                                              |
-|        |                                              |
+| OTL    | Over The Line                                |
 | APC    | Atlantic                                     |
 | IVB    | Interior Venitian Blind                      |
 | EVB    | Exterior Venetian Blind                      |
 | SUC    | Static Update Controller                     |
 | IO_SWF | Somfy iohc WireFree (SWF): IO 2.4Ghz Variant |
-| OVP    | OVerkiz Radio Protocol                       |
+| OVP    | Overkiz Radio Protocol                       |
 | SCD    | Secure Configuration/Credential Device       |
 | SFY    | Somfy                                        |
 | VLX    | Velux                                        |
@@ -80,362 +93,103 @@ A CMD can define a _Function_ as the intended MP.
 | BPC    | BPinCode                                     |
 | IR     | IndustrialReference                          |
 
-### io-homecontrol implementations/bridges
+</details>
 
-- io-homecontrol-atlantic
-- io-homecontrol-cotherm
-- io-homecontrol-hlink
-- io-homecontrol-imhotep-systemsensor
-- io-homecontrol-kizotherm
-- io-homecontrol-lpb
-- io-homecontrol-modbus
-- io-homecontrol-otl (eg. USB to Serial as used by Set&Go io or Skitter io)
-- io-homecontrol-rsoverkiz (RS?)
-- io-homecontrol-somfy
-- io-homecontrol-thermostat
+### Device: Labels, Serial Numbers, QR Codes / Barcodes
 
-<!--
-## Labels
+<details><summary>Labels, Serial Numbers, QR Codes / Barcodes</summary>
 
 Software Revision Is = Somfy=%d     S2IH=%d  POD=%d Rev=%d
 Hardware Revision Is = Type=0x%02X Month=%d Year=%d Rev=0x%02X
 
-### Serial Number
+#### Serial Number
 
-> The Serial Number is a 12-bytes ASCII string used as a unique identifier for a given product. "Used for traceability only"
+The Serial Number is a 12 byte ASCII string used as a unique identifier for a given product.
 
-| Length | 6 Byte | 2 Byte         | 2 Byte | 2 Byte |
-| -----: | -----: | -------------: | -----: | -----: |
-| Name   | NodeID | ManufacturerID | Year   | Week   |
+| Length | 6 byte | 2 byte | 2 byte | 2 byte |
+| -----: | :----: | :----: | :----: | :----: |
+| Name   | NodeID | OemID  | Year   | Week   |
 
-- Node ID: Built-in address of the product
-- Manufacturer ID: Identification of the supplier
+- NodeID: Built-in Address
+- OemID: Manufacturer Identification of the Supplier
 - Year: Year of manufacturing
 - Week: Week of manufacturing
 
-### QR Code
+#### QR Code
 
-For some devices the length of the QR code gives a hint about the device itself.
+For some devices the length of the QR code gives a hint about the device itself. The minimum length is 40 hex characters (20 byte).
 
 - QR Code Length
   - KeyGo: 40 Hex Chars (20 Byte)
   - Situo: 56 Hex Chars (23 Byte)
 
-## Modes
+##### Example
 
-It seems there are at least four different modes which are distinct in how the devices handle the standard messages defined by the protocol.
+*Somfy Situo* QR codes:
+- `452A1F832ADDFC13C9976011B1C109FBF3952FA14E846341FFFFFFFF`
+- `455B9AA02CC31E641F61C503B74C112A41A11FA94E650A41FFFFFFFF`
+- `4540A05DCC7AD1FD67BB1EDDE33ECD09DC602DBF4E846341FFFFFFFF`
 
-- IVT, Roller Shutter, Windows, Opener (Garage/House?), Sun Screens
-  - Up/Open, Down/Close with nothing in between. The simplest mode (1W)
-- Light, Heating
-  - Dimming, etc. (2W)
-- EVT, Roller Shutter
-  - Up/Open, Down/Close and everything in between (2W)
-- IVT with adjutable slats
+```PYTHON
+qrPayload = "452A1F832ADDFC13C9976011B1C109FBF3952FA14E846341FFFFFFFF"
 
-### Factory Mode
+def parseOneWayControllerQRPayload(qrPayload):
+  """Parse 1W Controller QR Payload."""
+  address = qrPayload[2:8]
+  productKey = qrPayload[8:40]
+  return address, productKey
 
-When a motor (eg. shade, blind) is not programmed at all, no limits are set and it is not paired with any type of a control device (transmitter, wall switch, etc.).
-A motor is in this default mode prior to fabrication of the shade, blind, screen, awning etc.
-After resetting the motors to factory mode, all motor limits will need to be re-established. Please refer to appropriate programming instructions.
-The motor doesn't react to any commands from a transmitter or sensor.
 
-### PROGRAMMING MODE
+def computeOneWayControllerAddress(controllerAddress, channel = 1)
+  """Compute 1W Controller Address. It is unknown if this function just translates to BigEndian."""
+  # channelAddress = controllerAddress + channel - 1
+  channelAddress = [0x83, 0x1F, 0x2A]
+  return channelAddress
 
-is the process when the following steps occur:
 
-- Setting of limits
-- Adjusting limits
-- Pairing a window covering, awning, screen or shutter to a control device(s).
+def function handleOneWayController(qrPayload, channel = 1, addOrRemove = 1)
+  payload = [] # Create list which holds the payload
 
-In this mode the motor reacts to the commands from a transmitter in a momentary fashion - the UP and DOWN buttons need to be continuously held. Releasing the buttons stops the motor.
-In programming mode the radio reception of the motor is reduced. Keep the transmitter closer to the motor head during this time.
+  # address = "2A1F83", productKey = "2ADDFC13C9976011B1C109FBF3952FA1"
+  controllerAddress, productKey = parseOneWayControllerQRPayload(qrPayload)
+  channelAddress = computeOneWayControllerAddress(controllerAddress, channel)
+  channelAddress = [0x83, 0x1F, 0x2A]
 
-### USER MODE
-
-refers to shade/blind ready for consumer use with the limits set and programmed control devices.
-In user mode the motor reacts to comannds from a transmitter in a maintained fashion.
-Pressing the UP or DOWN buttons moves the motorized product directly to the respective limit.
-MY/STOP - stops the product when it is in motion.
-When stationary the MY/STOP sends the product to the preferred "my" position (if it was set)
-
-## Bindings
-
-- 1-Way Controller Blacklist
-  - 192394
-  - 586847
-  - 1583807
-  - 2818485
-  - 2818486
-  - 6055096
-  - 7326830
-  - 10476984
-  - 12575328
-- Nodes per Controller
-  - 14864884
-
-### Examples
-
-As of now it is unknown why these two files exist and what their purpose is.
-
-#### Stack 646575
-
-```LUA stack 646575
-["address"]     =646575, -- HEX: 09 DD AF (ASCII: deu)
-["backbone"]    =646575, -- HEX: 09 DD AF (ASCII: deu)
-["type"]        = 65476, -- HEX: FF C4
-["class"]       =     2,
-["status"]      =     1,
-["manufacturer"]=     2, -- HEX: 02 = Somfy
-["key"]         =bytearray("6ZS6z+a+12Z2MOrkdbqulQ==","base64"), -- HEX: E994BACFE6BED7667630EAE475BAAE95
-["oldKey"]      =bytearray("6ZS6z+a+12Z2MOrkdbqulQ==","base64"), -- HEX: E994BACFE6BED7667630EAE475BAAE95
-["settings"]    ={["refresh"]={["technical"]={},},},
-["systemLink"]  ="",
+  payload.append(addOrRemove)      # Unknown: Either 0 or 1
+  payload.append(channelAddress)   # Channel Address: Same as controllerAddress (but BigEndian)
+  payload.append(0x00, 0x00, 0x3F) # Broadcast Address
+  payload.append(productKey)       # Product Key
+  payload.append(0x00, 0x00)       # Unknown
+  payload.append(0x00)             # Unknown
+  payload.append(0x03)             # Unknown
 ```
 
-#### Actuator 8214078
-
-```LUA actuator 8214078
-["master"]      = 646575, -- HEX: 09DDAF = deu (ASCII)
-["address"]     =8214078, -- HEX: 7D563E
-["backbone"]    =8214078, -- HEX: 7D563E
-["type"]        =   1024, -- HEX: 0400
-["class"]       =      0, -- HEX: 00       = Actuator
-["status"]      =      1, -- HEX: 01       = Transfer Status
-["manufacturer"]=      2, -- HEX: 02       = Somfy
-["multiInfo"]   =    220, -- HEX: DC       = Unknown
-["timestamp"]   =  59563, -- HEX: E8AB     =
-["info"]        =bytearray("BAB9Vj4C3Oir","base64"),             -- HEX: 0400 7D563E 02 DC E8AB (TYPE ADDRESS MANUFACTURER MULTIINFO TIMESTAMP)
-["generalInfo1"]=bytearray("NTA3MTY2NVgxMAMA//8=","base64"),     -- HEX: 35303731363635 583130 (ASCII: 5071665 X10) +               03 (?) + 00FFFF (?)
-["generalInfo2"]=bytearray("NTA3MTY2MkIwOQQAAwsAAA==","base64"), -- HEX: 35303731363632 423039 (ASCII: 5071662 B09) + 0400 (type) + 03 (?) + 0B0000 (?)
-["key"]         =bytearray("AAAAAAAAAAAAAAAAAAAAAQ==","base64"),
-["systemLink"]  ="",
-```
-
-```LUA actuator 8214078
-["master"]      = 646575, -- HEX: 09DDAF
-["address"]     =8214078, -- HEX: 7D56 3E a2[1], a2[2], a2[3]
-["backbone"]    =8214078, -- HEX: 7D56 3E a2[4], a2[5], a2[6]
-["type"]        =   1024, -- HEX: 04 00    a2[7], a2[8]
-["class"]       =      0, -- HEX: 00       a2[9]
-["status"]      =      1, -- HEX: 01       a2[A]
-["manufacturer"]=      2, -- HEX: 02       a2[B]
-["multiInfo"]   =    220, -- HEX: DC
-["timestamp"]   =  59563, -- HEX: E8 AB
-["info"]        =bytearray("BAB9Vj4C3Oir","base64"),             -- HEX: 0400 7D563E 02 DC E8AB (TYPE ADDRESS MANUFACTURER MULTIINFO TIMESTAMP)
-["generalInfo1"]=bytearray("NTA3MTY2NVgxMAMA//8=","base64"),     -- HEX: 35303731363635 583130 (ASCII: 5071665 X10) +               03 (?) + 00FFFF (?)
-["generalInfo2"]=bytearray("NTA3MTY2MkIwOQQAAwsAAA==","base64"), -- HEX: 35303731363632 423039 (ASCII: 5071662 B09) + 0400 (type) + 03 (?) + 0B0000 (?)
-["key"]         =bytearray("AAAAAAAAAAAAAAAAAAAAAQ==","base64"),
-["systemLink"]  ="",
-```
-
-```CPP
-a2[1:3]=3ByteAddr
-
-
-vAddress = j_ConvertAddress_CharToInt(a2[1], a2[2], a2[3], a4);
-v7 = sprintf(a1, "\tAddress             : %X\n", vAddress);
-vBackbone = j_ConvertAddress_CharToInt(a2[4], a2[5], a2[6], v8);
-v10 = v7 + sprintf(&a1[v7], "\tBackbone Address    : %X\n", vBackbone);
-
-v11=                 sprintf(&a1[v10],SystemID,     *a2   )+v10
-                      strcpy(&a1[v11],NodeType)             v12=v11+0x17+WordToSlaveType(&a1[v11+0x17])
-v13=                 sprintf(&a1[v12],NodeSubType,   a2[9])+v12
-                      strcpy(&a1[v13],ManufacturerID)       v14=v13+0x17+GetManufturerId(&a1[v13+0x17])
-v15=                 sprintf(&a1[v14],MultiInfo,     a2[0xB])
-
-if ( (a2[0xB] & 0x20) == 0 ) v16 = "NO" else v16 = "YES";
-v17 = v15 + v14;
-v18 = sprintf(&a1[v17], " (Support SyncCtrlGrp=%s)\n", v16) + v17;
-v19 = sprintf(&a1[v18], "\tPower Up Time Stamp : %X %X\n", a2[0xC], a2[0xD]) + v18;
-v20 = sprintf(&a1[v19], "\tSlave Type          : %X\n", a2[0xE]) + v19;
-strcpy(&a1[v20], "\tSomfy Profile       : ");
-v21 = v20 + 0x17 + j_Print_conversion_utility_ConvertByteToSfyProfile(&a1[v20 + 0x17]);
-strcpy(&a1[v21], "\tYour 2W Key Is      : ");
-v22 = v21 + 0x17 + j_Print_conversion_utility_ConvertByteToKeyStatus(&a1[v21 + 0x17], a2[0x10]);
-v23 = sprintf(&a1[v22], "\tTime Class Is       : %X\n", a2[0x11]) + v22;
-v24 = sprintf(&a1[v23], "\tTransfer Status Is  : %X\n", a2[0x12]);
-return sprintf(&a1[v24 + v23], "\tNext Actuator Is    : %X\n", a2[0x13]) + v24 + v23;
-}
-```
-
-35303731363635 "5071665" 583130 "X10" 0300FFFF
--->
+</details>
 
 ## Command Structure
 
 A command is built as follow:
 
-| Command Id |   Data   |
+| Command ID | Parameter |
 | :--------: | :------: |
 |   1 Byte   |  n Byte  |
 
-- Command Id: Identifies the desired action
-  - The parsed Command ID is called a `Message` (MSG) and has the following form: CATEGORIE_MESSAGE (eg: CTRL_STOP)
-- Command Parameter / Data: Optional Parameter or Data for the desired action
+- Command ID (CMD): Identifies the desired action
+- Parameter (MP): Optional Parameter for the desired action.
+  - The type of the parameter is defined by the CMD
 
-The Command ID is also known as Function (Human readable definition) or Message (1 Byte Hex Code)
+### Parameter
 
-### Command Types, Groups and Categories
+For detailed information on parameters see [Parameter](PARAMETER.md)
 
-Each Command ID has it's own Command Type. This Type could be one of: TBD
+> ![NOTE]
+> See also KLF200 API: `Appendix 2: List of actuator types and their use of Main Parameter and Functional Parameters`
 
-### Command Groups
+<details><summary>Parameter Details</summary>
 
-Commands are split in two groups:
-
-- Standard: Common to all protocol compliant products
-- Application-Specific (Optional): Specific to a particular type of product
-
-Simple devices only have the Standard Group implemented. Each Group can have one or multiple Command Types.
-
-#### Standard Commands
-
-#### Application Specific Commands
-
-##### Somfy Motor Controllers (MoCo) Configuration
-
-<!--
-o Default values are 28 rpm for UP_Speed and 16 rpm for Slow_Speed.
-o Motor speed tolerance is +/- 2 rpm.o Default values for limits are FFFFh, meaning they are not yet adjusted.
-o Delete will set both UP and DOWN limits to FFFFh and clear all IPs.
-o When set, UP limit is always 0000h, and DOWN limit is the encoder pulse count from UP limit position.
-o Minimum possible range from UP to DOWN limit is one revolution.
-o When limits are already set, they can be re-set to another position or adjusted in “Jog” mode.
-o “Specified position” mode is only available when at least one limit is set. If only one limit is set, this mode can only be used to set the
-opposite limit. The Value parameter specifies relative position of limit being set from the already set opposite limit.
-o “Jog” mode is only available when both limits have been set. It is intended for small adjustments. Motor must be at the limit to be adjusted.
-o When adjusting limits using “Jog” mode:
-o Motor is running at Slow_speed.
-o Value parameter may be between 10 and 1000.
-o When the jog is specified in ms, the actual travel is estimated based on the specified time and currently set value for Slow speed.
-o If an event occurs causing the motor to stop, the limit is set to this position.
-o After resetting or adjusting limits:
-o If an IP is out of range after adjustment, then the IP is deleted.
-o All IPs are re-calculated to stay at the same physical position.
-
-- Switch Config
-  - "EU" Short keystroke = change step/stop, long keystroke = up/down.
-  - "US" Short keystroke = up-down/stop, long keystroke = change step.
-  - "Tilt only" Venetian blind can only be tilted in its current position.
-  - "Roller" Short/long keystroke = up/down/stop
-  - "Deadman" Movement commands are only carried out while the button is depressed
--->
-
-#### Command Types
-
-Commands are split in Types:
-
-- User
-- System
-- Private
-
-#### Command Categories
-
-Command Types are split into Categories.
-
-##### User Commands
-
-User Commands are split into 3 categories:
-
-- Settings = SET_xxx
-  - Change the configuration of the device
-- Controls = CTRL_xxx
-  - Send a command to execute
-- Status = GET_xxx
-  - Ask for information on the device configuration or its current status
-  - SLAVE(s) will respond with the corresponding POST_xxx message
-
-##### System Commands
-
-<!-- TODO: Merge with old documentation which has way more info -->
-
-- Status Report: POST_
-  - SLAVE(s) responds to a corresponding Status message (GET_xxx)
-- Factory Mode: PROC_
-- Diagnosis Mode: DIAG_
-  - > Diagnosis messages are intended for use by Somfy quality assurance or customer support, or by authorized third-party installers to troubleshoot motors or understand the characteristics of specific applications.
-
-## Command Parameter
-
-## Multi Bytes
-
-- Pn holds
-  - Address
-  - Actuator
-  - Actuator System ID
-
-- GN1/GN2 holds
-  - Actuator Serial Number
-  - Actuator Address
-
-### Multi Info
-
-| **Parameter** | Unknown | SyncCtrlGrp | Unknown | Unknown | Unknown |
-| ------------: | :-----: | :---------: | :-----: | :-----: | :-----: |
-| **Bit**       | 7-6     | 5           | 4       | 3-2     | 2-0     |
-
-- bit[5] SyncCtrlGrp - Supports Sync Control Group?
-  - 0 = b[0]: No
-  - 1 = b[1]: Yes
-
-<!--
-  - Comfort (Automatic)
-    - 4 b[100] = Level 1 - TBD
-    - 5 b[101] = Level 2 - TBD
-    - 6 b[110] = Level 3 - SAAC: Stand Alone Automatic Controls
-    - 7 b[111] = Level 4 - TBD (Default Channel: KLF100)
-- bit[2] Priority Service Number
-  - 0 b[00] = Service 1 - TBD
-  - 1 b[01] = Service 2 - TBD
-  - 2 b[10] = Service 3 - TBD
-  - 3 b[11] = Service 4 - TBD
-- bit[2] Extended Info TODO
-  - 0 b[00] = TBD
-  - 1 b[01] = TBD
-  - 2 b[10] = TBD
-  - 3 b[11] = TBD
-- bit[1] Is Valid Frame/Session: Always 1.
--->
-
-<!--
-### General Info 1
-
-`35303731363635 583130 (ASCII: 5071665 X10) + 0300 FFFF (?)`
-
-- Hardware Version = %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X
-  - %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X
-  -  35   30   37   31   36   36   35   58   31   30
-- Node Type = 0x0000 (50)
-- Node Type Version = 0x0000 (71)
-- Node Sub Type Version = 0x0000 (66)
-- Node Revision = 0x00 (5)
-  - Node Type
-  - Node Sub Type
-  - Software Version
-
-### General Info 2
-
-> Defines Supported Manufacturer Settings Commands
-
-- Software Version
-  -  35   30   37   31   36   36   32   58   31   30
-  - %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X
-- Protocol Version: 0x0000
-  -  03   00
-  - %02X %02X
-- Vendor Id: 0x0000
-
--->
-
-### ACEI (Position: 12 = 0xC)
-
- 1   2   345   678   9  10  11
-CB1 CB2  SRC   DEST CMD ORG ACEI
+#### ACEI
 
 > NOTE: LSB must be 1: The frame is not considered valid if this bit is set to 0!
-
-According to the io-homecontrol shared library, it is composed of one byte as following (bit positions in header):
 
 | **PARAMETER** | A: Level | C: Service | E: Extended Info | I: IsValid |
 | ------------: | :------: | :--------: | :--------------: | :--------: |
@@ -466,31 +220,34 @@ According to the io-homecontrol shared library, it is composed of one byte as fo
   - 3 b[11] = TBD
 - bit[1] Is Valid Frame/Session: Always 1.
 
-### MultiInfo: Multi Information Byte
+#### Multi Information Byte
 
-| Parameter | Actuator Turnaround Time | UNKNOWN | RF Support | io-Membership | Power Save Mode |
-| :-------: | :----------------------: | :-----: | :--------: | :-----------: | :-------------: |
-| Bit       | 7-6                      | 5-4     | 3          | 2             | 1-0             |
+| **Parameter** | Actuator Turnaround Time | SyncCtrlGrp | Unknown | RF Support | io-Membership | Power Save Mode |
+| :-----------: | :----------------------: | :---------: | :-----: | :--------: | :-----------: | :-------------: |
+| **Bit**       | 7-6                      | 5           | 4       | 3          | 2             | 1-0             |
 
-- ATT: Actuator Turnaround Time = Time span in which the actuator normally responds
+- bit[7-6] Actuator Turnaround Time (ATT) = Time span in which the actuator normally responds
   - 0b00 = 0:  5 seconds
   - 0b01 = 1: 10 seconds
   - 0b10 = 2: 20 seconds
   - 0b11 = 3: 40 seconds
-- Unknown
-- RF Support in Node
+- bit[5] SyncCtrlGrp - Supports Sync Control Group?
+  - 0 = b[0]: No
+  - 1 = b[1]: Yes
+- bit[4] Unknown
+- bit[3] RF Support in Node
   - 0: Yes
   - 1: No
-- io-Membership (Always Yes...)
+- bit[2] io-Membership (Always Yes...)
   - 0: Yes
   - 1: No
-- Power Save Mode
+- bit[1-0] Power Save Mode
   - 0: Off = Always Alive
   - 1: On  = Low Power Mode
 
-### Command Originator
+#### Command Originator
 
-> Specifies what or who fired the command.
+Specifies what or who fired the command.
 
 - 0x00 = User: Local - User button press on Actuator
 - 0x01 = **User**: User Remote Control causing Actuator Action
@@ -511,13 +268,11 @@ According to the io-homecontrol shared library, it is composed of one byte as fo
 - 0xFE = Automatic Cycle
 - 0xFF = Emergency: Used in context with Emergency or Security commands. *This command originator should never be disabled.*
 
-<!-- TODO Convert to Table -->
-
 **Note** Typically only **USER** or **SAAC** are used.
 
-### Main Parameter
+#### Standard Values
 
-> Standard Parameter Value Definitions for Main and Functional Parameters (MP, FP)
+Standard Parameter Values for Main and Functional Parameters (MP, FP)
 
 | Min      | Max      | Std    | Type                             | Range                       |
 | -------: | -------: | -----: | -------------------------------: | --------------------------: |
@@ -549,898 +304,30 @@ According to the io-homecontrol shared library, it is composed of one byte as fo
 | *0xF800* | *0xFFFF* |        | *Unknown*                        |                             |
 |          |          |        |                                  |                             |
 
-<!--
-#### Device State
-
-0xAF15E16C : closed         ? 100
-0xC3C3C869 : opened         ?   0 # -1010579351
-0xC7CAC3B1 : personInside   ? 100
-0xC8D346D2 : rocker         ? 100 # -925677870
-0x00000DDF : on             ? 100
-0x00000E9B : up             ?   0
-0x0001AD6F : off            ?   0
-0x002F24A2 : down           ? 100 # 3089570
-0x0034264A : open           ?   0
-0x05A5DDF8 : close          ? 100
-0x3E7B1682 : detected       ? 100 # 1048254082
-0x49B28C12 : noPersonInside ?   0 # 1236438034
-0x5774A275 : notDetected    ?   0
--->
-
-#### Velocity
-
-- 0 = Default
-- 1 = Silent
-- 2 = Fast
-- 255 = Velocity Not Available: Only used in status reply
-
-#### Intermediate Position (IP)
-
-- Specific IP
-  - Intermediate Position 1 (IP1)
-  - Intermediate Position 2 (IP2)
-- Next IP
-- Previous IP
-
-- Standard IP Definition:
-  - 0% IP1
-  - 10% IP2
-  - 20% IP3
-  - 30% IP4
-  - 40% IP5
-  - 50% IP6
-  - 60% IP7
-  - 70% IP8
-  - 80% IP9
-  - 90% IP10
-  - 100% IP11
-
-### Parameter ID
-
-| HEX        | DEC        | NAME                                                              |
-| ---------: | ---------: | :---------------------------------------------------------------- |
-| 00         | 00         | No Parameter                                                      |
-| 01         | 01         | Name                                                              |
-| 02         | 02         | Unknown                                                           |
-| 03         | 03         | Unknown                                                           |
-| 04         | 04         | Identification                                                    |
-| 05         | 05         | Refresh: Advanced                                                 |
-| ...        | ...        | Unknown                                                           |
-| 0B         | 11         | Config State                                                      |
-| 01 00 D800 | 16832512   | Refresh: Memorized Position                                       |
-| 01 00 D80A | 16832522   | Secured Position                                                  |
-| 01 0001    | 65537      | My, Open/Up/Raise/Extend, Close/Down/Lower/Retract, Stop, Set: Closure, Deployment, Position |
-| 01 0012    | 65554      | Manufacturer Settings                                             |
-| 02 F2 0200 | 49414656   | 1W Controller: Pairing All and Delete Node                        |
-| 7F F1 001D | 2146500637 | IO Key                                                            |
-| 7F F1 0022 | 2146500642 | 1W Controller: Pairing                                            |
-| 7F F1 0023 | 2146500643 | 1W Controller: Pairing All                                        |
-
-### Configuration Mode (Controller Copy Mode)
-
-- 0 = Transmitting Configuration Mode (TCM): Gateway gets key and system table from another controller.
-- 1 = Receiving Configuration Mode (RCM): Gateway gives key and system table to another controller.
-
-### Command Parameter Type (Data Type)
-
--  0 = Binary
--  1 = INTEGER / Binary XML
--  2 = FLOAT   / XML
--  3 = STRING
--  4 = BLOB
--  5 = DATE
--  6 = BOOLEAN
--  7 = VALUE MAPPING (JSON)
--  8 = INTERVAL MAPPING
--  9 = PASSWORD
-- 10 = ARRAY
-- 11 = DYNAMIC OBJECT
-
-### Manufacturer ID
-
-Each Manufacturer has their own ID:
-
-- 0x00 = All / Public / Generic
-- 0x01 = Velux
-- 0x02 = Somfy
-- 0x03 = Honeywell
-- 0x04 = Hörmann
-- 0x05 = ASSA ABLOY
-- 0x06 = Niko
-- 0x07 = Window Master
-- 0x08 = Renson
-- 0x09 = CIAT
-- 0x0A = Secuyou
-- 0x0B = Overkiz
-- 0x0C = Atlantic Group
-- 0x0D = Zehnder Group
-- 0x0E = ???
-- 0x0F = ???
-
-> NOTE: Manufacturers are only defined as Unknown when they are not assigned an ID. This is the case for old io-homecontrol installations.
-
-It's a bit strange that Velux comes before Somfy. Wasn't Somfy the driving force behind this? When looking at the patents my bet would be that some french guy (which is now the director or something) did most of this. But who knows...
-
-### Nodes: IDs, Types, Sub Types, Variations, Modes
-
-<!-- TODO Link to Label Description -->
-
-A Device is called Node and each device has a NodeID that can be found on the device label in both plain text and barcode/qr-code format.
-The NodeID is a built-in 3 Byte address of the device and is handled like the MA-S part of a MAC address found on network devices.
-- > The NodeID is programmed during manufacturing and cannot be changed.
-  - This quote is from the official documentation but as you may have guessed:
-    > The NodeID can be changed via Factory commands.
-- The NodeID is used in every communication to identify the transmitter and the receiver(s).
-- NodeIDs are recycled on a 3 to 5 years basis, depending on the product sales.
-  - The NodeID can be considered as unique on a given installation.
-  - If a unique ID is needed it is recommended to use the _Serial Number_. (TODO Link to Serial Number Format)
-
-- The Node ID is a 6-digit hexadecimal unique ID from each device
-- The Motor ID is a 6-digit hexadecimal unique node ID from each motor
-  - Motor Node ID Prefix: 20 (eg. NodeID = 20 xx xx)
-- The Group ID is a 6-digit hexadecimal address programmed in each actuator to assign multiple actuators to a group.
-  - Group Specific Configuration: Group addresses 01 01 00 through 01 01 3D (Inverted: FF FE FE - C2 FE FE)
-    - Reserved (Unknown): 01 01 3E, 01 01 3F (Inverted: C1 FE FE, C0 FE FE)
-  - Group Default Address: 00 00 00 (Inverted: FF FF FF)
-
-#### Addresses: NodeID and GroupID
-
-The node address is stored in the Nodes Controller.
-
-This also means that not every Node uses the same Command IDs and/or Parameter. io-homecontrol defines a mandatory set of messages that need to be implemented.
-
-```CPP
-int ConvertAddress_CharToInt(int Octet1,int Octet2,int Octet3) {
-  return Octet2 * 0x100 + Octet1 * 0x10000 + Octet3;
-}
-```
-
-#### Groups (GroupID)
-
-Every device can be part of up to 16 groups, defined by a GroupID. In order to use group commands, every product belonging to a group has to be assigned to the corresponding GroupID: one of the 16 entries of the built-in group table should contain the GroupID.
-
-- A GroupID has the exact same format as the NodeID and can be:
-  - The NodeID of an existing device on the bus, acting as a controller
-  - A non-existing NodeID, representing a virtual group
-
-#### Known NodeIDs and Ranges
-
-- Somfy myLink
-  - Legacy:    AAAAxxxx (eg.   AAAA1234)
-  - Current: CCxxxxxxxx (eg. CC00100054)
-
-- NodeID Ranges
-  | START    | END      | DESCRIPTION                                 |
-  | -------: | -------: | ------------------------------------------: |
-  | 00:00:00 | 00:00:00 | Group Addressing Mode (DEST = 00:00:00)     |
-  | 00:00:01 | 00:00:FF | R&D Prototypes                              |
-  | 00:01:00 | FF:FE:FF | Public Address Space                        |
-  | 01:01:00 | 01:01:3D | Group Specific Configuration                |
-  | 01:01:3E | 01:01:3F | Group Specific Configuration (Reserved)     |
-  | 05:80:00 | 05:FF:FF | RS485 Transmitter (NodeType: 0x05)          |
-  | 20:00:00 | 20:FF:FF | Motor Address Space (Special Discovery)     |
-  | 60:00:00 | 07:FF:FF | RS485 ST30        (NodeType: 0x02)          |
-  | FF:FF:00 | FF:FF:FE | 3rd Party Master Nodes                      |
-  | FF:FF:FF | FF:FF:FF | Broadcast Addressing Mode (DEST = FF:FF:FF) |
-
-<!--
-
-RTS485 RTS transmitters have a NodeID of 000002 but here it's listes as 05xxxx?
-More examples:
-00 00 22 RS485 RTS
-00 00 33 RS485 RTS
-00 00 44 RS485 4ILT
-00 A0 11 RS485 RTS
-F0 A0 11 RS485 4ILT
-F1 A0 11 RS485 RTS
-F2 A0 11 RS485 4ILT
-F3 A0 11 RS485 4ILT
-
-05:00:00 RS485 4ILT INTERFACE
-00 05 51 03 A9 23:10000 Sensor: Sun test
-
- -->
-
-> **Note**: FFFFFF can also reset a node and initiate a discovery (rescan) if certain conditions apply.
-
-### Apps / Profiles (AppID / ProfileID): Types for Nodes, Groups and Sensors
-
-#### Profiles (AppID)
-
-A Profile is defined by the NodeType and NodeSubType value. It is also known as the AppID.
-All io-homecontrol actuators need to implement at least the generic/standard functions.
-Each actuator can handle these generic functions in their own way (eg. a blind closes, a light goes out) but they must provide it.
-
-In addition to the above mentioned “Standard Messages”, every SOMFY RS485 product uses a specific set of messages for configuration and control.
-The application-specific messages are available in separate documents called “Application Profile”.
-Every “Application Profile” is linked to a different NodeType
-
-##### Generic Profiles
-
-We (at least) know the number of predefined functions per Device Type that are always available. These are mandatory.
-
-- Actuator: 13
-  - Up
-  - Stop
-  - Down
-  - > See also KLF200 API: `Appendix 2: List of actuator types and their use of Main Parameter and Functional Parameters`
-- Group: 7
-- Remote: 11
-- Sensor: 5
-
-##### Actuator Profiles
-
-- Actuators
-  - Absolute: 0/100 %
-- US Dimming
-  - Light
-  - Heat
-  - VB Slow Speed
-- DAP
-  - VB Fast speed
-  - RS with Tilting Profiles
-
-#### Node Types
-
-Every device has a built-in 4-bits value called `Node Type`.
-The Node Type is used to identify the product family.
-The Node Type can be used to send messages only to a selected range of products (see _Addressing Modes_) or to access application-specific messages (see _NodeType Filtering_).
-The Node Type is sometimes called AppId in different sources from Somfy/Overkiz.
-Unconfirmed: The Node Type defines the Command IDs and corresponding Parameters.
-
-| SRC   | DEST  |
-| :---: | :---: |
-| 4 bit | 4 bit |
-
-> NOTE: There seem to be two types of NodeType definitions:
->       -  2 * 4 bit notation ( 4 bit SRC      + 4 bit DEST)
->       - 10 + 6 bit notation (10 bit NodeType + 6 bit NodeSubType)
-
-- SRC Node Type = Node Type of the transmitter
-  - Not needed for network communication.
-  - Given as information that may be used at application level.
-- DEST Node Type = Node Type of the receiver(s)
-  - Used to implement NodeType filtering
-
-#### Node/Product Type
-
-- 0x00 = Unknown
-- 0x01 = Actuator
-- 0x02 = Sensor
-- 0x03 = Video System
-- 0x04 = Remote Controller (RC)
-- 0x05 = Protocol Gateway
-- 0x06 = Infrastructure Component
-- 0x07 = Group
-- 0xXX = Undefined
-
-<!--
-#### Node Types: SDN (RS485)
-
-- 0x02 = ST30
-- 0x03 = MoCo
-- 0x04 = 4ILT Interface
-- 0x05 = RTS Transmitter
-- 0x06 = Glydea
-- 0x07 = 50AC
-- 0x08 = 50DC
--->
-#### Node Type + Sub Type (10 + 6 bit)
-
-- byte[2] NodeType (10 bit MSB) + NodeSubType (6 bit LSB)
-  - bit[10] NodeType        = (field >> 6) & 1023
-  - bit[06] NodeTypeSubtype = field & 63 (& 0x3F)
-
-| HEX  | NOTATION | TYPE         | SUB TYPE | NAME                                                 |
-| :--: | -------: | :----------: | :------: | :--------------------------------------------------- |
-| 0000 | 0.00     | 00 0000 0000 | 000000   | All Nodes except Controller (No Type)                |
-| 0033 | 0.51     | 00 0000 0000 | 110011   | Smart Plug                                           |
-| 0040 | 1.00     | 00 0000 0001 | 000000   | Interior Venetian Blind (IVB)                        |
-| 006A | 1.42     | 00 0000 0001 | 110011   | Light Sensor                                         |
-| 0080 | 2.00     | 00 0000 0010 | 000000   | Roller Shutter                                       |
-| 0081 | 2.01     | 00 0000 0010 | 000001   | Roller Shutter with Adjustable Slats                 |
-| 0082 | 2.02     | 00 0000 0010 | 000010   | Roller Shutter with Projection                       |
-| 00C0 | 3.00     | 00 0000 0011 | 000000   | Vertical Exterior Awning (Terrace)                   |
-| 00CA | 3.10     | 00 0000 0011 | 001010   | Window Covering Device                               |
-| 00CB | 3.11     | 00 0000 0011 | 001011   | Window Covering Controller                           |
-| 0100 | 4.00     | 00 0000 0100 | 000000   | Window Opener                                        |
-| 0101 | 4.01     | 00 0000 0100 | 000001   | Window Opener with Integrated Rain Sensor            |
-| 012E | 4.46     | 00 0000 0100 | 101110   | Temp and Humidity Sensor                             |
-| 0140 | 5.00     | 00 0000 0101 | 000000   | Garage Door Opener                                   |
-| 017A | 5.58     | 00 0000 0101 | 111010   | Garage Door Opener: Open/Close Only                  |
-| 0180 | 6.00     | 00 0000 0110 | 000000   | Light: On/Off + Dimming                              |
-| 0192 | 6.18     | 00 0000 0110 | 010010   | IAS Zone                                             |
-| 01BA | 6.58     | 00 0000 0110 | 111010   | Light: On/Off Only                                   |
-| 01C0 | 7.00     | 00 0000 0111 | 000000   | Gate Opener                                          |
-| 01FA | 7.58     | 00 0000 0111 | 111010   | Gate Opener: Open/Close Only                         |
-| 0200 | 8.00     | 00 0000 1000 | 000000   | Rolling Door Opener                                  |
-| 0240 | 9.00     | 00 0000 1001 | 000000   | Door Lock / Motorized Bolt                           |
-| 0241 | 9.01     | 00 0000 1001 | 000001   | Window Lock                                          |
-| 0280 | 10.00    | 00 0000 1010 | 000000   | Vertical Interior Blind                              |
-| 0290 | 11.00    | 00 0000 1011 | 000000   | Secure Configuration Device (SCD)                    |
-| 0300 | 12.00    | 00 0000 1100 | 000000   | Beacon = Gateway/Repeater                            |
-| 0340 | 13.00    | 00 0000 1101 | 000000   | Dual Roller Shutter                                  |
-| 0380 | 14.00    | 00 0000 1110 | 000000   | Heating Temperature Interface                        |
-| 03C0 | 15.00    | 00 0000 1111 | 000000   | Switch: On/Off                                       |
-| 0400 | 16.00    | 00 0001 0000 | 000000   | Horizontal Awning                                    |
-| 0401 | 16.01    | 00 0001 0000 | 000001   | Pergola Rail Guided Awning                           |
-| 0440 | 17.00    | 00 0001 0001 | 000000   | Exterior Venetian Blind (EVB)                        |
-| 0480 | 18.00    | 00 0001 0010 | 000000   | Louver Blind                                         |
-| 04C0 | 19.00    | 00 0001 0011 | 000000   | Curtain Track                                        |
-| 0500 | 20.00    | 00 0001 0100 | 000000   | Ventilation Point                                    |
-| 0501 | 20.01    | 00 0001 0100 | 000001   | Air Inlet                                            |
-| 0502 | 20.02    | 00 0001 0100 | 000010   | Air Transfer                                         |
-| 0503 | 20.03    | 00 0001 0100 | 000011   | Air Outlet                                           |
-| 0540 | 21.00    | 00 0001 0101 | 000000   | Exterior Heating                                     |
-| 057A | 21.58    | 00 0001 0101 | 110011   | Exterior Heating: On/Off Only                        |
-| 0580 | 22.00    | 00 0001 0110 | 000000   | Heat Pump                                            |
-| 05C0 | 23.00    | 00 0001 0111 | 000000   | Intrusion Alarm System                               |
-| 0600 | 24.00    | 00 0001 1000 | 000000   | Swinging Shutter                                     |
-| 0601 | 24.01    | 00 0001 1000 | 000001   | Swinging Shutter with Independent Handling of Leaves |
-|      | 27.00    | 00 0001 1011 | 000000   | Sliding Window                                       |
-|      | 28.00    | 00 0001 1100 | 000000   | Zone Control Generator                               |
-|      | 29.00    | 00 0001 1101 | 000000   | Bioclimatic Pergola                                  |
-|      | 30.00    | 00 0001 1110 | 000000   | Indoor Siren                                         |
-|      | 51.00    | 00 0010 0000 | 000000   | Domestic Hot Water                                   |
-|      | 52.00    | 00 0010 0000 | 000000   | Electrical Heater                                    |
-|      | 53.00    | 00 0010 0000 | 000000   | Heat Recovery Ventilation                            |
-| 3FC0 | 255.00   | 00 1111 1111 | 000000   | Central House Control                                |
-| FC00 | 1008.00  | 11 1111 0000 | 000000   | Test and Evaluation (RD)                             |
-| FFC0 | 1023.00  | 11 1111 1111 | 000000   | Remote Controller (RC)                               |
-
-> NOTE: Only values in the *HEX* row reflect the actual data. You can also get these values when combining *TYPE* and *SUBTYPE* binary rows.
-
-#### Node Type + Sub Type & Broadcast addresses
-
-This Type & Sub Type classification has been observed to be used also for Broadcast Addresses (at least with Velux).
-Velux KLI3xx one way controllers are used to control:
-- KLI311  Windows Opener
-- KLI312  internal blinds
-- KLI313  external shutters
-
-Analyzing frames sent from controllers while registering to devices, has been observed that:
-- KLI311 sends broadcast messages (commands 0x39 and 0x30) to broadcast address 0x00013f
-- KLI312 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x000007f and 0x0002bf
-- KLI313 sends broadcast messages (commands 0x39 and 0x30) to broadcast addresses 0x0000bf, 0x0000ff and 0x00037f
-
-
-| ADDRESS  |  FILLER  |   TYPE      | SUB TYPE | NAME                                     |
-| :------- | :------: | ----------: | :------- | :--------------------------------------- |
-| 0x00003f | 00000000 | 00000000 00 | 111111   | All                                      |
-| 0x00013f | 00000000 | 00000001 00 | 111111   | window 1 (Window opener)                 |
-| 0x00007f | 00000000 | 00000000 01 | 111111   | blind 1 (Venetian Blind)                 |
-| 0x0002bf | 00000000 | 00000010 10 | 111111   | blind 2 (Blind)                          |
-| 0x0000bf | 00000000 | 00000000 10 | 111111   | shutter 1 (Roller Shutter)               |
-| 0x0000ff | 00000000 | 00000000 11 | 111111   | shutter 2 (Awning - External for window) |
-| 0x00037f | 00000000 | 00000011 01 | 111111   | shutter 3 (Dual Shutter)                 |
-
-Given that, we can desume that Broadcast Addresses are built this way:
-- 1 byte as 0x00
-- 10 bits for the device Type
-- 6 bits set to 1 (all subtypes)
-
-##### Group Types
-
-- 0 = User
-- 1 = Room
-- 2 = House
-
-##### Sensor Types
-
-- 0   = UNKNOWN SENSOR
-- 1   = Light Inside
-- 1.B = Light Outside (Sun Sensor)
-- 2   = TEMPERATURE INSIDE SENSOR
-- 3   = TEMPERATURE OUTSIDE SENSOR
-- 5   = PRESSURE SENSOR
-- 11  = LIGHT OUTSIDE SENSOR
-- 12  = CUMULATED GAS
-- 13  = WATER CONSUMPTION SENSOR
-- 14  = THERMAL CONSUMPTION SENSOR
-- 15  = ELECTRIC CONSUMPTION SENSOR
-- 128 = SMOKE SENSOR
-- 133 = OPENING DETECTOR
-- 134 = MOTION SENSOR
-- 254 = MULTITYPE SENSOR
-
-#### Node Variations
-
-- byte[1] NodeVariation: Depends on NodeType/SubType
-  - Window
-    - 0 = Not Set
-    - 1 = Top Hung
-    - 2 = Kip
-    - 3 = Flat Roof
-    - 4 = Sky Light
-
-#### Node Class
-
-```TEXT
-0 = emitter
-1 = generator
-2 = sensor
-3 = unknown
-```
-
-- 0  = Actuator
-- 1  = Sensor
-- 2  = Stack
-- 3  = Slave
-- 4  = Master
-- 5  = Beacon / Repeater (2W Remote Controller: acts as an Actuator)
-- 6  = Controller
-- 14 = Remote Controller (Gateway)
-- 15 = Unknown
-
-#### Device Mode
-
-- Motor
-  - Current Control Type (1-10) - Type of control currently imposed on motor
-    - 1 = All
-    - 2 = Auto
-    - 3 = Comfort
-    - 4 = Local
-    - 5 = Security
-    - 6 = Error
-    - 7 = Block
-    - 8 = Alarm
-    - 9 = Disable Local
-    - 10 = Reset Local
-  - Current Control Owner (1-7) - Owner currently controlling motor
-    - 1 = minor Error
-    - 2 = major Error
-    - 3 = keylock
-    - 4 = fire
-    - 5 = maintenance
-    - 6 = remote controller id
-    - 7 = block id
-  - Current Status (0-14)
-    - 0 = OK
-    - 1 = Moving
-    - 2 = Error
-    - 3 = IPIO Unknown
-    - 4 = IPIO NoResult
-    - 5 = Overheated
-    - 6 = Obstacle
-    - 7 = No Results
-    - 8 = Locked
-    - 9 = Lock Error
-    - 10 = Not Configured
-    - 11 = Disabled
-    - 12 = Unknown
-    - 13 = Over Current
-    - 14 = Encoder Error
-
-<!-- ##### Other
-
-- 0 – 100% (VR, windows, GO…)
-  - Main Parameter = Position of the shutter
-- Dimming US (1st param) (light, heat…)
-  - Main parameter = Light intensity
-  - Functional parameter # 1 = Light intensity gradient
-- DAP all io (VB fast speed, VRLO..)
-  - Main parameter = Position of the shutter or Position of the blind
-  - Functional parameter # 3 = Orientation of the slats
-- Dimming US (All io 1st and 2nd param) (VB slow speed)
-  - Main parameter = Position of the shutter or Position of the blind
-  - Functional parameter # 2 = Speed of the slats during orientation
-  - Functional parameter # 3 = Orientation of the slats
--->
-### Priority
-
-- Level
-  - 0x0 = Protection Level: Human
-  - 0x1 = Protection Level: Environment
-  - 0x2 = User Level 1
-  - 0x3 = User Level 2
-  - 0x4 = Comfort Level 1
-  - 0x5 = Comfort Level 2
-  - 0x6 = Comfort Level 3
-  - 0x7 = Comfort Level 4
-- Level Lock
-  - 0x0 = No: No Priority Level Lock
-  - 0x1 = Min30: Lock one or more Priority Level for 30 Minutes
-  - 0x2 = Forever: Lock one or more Priority Level Forever
-
-Priority Levels correspond to the "Zones" as used in the animeo range of products where it states the following:
-
-> Functions are applied only on/in their zones (eg. Comfort Functions work only in Comfort Zones)
-> Functions from higher Levels/Zones override lower Levels/Zones
-
-- Zone Types
-  - Security: Highest Type - Will always override other Levels/Zones
-  - Comfort: Inside Security Zone and used to place Motors in it
-  - Local:
-    - Used for manual control via remotes or switches for shadings and such
-    - Independent and not restricted within a Security or Comfort Zone
-    - Can override active Comfort Functions for a certain time
-    - Security Functions are not affected by local control
-
-#### animeo IP Priorities
-
-This definition seems to be also viable for io-homecontrol:
-
-
-animeo IP operates with a priority scale of 0 (highest) - 32000 (lowest).
-Using the animeo IP BMS Interface commands can be sent at a priority level between 12500 and 32000.
-A devices’s priority level can be set individually.
-By default, the animeo IP BMS Interface applies a priority of 12500 to all devices in the system.
-Changing a priority level of a device will only effect future commands, it will not effect already sent commands.
-Once a command is sent to a device it will remain locked at that priority level until it is unlocked by adjusting the devices priority to -1; the shade will not be able to be moved unless a command with a higher priority is sent to the device.
-
-- 0-12500 = animeo IP SECURITY
-- 12500 = animeo IP BMS Interface (LIMIT) - Default
-- 13000 = LOCAL PC COMMAND
-- 14000 = LOCAL COMMAND TIMER
-- 15000 = LOCAL COMMAND
-- 19000 = TIMER
-- 20000 = GET HEAT
-- 21000 = PRESERVE HEAT
-- 22000 = SUN
-- 32000 = DEFAULT
-- 32000 = CUSTOM DEFAULT
-
-### NACK Values
-
-- NACK
-  - 0x00 = UNKNOWN
-  - 0x01 = Data Error
-  - 0x10 = Unknown Message
-  - 0x20 = Node is Locked
-  - 0x21 = Wrong Position
-  - 0x22 = Limits not set
-  - 0x23 = IP not set
-  - 0x24 = Out of Range
-  - 0xFF = Busy
-
-#### NACK Values from the Box
-
-- -1 = UNKNOWN
-- 0 = NO_FAILURE
-- 11 = NON_EXECUTING
-- 12 = ERROR_WHILE_EXECUTING
-- 101 = ACTUATORUNKNOWN
-- 102 = ACTUATORNOANSWER
-- 103 = ERRORREADWRITEACCESS
-- 104 = ERRORCOMMAND
-- 105 = CMDUNKNOWN
-- 106 = CMDCANCELLED
-- 107 = NOREMOTECONTROL
-- 108 = ERROR_TRANSFER_KEY
-- 109 = ERRORDATABASE
-- 110 = MODELOCALENABLED
-- 111 = BAD_CMD
-- 112 = BAD_HD
-- 113 = BAD_LEN
-- 114 = BAD_ADDRESS
-- 115 = BAD_PARAM
-- 116 = NOT_FOUND_ETX
-- 117 = BAD_CRC_SERIAL
-- 118 = BAD_STATUS
-- 119 = KEY_NOT_RECEIVE
-- 120 = INSERTION_ERROR
-- 121 = NODE_NOT_VERIFY_WITH_NEW_KEY
-- 122 = POOL_FULL
-- 123 = ADDRESS_UNKNOWN
-- 124 = NODE_CANT_PAIRED
-- 125 = NODE_CANT_UPDATE_TRANSFER_STATUS
-- 126 = UNKNOWN_ERROR
-- 127 = INVALID_CHANNEL
-- 128 = INVALID_COMMAND
-- 129 = SERIAL_IO_ERROR
-- 130 = OPERATION_NOT_ALLOWED
-- 131 = RESTART_STACK
-- 132 = INCOMPLETE_DISCOVER
-- 133 = TRANFER_KEY_NO_REMOTE_CONTROLLER
-- 134 = TRANFER_KEY_MULTI_REMOTE_CONTROLLER
-- 135 = RF_PROTOCOL_FATAL_ERROR
-- 136 = INTERNAL_ERROR
-- 137 = BUSY_RADIO_ERROR
-- 138 = BAD_MAC_ERROR
-- 139 = SETUP_REQUIRED
-- 140 = MASTER_AUTHENTICATION_FAILED_ERROR
-- 141 = END_OF_RECEIVING_CONFIGURATION_MODE
-- 142 = DATA_TRANSPORT_SERVICE_ERROR
-- 143 = DATA_TRANSPORT_SERVICE_ABORTED_BY_RECIPIENT
-- 144 = STOPPED_BY_CONFIGURATION_OPERATION_ERROR
-- 145 = COMMAND_NAME_TYPE_INVALID
-- 146 = COMMAND_NAME_NOT_INSTALLED_OR_INVALID
-- 147 = COMMAND_INVALID_LEN_ON_FRAME
-- 148 = COMMAND_ZONE_INVALID_OR_NOT_INSTALLED
-- 149 = COMMAND_SENSOR_VALUE_INVALID
-- 150 = COMMAND_ZONE_TEMPERATURE_INVALID
-- 151 = COMMAND_DHW_NOT_INSTALLED_OR_INVALID
-- 152 = COMMAND_INSERTION_FAILED_ERROR
-- 153 = NONEXEC_BLOCKED_BY_HAZARD
-- 154 = NONEXEC_OVERHEATING_PROTECTION
-- 155 = NONEXEC_DEVICE_LIMITATION
-- 156 = NONEXEC_DOOR_IS_OPENED
-- 157 = NONEXEC_MAINTENANCE_REQUIRED
-- 158 = DEAD_SENSOR
-- 159 = SENSOR_MAINTENANCE_REQUIRED
-- 160 = NONEXEC_OTHER
-- 161 = WHILEEXEC_BLOCKED_BY_HAZARD
-- 162 = WHILEEXEC_OVERHEATING_PROTECTION
-- 163 = WHILEEXEC_DEVICE_LIMITATION
-- 164 = WHILEEXEC_DOOR_IS_OPENED
-- 165 = WHILEEXEC_MAINTENANCE_REQUIRED
-- 166 = WHILEEXEC_OTHER
-- 167 = PRIORITY_LOCK__LOCAL_USER
-- 168 = PRIORITY_LOCK__USER
-- 169 = PRIORITY_LOCK__RAIN
-- 170 = PRIORITY_LOCK__TIMER
-- 171 = PRIORITY_LOCK__SECURITY
-- 172 = PRIORITY_LOCK__UPS
-- 173 = PRIORITY_LOCK__SFC
-- 174 = PRIORITY_LOCK__LSC
-- 175 = PRIORITY_LOCK__SAAC
-- 176 = PRIORITY_LOCK__WIND
-- 177 = PRIORITY_LOCK__EXTERNAL_ACCESS
-- 178 = PRIORITY_LOCK__EMERGENCY
-- 179 = NO_DISTANT_FOR_DISCOVER
-- 180 = ANOTHER_COMMAND_IS_RUNNING
-- 181 = PROBLEM_WITH_BOILER_COMMUNICATION
-- 182 = LOCKED_BY_RCM
-- 183 = RCM_NO_REMOTE_CONTROL
-- 184 = DISCOVER_NO_REMOTE_CONTROLLER_ERROR
-- 185 = COMMAND_INTERRUPTED
-- 190 = PRIORITY_LOCK__WIND_FORCING_AVAILABLE
-- 191 = PRIORITY_LOCK__WIND_FORCING_UNAVAILABLE
-- 192 = PRIORITY_LOCK__NO_SECURITY_DEVICE
-- 193 = PRIORITY_LOCK__DEAD_SENSOR
-- 194 = PRIORITY_LOCK__UNKNOWN_ERROR
-- 200 = DBUS_ERROR
-- 201 = DBUS_NO_MEMORY
-- 202 = DBUS_SERVICE_UNKNOWN
-- 203 = DBUS_NAME_HAS_NO_OWNER
-- 204 = DBUS_NO_REPLY
-- 205 = DBUS_IO_ERROR
-- 206 = DBUS_BAD_ADDRESS
-- 207 = DBUS_NOT_SUPPORTED
-- 208 = DBUS_LIMITS_EXCEEDED
-- 209 = DBUS_ACCESS_DENIED
-- 210 = DBUS_AUTH_FAILED
-- 211 = DBUS_NO_SERVER
-- 212 = DBUS_TIMEOUT
-- 213 = DBUS_NO_NETWORK
-- 214 = DBUS_ADDRESS_IN_USE
-- 215 = DBUS_DISCONNECTED
-- 216 = DBUS_INVALID_ARGS
-- 217 = DBUS_FILE_NOT_FOUND
-- 218 = DBUS_FILE_EXISTS
-- 219 = DBUS_UNKNOWN_METHOD
-- 220 = DBUS_UNKNOWN_OBJECT
-- 221 = DBUS_UNKNOWN_INTERFACE
-- 222 = DBUS_UNKNOWN_PROPERTY
-- 223 = DBUS_PROPERTY_READ_ONLY
-- 224 = DBUS_TIMED_OUT
-- 225 = DBUS_MATCH_RULE_NOT_FOUND
-- 226 = DBUS_MATCH_RULE_INVALID
-- 227 = DBUS_SPAWN_EXEC_FAILED
-- 228 = DBUS_SPAWN_FORK_FAILED
-- 229 = DBUS_SPAWN_CHILD_EXITED
-- 230 = DBUS_SPAWN_CHILD_SIGNALED
-- 231 = DBUS_SPAWN_FAILED
-- 232 = DBUS_SPAWN_SETUP_FAILED
-- 233 = DBUS_SPAWN_CONFIG_INVALID
-- 234 = DBUS_SPAWN_SERVICE_INVALID
-- 235 = DBUS_SPAWN_SERVICE_NOT_FOUND
-- 236 = DBUS_SPAWN_PERMISSIONS_INVALID
-- 237 = DBUS_SPAWN_FILE_INVALID
-- 238 = DBUS_SPAWN_NO_MEMORY
-- 239 = DBUS_UNIX_PROCESS_ID_UNKNOWN
-- 240 = DBUS_INVALID_SIGNATURE
-- 241 = DBUS_INVALID_FILE_CONTENT
-- 242 = DBUS_SELINUX_SECURITY_CONTEXT_UNKNOWN
-- 243 = DBUS_ADT_AUDIT_DATA_UNKNOWN
-- 244 = DBUS_OBJECT_PATH_IN_USE
-- 245 = DBUS_INCONSISTENT_MESSAGE
-- 300 = NOT_IMPLEMENTED_YET
-- 301 = MODULE_NOT_LOADED
-- 302 = APPLICATION_NOT_RUNNING
-- 400 = NONEXEC_MANUALLY_CONTROLLED
-- 401 = NONEXEC_AUTOMATIC_CYCLE
-- 402 = NONEXEC_BATTERY_LEVEL
-- 403 = NONEXEC_WRONG_LOAD_CONNECTED
-- 404 = NONEXEC_HIGH_CONSUMPTION
-- 405 = NONEXEC_LOW_CONSUMPTION
-- 406 = NONEXEC_COLOUR_NOT_REACHABLE
-- 407 = NONEXEC_USER_ACTION_NEEDED
-- 408 = NONEXEC_COMMAND_INCOMPATIBLE_WITH_MOVEMENT
-- 409 = NONEXEC_CANNOT_CHANGE_STATE
-- 410 = NONEXEC_FILTER_MAINTENANCE
-- 411 = NONEXEC_OPERATING_MODE_NOT_SUPPORTED
-- 420 = WHILEEXEC_MANUALLY_CONTROLLED
-- 421 = WHILEEXEC_AUTOMATIC_CYCLE
-- 422 = WHILEEXEC_BATTERY_LEVEL
-- 423 = WHILEEXEC_WRONG_LOAD_CONNECTED
-- 424 = WHILEEXEC_HIGH_CONSUMPTION
-- 425 = WHILEEXEC_LOW_CONSUMPTION
-- 426 = WHILEEXEC_COLOUR_NOT_REACHABLE
-- 427 = WHILEEXEC_USER_ACTION_NEEDED
-- 428 = WHILEEXEC_COMMAND_INCOMPATIBLE_WITH_MOVEMENT
-- 429 = WHILEEXEC_CANNOT_CHANGE_STATE
-- 430 = WHILEEXEC_FILTER_MAINTENANCE
-- 431 = WHILEEXEC_OPERATING_MODE_NOT_SUPPORTED
-- 450 = OVERRIDEMODE_ERROR
-- 500 = CAMERA_INVALID_CREDENTIALS
-- 501 = UNSUPPORTED_CAMERA_TYPE
-- 601 = NETWORK_COULDNT_RESOLVE_HOST
-- 602 = NETWORK_COULDNT_CONNECT
-- 603 = NETWORK_OPERATION_TIMEDOUT
-- 701 = LPB_APP_OUT_OF_RANGE
-- 702 = LPB_APP_OUT_OF_MAXRANGE
-- 703 = LPB_APP_OUT_OF_MINRANGE
-- 704 = LPB_APP_MEMORY_ERROR
-- 705 = LPB_APP_READ_ONLY
-- 706 = LPB_APP_ILLEGAL_CMD
-- 707 = LPB_APP_VOID_DP
-- 708 = LPB_APP_TYPE_CONFLICT
-- 709 = LPB_APP_READ_CMD_INCORRECT
-- 710 = LPB_APP_WRITE_CMD_INCORRECT
-- 711 = LPB_APP_CMD_TYPE_INCORRECT
-- 712 = LPB_APP_WRITE_TIMEOUT
-- 713 = LPB_APP_CANNOT_WRITE_GW
-- 714 = LPB_APP_UNKNOWN_GATEWAY
-- 715 = LPB_APP_GATEWAY_UNREACHABLE
-- 800 = APPLICATION_ERROR
-- 900 = HUE_INVALID_CREDENTIALS
-- 901 = HUE_LINK_BUTTON_NOT_PRESSED
-- 902 = HUE_DEVICE_IS_OFF
-- 10001 = TIMED_OUT
-- 10002 = CANCELLED
-- 10003 = UNKNOWN_ERROR_CODE
-- 10004 = SERVER_FAILURE
-- 10005 = PEER_DOWN
-- 10006 = GATEWAY_BUFFER_OVERFLOW
-- 10007 = UNKNOWN_DETAILED_ERROR
-- 20003 = TIME_OUT_ON_COMMAND_PROGRESS
-
-### Status Reply
-
-|  ID  | Name                                      | Meaning                                                        |
-| ---: | ----------------------------------------- | -------------------------------------------------------------- |
-| 0x00 | UNKNOWN_STATUS_REPLY                      | unknown reply                                                  |
-| 0x01 | COMMAND_COMPLETED_OK                      | no errors detected                                             |
-| 0x02 | NO_CONTACT                                | no communication to node                                       |
-| 0x03 | MANUALLY_OPERATED                         | manually operated by a user                                    |
-| 0x04 | BLOCKED                                   | node has been blocked by an object                             |
-| 0x05 | WRONG_SYSTEMKEY                           | the node contains a wrong system key                           |
-| 0x06 | PRIORITY_LEVEL_LOCKED                     | the node is locked on this priority level                      |
-| 0x07 | REACHED_WRONG_POSITION                    | node has stopped in another position than expected             |
-| 0x08 | ERROR_DURING_EXECUTION                    | an error has occurred during execution of command              |
-| 0x09 | NO_EXECUTION                              | no movement of the node parameter                              |
-| 0x0A | CALIBRATING                               | the node is calibrating the parameters                         |
-| 0x0B | POWER_CONSUMPTION_TOO_HIGH                | the node power consumption is too high                         |
-| 0x0C | POWER_CONSUMPTION_TOO_LOW                 | the node power consumption is too low                          |
-| 0x0D | LOCK_POSITION_OPEN                        | door lock errors. (Door open during lock command)              |
-| 0x0E | MOTION_TIME_TOO_LONG__COMMUNICATION_ENDED | the target was not reached in time                             |
-| 0x0F | THERMAL_PROTECTION                        | the node has gone into thermal protection mode                 |
-| 0x10 | PRODUCT_NOT_OPERATIONAL                   | the node is not currently operational                          |
-| 0x11 | FILTER_MAINTENANCE_NEEDED                 | the filter needs maintenance                                   |
-| 0x12 | BATTERY_LEVEL                             | the battery level is low                                       |
-| 0x13 | TARGET_MODIFIED                           | the node has modified the target value of the command          |
-| 0x14 | MODE_NOT_IMPLEMENTED                      | this node does not support the mode received                   |
-| 0x15 | COMMAND_INCOMPATIBLE_TO_MOVEMENT          | the node is unable to move in the right direction              |
-| 0x16 | USER_ACTION                               | dead bolt is manually locked during unlock command             |
-| 0x17 | DEAD_BOLT_ERROR                           | dead bolt error                                                |
-| 0x18 | AUTOMATIC_CYCLE_ENGAGED                   | the node has gone into automatic cycle mode                    |
-| 0x19 | WRONG_LOAD_CONNECTED                      | wrong load on node                                             |
-| 0x1A | COLOUR_NOT_REACHABLE                      | that node is unable to reach received colour code              |
-| 0x1B | TARGET_NOT_REACHABLE                      | the node is unable to reach received target position           |
-| 0x1C | BAD_INDEX_RECEIVED                        | io-protocol has received an invalid index                      |
-| 0x1D | COMMAND_OVERRULED                         | that the command was overruled by a new command                |
-| 0x1E | NODE_WAITING_FOR_POWER                    | that the node reported waiting for power                       |
-| 0xDF | INFORMATION_CODE                          | an unknown error code received                                 |
-| 0xE0 | PARAMETER_LIMITED                         | the parameter was limited by an unknown device                 |
-| 0xE1 | LIMITATION_BY_LOCAL_USER                  | the parameter was limited by local button                      |
-| 0xE2 | LIMITATION_BY_USER                        | the parameter was limited by a remote control                  |
-| 0xE3 | LIMITATION_BY_RAIN                        | the parameter was limited by a rain sensor                     |
-| 0xE4 | LIMITATION_BY_TIMER                       | the parameter was limited by a timer                           |
-| 0xE5 | LIMITATION_BY_SCD                         | the parameter was limited by a security controlling actuator   |
-| 0xE6 | LIMITATION_BY_UPS                         | the parameter was limited by a power supply                    |
-| 0xE7 | LIMITATION_BY_UNKNOWN_DEVICE              | the parameter was limited by an unknown device                 |
-| 0xEA | LIMITATION_BY_SAAC                        | the parameter was limited by a standalone automatic controller |
-| 0xEB | LIMITATION_BY_WIND                        | the parameter was limited by a wind sensor                     |
-| 0xEC | LIMITATION_BY_MYSELF                      | the parameter was limited by the node itself                   |
-| 0xED | LIMITATION_BY_AUTOMATIC_CYCLE             | the parameter was limited by an automatic cycle                |
-| 0xEE | LIMITATION_BY_EMERGENCY                   | the parameter was limited by an emergency                      |
-
-### Manual Order
-
-> Manual Order
-
-These are known Orders which need a Parameter but are executed directly and seem to be related to testing and programming in the factory.
-
-```SHELL
-52 3D    R=
-44 3D    D=
-41 31 43 A1C
-41 4D 4B AMK
-42 4F 4D BOM
-42 53 59 BSY
-44 31 43 D1C
-46 47 54 FGT
-47 31 43 G1C
-47 31 4B G1K
-47 32 41 G2A
-47 32 4B G2K
-47 48 57 GHW - Get Hardware Version
-47 4D 41 GMA - Get ???
-47 53 57 GSW - Get Software Version
-4D 31 47 M1G
-4D 31 50 M1P
-4D 31 55 M1U
-4D 44 49 MDI
-4D 44 56 MDV
-4D 47 44 MGD
-4D 47 4C MGL
-4D 47 4E MGN
-4D 47 4F MGO
-4D 47 53 MGS
-4D 4F 43 MOC
-4D 50 41 MPA
-4D 53 4E MSN
-4D 55 50 MUP
-4E 47 56 NGV
-4E 4E 42 NNB
-4E 54 4B NTK
-52 31 43 R1C
-52 41 56 RAV
-52 43 4D RCM - Remote Control Master
-52 46 54 RFT - RF Test
-52 53 53 RSS
-53 31 4B S1K
-53 32 41 S2A
-53 32 4B S2K
-53 4D 41 SMA
-57 49 4E WIN
-```
-
-### Status Answers
-
-```CPP
-CutBasicInformation(uint param_2) {
-  switch(param_2 >> 3) {
-    case 0x00   : "Command Accepted"; break;
-    case 0x01   : "Command Unknown"; break;
-    case 0x02   : "Mode Or State Number Unknown"; break;
-    case 0x03   : "Bad Mac"; break;
-    case 0x04   : "Setup Required"; break;
-    case 0x05   : "Parameter(s), Alias(es), Access Method(s)\n Lifestyle Scenario Unknown"; break;
-    case 0x06   : "Command Originator Disabled"; break;
-    case 0x07   : "Priority Locked"; break;
-    case 0x08   : "Priority Service Not Supported"; break;
-    case 0x09   : "Parameter Limitation Adjustement"; break;
-    case 0x0A   : "Parameter Incoherence Adjustement"; break;
-    case 0x0b   : "Total Incoherence"; break;
-    case 0x0c   : "Service Full"; break;
-    case 0x0d   : "Alias Incoherence"; break;
-    case 0x0e   : "Session Interrupted"; break;
-    case 0x0f   : "Not Implemented"; break;
-    case 0x10   : "Command Rejected"; break;
-    case 0x11   : "Already Configured"; break;
-    default     : "Unknown (param_2 >> 3)"; break;
-  }
-  switch(param_2 & 7) {
-    case 0x0: "Non Executing";break;
-    case 0x1: "Error While Execution";break;
-    case 0x2: "Waiting For Executing";break;
-    case 0x3: "Waiting For Power";break;
-    case 0x4: "Executing";break;
-    case 0x5: "Done";break;
-    default : "Unknown (param_2 & 7)");
-  }
-}
-```
-
-<!-- ### Command Status
-
-### Execute Status
-
-## Pub Data
--->
-### Somfy
+#### Function IDs
+
+| HEX        | DEC        | NAME                                                                                         |
+| ---------: | ---------: | :------------------------------------------------------------------------------------------- |
+| 00         | 00         | No Parameter                                                                                 |
+| 01         | 01         | Name                                                                                         |
+| 02         | 02         | Unknown                                                                                      |
+| 03         | 03         | Unknown                                                                                      |
+| 04         | 04         | Identification                                                                               |
+| 05         | 05         | Refresh: Advanced                                                                            |
+| ...        | ...        | Unknown                                                                                      |
+| 0B         | 11         | Config State                                                                                 |
+| 01 00 D800 | 16832512   | Refresh: Memorized Position                                                                  |
+| 01 00 D80A | 16832522   | Secured Position                                                                             |
+| 01 00 01   | 65537      | My, Open/Up/Raise/Extend, Close/Down/Lower/Retract, Stop, Set: Closure, Deployment, Position |
+| 01 00 12   | 65554      | Manufacturer Settings                                                                        |
+| 02 F2 0200 | 49414656   | 1W Controller: Pairing All and Delete Node                                                   |
+| 7F F1 001D | 2146500637 | IO Key                                                                                       |
+| 7F F1 0022 | 2146500642 | 1W Controller: Pairing                                                                       |
+| 7F F1 0023 | 2146500643 | 1W Controller: Pairing All                                                                   |
+
+##### Private Function IDs
+
+<details><summary>List of Private Function IDs</summary>
 
 This data is from *Set&Go io* XML definitions.
 
@@ -2157,9 +1044,10 @@ This data is from *Set&Go io* XML definitions.
 | 0xA627 | 000 | time-prog-2                                                           |
 | 0xFFFD | 000 | rs100-debug                                                           |
 
-<!-- > NOTE: You can find the unaltered XML file and more on the [Set&Go io page](docs/devices/somfy-servego.md). -->
+> ![NOTE]
+> You can find the unaltered data from the XML files and more on the [Set&Go io page](devices/Somfy/SetGo/README.md).
 
-#### SIMU
+###### SIMU
 
 | CMD    | NAME                    |
 | -----: | :---------------------- |
@@ -2182,77 +1070,280 @@ This data is from *Set&Go io* XML definitions.
 | 0x6003 | SMF_PUSH_COLA_DATA      |
 | 0x6004 | SMF_CLOSE_COLA_UPDATE   |
 
-## Command IDs
+</details>
+
+#### Data Types
+
+-  0 = Binary
+-  1 = INTEGER / Binary XML
+-  2 = FLOAT   / XML
+-  3 = STRING
+-  4 = BLOB
+-  5 = DATE
+-  6 = BOOLEAN
+-  7 = VALUE MAPPING (JSON)
+-  8 = INTERVAL MAPPING
+-  9 = PASSWORD
+- 10 = ARRAY
+- 11 = DYNAMIC OBJECT
+
+#### Manufacturer IDs
+
+Also called OEM ID. Each Manufacturer has their own ID:
+
+- 0x00 = All / Public / Generic
+- 0x01 = Velux
+- 0x02 = Somfy
+- 0x03 = Honeywell
+- 0x04 = Hörmann
+- 0x05 = ASSA ABLOY
+- 0x06 = Niko
+- 0x07 = Window Master
+- 0x08 = Renson
+- 0x09 = CIAT
+- 0x0A = Secuyou
+- 0x0B = Overkiz
+- 0x0C = Atlantic Group
+- 0x0D = Zehnder Group
+- 0x0E = ???
+- 0x0F = ???
+
+> ![NOTE]
+> Manufacturers are only defined as Unknown when they are not assigned an ID. This is the case for old io-homecontrol installations.
+
+#### Node Types & Node Sub Types
+
+<details><summary>List of Node Types & Node Sub Types</summary>
+
+| HEX  | NOTATION | TYPE         | SUB TYPE | NAME                                                 |
+| :--: | -------: | :----------: | :------: | :--------------------------------------------------- |
+| 0000 | 0.00     | 00 0000 0000 | 000000   | All Nodes except Controller (No Type)                |
+| 0033 | 0.51     | 00 0000 0000 | 110011   | Smart Plug                                           |
+| 0040 | 1.00     | 00 0000 0001 | 000000   | Interior Venetian Blind (IVB)                        |
+| 006A | 1.42     | 00 0000 0001 | 110011   | Light Sensor                                         |
+| 0080 | 2.00     | 00 0000 0010 | 000000   | Roller Shutter                                       |
+| 0081 | 2.01     | 00 0000 0010 | 000001   | Roller Shutter with Adjustable Slats                 |
+| 0082 | 2.02     | 00 0000 0010 | 000010   | Roller Shutter with Projection                       |
+| 00C0 | 3.00     | 00 0000 0011 | 000000   | Vertical Exterior Awning (Terrace)                   |
+| 00CA | 3.10     | 00 0000 0011 | 001010   | Window Covering Device                               |
+| 00CB | 3.11     | 00 0000 0011 | 001011   | Window Covering Controller                           |
+| 0100 | 4.00     | 00 0000 0100 | 000000   | Window Opener                                        |
+| 0101 | 4.01     | 00 0000 0100 | 000001   | Window Opener with Integrated Rain Sensor            |
+| 012E | 4.46     | 00 0000 0100 | 101110   | Temp and Humidity Sensor                             |
+| 0140 | 5.00     | 00 0000 0101 | 000000   | Garage Door Opener                                   |
+| 017A | 5.58     | 00 0000 0101 | 111010   | Garage Door Opener: Open/Close Only                  |
+| 0180 | 6.00     | 00 0000 0110 | 000000   | Light: On/Off + Dimming                              |
+| 0192 | 6.18     | 00 0000 0110 | 010010   | IAS Zone                                             |
+| 01BA | 6.58     | 00 0000 0110 | 111010   | Light: On/Off Only                                   |
+| 01C0 | 7.00     | 00 0000 0111 | 000000   | Gate Opener                                          |
+| 01FA | 7.58     | 00 0000 0111 | 111010   | Gate Opener: Open/Close Only                         |
+| 0200 | 8.00     | 00 0000 1000 | 000000   | Rolling Door Opener                                  |
+| 0240 | 9.00     | 00 0000 1001 | 000000   | Door Lock / Motorized Bolt                           |
+| 0241 | 9.01     | 00 0000 1001 | 000001   | Window Lock                                          |
+| 0280 | 10.00    | 00 0000 1010 | 000000   | Vertical Interior Blind                              |
+| 0290 | 11.00    | 00 0000 1011 | 000000   | Secure Configuration Device (SCD)                    |
+| 0300 | 12.00    | 00 0000 1100 | 000000   | Beacon = Gateway/Repeater                            |
+| 0340 | 13.00    | 00 0000 1101 | 000000   | Dual Roller Shutter                                  |
+| 0380 | 14.00    | 00 0000 1110 | 000000   | Heating Temperature Interface                        |
+| 03C0 | 15.00    | 00 0000 1111 | 000000   | Switch: On/Off                                       |
+| 0400 | 16.00    | 00 0001 0000 | 000000   | Horizontal Awning                                    |
+| 0401 | 16.01    | 00 0001 0000 | 000001   | Pergola Rail Guided Awning                           |
+| 0440 | 17.00    | 00 0001 0001 | 000000   | Exterior Venetian Blind (EVB)                        |
+| 0480 | 18.00    | 00 0001 0010 | 000000   | Louver Blind                                         |
+| 04C0 | 19.00    | 00 0001 0011 | 000000   | Curtain Track                                        |
+| 0500 | 20.00    | 00 0001 0100 | 000000   | Ventilation Point                                    |
+| 0501 | 20.01    | 00 0001 0100 | 000001   | Air Inlet                                            |
+| 0502 | 20.02    | 00 0001 0100 | 000010   | Air Transfer                                         |
+| 0503 | 20.03    | 00 0001 0100 | 000011   | Air Outlet                                           |
+| 0540 | 21.00    | 00 0001 0101 | 000000   | Exterior Heating                                     |
+| 057A | 21.58    | 00 0001 0101 | 110011   | Exterior Heating: On/Off Only                        |
+| 0580 | 22.00    | 00 0001 0110 | 000000   | Heat Pump                                            |
+| 05C0 | 23.00    | 00 0001 0111 | 000000   | Intrusion Alarm System                               |
+| 0600 | 24.00    | 00 0001 1000 | 000000   | Swinging Shutter                                     |
+| 0601 | 24.01    | 00 0001 1000 | 000001   | Swinging Shutter with Independent Handling of Leaves |
+|      | 27.00    | 00 0001 1011 | 000000   | Sliding Window                                       |
+|      | 28.00    | 00 0001 1100 | 000000   | Zone Control Generator                               |
+|      | 29.00    | 00 0001 1101 | 000000   | Bioclimatic Pergola                                  |
+|      | 30.00    | 00 0001 1110 | 000000   | Indoor Siren                                         |
+|      | 51.00    | 00 0010 0000 | 000000   | Domestic Hot Water                                   |
+|      | 52.00    | 00 0010 0000 | 000000   | Electrical Heater                                    |
+|      | 53.00    | 00 0010 0000 | 000000   | Heat Recovery Ventilation                            |
+| 3FC0 | 255.00   | 00 1111 1111 | 000000   | Central House Control                                |
+| FC00 | 1008.00  | 11 1111 0000 | 000000   | Test and Evaluation (RD)                             |
+| FFC0 | 1023.00  | 11 1111 1111 | 000000   | Remote Controller (RC)                               |
+
+> ![NOTE]
+> Only values in the *HEX* row reflect the actual data. You can also get these values when combining *TYPE* and *SUBTYPE* binary rows.
+
+##### Sensor Types
+
+- 0   = UNKNOWN SENSOR
+- 1   = Light Inside
+- 1.B = Light Outside (Sun Sensor)
+- 2   = TEMPERATURE INSIDE SENSOR
+- 3   = TEMPERATURE OUTSIDE SENSOR
+- 5   = PRESSURE SENSOR
+- 11  = LIGHT OUTSIDE SENSOR
+- 12  = CUMULATED GAS
+- 13  = WATER CONSUMPTION SENSOR
+- 14  = THERMAL CONSUMPTION SENSOR
+- 15  = ELECTRIC CONSUMPTION SENSOR
+- 128 = SMOKE SENSOR
+- 133 = OPENING DETECTOR
+- 134 = MOTION SENSOR
+- 254 = MULTITYPE SENSOR
+
+##### Node Variations
+
+- byte[1] NodeVariation: Depends on NodeType/SubType
+  - Window
+    - 0 = Not Set
+    - 1 = Top Hung
+    - 2 = Kip
+    - 3 = Flat Roof
+    - 4 = Sky Light
+
+</details>
+
+#### Priorities
+
+- Level
+  - 0x0 = Protection Level: Human
+  - 0x1 = Protection Level: Environment
+  - 0x2 = User Level 1
+  - 0x3 = User Level 2
+  - 0x4 = Comfort Level 1
+  - 0x5 = Comfort Level 2
+  - 0x6 = Comfort Level 3
+  - 0x7 = Comfort Level 4
+- Level Lock
+  - 0x0 = No: No Priority Level Lock
+  - 0x1 = Min30: Lock one or more Priority Level for 30 Minutes
+  - 0x2 = Forever: Lock one or more Priority Level Forever
+
+##### animeo IP Priorities
+
+This definition seems to be also viable for io-homecontrol:
+
+animeo IP operates with a priority scale of 0 (highest) - 32000 (lowest).
+Using the animeo IP BMS Interface commands can be sent at a priority level between 12500 and 32000.
+A devices’s priority level can be set individually.
+By default, the animeo IP BMS Interface applies a priority of 12500 to all devices in the system.
+Changing a priority level of a device will only effect future commands, it will not effect already sent commands.
+Once a command is sent to a device it will remain locked at that priority level until it is unlocked by adjusting the devices priority to -1; the shade will not be able to be moved unless a command with a higher priority is sent to the device.
+
+- 0-12500 = animeo IP SECURITY
+- 12500 = animeo IP BMS Interface (LIMIT) - Default
+- 13000 = LOCAL PC COMMAND
+- 14000 = LOCAL COMMAND TIMER
+- 15000 = LOCAL COMMAND
+- 19000 = TIMER
+- 20000 = GET HEAT
+- 21000 = PRESERVE HEAT
+- 22000 = SUN
+- 32000 = DEFAULT
+- 32000 = CUSTOM DEFAULT
+
+</details>
+
+### Status Reply Values
+
+<details><summary>List of Status Replies</summary>
+
+| ID   | Name                                      | Meaning                                                        |
+| ---: | ----------------------------------------- | -------------------------------------------------------------- |
+| 0x00 | UNKNOWN_STATUS_REPLY                      | unknown reply                                                  |
+| 0x01 | COMMAND_COMPLETED_OK                      | no errors detected                                             |
+| 0x02 | NO_CONTACT                                | no communication to node                                       |
+| 0x03 | MANUALLY_OPERATED                         | manually operated by a user                                    |
+| 0x04 | BLOCKED                                   | node has been blocked by an object                             |
+| 0x05 | WRONG_SYSTEMKEY                           | the node contains a wrong system key                           |
+| 0x06 | PRIORITY_LEVEL_LOCKED                     | the node is locked on this priority level                      |
+| 0x07 | REACHED_WRONG_POSITION                    | node has stopped in another position than expected             |
+| 0x08 | ERROR_DURING_EXECUTION                    | an error has occurred during execution of command              |
+| 0x09 | NO_EXECUTION                              | no movement of the node parameter                              |
+| 0x0A | CALIBRATING                               | the node is calibrating the parameters                         |
+| 0x0B | POWER_CONSUMPTION_TOO_HIGH                | the node power consumption is too high                         |
+| 0x0C | POWER_CONSUMPTION_TOO_LOW                 | the node power consumption is too low                          |
+| 0x0D | LOCK_POSITION_OPEN                        | door lock errors. (Door open during lock command)              |
+| 0x0E | MOTION_TIME_TOO_LONG__COMMUNICATION_ENDED | the target was not reached in time                             |
+| 0x0F | THERMAL_PROTECTION                        | the node has gone into thermal protection mode                 |
+| 0x10 | PRODUCT_NOT_OPERATIONAL                   | the node is not currently operational                          |
+| 0x11 | FILTER_MAINTENANCE_NEEDED                 | the filter needs maintenance                                   |
+| 0x12 | BATTERY_LEVEL                             | the battery level is low                                       |
+| 0x13 | TARGET_MODIFIED                           | the node has modified the target value of the command          |
+| 0x14 | MODE_NOT_IMPLEMENTED                      | this node does not support the mode received                   |
+| 0x15 | COMMAND_INCOMPATIBLE_TO_MOVEMENT          | the node is unable to move in the right direction              |
+| 0x16 | USER_ACTION                               | dead bolt is manually locked during unlock command             |
+| 0x17 | DEAD_BOLT_ERROR                           | dead bolt error                                                |
+| 0x18 | AUTOMATIC_CYCLE_ENGAGED                   | the node has gone into automatic cycle mode                    |
+| 0x19 | WRONG_LOAD_CONNECTED                      | wrong load on node                                             |
+| 0x1A | COLOUR_NOT_REACHABLE                      | that node is unable to reach received colour code              |
+| 0x1B | TARGET_NOT_REACHABLE                      | the node is unable to reach received target position           |
+| 0x1C | BAD_INDEX_RECEIVED                        | io-protocol has received an invalid index                      |
+| 0x1D | COMMAND_OVERRULED                         | that the command was overruled by a new command                |
+| 0x1E | NODE_WAITING_FOR_POWER                    | that the node reported waiting for power                       |
+| 0x20 | NODE_LOCKED                               | Node is Locked                                                 |
+| 0x21 | Wrong Position                            | Wrong Position                                                 |
+| 0x22 | Limits not set                            | Limits not set                                                 |
+| 0x23 | IP not set                                | IP not set                                                     |
+| 0x24 | Out of Range                              | Out of Range                                                   |
+| 0xDF | INFORMATION_CODE                          | an unknown error code received                                 |
+| 0xE0 | PARAMETER_LIMITED                         | the parameter was limited by an unknown device                 |
+| 0xE1 | LIMITATION_BY_LOCAL_USER                  | the parameter was limited by local button                      |
+| 0xE2 | LIMITATION_BY_USER                        | the parameter was limited by a remote control                  |
+| 0xE3 | LIMITATION_BY_RAIN                        | the parameter was limited by a rain sensor                     |
+| 0xE4 | LIMITATION_BY_TIMER                       | the parameter was limited by a timer                           |
+| 0xE5 | LIMITATION_BY_SCD                         | the parameter was limited by a security controlling actuator   |
+| 0xE6 | LIMITATION_BY_UPS                         | the parameter was limited by a power supply                    |
+| 0xE7 | LIMITATION_BY_UNKNOWN_DEVICE              | the parameter was limited by an unknown device                 |
+| 0xEA | LIMITATION_BY_SAAC                        | the parameter was limited by a standalone automatic controller |
+| 0xEB | LIMITATION_BY_WIND                        | the parameter was limited by a wind sensor                     |
+| 0xEC | LIMITATION_BY_MYSELF                      | the parameter was limited by the node itself                   |
+| 0xED | LIMITATION_BY_AUTOMATIC_CYCLE             | the parameter was limited by an automatic cycle                |
+| 0xEE | LIMITATION_BY_EMERGENCY                   | the parameter was limited by an emergency                      |
+
+</details>
 
 <!--
-
-### Data Structures / Field Definitions
-
-#### Node
-
-A Node is defined by the following Parameters:
-
-- ID (0x4)
-- Class (0x8)
-- Type (0xC)
-- Manufacturer ID (0x0E)
-- General Info 1 (0x0F)
-- General Info 2 (0x1D)
-- Key (0x2D)
-
- Node        *this,
-  uint      *param_1, // 4 Byte
-  NodeClass *param_2, //
-  ushort     param_3, // 2 Byte
-  uchar      param_4, // 1 Byte
-  ulonglong *param_5, // 8 Byte
-  uint      *param_6, // 4 Byte
-  uint      *param_7  // 4 Byte
-
-Node(this,param_1,param_2,param_3,param_4,param_5,param_6,param_7)
-
-#### Actuator Information
-
-- `[0:3]`: Unknown (NodeId?)
-- `[4:]`:  Actuator Data (9 Byte = `[4:D]`)
-- `[4:5]`: NodeType = `[5]+[4]*0x100`
-- `[6:8]`: Backbone Address = `[8]+([7]+[6]*0x100)*0x100`
-- `[9]`:   ManufacturerId
-- `[A]`:   Unknown
-- `[B:C]`: Time Stamp = `[0xc]+[0xb]*0x100`
-- `[D:F]`: Unknown (CRC?)
-- `[10]`:  Multi Information Byte
-
-#### Sensor Information
-
-TBD
-
-#### Node
-
-TBD
-
-### Discover Modes
-
-- Discover Only (Actuator, 1W)
-- Discover And Pair (Actuator, 1W)
-- Discover Virgin And Pair  (Actuator, 1W)
-- Discover Actuator
-- Discover Actuator 1W
-- Discover Actuator In System Mode
-- Discover Actuator Without Setup
-- Discover System: 1W
-- Discover System: 2W
-- Discover System: New
-- Discover System: Private
-- Discover Equipment 2W
-- Discover Sensor
-- Discover Sensor All
-- Discover Sensor Simple
-- Discover Security
-- Discover Controller
-- Intermediate Discover
-- Private Discovery: Somfy
+```CPP
+CutBasicInformation(uint param_2) {
+  switch(param_2 >> 3) {
+    case 0x00   : "Command Accepted"; break;
+    case 0x01   : "Command Unknown"; break;
+    case 0x02   : "Mode Or State Number Unknown"; break;
+    case 0x03   : "Bad Mac"; break;
+    case 0x04   : "Setup Required"; break;
+    case 0x05   : "Parameter(s), Alias(es), Access Method(s)\n Lifestyle Scenario Unknown"; break;
+    case 0x06   : "Command Originator Disabled"; break;
+    case 0x07   : "Priority Locked"; break;
+    case 0x08   : "Priority Service Not Supported"; break;
+    case 0x09   : "Parameter Limitation Adjustement"; break;
+    case 0x0A   : "Parameter Incoherence Adjustement"; break;
+    case 0x0b   : "Total Incoherence"; break;
+    case 0x0c   : "Service Full"; break;
+    case 0x0d   : "Alias Incoherence"; break;
+    case 0x0e   : "Session Interrupted"; break;
+    case 0x0f   : "Not Implemented"; break;
+    case 0x10   : "Command Rejected"; break;
+    case 0x11   : "Already Configured"; break;
+    default     : "Unknown (param_2 >> 3)"; break;
+  }
+  switch(param_2 & 7) {
+    case 0x0: "Non Executing";break;
+    case 0x1: "Error While Execution";break;
+    case 0x2: "Waiting For Executing";break;
+    case 0x3: "Waiting For Power";break;
+    case 0x4: "Executing";break;
+    case 0x5: "Done";break;
+    default : "Unknown (param_2 & 7)");
+  }
+}
+```
 -->
+
+## Command IDs
+
 ### 00: Activate/Execute Function
 
 - Command ID: 0x00 (1 byte)
@@ -2262,15 +1353,14 @@ TBD
 - Functional Parameter 1 (1 byte)
 - Functional Parameter 2 (1 byte)
 
-> Example: `00 01 43 D200 00 00`
-> |Command ID=0x00|Originator=0x01 (User)|ACEI=0x43|MainParam=0xD200 (Current)|FP1=0|FP2=0|
-> 2W Example:
-> 2W S 1 E 0       FROM 842E3      TO FE90EE       CMD 0   DATA(6)03 e7 6400 0000
-> Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
-> 1W Example:
-> 1W S 1 E 1 B 0 R 0 LPM 0 V 0 U1 0 U2 0 U3 0      FROM 28DB36     TO 3F   CMD 0   DATA(14)0167d2000000    SEQ 247B        MAC 3cd2ad870771
-
-
+- Example
+  - `00 01 43 D200 00 00`
+  - |Command ID=0x00|Originator=0x01 (User)|ACEI=0x43|MainParam=0xD200 (Current)|FP1=0|FP2=0|
+- 2W Example
+  - 2W S 1 E 0       FROM 842E3      TO FE90EE       CMD 0   DATA(6)03 e7 6400 0000
+  - Command ID=0x00, Originator=0x03, ACEI=0xe7, MainParam=0x6400, FP1=0, FP2=0
+- 1W Example
+  - 1W S 1 E 1 B 0 R 0 LPM 0 V 0 U1 0 U2 0 U3 0      FROM 28DB36     TO 3F   CMD 0   DATA(14)0167d2000000    SEQ 247B        MAC 3cd2ad870771
 
 ### 01: Activate Mode
 
@@ -2281,9 +1371,11 @@ TBD
 - Mode parameter (1 byte)
 - Unknown (1 byte)
 - Unknown (1 byte)
-1W Example: `1W S 1 E 1 B 0 R 0 LPM 1 V 0 U1 0 U2 0 U3 0      FROM 9A5CA0     TO 3F   CMD 1   DATA(13)0143000131      SEQ 1848        MAC 13f3e59def08`
 
-<!-- ### 02: Direct Command / Manual Order
+- Exmaple
+  - 1W Example: `1W S 1 E 1 B 0 R 0 LPM 1 V 0 U1 0 U2 0 U3 0      FROM 9A5CA0     TO 3F   CMD 1   DATA(13)0143000131      SEQ 1848        MAC 13f3e59def08`
+
+### 02: Direct Command / Manual Order
 
 | **NAME**  | CMD | OID | PID | ... |
 | --------: | :-: | :-: | :-: | :-: |
@@ -2296,50 +1388,57 @@ TBD
     - PID = Parameter ID = 1 ... n Bytes: See Manual Order IDs
     - CKS = ChecKSum
 
-- Example: `02 474857` =  02 GHW = Get Hardware Version
+- Example
+  - `02 474857` =  02 GHW = Get Hardware Version
 
-> **Note**: It seems that this is only applicable via serial connection with a format like XMODEM
--->
+> ![NOTE]
+> Only applicable via serial console!
+
 ### 03: Private Command
 
 - Command ID: 0x03 (1 byte)
 - Data? (3-6 bytes)
-  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 3   DATA(3)030000
-
-  Example: 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
+- Example
+  - 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 3   DATA(3)030000
+  - 2W S 1 E 0       FROM 842E3      TO 315824       CMD 3   DATA(3)030000
 
 ### 04: Private Command Answer
 
 - Command ID: 0x04 (1 byte)
 - Data? (6-20 bytes)
-  Example 2W S 0 E 1       FROM 0xDevice      TO 0xBox/Gateway        CMD 4   DATA(14)05 800000000000009a5065010000
-  First byte of DATA is the same as CMD 0xFE: The Error Code. 0x05 is OK
+- Example
+  - 2W S 0 E 1       FROM 0xDevice      TO 0xBox/Gateway        CMD 4   DATA(14)05 800000000000009a5065010000
+  - First byte of DATA is the same as CMD 0xFE: The Error Code. 0x05 is OK
 
 ### 0C: Unknown (IoPrepareDataSession?)
 
 - Command ID: 0x0c (1 byte)
 - Data? (4 bytes)
-  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD C   DATA(4)d8000000
+- Example
+  - 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD C   DATA(4)d8000000
 
 ### 0D: Unknown/Answer to 0C
 
 - Command ID: 0x0d (1 byte)
 - Data? (5 bytes)
-  Example: 2W S 0 E 1       FROM 0xDevice     TO 0xBox        CMD D   DATA(5)05aa0a0000
-  Example: 2W S 1 E 0       FROM 842E3      TO 904C09       CMD C   DATA(4)d8000000
-  Example: 2W S 1 E 0      FROM 842E3      TO DA2EE6       CMD C   DATA(4)d8000000
+- Examples
+  - 2W S 0 E 1       FROM 0xDevice     TO 0xBox        CMD D   DATA(5)05aa0a0000
+  - 2W S 1 E 0       FROM 842E3      TO 904C09       CMD C   DATA(4)d8000000
+  - 2W S 1 E 0      FROM 842E3      TO DA2EE6       CMD C   DATA(4)d8000000
 
 ### 0D: Unknown (Answer to 0x0C)
 
 - Command ID: 0x0c (1 byte)
 - Data? (5 bytes)
-  Example: 2W S 0 E 1      FROM DA2EE6     TO 842E3        CMD D   DATA(5)05aa0d0000
+- Example
+  - 2W S 0 E 1      FROM DA2EE6     TO 842E3        CMD D   DATA(5)05aa0d0000
 
 ### 19: Unknown (Followed by 0xFE)
 
 - Command ID: 0x19 (1 byte)
 - Data? (1 byte)
-  Example: 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 19  DATA(1)02 or 03 or 04 or 07
+- Example
+  - 2W S 1 E 0       FROM 0xBox      TO 0xDevice       CMD 19  DATA(1)02 or 03 or 04 or 07
 
 ### 1A: Answer: Set Sensor Value
 
@@ -2354,28 +1453,30 @@ TBD
   - Manufacturer = 0x02 (Somfy)
   - Data = FF 0143000C0000
 
-Manufacture Specific Private Commands. These get defined and interpreted differently for every OEM.
+> ![IMPORTANT]
+> Manufacture Specific Private Commands. These get defined and interpreted differently for every OEM.
+>
+> Using private commands can brick your device!
 
 - Example: Thermor I2G = `20 0C 61 0103 C300`
   - `AC MaPa F1 F1`
   - `61 0103 C3 00`: `C3` (dec: 195) is 19.5°C set with button
   - `61 0103 D2 00`: `D2` (dec: 210) is 21.0°C set with button
 
-  ### 20 - Base Command: WritePrivate
-  Parameter:
-     02 - Main Parameter
-          Function Parameter:
-        -  - 4 more FP
-            02 - stop_after_save_limit
-            04 - enter_settings_mode
-            05 - save_lower_end_limit
-            06 - save_upper_end_limit
-            .. - ???
-            DF save_settings
+### 20 - Base Command: WritePrivate
+
+- Parameter:
+  - 02 - Main Parameter
+  - Function Parameter:
+    - 4 more FP
+      - 02 - stop_after_save_limit
+      - 04 - enter_settings_mode
+      - 05 - save_lower_end_limit
+      - 06 - save_upper_end_limit
+      - .. - ???
+      - DF save_settings
 
 ### 21: Private Protocol Response
-
-> ``
 
 - Command ID: 0x21 (1 byte)
 - Manufacturer ID (1 byte)
@@ -2391,7 +1492,8 @@ Manufacture Specific Private Commands. These get defined and interpreted differe
 
 - Command ID: 0x28 (1 byte)
 
-Example: Velux KLR100 Pairing Process
+- Example
+  - Velux KLR100 Pairing Process
 
 ```PYTHON
 # It seems the old Velux remotes handle the discovery in another way?
@@ -2400,7 +1502,8 @@ C8 10 0002FB 44457C 28 A479
 C8 10 00003B 44457C 28 853A
 ```
 
-**Note:** Can be sent without authentication
+> ![NOTE]
+> No Authentication.
 
 ### 29: Discover Answer
 
@@ -2413,27 +1516,31 @@ C8 10 00003B 44457C 28 853A
 - Multi info byte (1 byte)
 - Timestamp (2 bytes)
 
-**Note:** this frame can be sent without authentication
+> ![NOTE]
+> No Authentication.
 
-Example: `29 FFC0 XXXXXX 0C CC 0000`
+- Example
+  - `29 FFC0 XXXXXX 0C CC 0000`
+  - Command ID = 0x29, node type = 1023 (REMOTE_CONTROLLER?), node subtype = 0, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 0
 
-Command ID = 0x29, node type = 1023 (REMOTE_CONTROLLER?), node subtype = 0, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 0
-
-Masks:
-id:      0x4
-Type:    0x8
-SubType: 0xC
-IsValid: 0xD
+- Masks:
+- id:      0x4
+- Type:    0x8
+- SubType: 0xC
+- IsValid: 0xD
 
 ### 2A: Discover Remote
 
 - Command ID: 0x2a (1 byte)
 - Challenge Key (12 bytes)
 
-Example: `D4 30 00003B 44457C 2A 01CCD93AE0EADA9AEDF98344 A862 # Velux Kux 100`
+- Example
+  - `D4 30 00003B 44457C 2A 01CCD93AE0EADA9AEDF98344 A862 # Velux Kux 100`
 
-**Note:** observed after launching the box in discover mode
-**Note:** observed after launching a discover via remote (see example)
+> ![NOTE]
+> Observed after launching the box in discover mode
+>
+> Observed after launching a discover via remote (see example)
 
 ### 2B: Discover Remote Answer
 
@@ -2448,8 +1555,9 @@ Example: `D4 30 00003B 44457C 2A 01CCD93AE0EADA9AEDF98344 A862 # Velux Kux 100`
 - Multi info byte (1 byte)
 - Timestamp (2 bytes)
 
-Example: `2B 0D01 XXXXXX 0C CC 0FB8`
-Command ID = 0x2b, node type = 52 (ELECTRICAL_HEATER), node subtype = 1, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 4024
+- Example
+  - `2B 0D01 XXXXXX 0C CC 0FB8`
+  - Command ID = 0x2b, node type = 52 (ELECTRICAL_HEATER), node subtype = 1, node address = XXXXXX, manufacturer = Atlantic, multi info byte = 0xcc, timestamp = 4024
 
 ### 2C: Discover Actuator Confirmation
 
@@ -2457,32 +1565,39 @@ Command ID = 0x2b, node type = 52 (ELECTRICAL_HEATER), node subtype = 1, node ad
 
 No parameter. Some sort of discover ack?
 
-**Note:** Frame does not require Authentication
+> ![NOTE]
+> Requires no Authentication
 
 ### 2D: Discover Confirmation Ack (Answer to 2C)
 
 - Command ID = 0x2d
 
-No parameter
+No parameter.
 
-**Note:** Frame does not require Authentication
+> ![NOTE]
+> Requires no Authentication.
 
 ### 2E: Unknown
 
 - Command ID: 0x2e (1 byte)
 - ?? (1 byte), 00 (TaHoma sent) and 02 (Sauter heater) observed
 
-**Note 1:** observed after launching the box in discover mode
-**Note 2:** not authenticated?
+> ![NOTE]
+> observed after launching the box in discover mode
 
-Example: `2E 00`
+> ![NOTE]
+> Not Authenticated?
+
+- Example
+  - `2E 00`
 
 ### 2F: Unknown, answer to 2e?
 
 - Command ID: 0x2f (1 byte)
 - ?? (1 byte), mirrors what is sent by 2e
 
-Not authenticated?
+> ![NOTE]
+> Not authenticated?
 
 ### 30: Send 1W Key
 
@@ -2492,24 +1607,26 @@ Not authenticated?
 - ?? (1 byte)
 - Sequence number (2 bytes)
 
-Example: `30 7E60491F976ADF653DB0ED785E49A201 02 01 0C25`
-
-Command ID=0x30, key?: 7E60491F976ADF653DB0ED785E49A201, Manufacturer ID=0x02, ??=0x01, Sequence Number=0x0c25
+- Example
+  - `30 7E60491F976ADF653DB0ED785E49A201 02 01 0C25`
+  - Command ID=0x30, key?: 7E60491F976ADF653DB0ED785E49A201, Manufacturer ID=0x02, ??=0x01, Sequence Number=0x0c25
 
 ### 31: Ask Challenge
 
 - Command ID: 0x31 (1 byte)
 
-No parameter. Destination device answers with 0x3c.
+No parameter. Destination device answers with 0x3C.
 
-This command does not require authentication.
+> ![NOTE]
+> Requires no authentication.
 
 ### 32: Key Transfer
 
 - Command ID: 0x32 (1 byte)
 - Encrypted 2-Way Key (16 bytes)
 
-**Note:** The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3c, see [LinkLayer](LINKLAYER.md)
+> ![NOTE]
+> The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3C, see [LinkLayer](LINKLAYER.md)
 
 ### 33: Find Actuator Ack = Key Transfer Ack
 
@@ -2543,16 +1660,18 @@ No parameter.
 - Command ID: 0x3c (1 byte)
 - Challenge data (6 bytes)
 
-Example: `3C 4D3E778460F1`
-Command ID=0x3c, challenge=4d3e778460f1
+- Example
+  - `3C 4D3E778460F1`
+  - Command ID=0x3c, challenge=4d3e778460f1
 
 ### 3D: Challenge Response
 
 - Command ID: 0x3d (1 byte)
 - Response data (6 bytes)
 
-Example: `3D 3EF8C09565F4`
-Command ID=0x3d, response=3EF8C09565F4
+- Example
+  - `3D 3EF8C09565F4`
+  - Command ID=0x3d, response=3EF8C09565F4
 
 ### 46: Script: Register/Upload
 
@@ -2569,14 +1688,16 @@ Command ID=0x3d, response=3EF8C09565F4
 - Command ID: 0x48 (1 byte)
 - Data? (9 bytes)
 
-Not authenticated?
+> ![NOTE]
+> Not authenticated?
 
 ### 49: File: Upload to "Running"(?) (ACK to 48)
 
 - Command ID: 0x49 (1 byte)
 - File Name Pointer (4 bytes)
 
-Not authenticated?
+> ![NOTE]
+> Not authenticated?
 
 ### 4A: Delete File (Large Data Transfer Request? ("ioblob"))
 
@@ -2590,7 +1711,8 @@ Not authenticated?
 - Sequence number of data (1 byte)
 - Data (1-18 bytes)
 
-> **Note**: This command is chained to send large numbers of bytes. Maybe used for updates?
+> ![NOTE]
+> This command is chained to send large numbers of bytes. Maybe used for updates?
 
 ### 4A: Rename File
 
@@ -2600,23 +1722,27 @@ Not authenticated?
 ### 50: Get Name
 
 - Command ID: 0x50 (1 byte)
-  Example: 2W S 1 E 0       FROM 842E3      TO DA2EE6       CMD 50  DATA(0)
+- Example
+  - 2W S 1 E 0       FROM 842E3      TO DA2EE6       CMD 50  DATA(0)
 
-**Note**: No Parameter. Not Authenticated.
+> ![NOTE]
+> No Parameter. Not Authenticated.
 
 ### 51: Get Name Answer
 
 - Command ID: 0x51 (1 byte)
 - Name (16 bytes ASCII)
 
-Not authenticated.
+> ![NOTE]
+> Not authenticated.
 
 ### 52: Write Name
 
 - Command ID: 0x52 (1 byte)
 - Data: ASCII String (16 bytes)
 
-Example: `52 54657374000000000000000000000000`
+- Example
+  - `52 54657374000000000000000000000000`
 
 Command ID=0x52, Data="Test"
 
@@ -2635,7 +1761,8 @@ No parameter.
 - Command ID: 0x55 (1 byte)
 - Value (14 bytes)
 
-See General Info 1 for decoding
+> ![TIP]
+> See General Info 1 for decoding
 
 ### 56: Get General Info 2
 
@@ -2646,75 +1773,8 @@ See General Info 1 for decoding
 - Command ID: 0x57 (1 byte)
 - Value (16 bytes)
 
-See General Info 2 for decoding
-
-### 84: Set Password
-
-### 85: Auth_???
-
-### 86: Auth_Add
-
-### 87: Auth_???
-
-### 88: Auth_???-Answer
-
-### 89: Auth_???
-
-### 8A: Auth_???
-
-### 8B: Find_User
-
-### 8C: Get Config Mode
-
-### 8D: Set Config Mode
-
-### 9x: Sensor and Log Data/Events
-
-<!-- ### 91: SDN Discover? -->
-
-### 92: Actuator: Set Turn Direction
-
-### 93: Actuator: Adjust Endlimits
-
-### 94: Actuator: Label
-
-### 95: Actuator: IP Position
-
-### 98: Read/Write Lock
-
-### 9B: Read/Write Lock: 1
-
-### 9C: Read/Write Lock: 0
-
-### 9D: Read/Write Lock: Answer
-
-### A0: Much Info
-
-### A1: Actuator: Update Bus Location
-
-### A2: Actuator: Update Bus Location - Answer
-
-<!-- ### B8: cmd -->
-
-<!-- ### BC: cmd_file_delete -->
-
-<!-- ### BD: cmd file download -->
-
-### BE: Get Maintenance Mode
-
-### BF: Set Maintenance Mode
-
-### C0: Firmware Info
-
-### C1: Firmware Upload
-
-### C2: Firmware Install
-
-<!-- ### C8: Send Mail
-
-- Command ID: 0xF1 (1 byte)
-- Parameter 1 (1 byte)
-- Parameter 2 (1 byte) -->
+> ![TIP]
+> See General Info 2 for decoding
 
 ### E0: Bootloader Command ("Proxy Frame")
 
@@ -2752,12 +1812,19 @@ See General Info 2 for decoding
 
 - Command ID: 0xFE (1 byte)
 - ?? (1 byte)
-Example : `11:14:41.320 > 2W S 0 E 1       FROM 0xBox      TO 0xDevice       CMD FE  DATA(1)08`
-> **Note**: Some kind of Confirmation? I would assume a NACK + ErrorCode
-> **Note**: When DATA == 0x05, then this is NOERROR, when answering to CMD 0x19
-Example : `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
-- `05` is NO ERROR
 
-### FF Communication Gateway Receiver
+- Example
+  - `11:14:41.320 > 2W S 0 E 1       FROM 0xBox      TO 0xDevice       CMD FE  DATA(1)08`
+
+> ![NOTE]
+> Some kind of Confirmation? I would assume a NACK + ErrorCode
+>
+> When DATA == 0x05, then this is NOERROR, when answering to CMD 0x19
+
+- Example
+  - `11:14:41.320 > 2W S 0 E 1       FROM 842E3      TO D58341       CMD FE  DATA(1)08`
+  - `05` is NO ERROR
+
+#### FF: Unknown
 
 - TBD
