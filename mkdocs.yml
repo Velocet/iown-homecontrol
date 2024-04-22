@@ -1,50 +1,47 @@
-site_name: 'iown-homecontrol'
-site_url: 'https://velocet.github.io/iown-homecontrol/'
-site_description: 'iown-homecontrol: Open Source io-homecontrol Documentation'
-site_author: 'Velocet'
-
-repo_url: 'https://github.com/velocet/iown-homecontrol/'
-edit_uri: edit/main/docs/
-
-copyright: "copyleft &copy; iown-homecontrol"
-
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 # TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
+site_name: iown-homecontrol
+site_url: https://velocet.github.io/iown-homecontrol/
+site_description: io-homecontrol Documentation &amp; Implementation
+site_author: Velocet
+repo_name: iown @ GitHub
+repo_url: https://github.com/velocet/iown-homecontrol/
+edit_uri: blog/main/docs/ # edit/main/docs/
+copyright: '&copy; iown-homecontrol'
 
-# Directory where the output HTML and other files are created
-site_dir: '.github/site'
-
+# Output files folder. Put 'site' in '.cache': Unclutter folders + only exclude '.cache'.
+site_dir: .cache/site
+# Files to exclude from the built site.
 exclude_docs: |
-  boards/
   datasheets/
   devices/
-  extras/
   firmware/
-  pdf/
-  pics/
+  parameter/
   reference/
+  # Include 'assets' no matter what
+  !assets/
+# Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
+# draft_docs:
 
 nav:
-  - 'index': 'index.md'
-  - 'Layer 1': 'RADIO.md'
-  - 'Layer 2': 'LinkLayer.md'
-  - 'Commands': 'COMMANDS.md'
-  - 'Parameter': 'PARAMETER.md'
-  - 'Atlantic Thermor': 'COMMANDS-2W-ThermorAtlantic.md'
-  - 'Devices': 'DEVICES.md'
-  - 'Misc':
-    - 'RTL-SDR': 'rtlsdr.md'
-    - 'MicroPython': 'MicroPython.md'
-    - 'Firmware': 'firmware.md'
-    - 'KizOS':
-      - 'KizOS Images': 'kizos_images.md'
-      - 'KizOS Linux': 'kizos_linux.md'
-      - 'KizOS RE': 'kizos_re.md'
-      - 'QEMU Emulation': 'emulation-qemu-static.md'
+  - ⌂: README.md
+  - Protocol:
+    - Layer 1: RADIO.md
+    - Layer 2: LINKLAYER.md
+    - Commands: COMMANDS.md
+    - Parameter: PARAMETER.md
+  - Reference:
+    - Devices: DEVICES.md
+    - Firmware: FIRMWARE.md
+  - misc:
+    - RTL-SDR: RADIO-RTLSDR.md
 
 plugins:
+  - search
   - privacy:
       assets: true
       assets_fetch: true
+  - git-revision-date-localized
 
 extra:
   homepage: https://github.com/velocet/iown-homecontrol
@@ -58,18 +55,20 @@ extra:
 
 theme:
   name: material
+  locale: en
+  highlightjs: true
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
   font:
     text: Open Sans
     code: Source Code Pro
-  logo: assets/favicon.png
-  favicon: assets/favicon.png
   palette:
-    primary: grey       # blue grey
+    primary: grey # blue grey
     accent: light blue
   features:
     - header.autohide
     - navigation.footer
-    # - navigation.prune
+    - navigation.prune
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
@@ -89,10 +88,21 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
-      use_pygments: false
+      use_pygments: true
       pygments_lang_class: true
       auto_title: true
       linenums: false
   # - pymdownx.tasklist:
   #     custom_checkbox: true
   #     clickable_checkbox: false
+
+validation:
+  nav:
+    omitted_files: info
+    not_found: info
+    absolute_links: info
+  links:
+    not_found: info
+    # anchors: info
+    absolute_links: info
+    unrecognized_links: info

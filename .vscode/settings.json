@@ -1,11 +1,12 @@
 {
   "C_Cpp.autoAddFileAssociations": true,
   "C_Cpp.autocomplete": "default",
+  "C_Cpp.autocompleteAddParentheses": true,
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "C_Cpp.clang_format_path": "C:\\Program Files\\LLVM\\bin\\clang-tidy.exe",
   "C_Cpp.clang_format_sortIncludes": false,
   "C_Cpp.clang_format_style": "file",
-  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": false,
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": true,
   "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   "C_Cpp.codeAnalysis.clangTidy.path": "C:\\Program Files\\LLVM\\bin\\clang-format.exe",
   "C_Cpp.codeAnalysis.clangTidy.useBuildPath": false,
@@ -13,15 +14,26 @@
   "C_Cpp.configurationWarnings": "enabled",
   "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
   "C_Cpp.default.compileCommands": "compile_commands.json",
-  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.mergeConfigurations": true,
   "C_Cpp.dimInactiveRegions": true,
   "C_Cpp.doxygen.generatedStyle": "/**",
   "C_Cpp.enhancedColorization": "enabled",
+  "C_Cpp.files.exclude": { // see search.exclude
+    ".cache": true,
+    ".devcontainer": true,
+    ".git": true,
+    ".github": true,
+    ".pio": true,
+    ".trunk": true,
+    ".vscode": true,
+    "site": true
+  },
   "C_Cpp.formatting": "clangFormat",
   "C_Cpp.hover": "default",
   "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores": false,
+  "C_Cpp.intelliSenseEngineFallback": "enabled",
   "C_Cpp.vcFormat.newLine.beforeCatch": false,
   "C_Cpp.vcFormat.newLine.beforeElse": false,
   "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
@@ -34,36 +46,60 @@
   "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType": true,
   "C_Cpp.vcFormat.newLine.scopeBracesOnSeparateLines": false,
   "C_Cpp.vcFormat.wrap.preserveBlocks": "allOneLineScopes",
+  "debug.console.wordWrap": false,
+  "diffEditor.wordWrap": "off",
+  "doxdocgen.generic.commandSuggestionAddPrefix": true,
+  "doxdocgen.generic.useGitUserEmail": true,
+  "doxdocgen.generic.useGitUserName": true,
   "editor.detectIndentation": false,
   "editor.formatOnSave": false,
   "editor.largeFileOptimizations": false,
   "editor.tabSize": 2,
   "editor.useTabStops": true,
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 256,
+  "editor.wrappingIndent": "deepIndent",
+  "explorer.autoRevealExclude": { // see:files.exclude
+    ".cache": true,
+    ".git": true,
+    ".pio": true,
+    ".trunk": true,
+    "site": true
+  },
+  "files.associations": {
+    "*.json": "jsonc",
+    "*.svd": "xml"
+  },
   "files.encoding": "utf8",
   "files.eol": "\n",
-  "files.exclude": {},
+  "files.exclude": { // see:explorer.autoRevealExclude
+    ".cache": true,
+    ".git": true,
+    ".pio": true,
+    ".trunk": true,
+    "site": true
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "files.watcherExclude": {
-    "**/.cache/": true,
-    "**/.devcontainer/": true,
-    "**/.git/": true,
-    "**/.github/": true,
-    "**/.pio/": true,
-    "**/.trunk/": true,
-    "**/.vscode/": true,
-    "**/node_modules/": true
+  "files.watcherExclude": { // see:search.exclude
+    ".cache": true,
+    ".devcontainer": true,
+    ".git": true,
+    ".github": true,
+    ".pio": true,
+    ".trunk": true,
+    ".vscode": true,
+    "site": true
   },
-  "git.repositoryScanIgnoredFolders": [
+  "git.repositoryScanIgnoredFolders": [ // see:search.exclude
     ".cache",
     ".devcontainer",
-    ".git",
     ".github",
     ".pio",
     ".trunk",
     ".vscode",
-    "node_modules"
+    "site"
   ],
   "markdownlint.config": {
     "MD012": false,
@@ -73,14 +109,14 @@
     "MD047": false
   },
   "search.exclude": {
-    "**/.cache": true,
-    "**/.devcontainer": true,
-    "**/.git": true,
-    "**/.github": true,
-    "**/.pio": true,
-    "**/.trunk": true,
-    "**/.vscode": true,
-    "**/node_modules": true
+    ".cache": true,
+    ".devcontainer": true,
+    ".git": true,
+    ".github": true,
+    ".pio": true,
+    ".trunk": true,
+    ".vscode": true,
+    "site": true
   },
   "vscode-serial-monitor.lineEnding": "\n",
   "yaml.customTags": [
@@ -93,13 +129,5 @@
   ],
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
-  },
-  "files.associations": {
-    "*.plist": "xml",
-    "*.strings": "xml",
-    "*.stringsdict": "xml",
-    "*.svd": "xml",
-    "*.json": "jsonc",
-    "*.js": "c"
   }
 }
