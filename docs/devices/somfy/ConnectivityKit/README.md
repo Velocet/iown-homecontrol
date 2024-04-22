@@ -469,7 +469,7 @@ ipiogw/usr/bin/gateway_io
 
 |                           ESP32-WROVER-E board without shield                            |
 | :--------------------------------------------------------------------------------------: |
-|       ![ESP32-WROVER-E module without shield](pics/ESP32WroverE-frontNoShield.jpg)       |
+|       ![ESP32-WROVER-E module without shield](pics/Somfy-ConnectivityKit-ESP32WroverE-Front.jpg)       |
 | src: [Dings Da Blog](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/) |
 
 #### NOR Flash: XM25QH64CHIQ

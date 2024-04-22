@@ -11,11 +11,11 @@ hide:
 
 ---
 
-You will find the protocol documentation in the header. Other interesting pieces were also found on this long journey. Feel free to travel around and have a look at all the private keys that got extracted...
+Protocol documentation can be accessed via the header. Have a look around ...
 
 # Project Layout
 
-```
-    renode    # ioHome STM32 Emulation!!! (Thanks Pascal!)
-    scripts   # Random scripts and code snippets
+```SHELL
+scripts        # Random scripts and code snippets
+scripts/renode # ioHome STM32 Emulation!!! (Thanks Pascal!)
 ```
