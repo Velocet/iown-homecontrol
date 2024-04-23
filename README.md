@@ -24,11 +24,11 @@
   - [X] io-homecontrol Paket Definition
 - [ ] Document Layer 4+
   - [X] Standard commands
-  - [ ] Advanced commands
+  - [X] Advanced commands
   - [ ] EMS2 Frame/CarrierSense: Infos needed!
-- [ ] Documentation
-  - [ ] Cleanup and mkdocs version
-  - [ ] Better understanding of the device serial and QR/Barcode
+- [X] Documentation
+  - [X] Cleanup and mkdocs version
+  - [X] Better understanding of the device serial and QR/Barcode
 - [ ] iohc Firmware
   - [X] Reverse official Somfy iohc Firmware
     - [X] Renode: Emulate Firmware
@@ -40,11 +40,11 @@
 - [ ] [rtl_433](https://github.com/merbanan/rtl_433/blob/master/src/devices/somfy_iohc.c): Corrections
 - [X] ReWrite of crypto test in Python
 - [ ] Library
-  - [ ] [RadioLib Fork](https://github.com/Velocet/RadioLib_IoHc)
+  - [X] [RadioLib Fork](https://github.com/Velocet/RadioLib_IoHc)
   - [ ] 1W Library - Implementation Status: WIP
   - [ ] 2W Library - Implementation Status: WIP
   - [ ] Simple [MicroPython](https://micropython.org/) implementation for rapid testing/prototyping
-  - [ ] [Kaitai Struct](https://kaitai.io/) implementation for easier portablity
+  - [ ] [Kaitai Struct](https://kaitai.io/) implementation for easier portablity: 30%
 - [X] High Level Abstraction (KLF200 API and Overkiz Cloud JSON...)
 - [ ] Bonus Points: Build a better/cheaper Somfy TaHoma with a LoRa32
   - [ ] Support for RTS ^^
@@ -52,9 +52,7 @@
   - [ ] Expose as HomeKit device (HomeSpan?) incl. QR code to ease installation
 
 > [!IMPORTANT]
-> We need your help implementing the procotol. Please get in contact!
->
-> The repo is getting a overhaul. Stay tuned.
+> We need your help implementing the procotol! Please contact us!
 
 ## Implementation
 
@@ -66,7 +64,7 @@ If you want to port the library to a non-ESP32 platform you should consider the 
 - Optional: AES engine (if you want to test your neighbors security)
 
 > [!TIP]
-> Got a rtl-sdr? Use [rtl_433](https://github.com/merbanan/rtl_433) to decode io-homecontrol: `rtl_433 -R 189 -f 868.9M -s 250k -g 42.1`
+> Got a rtl-sdr? Use [rtl_433](https://github.com/merbanan/rtl_433) to decode io-homecontrol: `rtl_433 -R 189 -f 868.9M -s 1000k -g 42.1`
 
 ### Compatibale Hardware
 
@@ -112,9 +110,9 @@ io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes
 
 <!-- TODO: Link all documents or better link to mkdocs -->
 
-- Layer 1: [Radio](docs/Radio.md)
-- Layer 2: [Link Layer](docs/LinkLayer.md)
-- Layer 3: [Commands](docs/Commands.md)
+- Layer 1: [Radio](docs/RADIO.md)
+- Layer 2: [Link Layer](docs/LINKLAYER.md)
+- Layer 3: [Commands](docs/COMMANDS.md)
 
 ## Appendix
 
@@ -151,7 +149,9 @@ io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes
     - See: [Universal vs. Local Bit](https://en.wikipedia.org/wiki/MAC_address#Universal_vs._local_(U/L_bit))
     - Mentioned in SDN (Somfy Digital Network) documents and observable via SDN Frame Builder
 - Payload: Variable length field after the MAC header excluding the CRC which holds the usable data aka Message
-- CRC (FCS = Frame Check Sequence): Calculated over the Frame. ([CRC/CRC16-CCITT](https://srecord.sourceforge.net/crc16-ccitt.html) vs. [CRC16-KERMIT](https://reveng.sourceforge.io/crc-catalogue/16.htm#crc.cat.crc-16-kermit))
+- CRC (FCS = Frame Check Sequence): Calculated over the Frame
+  - [CRC/CRC16-CCITT](https://srecord.sourceforge.net/crc16-ccitt.html) vs. [CRC16-KERMIT](https://reveng.sourceforge.io/crc-catalogue/16.htm#crc.cat.crc-16-kermit)
+  - Check for yourself with reveng: `reveng.exe -m CRC-16/KERMIT -X -c "%*"`
 
 </details>
 
@@ -222,7 +222,7 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 - Initative was created in 2002
 - Launched in July 2005 by Somfy, Velux and Honeywell
 - First companies to adopt: Hörmann, Assa Abloy, Niko, Renson, Windowmaster
-  - [https://press.velux.com/assa-abloy-becomes-a-new-member-of-io-homecontrol/]
+  - [Velux PR: Assa Abloy becomes new ioHome member](https://press.velux.com/assa-abloy-becomes-a-new-member-of-io-homecontrol/)
 
 </details></details>
 
@@ -231,9 +231,9 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 <details><summary>Links</summary>
 
 - Online Discussions
-  - [https://github.com/merbanan/rtl_433/issues/1376]
-  - [https://github.com/RFD-FHEM/RFFHEM/issues/984]
-  - [https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413]
+  - [rtl_433: Add new decoder for Velux shutter remote control - io-homecontrol protocoll](https://github.com/merbanan/rtl_433/issues/1376)
+  - [RFHEM: Somfy Smoove io remote 868.25 MHz](https://github.com/RFD-FHEM/RFFHEM/issues/984)
+  - [OpenHAB: Io-homecontrol / velux - something’s in the bush](https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413)
   - Velux Blinds
     - [No KUX, just Loxone](https://smarthome.exposed/controlling-velux-windows/)
     - [Velux SML Rolläden „ablernen“ bzw. resetten](https://wolf-u.li/5920/velux-sml-rollaeden-ablernen-bzw-resetten/)
@@ -245,7 +245,7 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
   - CozyTouch: [CozyTouch Rooting the CozyTouch aka KizBox Mini](https://www.lafois.com/2020/11/07/rooting-the-cozytouch-aka-kizbox-mini-part-1/)
 - FCC: [VELUX America Inc.](https://fccid.io/XSG)
 - [FLOSS @ Overkiz](https://floss.overkiz.com)
-  - [https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/at91-kizbox.dts]
+  - [Device Tree from a KizBox](https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/microchip/at91-kizbox.dts)
 
 </details></details>
 

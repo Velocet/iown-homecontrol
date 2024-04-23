@@ -1,36 +1,44 @@
 name: mkdocs
+
 on:
   push:
-    branches:
-      - main
-    # Run on docs/: only rebuild the site if push to this folder or mkdocs config changed
-    paths:
+    branches: [ "main" ] # Only run on main branch
+    paths: # Run on docs/: only rebuild the site if push to this folder or mkdocs config changed
       - docs/**
       - mkdocs.yml
+
 permissions:
   contents: write
+  security-events: write # required for all workflows?
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
           check-latest: true # is cached version is the latest one
           cache: 'pip'       # caching pip dependencies
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
+      - name: Exort Date
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Setup Cache
+        uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run:
+      - name: Install mkdocs-material
+        run:
           pip install mkdocs-material
           pip install mkdocs-git-revision-date-localized-plugin
-      - run: mkdocs gh-deploy --force
+      - name: Deploy Site
+        run: mkdocs gh-deploy --force

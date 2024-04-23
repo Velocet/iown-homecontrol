@@ -1,21 +1,19 @@
 # If the analyze step fails, modify the language matrix and set the build mode to "manual". Then modify the if step to build the code.
 #
-# NOTE The commented blocks configure Python and PlatformIO. Those tests are set to manual and need review.
+# NOTE The commented block configures Python and PlatformIO. Those tests are set to manual and need review.
 #
 name: "CodeQL"
 
 on:
   push:
     branches: [ "main" ]
-    # Only run on those predefined directories
-    paths:
+    paths: # Only run on those predefined directories
       - 'inc'
       - 'include'
       - 'src'
   pull_request:
     branches: [ "main" ]
-    # Only run on those predefined directories
-    paths:
+    paths: # Only run on those predefined directories
       - 'inc'
       - 'include'
       - 'src'
@@ -98,7 +96,7 @@ jobs:
     #
     # - name: Build PlatformIO Project
     #   run: pio run
-      
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
