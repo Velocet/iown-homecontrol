@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<avr-tools-device-file xmlns:xalan="http://xml.apache.org/xalan" xmlns:NumHelper="NumHelper" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schema-version="0.3" xsi:noNamespaceSchemaLocation="../../schema/avr_tools_device_file.xsd">
+<avr-tools-device-file xmlns:xalan="http://xml.apache.org/xalan" xmlns:NumHelper="NumHelper" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schema-version="0.3" xsi:noNamespaceSchemaLocation="avr_tools_device_file.xsd">
   <variants>
     <variant ordercode="ATmega1284P-AU" tempmin="-40" tempmax="85" speedmax="20000000" pinout="TQFP_QFN_44" package="TQFP44" vccmin="1.8" vccmax="5.5"/>
     <variant ordercode="ATmega1284P-PU" tempmin="-40" tempmax="85" speedmax="20000000" pinout="PDIP40" package="PDIP40" vccmin="1.8" vccmax="5.5"/>
@@ -1069,7 +1069,7 @@
         <value caption="ADC Differential Inputs Postive pin 5 Negative pin 2 1x Gain" name="ADC5_ADC2_1X" value="0x1D"/>
         <value caption="Internal Reference (VBG)" name="ADC_VBG" value="0x1E"/>
         <value caption="0V (GND)" name="ADC_GND" value="0x1F"/>
-      </value-group>  
+      </value-group>
       <value-group name="ANALOG_ADC_PRESCALER">
         <value caption="2" name="2" value="0x00"/>
         <value caption="2" name="2" value="0x01"/>
@@ -1308,7 +1308,7 @@
       <value-group caption="Oscillator Calibration Values" name="OSCCAL_VALUE_ADDRESSES">
         <value value="0x00" caption="8.0 MHz" name="8_0_MHz"/>
       </value-group>
-      
+
     </module>
   </modules>
   <pinouts>
