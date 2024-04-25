@@ -1,1 +1,5 @@
-Please write a mail or better join the Telegram or Discord chat!
+# Security Policy
+
+## Reporting a Vulnerability
+
+Open an issue or better join the Telegram or Discord chat!

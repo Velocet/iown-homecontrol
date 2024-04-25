@@ -2,9 +2,17 @@
     // See http://go.microsoft.com/fwlink/?LinkId=827846
     // for the documentation about the extensions.json format
     "recommendations": [
+        "github.remotehub",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
         "ms-vscode.cpptools",
+        "ms-vscode.vscode-github-issue-notebooks",
+        "ms-vscode.vscode-serial-monitor",
         "platformio.platformio-ide",
-        "trunk.io"
+        "trunk.io",
+        "redhat.vscode-yaml",
+        "bierner.github-markdown-preview",
+        "ms-vscode.remote-repositories"
     ],
     "unwantedRecommendations": [
         "ms-vscode.cpptools-extension-pack"
