@@ -1,33 +1,27 @@
 <div align="center" width="100%">
-
-> **Note**:
->
-> [![Join the iown-homecontrol Telegram Group](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![Join the iown-homecontrol Discord Server](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
-
-</div>
+  
+[![Join the iown-homecontrol Telegram Group](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![Join the iown-homecontrol Discord Server](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
 
 ---
-
 # iown-homecontrol
 
-<div align="center" width="100%">
-
-*io-homecontrol*® Documentation & Implementation in support of<br/><a href="https://www.somfy-group.com/en-en/news/2018-01-04-somfy-launches-its-so-open-with-somfy-program-allowing-easier-access-to-smart-home-soluti">Somfy's "So Open" commitment</a><br/><br/>:trollface:
+*io-homecontrol*® [Documentation](https://velocet.github.io/iown-homecontrol) & Implementation in support of<br/><a href="https://www.somfy-group.com/en-en/news/2018-01-04-somfy-launches-its-so-open-with-somfy-program-allowing-easier-access-to-smart-home-soluti">Somfy's "So Open" commitment</a><br/><br/>:trollface:
 
 </div>
 
 ## Status
 
-- [X] Document Layer 1
-- [X] Document Layer 2
-- [X] Document Layer 3
+- [X] [Document Layer 1](docs/RADIO.md)
+- [X] [Document Layer 2](docs/LINKLAYER.md)
+- [X] [Document Layer 3](docs/COMMANDS.md)
   - [X] io-homecontrol Paket Definition
 - [ ] Document Layer 4+
   - [X] Standard commands
   - [X] Advanced commands
   - [ ] EMS2 Frame/CarrierSense: Infos needed!
-- [X] Documentation
-  - [X] Cleanup and mkdocs version
+- [X] [Documentation](https://velocet.github.io/iown-homecontrol)
+  - [ ] Cleanup: 60 %
+  - [X] MkDocs version
   - [X] Better understanding of the device serial and QR/Barcode
 - [ ] iohc Firmware
   - [X] Reverse official Somfy iohc Firmware
@@ -72,10 +66,10 @@ The recommended method is to use a LoRa32 board from HelTec or LilyGo. But there
 
 Be aware to use a device with support for FSK modulation in the 868 MHz band. That's it.
 
+<!-- TODO Devices...
 <div align="center" width="100%">
 
 If not explicitly mentioned every board version is supported.
-<!-- TODO Devices...
 | [HelTec](https://heltec.org/product-category/lora/lrnode/esp32-lora/)  | [LilyGo](https://www.lilygo.cc/collections/lora-or-gps)   | AdaFruit   | Other |
 |:------------: | :------------: | :------------: | :------------: |
 | [WiFi LoRa32](https://heltec.org/project/wifi-lora-32-v3/)   | LoRa32     | [ESP32 Feather](https://www.adafruit.com/product/5900)<br/>+<br/>FeatherWing [RFM69HCW](https://www.adafruit.com/product/3229)/[RFM95W](https://www.adafruit.com/product/3231)     | [FireBeetle ESP32](https://www.dfrobot.com/product-1590.html)<br/>+<br/>[LoRa 868MHz- Cover](https://www.dfrobot.com/product-1831.html)
@@ -83,8 +77,7 @@ If not explicitly mentioned every board version is supported.
 | [Wireless Tracker](https://heltec.org/project/wireless-tracker/)    | T3-S3     |      | |
 | [Wireless Stick](https://heltec.org/project/wireless-stick-v3/)    | T-Watch S3     |     | |
 | [Wireless Stick Lite](https://heltec.org/project/wireless-stick-lite-v2/)    |      |      | |
--->
-</div>
+</div> -->
 
 ## Protocol
 
@@ -107,12 +100,12 @@ io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes
 - Frequency Hopping (FHSS): 2,7ms (Patent: 3ms) per Channel
 
 ### Protocol Details
-
 <!-- TODO: Link all documents or better link to mkdocs -->
 
-- Layer 1: [Radio](docs/RADIO.md)
-- Layer 2: [Link Layer](docs/LINKLAYER.md)
-- Layer 3: [Commands](docs/COMMANDS.md)
+- [Documentation](https://velocet.github.io/iown-homecontrol)
+  - Layer 1: [Radio](docs/RADIO.md)
+  - Layer 2: [Link Layer](docs/LINKLAYER.md)
+  - Layer 3: [Commands](docs/COMMANDS.md)
 
 ## Appendix
 
