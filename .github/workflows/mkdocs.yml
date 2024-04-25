@@ -19,6 +19,7 @@ on:
       - docs/**
       - '**.md'
       - mkdocs.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
