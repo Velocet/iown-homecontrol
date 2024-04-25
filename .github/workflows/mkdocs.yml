@@ -57,12 +57,12 @@ jobs:
 #        if: ${{ steps.mkdocs-material-cache.outputs.cache-hit != 'true' }}
 #        continue-on-error: true
 #        run: echo "No Cache Hit!"
-      - name: Upgrade Pip
-        run:
+      - name: Upgrade Pip and Packages
+        run: |
           python -m pip install --upgrade pip
           pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=2 pip install --upgrade
       - name: Setup Material for MkDocs
-        run:
+        run: |
           pip install --upgrade --no-input mkdocs-material
           pip install --upgrade --no-input $(mkdocs --no-color --quiet get-deps)
       - name: Deploy Site
