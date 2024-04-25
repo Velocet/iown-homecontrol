@@ -6,7 +6,7 @@ This document lists the known io-homecontrol "Command IDs" (CMD), their correspo
 
 These basics should help you understand which wording is used to find parameter information inside the LuaJIT files.
 
-> The io-homecontrol® concept is built on the idea of different "applications" or "profiles". Each vendor has to implement a basic set of standard profiles but can also implement its own set of pre-defined profiles.
+> The io-homecontrol&reg; concept is built on the idea of different "applications" or "profiles". Each vendor has to implement a basic set of standard profiles but can also implement its own set of pre-defined profiles.
 
 A Session in the context of io-homecontrol is a predefined *Action*. As an example this *Action* could be the exchange of a key or the opening of a window and could consist of one or more packets (with each consisting of 4 frame).
 A *Use Case* (UC) is the payload of an io-homecontrol frame. Each UC consists of a *Command ID* (CMD) and corresponding _Parameter_ (MP = *MainParameter*) with up to 16 _Functional Parameter_ (FP). The MP is predefined by the CMD. Not every command has a MP. If it has a MP it is either a value or predefined _Function_.
@@ -198,7 +198,7 @@ For detailed information on parameters see [Parameter](PARAMETER.md)
 - bit[3] Priority Level (Velux KLF200 API @ Page 58/59)
   - Protection Level
     - 0 b[000] = Personal/Human: Most secure level. Will disable all categories (Level 0 to 7).
-      > "*Since consequences of misusing this level can deeply impact the system behaviour, and therefore the io-homecontrol image, it is mandatory for the manufacturer that wants to use this level of priority to receive an agreement from io-homecontrol®.*"
+      > "*Since consequences of misusing this level can deeply impact the system behaviour, and therefore the io-homecontrol image, it is mandatory for the manufacturer that wants to use this level of priority to receive an agreement from io-homecontrol&reg;.*"
     - 1 b[001] = End Product/Environment = (House) Goods Protection: Local Sensors
   - User Level = User Control
     - 2 b[010] = Level 1 - High: Controllers have a higher level of priority than others.
@@ -268,7 +268,7 @@ Specifies what or who fired the command.
 - 0xFE = Automatic Cycle
 - 0xFF = Emergency: Used in context with Emergency or Security commands. *This command originator should never be disabled.*
 
-**Note** Typically only **USER** or **SAAC** are used.
+> [!NOTE] Typically only **USER** or **SAAC** are used.
 
 #### Standard Values
 
@@ -1227,7 +1227,7 @@ This definition seems to be also viable for io-homecontrol:
 
 animeo IP operates with a priority scale of 0 (highest) - 32000 (lowest).
 Using the animeo IP BMS Interface commands can be sent at a priority level between 12500 and 32000.
-A devices’s priority level can be set individually.
+A devices's priority level can be set individually.
 By default, the animeo IP BMS Interface applies a priority of 12500 to all devices in the system.
 Changing a priority level of a device will only effect future commands, it will not effect already sent commands.
 Once a command is sent to a device it will remain locked at that priority level until it is unlocked by adjusting the devices priority to -1; the shade will not be able to be moved unless a command with a higher priority is sent to the device.

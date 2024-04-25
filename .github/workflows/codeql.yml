@@ -2,17 +2,17 @@
 #
 # NOTE The commented block configures Python and PlatformIO. Those tests are set to manual and need review.
 #
-name: "CodeQL"
+name: CodeQL
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
     paths: # Only run on those predefined directories
       - 'inc'
       - 'include'
       - 'src'
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
     paths: # Only run on those predefined directories
       - 'inc'
       - 'include'
@@ -27,10 +27,8 @@ jobs:
     runs-on: ${{ matrix.os }} # ${{ 'ubuntu-latest','windows-latest' }}
     timeout-minutes: 360
     permissions:
-      # required for all workflows
-      security-events: write
-      # required to fetch internal or private CodeQL packs
-      packages: read
+      security-events: write # required for all workflows
+      packages: read         # required to fetch internal or private CodeQL packs
       # only required for workflows in private repositories
       actions: read
       contents: read

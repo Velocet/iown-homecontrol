@@ -59,7 +59,6 @@ As you update your PR and apply changes, mark each conversation as [resolved](ht
 > ![!NOTE]
 > If you run into any merge issues, checkout this [git tutorial](https://github.com/skills/resolve-merge-conflicts) to help you resolve merge conflicts and other issues.
 
-
 ## Project Structure
 
 This project is intended to be used with Visual Studio Code (VSCode) and platform.io. It is assumed that you are knowledgable with Windows (WSL), Linux and some of the used terms and definitions.
@@ -67,6 +66,7 @@ This project is intended to be used with Visual Studio Code (VSCode) and platfor
 > ![NOTE]
 > When opening the project folder in VSCode you will only see relevant files as the project workspace is configured to hide files which aren't really helpful for development.
 
+<-- TODO Project Structure
 - Project Root
   - .github
     - workflows
@@ -79,6 +79,7 @@ This project is intended to be used with Visual Studio Code (VSCode) and platfor
   - extras
   - include
   - scripts
+-->
 
 ### Development Enviroment
 

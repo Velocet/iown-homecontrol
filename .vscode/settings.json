@@ -15,6 +15,18 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+  "[yaml]": {
+    "editor.autoIndent": "none",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": false,
+    "editor.indentSize": "tabSize",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
   "black-formatter.importStrategy": "fromEnvironment",
   "C_Cpp.autoAddFileAssociations": true,
   "C_Cpp.autocomplete": "default",
@@ -85,6 +97,7 @@
   "editor.formatOnSave": false,
   "editor.guides.highlightActiveIndentation": "always",
   "editor.largeFileOptimizations": false,
+  "editor.renderWhitespace": "boundary",
   "editor.showFoldingControls": "always",
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
@@ -213,13 +226,6 @@
   "typescript.tsc.autoDetect": "off",
   "vscode-serial-monitor.lineEnding": "\n",
   "yaml.completion": true,
-  "yaml.disableAdditionalProperties": false,
-  "yaml.disableDefaultProperties": false,
-  "yaml.format.proseWrap": "never",
-  "yaml.validate": true,
-  "yaml.schemas": {
-    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
-  },
   "yaml.customTags": [
     "!ENV scalar",
     "!ENV sequence",
@@ -227,5 +233,12 @@
     "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
     "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
-  ]
+  ],
+  "yaml.disableAdditionalProperties": false,
+  "yaml.disableDefaultProperties": false,
+  "yaml.format.proseWrap": "never",
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "yaml.validate": true
 }
