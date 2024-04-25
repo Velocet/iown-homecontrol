@@ -24,9 +24,16 @@ List of supported OEM hardware including pictures and hardware description (if a
   - Renesas D78F1144: 16-bit uC (78K0R/Kx3-Family), 128kB Flash, 8kB RAM
   - Analog Devices ADF7020
 - Velux KLF 200
-  - EFM32 (EFM32GG990F-1024D) = ARM Cortex-M3
+  - MCU: EFM32 Giant Gecko ([EFM32GG990F1024G-E-BGA112](https://www.silabs.com/documents/public/data-sheets/efm32gg-datasheet.pdf)) 48 MHz ARM Cortex-M3, 1024KB Flash, 128KB RAM
+    - 256Mbit NOR FLASH
+  - MCU: STM32F427IIH6 - STM32 High-performance advanced line, 180 MHz Arm Cortex-M4 with DSP/FPU, 2MB Flash, Chrom-ART Accelerator, FMC with SDRAM
+    - 256Mbit NOR FLASH
   - RF: Analog Devices ADF7022
+  - WiFi: SP-7DZX
+    - RF Front End 2.4GHz: CC2590
+    - RF Low Power 2.4GHz: AT86RF233
   - MCU: [STM32F427II-H6](https://www.st.com/en/microcontrollers-microprocessors/stm32f427ii.html) = ARM Cortex-M4 with DSP & FPU, 2MB Flash, 180MHz
+  - Ethernet Controller: W5500
 
 ### Product Range
 
@@ -510,63 +517,3 @@ PCB Markings: 833436 (Sticker), 833431/04 (PCB Print)
     - https://web.archive.org/web/20180418024112/http://padupdate.roma.de/RomapadUpdateChecker_Package_v1.0.17.0.exe
     - https://web.archive.org/web/20180315095745/http://ftp.roma.de/padupdate/RomapadUpdateChecker_Package_v1.0.18.0.exe
     -
-
-## Links, etc
-
-august-simulator.overkiz.com
-ca.overkiz.com
-cdn-new-ca.overkiz.com
-cloud-external.overkiz.com
-compatibility.overkiz.com
-confluence-external.overkiz.com
-daikin-connector-dev.overkiz.com
-demo-hotline.overkiz.com
-demo.overkiz.com
-dev.overkiz.com
-dev24-iot-hub-simulator.overkiz.com
-docs-internal.overkiz.com
-docs-nexity.overkiz.com
-docs-overkiz.overkiz.com
-docs-pichet.overkiz.com
-docs-public.overkiz.com
-docs-somfy.overkiz.com
-dolibarr-va-external.overkiz.com
-evaluation-kit.overkiz.com
-flexomv3.overkiz.com
-floss.overkiz.com
-ftp.overkiz.com
-glpi-external.overkiz.com
-google-events-stub.overkiz.com
-ha-ntp.overkiz.com
-ha-upgrade-hitachi.overkiz.com
-ha-upgrade-nosni.overkiz.com
-ha-upgrade-overkiz-2048.overkiz.com
-ha-upgrade.overkiz.com
-ha203-1.overkiz.com - ???
-imagesovk.overkiz.com
-jgcamd1nrlnxlqki.overkiz.com
-jira-external.overkiz.com
-jitsi-external.overkiz.com
-jitsi.overkiz.com
-k8-dev.overkiz.com
-k8-preprod.overkiz.com
-k8-rec.overkiz.com
-legal.overkiz.com
-mail1.overkiz.com
-ogp-update.overkiz.com
-portail.overkiz.com
-rocket.overkiz.com
-showroom.overkiz.com
-tuleap-external.overkiz.com
-vpn.overkiz.com
-web-bm.overkiz.com
-
-https://service.somfy.com/webservices/eCatalogueServiceV2.cfc?method=getProductList&filterGroup=mobi-mobile&siteId=AU_V5-11111111111111111111111111111&language=en-au
-
-https://www.somfypro.com/services-support/software
-https://www.somfysystems.com/en-us/support/documentation
-https://account-webform-b2b.somfy.com
-adfs.somfytech.com
-somfy.service-now.com
-accounts.somfy.com
-http://somfy.somfy-ftp.de/smoove/

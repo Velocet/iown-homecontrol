@@ -1,0 +1,4 @@
+.md-grid {
+  /* https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#content-area-width */
+  max-width: 80%;
+}

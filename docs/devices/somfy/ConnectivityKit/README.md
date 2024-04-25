@@ -2,7 +2,7 @@
 
 Analysis and Information about the Board Layout, PIN Definitions and ongoing efforts to understand the platform.
 
-```MERMAID
+``` mermaid
 ---
 title: Somfy - Connectivity Kit Schema
 ---
@@ -15,20 +15,19 @@ title: Somfy - Connectivity Kit Schema
 flowchart LR
 subgraph minikiz["Somfy Connectivity Kit"]
   direction LR
-  pc["USB"]
   subgraph iohc["io-homecontrol"]
     direction TB
-    stm32{"STM32<br>F101RC"}-- "UART" ---si4461{{"Si 4461"}}
+    stm32{"STM32<br>F101RC"}<--"UART"-->si4461{{"Si 4461"}}
     click si4461 "../../datasheets/silabs-si4461.pdf" "Si 4461 Datasheet"
     click stm32 "../../datasheets/stm32-f101rc.pdf" "STM32 F101xC Datasheet"
   end
   subgraph wrover["ESP32 WROVER-E N8R8 - 2.1"]
     direction TB
     esp32{"ESP32<br/>D0WD-V3"}
-    ram[["8 MB<br/>`RAM`<br/>(PSRAM64H)"]]
-    rom[["ROM: 8 MB<br/>(XM25QH64C)"]]
-    esp32-- "SPI" ---ram
-    esp32-- "SPI" ---rom
+    ram[["8 MB<br/>RAM<br/>(PSRAM64H)"]]
+    rom[["8 MB<br/>ROM<br/>(XM25QH64C)"]]
+    esp32<--"SPI"-->ram
+    esp32<--"SPI"-->rom
     click esp32 "../../datasheets/ESP32/esp32-wrover-e-datasheet.pdf"
     click ram "../../datasheets/ESP32/PSRAM64H.pdf"
     click rom "../../datasheets/ESP32/XM25QH64C.pdf"
@@ -38,24 +37,7 @@ subgraph minikiz["Somfy Connectivity Kit"]
     sx1243{{"SX 1243"}}
     click sx1243 "../../datasheets/semtech/sx1243.pdf"
   end
-  iohc-- "SPI" ---wrover --"TWI<br/>(I2C)"--- rts
-  pc-. "USB<br/>to<br/>Serial" .-iohc
-end
-```
-
-```MERMAID
----
-title: Message Flow
----
-%%{init:{
-  "theme":"neutral",
-  "fontFamily":"monospace",
-  "flowchart":{"curve":"linear"}
-}}%%
-
-flowchart TB
-subgraph LR iohc["io-homecontrol"]
-  ext["External"]-- "SLIP" ---mcu{"Microcontroller"}-- "UART<br/>38400-8N1" ---radio{{"Radio<br/>Transceiver"}}-- "NRZ" ---ant
+  iohc<--"SPI"-->wrover--"TWI<br/>(I2C)"-->rts
 end
 ```
 
@@ -228,6 +210,42 @@ Since there are at least four unknown Pins that could be bridged i would assume 
   at91-gpio PA5 = BOOT0:      0
   at91-gpio PA6 = BOOT1:      0
 
+``` mermaid
+---
+title: Somfy Connectivity Kit - Serial Wire JTAG Debug Port (SWJ-DP)
+---
+%%{init:{"theme": "neutral","fontFamily":"monospace","flowchart":{"curve":"linear"}}}%%
+stateDiagram
+  direction LR
+
+  classDef stm32Pin fill:white
+  classDef headerPin fill:grey
+  class PIN07_RST,PIN50_PA15,PIN55_PB3,PIN49_PA14,PIN46_PA13,PIN56_PB4,NC,GROUND,PIN64 headerPin
+  class RESET,JTDI,JTDO_TRACESWO,JTCK_SWCLK,JTMS_SWDIO,JTRST,VDD_3 stm32Pin
+
+  state "Somfy Connectivity Kit: Serial Wire JTAG Debug Port (SWJ-DP)" as Debug_Header
+  state Debug_Header {
+
+  state Left_Row {
+    direction LR
+    PIN07_RST --> RESET
+    PIN50_PA15 --> JTDI
+    PIN55_PB3 --> JTDO_TRACESWO
+    PIN49_PA14 --> JTCK_SWCLK
+    PIN46_PA13 --> JTMS_SWDIO
+  }
+
+  state Right_Row {
+    direction LR
+    PIN56_PB4 --> JTRST
+    NC --> 07_NC
+    GROUND --> 08_GND
+    GROUND --> 09_GND
+    PIN64 --> VDD_3
+  }
+}
+```
+
 ### Si446x Pin Out
 
 Interface: SPI
@@ -351,22 +369,22 @@ There two main points of which their function is unknown:
 
 ### Kizbox II
 
-> The lights display the product’s operating mode:
+> The lights display the product's operating mode:
 >
 > - During *Boot Phase*
->   - Orange: Kizbox® is booting.
+>   - Orange: Kizbox&reg; is booting.
 >   - Red (Blinking): Updating software.
 >   - Orange (Blinking): Initialization before entering standard operating mode.
 > During *Standard Operating Mode*
->   - Green: Kizbox® is connected to the cloud.
->   - Red: Kizbox® not connected to the cloud.
->   - Blue (Blinking): Kizbox® is pairing (local mode).
+>   - Green: Kizbox&reg; is connected to the cloud.
+>   - Red: Kizbox&reg; not connected to the cloud.
+>   - Blue (Blinking): Kizbox&reg; is pairing (local mode).
 >     - Pressing the CFG button for 2 seconds initiates pairing to local mode.
 >       If no pairing is completed within 60 seconds, the product returns to standard operating mode.
 >   - Blue: product is paired in local mode.
 >     - CFG Button: Short press cancels local mode pairing.
->     - If Kizbox® connected to the cloud: light turns green.
->     - If Kizbox® not connected to the cloud: light turns red.
+>     - If Kizbox&reg; connected to the cloud: light turns green.
+>     - If Kizbox&reg; not connected to the cloud: light turns red.
 >
 > Buttons allow the following interactions:
 >

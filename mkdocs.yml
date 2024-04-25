@@ -1,27 +1,28 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
 # TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
+
 site_name: iown-homecontrol
 site_url: https://velocet.github.io/iown-homecontrol/
 site_description: io-homecontrol Documentation &amp; Implementation
 site_author: Velocet
-repo_name: iown @ GitHub
+repo_name: '' # iown @ GitHub
 repo_url: https://github.com/velocet/iown-homecontrol/
 edit_uri: blog/main/docs/ # edit/main/docs/
-copyright: '&copy; iown-homecontrol'
-
-# Output files folder. Put 'site' in '.cache': Unclutter folders + only exclude '.cache'.
-site_dir: .cache/site
-# Files to exclude from the built site.
-exclude_docs: |
+copyright: '&copy; iown-nothing'
+site_dir: .cache/site # Output Folder: Put in '.cache' to unclutter structure
+exclude_docs: | # Files to exclude from the built site.
+  docs/datasheets/
+  docs/devices/
+  docs/firmware/
+  docs/parameter/
+  docs/reference/
   datasheets/
   devices/
   firmware/
   parameter/
   reference/
-  # Include 'assets' no matter what
-  !assets/
-# Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
-# draft_docs:
+# draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
 
 nav:
   - ⌂: README.md
@@ -38,13 +39,40 @@ nav:
 
 plugins:
   - search
+  - social:
+      enabled: !ENV [CI, false]
+      cache: true
+      cards: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#ABABAB"
+        color: "#FEFEFE"
+        font_family: Rubik
+  - git-revision-date-localized:
+      type: timeago
+      locale: en
+      # Enable fall back to mkdocs build time when git is not available.
+      # Date will be incorrect, but is acceptable to successfully build in environments with no access to GIT.
+      fallback_to_build_date: true
+      enabled: !ENV [CI, false]
   - privacy:
       assets: true
       assets_fetch: true
-  - git-revision-date-localized
+      cache: true
+  - offline:
+      enabled: false
 
 extra:
-  homepage: https://github.com/velocet/iown-homecontrol
+  homepage: https://velocet.github.io/iown-homecontrol
+  # consent:
+  #   title: ''
+  #   description: ''
+  #   cookies:
+  #     analytics:
+  #       name: Google Analytics
+  #       checked: false
+  #     github:
+  #       name: GitHub
+  #       checked: false
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/MPEb7dTNdN
@@ -53,29 +81,37 @@ extra:
       link: https://t.me/iownHomecontrol
       name: iown-Telegram
 
+extra_css:
+  - assets/stylesheets/extra.css
 theme:
   name: material
   locale: en
   highlightjs: true
-  logo: assets/favicon.png
-  favicon: assets/favicon.png
+  logo: assets/images/favicon.png
+  favicon: assets/images/favicon.png
   font:
     text: Open Sans
     code: Source Code Pro
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    logo: bootstrap/envelope-paper
   palette:
     primary: grey # blue grey
     accent: light blue
   features:
+    - content.action.edit
     - header.autohide
-    - navigation.footer
-    - navigation.prune
+    # - navigation.expand
+    # - navigation.footer
+    # - navigation.indexes # Not compatible with toc.integrate: sections cannot host TOC due to missing space.
+    - navigation.path
+    # - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
-    - navigation.sections
-    - navigation.expand
     - toc.follow
-    - toc.integrate
+    - toc.integrate # TOC is always rendered as part of the navigation sidebar on the left
 
 markdown_extensions:
   - tables
@@ -85,16 +121,20 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
       use_pygments: true
       pygments_lang_class: true
       auto_title: true
       linenums: false
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
-  #     clickable_checkbox: false
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+# - pymdownx.tasklist:
+#     custom_checkbox: true
+#     clickable_checkbox: false
 
 validation:
   nav:

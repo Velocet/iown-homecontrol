@@ -2,7 +2,7 @@ name: mkdocs
 
 on:
   push:
-    branches: [ "main" ] # Only run on main branch
+    branches: [ main ] # Only run on main branch
     paths: # Run on docs/: only rebuild the site if push to this folder or mkdocs config changed
       - docs/**
       - mkdocs.yml
@@ -24,9 +24,9 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: 3.x
           check-latest: true # is cached version is the latest one
-          cache: 'pip'       # caching pip dependencies
+          cache: pip       # caching pip dependencies
       - name: Exort Date
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - name: Setup Cache
