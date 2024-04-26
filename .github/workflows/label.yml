@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
+
+# This workflow will triage PRs and apply a label based on the paths that are modified in the PR.
+#
+# To use this workflow, you will need to set up a .github/labeler.yml: https://github.com/actions/labeler
+
+name: "PR Labeler"
+on: [pull_request_target]
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - id: label-the-PR
+      uses: actions/labeler@v5
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      
+#    - id: run-frontend-tests
+#      if: contains(steps.label-the-PR.outputs.all-labels, 'tests')
+#      run: |
+#        echo "Running tests..."
+#        # Put your commands for running tests here
