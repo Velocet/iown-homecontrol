@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
+
 # MkDocs-Material Workflow
-# - Uses latest Python version
-# - Upgrades pip before running
-# - Uses cache for Python/pip and MkDocs
-# - Automatically installs requiered MkDocs dependencies
+# - Uses latest Python/pip
+# - Caches for Python/pip and MkDocs
+# - Installs MkDocs dependencies
 
 name: MkDocs
 
@@ -13,17 +14,11 @@ on:
       - docs/**
       - '**.md'
       - mkdocs.yml
-  pull_request:
-    branches: [ main ] # Only run on main branch
-    paths:             # Only run changes in these directories
-      - docs/**
-      - '**.md'
-      - mkdocs.yml
+  # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
   contents: write
-  security-events: write # required for all workflows?
 
 jobs:
   deploy:
@@ -31,40 +26,51 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-      - name: Setup Git Credentials
+      - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.x # use latest Python3 version
-          check-latest: true  # use latest version
-          cache: pip          # cache pip dependencies
-# Disable MkDocs Cache as this repo isn't running a standard installation
-#          # - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-#      - name: Setup Cache
-#        uses: actions/cache@v4
-#        id: mkdocs-material-cache
-#        env:
-#          cache-name: mkdocs-material-cache
-#        with:
-#          key: ${{ env.cache-name }}-${{ hashFiles('requirements.txt') }}
-#          path: .cache
-#          # restore-keys: mkdocs-material- # Not needed as the restore-key is based on the already provided key
-#          # Or use: mkdocs --no-color --quiet get-deps >requirements.txt
-#      - name: Cache Hit State Output
-#        if: ${{ steps.mkdocs-material-cache.outputs.cache-hit != 'true' }}
-#        continue-on-error: true
-#        run: echo "No Cache Hit!"
-      - name: Upgrade Pip and Packages
-        run: |
-          python -m pip install --upgrade pip
-          pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=2 pip install --upgrade --quiet
+          python-version: '3.x' # use latest Python3 version
+          check-latest: true    # use latest version
+          cache: pip            # cache pip dependencies
+      - name: Export cache_id
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Cache MkDocs
+        uses: actions/cache@v4
+        id: mkdocs-material-cache
         continue-on-error: true
-      - name: Setup Material for MkDocs
-        run: |
-          pip install --upgrade --no-input mkdocs-material
-          pip install --upgrade --no-input $(mkdocs --no-color --quiet get-deps)
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Cache Hit State
+        if: ${{ steps.mkdocs-material-cache.outputs.cache-hit != 'true' }}
+        continue-on-error: true
+        run: echo "No Cache Hit!"
+      - name: Upgrade Pip
+        continue-on-error: true
+        run: python -m pip install --upgrade --no-input --quiet --quiet --quiet pip
+      - name: Material for MkDocs Setup
+        continue-on-error: true
+        run: pip install --upgrade --no-input --quiet --quiet --quiet mkdocs-material
+      - name: Material for MkDocs Dependencies Setup
+        continue-on-error: true
+        run: pip install --upgrade --no-input --quiet --quiet --quiet $(mkdocs --no-color --quiet get-deps)
+      #- name: Upgrade Packages
+      #  continue-on-error: true
+      #  pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=1 pip install --upgrade --quiet --quiet --quiet
       - name: Deploy Site
         run: mkdocs gh-deploy --force
+
+# Disable MkDocs Cache as this repo isn't running a standard installation
+#        id: mkdocs-material-cache
+#        env: cache-name: mkdocs-material-cache
+#        with:
+#          path: .cache
+#          key: ${{ env.cache-name }}-${{ hashFiles('requirements.txt') }}
+#          restore-keys: ${{ env.cache-name }}-
+#          # mkdocs --no-color --quiet get-deps >requirements.txt

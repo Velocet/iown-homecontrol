@@ -1,0 +1,20 @@
+# https://github.com/actions/labeler
+
+# List of labels and config options to match and apply the label.
+#
+# The key is the name of the label in your repository that you want to add (eg: "merge conflict", "needs-updating") and the value is a match object.
+
+# Add 'Documentation' label to any changes within 'docs' folder (or any subfolders) and every .md file.
+documentation:
+- changed-files:
+  - any-glob-to-any-file: ['docs/**','**/*.md','scripts/**']
+
+# Add 'source' label to any change to src/include/data/extras files
+source:
+- changed-files:
+  - any-glob-to-any-file: ['src/**','inc/**','include/**']
+
+# Add 'config' label to any change to src/include/data/extras files
+config:
+- changed-files:
+  - any-glob-to-any-file: ['data/**','extras/**','.github/**','.vscode/**','*']

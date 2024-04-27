@@ -1,12 +1,16 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-issue-config.json
 ---
 blank_issues_enabled: true
 contact_links:
-  - name: Issue Tracker
-    url: https://github.com/velocet/iown-homecontrol/issues
-    about: Please create bug reports in the dedicated issue tracker.
-  - name: Feature Request Tracker
-    url: https://github.com/velocet/iown-homecontrol/feature-requests
-    about: Please create feature requests in the dedicated feature request tracker.
-  - name: Frequently Asked Question
-    url: https://github.com/velocet/iown-homecontrol/README.md
-    about: Please contact us in our chat!
+  - name: Telegram Group Chat
+    url: https://t.me/iownHomecontrol
+    about: Get in contact via Telegram!
+  - name: Discord Server
+    url: https://discord.gg/MPEb7dTNdN
+    about: Join the Discord Server!
+  - name: Documentation
+    url: https://velocet.github.io/iown-homecontrol
+    about: View the Documentation as a reference for your issue
+
+# Customize the issue template chooser that people see when creating a new issue.
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser

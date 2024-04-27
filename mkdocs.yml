@@ -1,7 +1,4 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-
-# TODO https://squidfunk.github.io/mkdocs-material/reference/diagrams/
-
 site_name: iown-homecontrol
 site_url: https://velocet.github.io/iown-homecontrol/
 site_description: io-homecontrol Documentation &amp; Implementation
@@ -13,12 +10,10 @@ copyright: '&copy; iown-nothing'
 site_dir: .cache/site # Output Folder: Put in '.cache' to unclutter structure
 exclude_docs: | # Files to exclude from the built site.
   docs/datasheets/
-  docs/devices/
   docs/firmware/
   docs/parameter/
   docs/reference/
   datasheets/
-  devices/
   firmware/
   parameter/
   reference/
@@ -36,12 +31,12 @@ nav:
     - Firmware: FIRMWARE.md
   - misc:
     - RTL-SDR: RADIO-RTLSDR.md
+    - CC1021: RADIO-CC1021.md
 
 plugins:
   - search
   - social:
       enabled: !ENV [CI, false]
-      cache: true
       cards: !ENV [CI, false]
       cards_layout_options:
         background_color: "#ABABAB"

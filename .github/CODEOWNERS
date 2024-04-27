@@ -1,0 +1,15 @@
+# You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner(s) for everything in the repo. Unless a later match takes precedence, owner(s) will be requested for review when a pull request is opened.
+# * @velocet
+
+# Control how changes are made to the workflow files
+/.github/ @Velocet
+/.vscode/ @Velocet
+
+# Free 4 All xD
+#/docs/
+#/extras/
+#/scripts/
+#/lib/
