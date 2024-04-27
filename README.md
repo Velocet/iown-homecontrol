@@ -11,8 +11,8 @@
 
 ## Status
 
-- [X] [Document Layer 1](docs/RADIO.md)
-- [X] [Document Layer 2](docs/LINKLAYER.md)
+- [X] [Document Layer 1](docs/Radio.md)
+- [X] [Document Layer 2](docs/LinkLayer.md)
 - [X] [Document Layer 3](docs/COMMANDS.md)
   - [X] io-homecontrol Paket Definition
 - [ ] Document Layer 4+
@@ -103,8 +103,8 @@ io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes
 <!-- TODO: Link all documents or better link to mkdocs -->
 
 - [Documentation](https://velocet.github.io/iown-homecontrol)
-  - Layer 1: [Radio](docs/RADIO.md)
-  - Layer 2: [Link Layer](docs/LINKLAYER.md)
+  - Layer 1: [Radio](docs/Radio.md)
+  - Layer 2: [Link Layer](docs/LinkLayer.md)
   - Layer 3: [Commands](docs/COMMANDS.md)
 
 ## Appendix
