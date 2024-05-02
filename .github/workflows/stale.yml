@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
+
+#Close Stale Issues and PRs
+#
+# Warns and then closes issues and PRs that have had no activity for 69 days.
+
+name: Stale Issues & PRs
+
+on:
+  schedule:
+    - cron: '39 19 * * *'
+
+permissions:
+  # contents: write # only for delete-branch option
+  issues: write
+  pull-requests: write
+
+jobs:
+  mark_stale:
+    name: Mark Issues and PRs as Stale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 69
+          exempt-issue-labels: Not Stale
+          exempt-issue-milestones: 'future,alpha,beta'
+          exempt-pr-labels: Not Stale
+          exempt-pr-milestones: 'bugfix,improvement'
+          stale-issue-message: >
+            This issue is stale because it has been open for 69 days with no activity.
+            Remove the "Stale" label or comment on the issue, or it will be closed in 7 days.
+          stale-pr-message: >
+            This pull request is stale because it has been open for 69 days with no activity.
+            Remove the "Stale" label or comment on the pull request, or it will be closed in 7 days.
+          close-issue-message: This issue has been marked as stale and closed due to no activity on it.
+          close-pr-message: This pull request has been marked as stale and closed due to no activity on it.

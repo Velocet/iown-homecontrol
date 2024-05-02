@@ -1,98 +1,72 @@
+# CodeQL for PlatformIO
 # If the analyze step fails, modify the language matrix and set the build mode to "manual". Then modify the if step to build the code.
 #
 # NOTE The commented block configures Python and PlatformIO. Those tests are set to manual and need review.
 #
-name: CodeQL
+name: "GH CodeQL"
 
-on:
-  push:
-    branches: [ main ]
-    paths: # Only run on those predefined directories
-      - 'inc'
-      - 'include'
-      - 'src'
-  pull_request:
-    branches: [ main ]
-    paths: # Only run on those predefined directories
-      - 'inc'
-      - 'include'
-      - 'src'
-  schedule:
-    - cron: '31 11 * * 3'
+# TODO Remove
+on: workflow_dispatch
+#on:
+  # push:
+  #   branches: [ "main" ]
+  #   paths: # Only run on those predefined directories
+  #     - "inc"
+  #     - "include"
+  #     - "src"
+  # pull_request:
+  #   branches: [ "main" ]
+  #   paths: # Only run on those predefined directories
+  #     - "inc"
+  #     - "include"
+  #     - "src"
+  # schedule:
+  #   - cron: '39 19 * * 1'
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
-    # TODO Check if tests are running on ubuntu and windows
-    runs-on: ${{ matrix.os }} # ${{ 'ubuntu-latest','windows-latest' }}
-    timeout-minutes: 360
+    name: Analyze ${{ matrix.language }}
+    runs-on: windows-latest # ${{ matrix.os }}
+    timeout-minutes: 60
     permissions:
-      security-events: write # required for all workflows
+      actions: read          # required for workflows in private repositories
+      contents: read         # required for workflows in private repositories
       packages: read         # required to fetch internal or private CodeQL packs
-      # only required for workflows in private repositories
-      actions: read
-      contents: read
+      security-events: write # required for all workflows
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        # Changing analyzed languages or customize build mode: https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
-        # If analyzing a compiled language, modify 'build-mode': https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
-        include:
-        - language: c-cpp # `c-cpp` analyzes code written in C, C++ or both
-          build-mode: autobuild
-        # - language: python
-        #   build-mode: manual
+        # Languages and build modes: https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
+        # Compiled languages need manual 'build-mode': https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
+        # CodeQL language support: https://aka.ms/codeql-docs/language-support
+        language: [ 'c-cpp' ] # `c-cpp` analyzes code written in C, C++ or both
 
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
-
-    # - name: Setup Cache
-    #   uses: actions/cache@v3
-    #     with:
-    #     path: |
-    #       ~/.cache/pip
-    #       ~/.platformio/.cache
-    #     key: ${{ runner.os }}-pio
-    #
-    # - name: Export Enviroment Variable
-    #   run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-    #
-    # - name: Setup Python
-    #   uses: actions/setup-python@v5
-    #   with:
-    #     python-version: '3.x'
-    #     check-latest: true # is cached version is the latest one
-    #     cache: 'pip'       # caching pip dependencies
-
-    # Initialize CodeQL tools for scanning.
+    # Initialize CodeQL for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        build-mode: ${{ matrix.build-mode }}
         # Custom queries: here or in a config file. Queries here will override configs. Prefix list here with "+" to use queries and configs.
         # CodeQL's query packs: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         queries: security-extended,security-and-quality
 
-    - if: matrix.build-mode == 'manual'
-      run: |
-        echo 'Using "manual" build mode for Python!'
-        echo 'Upgrade pip'
-        python -m pip install --upgrade pip
-        echo 'Install black linter'
-        pip install --upgrade black
-        exit 1
-
-    #   # https://docs.platformio.org/en/latest/integration/ci/github-actions.html
-    # - name: Install PlatformIO Core
+    # - name: Setup Python
+    #   uses: actions/setup-python@v5
+    #   with:
+    #     python-version: 3.x
+    #     check-latest: true # is cached version latest?
+    #     cache: pip         # caching pip dependencies
+    # - name: 'PlatformIO: Install Core'
     #   run: |
     #     python -m pip install --upgrade pip
     #     pip install --upgrade platformio
-    #
-    # - name: Build PlatformIO Project
+    # - name: 'PlatformIO: Show Project Config'
+    #   run: pio project config
+    # - name: 'PlatformIO: Build Project'
     #   run: pio run
 
     - name: Perform CodeQL Analysis

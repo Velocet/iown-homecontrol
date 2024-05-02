@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
 
-# TODO Get Version Name in here!
+# PlatformIO Build Workflow
+#   https://docs.platformio.org/en/latest/integration/ci/github-actions.html
+
+# Only tests for the standard enviroment defined in the platformio.ini!
+
+# TODO Get Version Name in here! (hint: see scripts/ci)
 
 name: PlatformIO
 # run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
@@ -27,14 +32,14 @@ permissions:
   contents: write
 
 # TODO Set enviroment variable for later use
-env:
-  BUILD: GITHUB
+# env:
+#   BUILD: GITHUB
 
 jobs:
   build:
     name: PlatformIO Build
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 120
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
@@ -53,10 +58,10 @@ jobs:
               ~/.platformio/.cache
 
     permissions:
-      security-events: write # all workflows
-      packages: read         # fetch internal or private CodeQL packs
       actions: read          # private repos
       contents: write        # private repos
+      packages: read         # fetch internal or private CodeQL packs
+      security-events: write # all workflows
 
     steps:
     - name: Checkout Repo
@@ -75,12 +80,12 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: 3.x
-        check-latest: true # is cached version the latest one?
+        check-latest: true # is cached version latest?
         cache: pip         # caching pip dependencies
     - name: 'PlatformIO: Install Core'
       run: |
         python -m pip install --upgrade pip
-        pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=1 pip install --upgrade
+        pip install --upgrade platformio
     - name: 'PlatformIO: Show Project Config'
       run: pio project config
     - name: 'PlatformIO: Build Project'

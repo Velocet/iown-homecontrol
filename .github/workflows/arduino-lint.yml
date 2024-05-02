@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
+
+name: Arduino-Lint
+
+# TODO Remove
+on: workflow_dispatch
+# on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Arduino Lint
+        uses: arduino/arduino-lint-action@v1
+        with:
+          # Configure how strict the tool is about which checks are considered errors vs warnings if they don't pass.
+          # strict - enforces best practices, above and beyond the minimum requirements for specification compliance. Use this setting to ensure the best experience for the users of the project.
+          # specification - enforces compliance with the official Arduino project specifications.
+          # permissive - will cause the checks to fail only when severe problems are found. Although a project that passes at the permissive setting will work with the current Arduino development software versions, it may not be fully specification-compliant, risking incompatibility or a poor experience for the users.
+          compliance: strict
+          library-manager: update
+          project-type: library

@@ -6,15 +6,15 @@
 
 # Add 'Documentation' label to any changes within 'docs' folder (or any subfolders) and every .md file.
 documentation:
-- changed-files:
-  - any-glob-to-any-file: ['docs/**','**/*.md','scripts/**']
+  - changed-files:
+    - any-glob-to-any-file: ["docs/**", "README.md"]
 
 # Add 'source' label to any change to src/include/data/extras files
 source:
-- changed-files:
-  - any-glob-to-any-file: ['src/**','inc/**','include/**']
+  - changed-files:
+    - any-glob-to-any-file: ["src/**", "inc/**", "include/**", "extras/**", "data/**",]
 
 # Add 'config' label to any change to src/include/data/extras files
 config:
-- changed-files:
-  - any-glob-to-any-file: ['data/**','extras/**','.github/**','.vscode/**','*']
+  - changed-files:
+    - any-glob-to-any-file: [".github/**", ".vscode/**", ".trunk/**", "mkdocs.yml", "*clang*", "keywords.txt", "library.json", "library.properties", "platformio.ini"]

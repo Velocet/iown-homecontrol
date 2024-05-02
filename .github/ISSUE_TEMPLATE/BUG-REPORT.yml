@@ -2,8 +2,8 @@
 
 name: Bug Report
 description: File a Bug Report!
-title: "[BUG]: "
-labels: ["bug", "triage"]
+title: '[BUG]: '
+labels: ['bug', 'triage']
 
 assignees:
   - Velocet

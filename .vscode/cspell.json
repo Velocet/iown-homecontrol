@@ -1,0 +1,54 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "cache": {
+    "cacheFormat": "universal",
+    "cacheLocation": "../.cache/.cspellcache",
+    "cacheStrategy": "metadata",
+    "useCache": true
+  },
+  "description": "iown-homecontrol configuration",
+  "dictionaries": [
+    "iown-homecontrol", // Enable custom dictionary by adding it to the list of `dictionaries`.
+    "cpp-legacy",
+    "cpp",
+    "cpp-refined",
+    "docker",
+    "en",
+    "en-common-misspellings",
+    "en-us-common-misspellings",
+    "en-us",
+    "fullstack",
+    "lua",
+    "python",
+    "python-common",
+    "softwareTerms",
+    "networking-terms",
+    "web-services",
+    "computing-acronyms",
+  ],
+  "dictionaryDefinitions": [
+    {
+      "addWords": true,
+      "description": "iown-homecontrol words",
+      "name": "iown-homecontrol",
+      "noSuggest": true,
+      "path": "cspell-iown-homecontrol-words.txt",
+      "scope": "workspace"
+    }
+  ],
+  "globRoot": "../.",
+  "ignorePaths": [
+    ".cache",
+    ".git",
+    ".vscode",
+    ".trunk",
+    "bower_components",
+    "node_modules",
+    "package-lock.*",
+    "site-packages",
+    "site"
+  ],
+  "language": "en-US",
+  "name": "iown-homecontrol",
+  "version": "0.2"
+}

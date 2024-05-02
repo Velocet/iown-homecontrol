@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-workflow.json
 
-# Workflow for deploying static content to GitHub Pages
+# Workflow for deploying MkDocs build static content to GitHub Pages
+
 name: MkDocs Deploy
 
 on:
@@ -9,15 +10,14 @@ on:
     branches: ["gh-pages"]
   # Runs on a push made to a GitHub Pages-enabled branch
   page_build:
-
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Set permission of GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
   id-token: write
+  pages: write
 
 # Allow one deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.

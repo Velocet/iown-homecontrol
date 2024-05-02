@@ -1,0 +1,3 @@
+# This file must also exist in your repository root if you use the prettier extension
+printWidth: 256
+proseWrap: never

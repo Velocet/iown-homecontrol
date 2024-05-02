@@ -1,0 +1,47 @@
+# File Format: https://docs.trunk.io/reference/trunk-yaml
+# Latest: https://github.com/trunk-io/configs/blob/main/plugin.yaml
+version: 0.1
+required_trunk_version: ">=1.22.0"
+cli:
+  version: 1.22.0
+#plugins: # Trunk provides extensibility via plugins: https://docs.trunk.io/plugins
+# sources:
+#   - id: configs
+#     local: .
+#   - id: trunk
+#     ref: v1.5.0
+#     uri: https://github.com/trunk-io/plugins
+#runtimes: # Linter runtime configuration: https://docs.trunk.io/runtimes
+#  enabled:
+#    - node@>20.11.0
+#    - python@>3.10.0
+#    - go@>1.21.0
+#    - ruby@>3.1.0
+#tools:
+#  enabled:
+#    - gh@>=2.48.0
+#    - gt@>=1.3.3
+#actions:
+#  enabled:
+#    - commitizen
+#    - commitlint
+#    - trunk-upgrade-available
+lint: # Linter Management: https://docs.trunk.io/check/configuration
+  compile_commands: asdasd.json
+  enabled: # Available Linter: https://docs.trunk.io/check/configuration/supported
+    - actionlint@1.6.27
+#    - clang-format@17.0.1
+#    - clang-tidy@17.0.1
+#    - pragma-once
+    - yamllint@1.35.1
+  disabled:
+    - pylint
+    - prettier
+  ignore:
+    - linters: [ALL]
+      paths:
+        - .cache
+        - .git
+        - .private
+        - .vscode
+        - .trunk

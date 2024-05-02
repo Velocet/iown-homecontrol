@@ -2,9 +2,7 @@
 
 <!-- Short_Description -->
 
-
-
-## Test Environment
+## Environment
 
 - Framework
   - [ ] Arduino
@@ -19,11 +17,12 @@
   - [ ] SX12xx
   - [ ] Si4xxx
   - [ ] C11xx
+  - [ ] Other
 
 ## Checklist
 
-  - Documentation
-    - [ ] Valid Markdown which renders normally
-    - [ ] Markdownlint?
-  - Code
-    - [ ] Code formatted?
+- Documentation
+  - [ ] Valid Markdown which renders normally?
+  - [ ] Markdownlint?
+- Code
+  - [ ] Code formatted?

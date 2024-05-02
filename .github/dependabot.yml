@@ -1,0 +1,36 @@
+# See:
+# https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates#about-the-dependabotyml-file
+# https://docs.github.com/en/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#keeping-the-actions-in-your-workflows-secure-and-up-to-date
+
+version: 2
+
+updates:
+  # Maintain dependencies for GitHub Actions
+  # See: https://docs.github.com/en/github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot
+  # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#github-actions
+  - package-ecosystem: github-actions
+    # Workflow files stored in the default location of `.github/workflows`.
+    # Don't specify for `/.github/workflows` for `directory`. You can use `directory: "/"`!
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: monday
+      time: '19:39'
+      timezone: 'Europe/Berlin'
+    assignees:
+      - 'velocet'
+
+  # # Maintain dependencies for pip
+  # - package-ecosystem: 'pip'
+  #   # Location of the package manifest relative to the root of the repository.
+  #   directory: '/.vscode/pyproject.toml'
+  #   schedule:
+  #     interval: daily
+  #     time: '19:39'
+  #     timezone: 'Europe/Berlin'
+  #   assignees:
+  #     - 'velocet'
+  #   groups:
+  #     pip:
+  #       patterns:
+  #         - '*' # Matches all dependencies in the package ecosystem.

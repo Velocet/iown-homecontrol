@@ -1,0 +1,13 @@
+Cozytouch
+Datasheets
+Decompiled
+decompiler
+ETSI
+Ghidra
+homecontrol
+iohc
+iown
+platformio
+Renode
+Somfy
+Velux

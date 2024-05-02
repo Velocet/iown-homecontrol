@@ -1,30 +1,30 @@
 {
   "version": "2.0.0",
   "tasks": [
-    {
-      "label": "clang-tidy",
-      "type": "shell",
-      "command": "${command:python.interpreterPath}",
-      "args": [
-        "./scripts/clang-tidy.py"
-      ],
-      "problemMatcher": [
-        {
-          "owner": "clang-tidy",
-          "fileLocation": "absolute",
-          "pattern": [
-            {
-              "regexp": "^(.*):(\\d+):(\\d+):\\s+(error):\\s+(.*) \\[([a-z0-9,\\-]+)\\]\\s*$",
-              "file": 1,
-              "line": 2,
-              "column": 3,
-              "severity": 4,
-              "message": 5
-            }
-          ]
-        }
-      ]
-    },
+    // {
+    //   "label": "clang-tidy",
+    //   "type": "shell",
+    //   "command": "${command:python.interpreterPath}",
+    //   "args": [
+    //     "./scripts/clang-tidy.py"
+    //   ],
+    //   "problemMatcher": [
+    //     {
+    //       "owner": "clang-tidy",
+    //       "fileLocation": "absolute",
+    //       "pattern": [
+    //         {
+    //           "regexp": "^(.*):(\\d+):(\\d+):\\s+(error):\\s+(.*) \\[([a-z0-9,\\-]+)\\]\\s*$",
+    //           "file": 1,
+    //           "line": 2,
+    //           "column": 3,
+    //           "severity": 4,
+    //           "message": 5
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // },
     {
       "type": "PlatformIO",
       "task": "Build",

@@ -1,29 +1,10 @@
 {
-  // See http://go.microsoft.com/fwlink/?LinkId=827846
-  // for the documentation about the extensions.json format
-  "recommendations": [
-    "bierner.github-markdown-preview",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "github.remotehub",
-    "github.vscode-github-actions",
-    "github.vscode-pull-request-github",
-    "ms-python.black-formatter", // Code Formatter
-    "ms-python.flake8", // Linter
-    "ms-python.isort", // Imports Sorter
-    "ms-python.mypy-type-checker", // Static Type Checker
-    "ms-vscode.cpptools",
-    "ms-vscode.remote-repositories",
-    "ms-vscode.vscode-github-issue-notebooks",
-    "ms-vscode.vscode-serial-monitor",
-    "platformio.platformio-ide",
-    "streetsidesoftware.code-spell-checker",
-    "trunk.io",
-    "ms-python.debugpy",
-    "ms-python.pylint",
-    "ms-python.vscode-pylance"
-  ],
-  "unwantedRecommendations": [
-    "ms-vscode.cpptools-extension-pack"
-  ]
+    // See http://go.microsoft.com/fwlink/?LinkId=827846
+    // for the documentation about the extensions.json format
+    "recommendations": [
+        "platformio.platformio-ide"
+    ],
+    "unwantedRecommendations": [
+        "ms-vscode.cpptools-extension-pack"
+    ]
 }

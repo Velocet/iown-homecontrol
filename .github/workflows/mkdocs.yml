@@ -12,7 +12,6 @@ on:
     branches: [ main ] # Only run on main branch
     paths:             # Only run changes in these directories
       - docs/**
-      - '**.md'
       - mkdocs.yml
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,7 +29,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - name: Setup Python
+      - name: Python Setup
         uses: actions/setup-python@v5
         with:
           python-version: '3.x' # use latest Python3 version
@@ -51,19 +50,19 @@ jobs:
         if: ${{ steps.mkdocs-material-cache.outputs.cache-hit != 'true' }}
         continue-on-error: true
         run: echo "No Cache Hit!"
-      - name: Upgrade Pip
+      - name: Pip Upgrade
         continue-on-error: true
-        run: python -m pip install --upgrade --no-input --quiet --quiet --quiet pip
-      - name: Material for MkDocs Setup
+        run: python -m pip install --upgrade --no-input --quiet pip
+      - name: MkDocs Setup
         continue-on-error: true
-        run: pip install --upgrade --no-input --quiet --quiet --quiet mkdocs-material
-      - name: Material for MkDocs Dependencies Setup
+        run: pip install --upgrade --no-input --quiet mkdocs-material
+      - name: MkDocs Dependencies
         continue-on-error: true
-        run: pip install --upgrade --no-input --quiet --quiet --quiet $(mkdocs --no-color --quiet get-deps)
+        run: pip install --upgrade --no-input --quiet $(mkdocs --no-color --quiet get-deps)
       #- name: Upgrade Packages
       #  continue-on-error: true
       #  pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=1 pip install --upgrade --quiet --quiet --quiet
-      - name: Deploy Site
+      - name: MkDocs Deploy
         run: mkdocs gh-deploy --force
 
 # Disable MkDocs Cache as this repo isn't running a standard installation
