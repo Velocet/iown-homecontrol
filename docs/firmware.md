@@ -1,6 +1,7 @@
 # io-homecontrol Firmware
 
-> **Note**: If you can provide firmware images, you can share them here (file an issue) or via Discord/Telegram ;)_
+> [!NOTE]
+> If you can provide firmware images, you can share them here (file an issue) or via Discord/Telegram ;)_
 
 This document and it's corresponding folder provide information about the available firmware binaries.
 It does not hold information about reversing those binaries. Please refer to the [reverse-engineering.md](reverse eng) section and dont't forget to grab the provided SVDs...

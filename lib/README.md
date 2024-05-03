@@ -1,35 +1,41 @@
-# Project Specific Private Libraries.
+<div align="center" width="100%">
 
-PlatformIO will compile them to static libraries and link into executable file.
+# `lib`: Project Private Libraries
 
-The source code of each library is placed in an own separate directory: `lib/library_name/[source files]`.
+</div>
 
-Structure of the library `LibName`:
+PlatformIO will compile these project specific private libs to static libraries and link into the executable.
 
-```
+The source code of each lib is placed in its own directory: `lib/library_name/[source files]`.
+
+## Structure of library `LoRa32`
+
+``` ascii
 |--lib
 |  |
-|  |--LibName
+|  |--LoRa32
 |  |  |--docs
 |  |  |--examples
 |  |  |--src
-|  |     |- LibName.c
-|  |     |- LibName.h
-|  |  |- library.json (Custom build options, etc.) https://docs.platformio.org/page/librarymanager/config.html
+|  |     |- LoRa32.c
+|  |     |- LoRa32.h
+|  |  |- library.json - Build options, etc.: https://docs.platformio.org/page/librarymanager/config.html
 |
 |- platformio.ini
 |--src
    |- main.cpp
+   |- ...
 ```
 
-Contents of `src/main.cpp`:
+### Contents of `main.cpp`
 
-```CPP
-#include <LibName.h>
+``` cpp
+#include <LoRa32.h>
 
 int main (void) {
   // ...
 }
 ```
 
-[PlatformIO Library Dependency Finder](https://docs.platformio.org/page/librarymanager/ldf.html) will find automatically dependent libraries scanning project source files.
+> [!NOTE]
+> PlatformIOs [Library Dependency Finder (LDF)](https://docs.platformio.org/page/librarymanager/ldf.html) will automatically find dependent libs when scanning the project source files.

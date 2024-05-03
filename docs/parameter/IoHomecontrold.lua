@@ -611,17 +611,12 @@ package.preload["Overkiz.HomeAutomation.Utils.OVP.modbusUtils"] = assert(loadstr
 package.preload["Overkiz.HomeAutomation.Utils.utils"] = assert(loadstring("\x1BLJ\x01\x02l\x00\x02\f\x00\x04\x00\x132\x02\x00\x004\x03\x00\x00\x10\x04\x01\x00>\x03\x02\x04D\x06\v\x804\b\x01\x00\x10\t\a\x00>\b\x02\x02\x10\a\b\x004\b\x02\x00\x10\t\x00\x00%\n\x03\x00\x10\v\a\x00$\t\v\t>\b\x02\x029\b\a\x02B\x06\x03\x03N\x06\xF3\x7FH\x02\x02\x00\x06.\frequire\rtostring\npairs*\x03\x00\x02\x00\x02\x00\x052\x00\x00\x001\x01\x01\x00:\x01\x00\x000\x00\x00\x80H\x00\x02\x00\x00\x12importRequire\x00", "@Overkiz/HomeAutomation/Utils/utils.lua"))
 
 if arg then
-	var_0_0 = debug.getinfo(1, "S").source
-	var_0_1 = var_0_0
-	var_0_2 = var_0_0.sub(var_0_1, 2)
-	var_0_3 = var_0_2
-	var_0_4 = (var_0_2.match(var_0_3, "(.*/)") .. "..") .. "/lib"
-	package.path = var_0_4 .. "/?.lua;" .. var_0_4 .. "/?/init.lua;" .. package.path
-	package.cpath = var_0_4 .. "/?.so;" .. package.cpath
-	var_0_5 = require("Overkiz.LuaDaemon")("Io-Homecontrol", function()
+	local var_0_0 = (debug.getinfo(1, "S").source:sub(2):match("(.*/)") .. "..") .. "/lib"
+
+	package.path = var_0_0 .. "/?.lua;" .. var_0_0 .. "/?/init.lua;" .. package.path
+	package.cpath = var_0_0 .. "/?.so;" .. package.cpath
+
+	require("Overkiz.LuaDaemon")("Io-Homecontrol", function()
 		require("Overkiz.HomeAutomation.Shared.IoHomecontrolOvp.main")
-	end)
-	var_0_6 = var_0_5
-	
-	var_0_5.run(var_0_6)
+	end):run()
 end

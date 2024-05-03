@@ -152,7 +152,7 @@ When it comes to iohc it seems the Double Power Cut is essential for reprogrammi
     - Short Press (0,5 sec) "PROG" on New Sensor
 
 > NOTE: This information (and more) can either be found in the io handbook or via the iohc db or XML files.
-> TODO: link above mentioned things
+<!-- TODO: link above mentioned things -->
 
 ### Initial Setup Programming
 

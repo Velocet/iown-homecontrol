@@ -18,20 +18,19 @@ exclude_docs: | # Files to exclude from the built site.
   parameter/
   reference/
 # draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
-
 nav:
   - ⌂: README.md
   - Protocol:
-    - Layer 1: RADIO.md
-    - Layer 2: LINKLAYER.md
-    - Commands: COMMANDS.md
-    - Parameter: PARAMETER.md
+      - Layer 1: radio.md
+      - Layer 2: linklayer.md
+      - Commands: commands.md
+      - Parameter: parameter.md
   - Reference:
-    - Devices: DEVICES.md
-    - Firmware: FIRMWARE.md
+      - Devices: devices.md
+      - Firmware: firmware.md
   - misc:
-    - RTL-SDR: RADIO-RTLSDR.md
-    - CC1021: RADIO-CC1021.md
+      - RTL-SDR: radio-rtlsdr.md
+      - CC1021: radio-cc1021.md
 
 plugins:
   - search
@@ -39,8 +38,8 @@ plugins:
       enabled: !ENV [CI, false]
       cards: !ENV [CI, false]
       cards_layout_options:
-        background_color: "#ABABAB"
-        color: "#FEFEFE"
+        background_color: '#ABABAB'
+        color: '#FEFEFE'
         font_family: Rubik
   - git-revision-date-localized:
       type: timeago
@@ -127,9 +126,10 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-# - pymdownx.tasklist:
-#     custom_checkbox: true
-#     clickable_checkbox: false
+            # - pymdownx.tasklist:
+            #     custom_checkbox: true
+            #     clickable_checkbox: false
+
 
 validation:
   nav:

@@ -1,20 +1,21 @@
 <div align="center" width="100%">
-  
+
 [![Join the iown-homecontrol Telegram Group](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![Join the iown-homecontrol Discord Server](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
 
 ---
+
 # iown-homecontrol
 
-*io-homecontrol*® [Documentation](https://velocet.github.io/iown-homecontrol) & Implementation in support of<br/><a href="https://www.somfy-group.com/en-en/news/2018-01-04-somfy-launches-its-so-open-with-somfy-program-allowing-easier-access-to-smart-home-soluti">Somfy's "So Open" commitment</a><br/><br/>:trollface:
+*io-homecontrol*&reg; [Documentation](https://velocet.github.io/iown-homecontrol) & Implementation in support of<br/><a href="https://www.somfy-group.com/en-en/news/2018-01-04-somfy-launches-its-so-open-with-somfy-program-allowing-easier-access-to-smart-home-soluti">Somfy's "So Open" commitment</a><br/><br/>:trollface:
 
 </div>
 
 ## Status
 
-- [X] [Document Layer 1](docs/Radio.md)
-- [X] [Document Layer 2](docs/LinkLayer.md)
-- [X] [Document Layer 3](docs/COMMANDS.md)
-  - [X] io-homecontrol Paket Definition
+- [X] [Document Layer 1](docs/radio.md)
+- [X] [Document Layer 2](docs/linklayer.md)
+- [X] [Document Layer 3](docs/commands.md)
+  - [X] io-homecontrol Packet Definition
 - [ ] Document Layer 4+
   - [X] Standard commands
   - [X] Advanced commands
@@ -46,9 +47,13 @@
   - [ ] Expose as HomeKit device (HomeSpan?) incl. QR code to ease installation
 
 > [!IMPORTANT]
-> We need your help implementing the procotol! Please contact us!
+> We need your help implementing the protocol! Please contact us!
+
+<div align="center" width="100%">
 
 ## Implementation
+
+</div>
 
 LoRa32 boards (HelTec/LilyGo) are the main target platform cause they work out of the box: Connect USB and flash via web interface (work in progress).
 
@@ -58,15 +63,19 @@ If you want to port the library to a non-ESP32 platform you should consider the 
 - Optional: AES engine (if you want to test your neighbors security)
 
 > [!TIP]
-> Got a rtl-sdr? Use [rtl_433](https://github.com/merbanan/rtl_433) to decode io-homecontrol: `rtl_433 -R 189 -f 868.9M -s 1000k -g 42.1`
+> Got a RTL-SDR? Use [rtl_433](https://github.com/merbanan/rtl_433) to decode io-homecontrol: `rtl_433 -R 189 -f 868.9M -s 1000k -g 42.1`
 
-### Compatibale Hardware
+<div align="center" width="100%">
+
+### Compatible Hardware
+
+</div>
 
 The recommended method is to use a LoRa32 board from HelTec or LilyGo. But there are many other boards, modules and combinations which work.
 
 Be aware to use a device with support for FSK modulation in the 868 MHz band. That's it.
 
-<!-- TODO Devices...
+<!-- TODO Devices... don't forget the radiolib readme
 <div align="center" width="100%">
 
 If not explicitly mentioned every board version is supported.
@@ -79,7 +88,11 @@ If not explicitly mentioned every board version is supported.
 | [Wireless Stick Lite](https://heltec.org/project/wireless-stick-lite-v2/)    |      |      | |
 </div> -->
 
-## Protocol
+<div align="center" width="100%">
+
+## Protocol <!-- TODO write a absolute minimal intro but with all information needed to have a basic understanding -->
+
+</div>
 
 <div align="center" width="100%">
 
@@ -99,73 +112,39 @@ io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes
 - Data/Baud Rate: 38400 bps (Encoding: UART 8N1)
 - Frequency Hopping (FHSS): 2,7ms (Patent: 3ms) per Channel
 
-### Protocol Details
-<!-- TODO: Link all documents or better link to mkdocs -->
+<div align="center" width="100%">
 
-- [Documentation](https://velocet.github.io/iown-homecontrol)
-  - Layer 1: [Radio](docs/Radio.md)
-  - Layer 2: [Link Layer](docs/LinkLayer.md)
-  - Layer 3: [Commands](docs/COMMANDS.md)
+### Protocol Details <!-- TODO: Link docs -->
+
+</div>
+
+- [Documentation Homepage](https://velocet.github.io/iown-homecontrol)
+  - Layer 1: [Radio](docs/radio.md)
+  - Layer 2: [Link Layer](docs/linklayer.md)
+  - Layer 3: [Commands](docs/commands.md)
 
 ## Appendix
 
 <details><summary>Appendix</summary>
 
-### Naming Conventions & Wording
-
-<details><summary>Naming Conventions & Wording</summary>
-
-> Based on the official iohc wording and [Ethernet Frame](https://en.wikipedia.org/wiki/Ethernet_frame) description.
-
-- Session: Abstraction describing the whole communication process for one action (eg. close windows)
-- Action: A command executed by the actuator
-- Layer 1: Packet = Physical (RF/Radio)
-- Packet: Breaks down a session transmission into chunks with each containing a preamble, sync word, frame and interpacket gap.
-- Carrier Sense: In case of iohc the abuse of the preamble as detection of an incoming signal. Normally just a unmodulated signal.
-- Ramp Up Phase: Time it takes for the radio to initiate the power amplifier.
-- Preamble: Sequence of a repeating bit pattern (0101010101...) to synchronize the receiver clock with the sender clock and determine the baud rate. At the same time this is also used to announce a transmission to wake-up a receiver from a low-power mode.
-- Sync Word (SFD = Start Frame Delimiter): Breaks the preamble and signals the start of the frame.
-- Frame: Data after the sync word including the CRC.
-- Postamble: Same as preamble but this time it is to signal the end of a transmission.
-- (Interframe/Interpacket) Gap: Time between a repeated packet transmission of a session.
-- Layer 2: Frame = Data Link
-- Transmission Control / Header: Describes a header (CtrlByte1/2) which holds information about the iohc protocol and frame
-- MAC Header: Sender & Receiver NodeID in EUI/OUI-48 form
-- NodeID: built-in 3-bytes device address (LSBF!)
-  - Used in every communication to identify the transmitter and the receiver(s).
-  - Programmed during manufacturing and "cannot be changed" (which is untrue as we will see later...).
-  - Predefined ranges exist to differentiate manufacturers, types, etc.
-  - Found on the device labels in plain text and as barcode/qr-code.
-  - > "NodeIDs are recycled on a 3 to 5 years basis, depending on the product sales."
-  - > "NodeID can be considered unique per installation/home."
-  - Broadcasts are valid OUI-48 when Bit-Reversed and then Bit-Inverted (see LSBF). 00:00:3F > Reverse > Invert = 03:FF:FF.
-    - See: [Universal vs. Local Bit](https://en.wikipedia.org/wiki/MAC_address#Universal_vs._local_(U/L_bit))
-    - Mentioned in SDN (Somfy Digital Network) documents and observable via SDN Frame Builder
-- Payload: Variable length field after the MAC header excluding the CRC which holds the usable data aka Message
-- CRC (FCS = Frame Check Sequence): Calculated over the Frame
-  - [CRC/CRC16-CCITT](https://srecord.sourceforge.net/crc16-ccitt.html) vs. [CRC16-KERMIT](https://reveng.sourceforge.io/crc-catalogue/16.htm#crc.cat.crc-16-kermit)
-  - Check for yourself with reveng: `reveng.exe -m CRC-16/KERMIT -X -c "%*"`
-
-</details>
-
 ### iohc Alliance Background & History
 
-Since this is very uninstering for most people it is behind a collapsed section:
+Since this is not if interest for most people this is behind a collapsed section:
 
 <details><summary>iohc Alliance Background & History</summary><br/><br/>
 
-There is a low level software library thats accessable to members of the iohc alliance. Gateways ("Boxes") like the TaHoma/Cozytouch/etc. are just a whiteware product from Overkiz. The mobile apps are built by Modulotech. Overkiz, Somfy and Modulotech are owned by Atlantic.
+There is a low level software library thats accessible to members of the iohc alliance. Gateways ("Boxes") like the *TaHoma*/*Cozytouch*/etc. are just a "whiteware" product from *Overkiz*. The mobile apps are built by *Modulotech*. *Overkiz*, *Somfy* and *Modulotech* are owned by *Atlantic*.
 
-The first manufacturer id was given to Velux. The initial alliance consisted of Velux, Somfy and Honeywell. From looking at the timeline my best guess would be that Somfy "invented" a new protocol but needed a stronger partner to get a bigger market share for their newly invented protocol.
+The first manufacturer id was given to *Velux*. The initial alliance consisted of *Velux*, *Somfy* and *Honeywell*. From looking at the timeline my best guess would be that Somfy "invented" a new protocol but needed a stronger partner to get a bigger market share for their newly invented protocol.
 <br/>
-The approached Velux and exchanged some patents. After their lawyers had a look at those patents they realized that Honeywell held some important patents without they would never make it to market. So they made them an offer to join the alliance in exchange for the patents as they predicted a big market share (Velux is the market leader in Europe). Honeywell only ever produced one gateway and seems to have implemented their own version of iohc named EvoHome (Protocol: Ramses II).
+The approached *Velux* and exchanged some patents. After their lawyers had a look at those patents they realized that *Honeywell* held some important patents without they would never make it to market. So they made them an offer to join the alliance in exchange for the patents as they predicted a big market share (Velux is the market leader in Europe). Honeywell only ever produced one gateway and seems to have implemented their own version of iohc named EvoHome (Protocol: Ramses II).
 
 > Fun Facts:
 >
 > iohc is only really used in Europe. For the american market they use either RTS (433 MHz) or a 2.4GHz bastard implementation with a shitty range.
 >
-> From the first 12 iohc alliance members only two use iohc to this day: Somfy and Velux. Everyone else quickly realizied that using such an obscure protocol is a dead end with no benefits which is costing them a lot of money.
-
+> From the first 12 iohc alliance members only two use iohc to this day: *Somfy* and *Velux*. Everyone else quickly realizied that using such an obscure protocol is a dead end with no benefits which is costing them a lot of money.
+<!-- TODO Link to oem devices´md -->
 - Overkiz KizBox/MiniBox Whiteware Examples
   - Cozytouch Branding: Atlantic, Thermor
   - Cotherm I-Vista
@@ -202,7 +181,7 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 > - The emitter and receiver both perform automatic calculations based on this random number and the encryption key.
 > - If the results of these two calculations are identical, the emitter and receiver must have the same key, and the command (e.g. close the shutter) can therefore be carried out (e.g. close the shutter). The emitter is then informed that the command has been carried out.
 >
-> The encryption key is “buried“ among these exchanges between emitters and receivers, making it undetectable.
+> The encryption key is "buried" among these exchanges between emitters and receivers, making it undetectable.
 >
 > Bei der ersten Benutzung tauschen Fernbedienung (Sender) und Produkt (Empfänger) einen 128-Bit-Verschlüsselungscode aus und verbinden ihn bei jeder neuen Aktion mit einer zufällig gewählten Zahl. Daraus errechnet sich ein Code, den Sender und Empfänger miteinander abgleichen. Nur bei Übereinstimmung reagiert das Produkt auf die geforderte Aktion. Durch diesen Sicherheitsmechanismus wird die Reaktion auf einen fremden Sender ausgeschlossen. Die neue Anwendung sucht automatisch nach bereits bestehenden Produkten und berücksichtigt diese bei ihren Aktionen. Bevor Sender und Empfänger miteinander kommunizieren, wird die Verfügbarkeit des Kanals überprüft. Sollte eine Bandbreite überlagert oder besetzt sein, wartet die Anwendung vor der Kommunikation auf das Freiwerden der Frequenz (Listen before Talk) oder weicht auf einen der anderen Kanäle aus (Adaptive Frequency Agility).
 
@@ -217,6 +196,16 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 - First companies to adopt: Hörmann, Assa Abloy, Niko, Renson, Windowmaster
   - [Velux PR: Assa Abloy becomes new ioHome member](https://press.velux.com/assa-abloy-becomes-a-new-member-of-io-homecontrol/)
 
+##### Trademark
+
+The Trademark is held by VKR Holding A/S (Denmark) which also owns Velux. This explains why Velux has the first Manufacturer ID.
+
+- Trademark History
+  - Trademark Priority: 2002-06-27 (France: 023171386)
+  - Filing: 2002-12-20
+  - Published for Opposition: 2004-05-04
+  - Registration: 2007-08-07
+
 </details></details>
 
 ### Links
@@ -226,10 +215,10 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 - Online Discussions
   - [rtl_433: Add new decoder for Velux shutter remote control - io-homecontrol protocoll](https://github.com/merbanan/rtl_433/issues/1376)
   - [RFHEM: Somfy Smoove io remote 868.25 MHz](https://github.com/RFD-FHEM/RFFHEM/issues/984)
-  - [OpenHAB: Io-homecontrol / velux - something’s in the bush](https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413)
+  - [OpenHAB: Io-homecontrol / velux - something's in the bush](https://community.openhab.org/t/io-homecontrol-velux-somethings-in-the-bush/11413)
   - Velux Blinds
     - [No KUX, just Loxone](https://smarthome.exposed/controlling-velux-windows/)
-    - [Velux SML Rolläden „ablernen“ bzw. resetten](https://wolf-u.li/5920/velux-sml-rollaeden-ablernen-bzw-resetten/)
+    - [Velux SML Rolläden „ablernen" bzw. resetten](https://wolf-u.li/5920/velux-sml-rollaeden-ablernen-bzw-resetten/)
     - [snipsvelux](https://github.com/Psychokiller1888/snipsvelux)
     - [VeluxIR](https://github.com/zschub/VeluxIR) - IR protocol for old Velux remotes
 - Kizbox Rooting
@@ -242,7 +231,13 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 
 </details></details>
 
-## Contributors <!-- Add all Names/Projects which helped -->
+<div align="center" width="100%">
+
+---
+
+## Contributors <!-- TODO Add all Names/Projects which helped -->
+
+</div>
 
 <div align="center" width="100%">
 
