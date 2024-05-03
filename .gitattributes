@@ -6,7 +6,7 @@
 
 # Declare text files to be normalized and converted to native line endings on checkout.
 # Normalize line endings to LF in the repository.
-* text eol=lf
+#* text eol=lf
 
 # GitHub Linguist Overrides
 #   https://github.com/github-linguist/linguist/blob/master/docs/overrides.md
@@ -49,7 +49,7 @@ test/**     linguist-detectable
 *.h     text diff=cpp
 *.h++   text diff=cpp
 *.hh    text diff=cpp
-*.lua   text
+*.lua   text diff=lua
 
 # Compiled Object files
 *.slo   binary
@@ -74,10 +74,12 @@ test/**     linguist-detectable
 *.app   binary
 
 # Documents
-*.docx     diff=astextplain
-*.DOCX     diff=astextplain
-*.pdf      diff=astextplain
-*.PDF      diff=astextplain
+*.docx     binary
+*.DOCX     binary
+*.xlsx     binary
+*.XLSX     binary
+*.pdf      binary
+*.PDF      binary
 *.md       text diff=markdown
 *.mdx      text diff=markdown
 *.tex      text diff=tex
@@ -174,3 +176,5 @@ test/**     linguist-detectable
 *.pyd    binary
 # Jupyter notebook
 *.ipynb  text eol=lf
+# Firmware
+*.bin    binary
