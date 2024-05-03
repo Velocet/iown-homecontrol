@@ -1,42 +1,78 @@
 # Common settings that generally should always be used with your language specific settings
 #   https://github.com/gitattributes/gitattributes
 
+# NOTE:
+#   This file normally isn't needed.
+#   But since there are still encoding fuckups this has to be enforced
+
 # Auto detect text files and perform LF normalization
 * text=auto
 
-# Declare text files to be normalized and converted to native line endings on checkout.
-# Normalize line endings to LF in the repository.
+# Force text files to be normalized and converted to LF line endings on checkout
 #* text eol=lf
+
+# Force files where line endings should be preserved
+*.patch    -text
 
 # GitHub Linguist Overrides
 #   https://github.com/github-linguist/linguist/blob/master/docs/overrides.md
-docs/**     linguist-documentation
-docs/**     linguist-language=markdown
+*.git*      linguist-vendored
+*.as        linguist-vendored
+*.txt       linguist-vendored
+*.xml       linguist-vendored
+*.XML       linguist-vendored
+*.yaml      linguist-vendored
+*.yml       linguist-vendored
+library.*   linguist-vendored
+
+.github/**  linguist-vendored
+.trunk/**   linguist-vendored
+.vscode/**  linguist-vendored
+build/**    linguist-vendored
 data/**     linguist-vendored
 extras/**   linguist-vendored
-scripts/**  linguist-vendored
+script*/**  linguist-vendored
+
 lib/**      linguist-detectable
 inc/**      linguist-detectable
 include/**  linguist-detectable
 src/**      linguist-detectable
 test/**     linguist-detectable
 
-# Exclude files from exporting
-.gitattributes  export-ignore
-.gitignore      export-ignore
-.gitkeep        export-ignore
-# Enable syntax highlighting for some files as an example.
-*.gitattributes linguist-language=gitattributes
-*.gitattributes linguist-detectable=true
-*.gitattributes linguist-documentation=false
-*.md            linguist-language=markdown
-*.md            linguist-detectable=true
-*.md            linguist-documentation=true
+docs/**     linguist-documentation
+*.md        linguist-documentation
 
-# These files are text and should be normalized (Convert crlf => lf)
-.gitattributes  text
-.gitignore      text
-*.md            text diff=markdown
+# Exclude directories and files from exporting when generating an archive via git.
+# NOTE: Files are still checked into the project.
+# NOTE: This config exports the bare minimum (code only)
+.git*                   export-ignore
+.compile_commands.json  export-ignore
+.clang-*                export-ignore
+.development            export-ignore
+.editorconfig           export-ignore
+keywords.txt            export-ignore
+library.*               export-ignore
+mkdocs.yml              export-ignore
+
+.cache/                 export-ignore
+.github/                export-ignore
+.pio/                   export-ignore
+.trunk/                 export-ignore
+.vscode/                export-ignore
+build/                  export-ignore
+docs/                   export-ignore
+script*/                export-ignore
+site/                   export-ignore
+test/                   export-ignore
+
+# Enable syntax highlighting for some files as an example.
+*.svd    linguist-language=xml
+*.SVD    linguist-language=xml
+
+# Firmware
+*.bin    binary
+*.seb    binary
+*.sec    binary
 
 # Sources
 *.c     text diff=cpp
@@ -50,6 +86,8 @@ test/**     linguist-detectable
 *.h++   text diff=cpp
 *.hh    text diff=cpp
 *.lua   text diff=lua
+*.as    text diff=ActionScript
+*.hex   text
 
 # Compiled Object files
 *.slo   binary
@@ -86,12 +124,13 @@ test/**     linguist-detectable
 *.adoc     text
 *.textile  text
 *.mustache text
-*.csv      text eol=lf
+*.csv      text
 *.tab      text
 *.tsv      text
 *.txt      text
 *.svd      text diff=xml
 *.SVD      text diff=xml
+
 # Graphics
 *.png      binary
 *.PNG      binary
@@ -105,7 +144,6 @@ test/**     linguist-detectable
 *.ico      binary
 # SVG treated as text by default.
 *.svg      text
-*.eps      binary
 *.pdn      binary
 *.psd      binary
 
@@ -115,8 +153,7 @@ test/**     linguist-detectable
 *.ksh      text eol=lf
 *.sh       text eol=lf
 *.zsh      text eol=lf
-# Declare files that have CRLF line endings on checkout.
-# These are explicitly windows files and should use crlf
+# Declare explicitly windows files with CRLF on checkout.
 *.ps1      text eol=lf
 *.bat      text eol=crlf
 *.cmd      text eol=crlf
@@ -152,12 +189,7 @@ test/**     linguist-detectable
 *.zip      binary
 *.zst      binary
 
-# Text files where line endings should be preserved
-*.patch    -text
-
-
-# Basic .gitattributes for python
-# ===============================
+# Python
 # Source files
 *.pxd    text diff=python
 *.py     text diff=python
@@ -167,14 +199,12 @@ test/**     linguist-detectable
 *.pyz    text diff=python
 *.pyi    text diff=python
 # Binary files
-*.db     binary
-*.p      binary
-*.pkl    binary
-*.pickle binary
+*.db     binary export-ignore
+*.p      binary export-ignore
+*.pkl    binary export-ignore
+*.pickle binary export-ignore
 *.pyc    binary export-ignore
 *.pyo    binary export-ignore
-*.pyd    binary
+*.pyd    binary export-ignore
 # Jupyter notebook
 *.ipynb  text eol=lf
-# Firmware
-*.bin    binary

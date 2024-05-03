@@ -26,6 +26,7 @@
     //   ]
     // },
     {
+      "label": "PlatformIO: Build",
       "type": "PlatformIO",
       "task": "Build",
       "problemMatcher": [
@@ -34,8 +35,34 @@
       "group": {
         "kind": "build",
         "isDefault": true
+      }
+    },
+    {
+      "label": "PlatformIO: Monitor",
+      "type": "PlatformIO",
+      "task": "Monitor",
+      "problemMatcher": [
+        "$platformio"
+      ],
+      "presentation": {
+        "panel": "new"
       },
-      "label": "PlatformIO: Build"
+      "group": "test"
+    },
+    {
+      "label": "PlatformIO: Upload and Monitor",
+      "type": "PlatformIO",
+      "task": "Upload and Monitor",
+      "problemMatcher": [
+        "$platformio"
+      ],
+      "presentation": {
+        "panel": "new"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
     }
   ]
 }

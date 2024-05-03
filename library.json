@@ -19,47 +19,49 @@
       "maintainer": true
     }
   ],
-  "dependencies":[
+  "dependencies": [
     {
       "name": "RadioLib",
       "version": "https://github.com/jgromes/RadioLib"
     }
   ],
-  "frameworks": ["espidf","arduino"],
-  "build":
-  {
-      "libLDFMode": "chain+"
-  },
-  "examples": [
-    {
-      "name": "1W Remote",
-      "base": "examples/oneway",
-      "files": [
-        "platformio.ini",
-        "include/iown-homecontrol.h",
-        "examples/oneway/oneway.c",
-        "README"
-      ]
-    },
-    {
-      "name": "2W Remote",
-      "base": "examples/twoway",
-      "files": [
-        "platformio.ini",
-        "include/iown-homecontrol.h",
-        "examples/twoway/twoway.c",
-        "README"
-      ]
-    },
-    {
-      "name": "Gateway",
-      "base": "examples/gateway",
-      "files": [
-        "platformio.ini",
-        "include/iown-homecontrol.h",
-        "examples/gateway.c",
-        "README"
-      ]
-    }
-  ]
+  "frameworks": [
+    "arduino",
+    "espidf"
+  ],
+  "build": {
+    "libLDFMode": "deep+"
+  }
+  // "examples": [
+  //   {
+  //     "name": "1W Remote",
+  //     "base": "examples/oneway",
+  //     "files": [
+  //       "platformio.ini",
+  //       "include/iown_homecontrol.h",
+  //       "examples/oneway/oneway.c",
+  //       "README.md"
+  //     ]
+  //   },
+  //   {
+  //     "name": "2W Remote",
+  //     "base": "examples/twoway",
+  //     "files": [
+  //       "platformio.ini",
+  //       "include/iown_homecontrol.h",
+  //       "examples/twoway/twoway.c",
+  //       "README.md"
+  //     ]
+  //   },
+  //   {
+  //     "name": "Gateway",
+  //     "base": "examples/gateway",
+  //     "files": [
+  //       "platformio.ini",
+  //       "include/iown_homecontrol.h",
+  //       "examples/gateway.c",
+  //       "README"
+  //     ]
+  //   }
+  // ]
 }

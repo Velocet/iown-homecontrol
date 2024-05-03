@@ -35,6 +35,9 @@
   "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.dimInactiveRegions": true,
+  "C_Cpp.doxygen.generatedStyle": "/*!",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.intelliSenseEngineFallback": "enabled",
   "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
   "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
   "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
@@ -45,6 +48,7 @@
   "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType": true,
   "C_Cpp.vcFormat.newLine.scopeBracesOnSeparateLines": false,
   "C_Cpp.vcFormat.wrap.preserveBlocks": "allOneLineScopes",
+  "C_Cpp.vcpkg.enabled": false,
   "cSpell.enableFiletypes": [
     "!asciidoc",
     "!css",

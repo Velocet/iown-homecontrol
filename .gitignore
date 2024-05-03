@@ -5,7 +5,7 @@
 .pio
 compile_commands.*
 
-# Jetbrain IDEs
+# Jetbrains IDEs
 .idea
 
 # VSCode

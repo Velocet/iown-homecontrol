@@ -40,6 +40,7 @@
   "ignorePaths": [
     ".cache",
     ".git",
+    ".private",
     ".vscode",
     ".trunk",
     "bower_components",
@@ -50,5 +51,6 @@
   ],
   "language": "en-US",
   "name": "iown-homecontrol",
+  "useGitignore": true,
   "version": "0.2"
 }

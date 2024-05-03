@@ -1,0 +1,89 @@
+# SPDX-FileName: pyproject.toml
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-PackageName: iown-homecontrol
+# SPDX-PackageDownloadLocation: git+https://github.com/velocet/iown-homecontrol
+# SPDX-FileComment: Build System Requirements for Python Projects (PEP 518)
+# SPDX-Comment: This file exists to counter a cache "bug" with
+#
+# -*- coding: utf-8 -*-
+#
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+#   https://packaging.python.org/en/latest/specifications/pyproject-toml/
+# https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+#
+# This file is needed as a workaround for the GitHub Action: Setup Python.
+#   https://github.com/actions/setup-python/issues/807
+#
+
+[project]
+name            = "iown_homecontrol"
+version         = "24.0.0"
+description     = "io-homecontrol (Somfy, Velux, etc.) implementation"
+readme          = {file = "README.md", content-type = "text/markdown"}
+license         = {file = "LICENSE"}
+authors         = [{ name = "Velocet", email = "git@mail.velocet.de" }]
+maintainers     = [{ name = "Velocet", email = "git@mail.velocet.de" }]
+keywords        = ["iown-homecontrol","io-homecontrol","io homecontrol","iohomecontrol","velux","somfy","868MHz",]
+requires-python = ">=3.12"
+dependencies    = ["importlib-metadata","requests","tomli","pydocstyle","pydocstyle[toml]",'python_version>"3.11"']
+# dynamic         = ["readme","version"] # When a field is dynamic, the build backend fills it. Consult your build backend to learn how.
+[project.urls]
+Homepage        = "https://velocet.github.io/iown-homecontrol"
+Documentation   = "https://velocet.github.io/iown-homecontrol"
+Repository      = "https://github.com/velocet/iown-homecontrol.git"
+Issues          = "https://github.com/velocet/iown-homecontrol/issues"
+Changelog       = "https://github.com/Velocet/iown-homecontrol/commits/main/"
+
+# Install command as part of the package. Equivalent: `from iown_homecontrol import main; main()`.
+# [project.scripts]
+# iown_homecontrol = "iown_homecontrol:main"
+
+# [tool.setuptools]
+# packages = []             # Does not include any Python module
+# [tool.setuptools.packages.find]
+# where      = ["scripts"]  # List of folders that contain the packages
+# namespaces = false        # Disable scanning PEP 420 namespaces
+# [tool.setuptools.dynamic]
+# readme = {file = "README.md", content-type = "text/markdown"}
+# version = {attr = "iown-homecontrol.VERSION"} # https://packaging.python.org/en/latest/guides/single-sourcing-package-version/
+
+[bdist_wheel]
+universal = 0  # Drop Python 2 support: Make generated wheels have "py3" tag
+
+
+# black
+#   https://black.readthedocs.io/en/latest/usage_and_configuration/the_basics.html
+# [tool.black]
+# line-length = "128"
+# target-version = ["py311", "py312"]
+
+# black compatible configurations: isort
+#   https://black.readthedocs.io/en/latest/guides/using_black_with_other_tools.html#isort
+# [tool.isort]
+# profile = "black"
+
+
+# PYLINT
+#   https://pylint.readthedocs.io/en/latest/user_guide/configuration/all-options.html
+# [tool.pylint.main]
+# py-version = "3.12"
+# analyse-fallback-blocks = false
+# [tool.pylint.format]
+# expected-line-ending-format = "LF"
+# indent-after-paren = 2
+# indent-string = "  "
+# max-line-length = 128
+# single-line-class-stmt = true
+# single-line-if-stmt = true
+# [tool.pylint.spelling]
+# max-spelling-suggestions = 2
+# spelling-ignore-words = "iown,iown-homecontrol,velocet"
+# [tool.pylint.variables]
+# allow-global-unused-variables = true
+
+
+# CodeSpell
+#   https://github.com/codespell-project/codespell#using-a-config-file
+# [tool.codespell]
+# import = "./.vscode/cspell.json"
