@@ -17,22 +17,20 @@ hide:
 <div align="center" width="100%">
 
 ``` mermaid
-%%{init:{
-  "theme":"neutral",
-  "fontFamily":"monospace",
-  "flowchart":{"curve":"linear"}
-}}%%
+%%{init:{"theme":"neutral","fontFamily":"monospace","flowchart":{"curve":"natural"}}}%%
 
 flowchart TB
-  subgraph DataFlow["io-homecontrol Data Format Flow"]
-    mcu{{"Microcontroller<br/>STM8 / STM32"}}
-    radio{{"Radio<br/>SX12xx/Si446x"}}
-    ant((("📡<br/>868-870 <br/>MHz")))
+  subgraph DataFlow["io-homecontrol Gateway Firmware Data Flow"]
+    mcu{"ioHC MCU<br/>STM8 / STM32"}
+    radio{{"Radio<br/>SX12xx / Si446x"}}
+    ant((("📡<br/>868-870<br/>MHz")))
     ext["External<br/>PC<br/>Serial over USB<br/>"]
-    int["Internal<br/>TaHoma, Cozytouch, ...<br/>SoC or MCU<br/>"]
+    int["Internal<br/>TaHoma, Cozytouch, ...<br/>SoC running Linux<br/>"]
     ext<--"SLIP"-->mcu
     int<--"SPI"-->mcu
-    mcu<--"UART<br/>38400-8N1"-->radio
+    int<--"UART"-->mcu
+    mcu<--"SPI"-->radio
+    mcu<--"UART"-->radio
     radio<--"NRZ"-->ant
   end
 ```

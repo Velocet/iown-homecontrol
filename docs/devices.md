@@ -15,6 +15,62 @@ List of supported OEM hardware including pictures and hardware description (if a
   - MCU: STM32F101RCT6
   - RF: Si4461
 
+### LED Colors and Button Functions
+
+The LED(s) display the product's operating mode or status.
+
+- Orange: Boot Phase
+- Blue "Breathing": WiFi credential change
+- White Flashing: WiFi/Server connection
+- Red Flashing: Not connected to Wifi or Server
+- White: Connected to Server
+
+#### Kizbox II
+
+- LED Colors
+  - During *Boot Phase*
+    - Orange: Booting
+    - Red blinking: Updating
+    - Orange blinking: Initialization before *Standard Operating Mode*
+  - During *Standard Operating Mode*
+    - Green: Box connected to the cloud
+    - Red: Box not connected to the cloud
+    - Blue blinking: Box is pairing (*Local Mode*)
+    - Blue: Box is paired in *Local Mode*
+- Buttons
+  - During *Boot Phase*
+    - RST: Forces Box update. "Use a tool to operate it."
+  - During *Standard Operating Mode*
+    - CFG, RST: Action is software dependent
+    - CFG: Short press cancels *Local Mode* pairing
+    - Pressing CFG for 2s: initiates pairing to *Local Mode*.
+      If no pairing is completed within 60s, box returns to *Standard Operating Mode*
+
+> [Kizbox II Operation and Installation](https://www.overkiz.com/wp-content/uploads/2018/12/NOTICE_KIZBOX_UK_WEB_8fa0.pdf)
+
+#### TaHoma V1/V2
+
+- LED Colors
+  - Green: Online / Automations On / Alarm Activ
+  - White: Online
+  - Red: Offline / Alarm gone off / Connecting
+  - Orange blinking: Progress indicator for update or trying to connect
+  - Yellow: Automations Off
+
+#### TaHoma Switch
+
+- Top LEDs:
+  - White blinking: WiFi New Connection
+  - Blue blinking: WiFi Configuration
+  - Red blinking: WiFi Connection Refused
+  - Orange: Restart Indicator
+  - Green: Pro-Mode Indicator ("only via Pro App")
+  - White (slow blinking): Scene started
+  - Red: Scene stopped via Stop-Button
+- Bottom LED:
+  - Red = Offline
+  - White = Online
+
 ## Velux
 
 ### Hardware
