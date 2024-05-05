@@ -12,7 +12,7 @@
 #* text eol=lf
 
 # Force files where line endings should be preserved
-*.patch    -text
+*.patch -text
 
 # GitHub Linguist Overrides
 #   https://github.com/github-linguist/linguist/blob/master/docs/overrides.md

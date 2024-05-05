@@ -1,41 +1,92 @@
-# Arduino
+# https://github.com/github/gitignore
+# https://gitignore.io
+
+### Private ###
+.private
+
+### Arduino ###
 .development
 
-# PlatformIO
+### PlatformIO ###
 .pio
 compile_commands.*
 
-# Jetbrains IDEs
-.idea
-
-# VSCode
-.vscode/.browse.*
-.vscode/c_cpp_properties.*
-.vscode/launch.*
+### Visual Studio Code (VSCode) ###
+.vscode/.browse*
+.vscode/c_cpp_properties*
+.vscode/launch*
 .vscode/ipch
 
-# mkdocs
-site
+### Trunk ###
+**/.trunk/*actions
+**/.trunk/*logs
+**/.trunk/*notifications
+**/.trunk/*out
+**/.trunk/*plugins
 
-# Trunk
-.trunk/*actions
-.trunk/*logs
-.trunk/*notifications
-.trunk/*out
-.trunk/*plugins
-.vscode/.trunk/*actions
-.vscode/.trunk/*logs
-.vscode/.trunk/*notifications
-.vscode/.trunk/*out
-.vscode/.trunk/*plugins
-
-# Runtime Data
+### Runtime Data ###
 .cache
 build
 **/bower_components/**
 **/node_modules/**
 **/site-packages/**
 
-# Private
-.private
-desktop.ini
+### MkDocs ###
+site
+
+### CMake ###
+[cC]make_install.cmake
+cmake-build*
+CMake[CFLS]*
+compile_commands.json
+
+### Python ###
+__pycache__/
+*.py[cod]
+# Python Jupyter Notebooks
+.ipynb_checkpoints
+
+### MacOS ###
+._*
+_*
+.DS_Store
+*.icloud
+
+### Windows ###
+[tT]humbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+### JetBrains IDEs ###
+# https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# Ignore all but style settings and configs supposed to be shared
+.idea/*
+!.idea/codeStyles
+!.idea/runConfigurations
+# JetBrains User-Specifics
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+# JetBrains Generated Files
+.idea/**/contentModel.xml
+# JetBrains Sensitive Files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+# JetBrains File-based Projects
+*.iws
+# JetBrains Cache Creation Bug: issue/JBR-2257
+.idea/$CACHE_FILE$
+# JetBrains Plugin: SonarLint
+.idea/**/sonarlint/
+# JetBrains Plugin: Markdown Navigator
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/

@@ -1,3 +1,4 @@
+bootloader
 Cozytouch
 Datasheets
 Decompiled
@@ -6,14 +7,19 @@ espidf
 espressif
 ETSI
 Ghidra
+GPIO
 homecontrol
 iohc
 iohome
 iown
 mkdocs
+Overkiz
+Pinout
 platformio
+raspberrypi
 Renode
 Somfy
 twoway
 Velocet
 Velux
+WROVER

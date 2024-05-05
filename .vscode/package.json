@@ -1,25 +1,16 @@
 { // https: //docs.npmjs.com/cli/v10/configuring-npm/package-json
-  "name": "iown-homecontrol",
-  "description": "io-homecontrol library",
-  "version": "0.6.9",
   "author": "Velocet <git@mail.velocet.de> (https://github.com/velocet/)",
-  "license": "MIT",
-  "homepage": "https://github.com/Velocet/iown-homecontrol#readme",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/velocet/iown-homecontrol.git",
-    "directory": ".vscode"
-  },
   "bugs": {
     "url": "https://github.com/velocet/iown-homecontrol/issues/"
   },
+  "description": "io-homecontrol library",
+  "homepage": "https://github.com/Velocet/iown-homecontrol#readme",
   // "funding": [
-    // "https://opencollective.com/iown-homecontrol"
-    // {
-    //   "type": "patreon",
-    //   "url": "https://www.patreon.com/my-account"
-    // }
+  // "https://opencollective.com/iown-homecontrol"
+  // {
+  //   "type": "patreon",
+  //   "url": "https://www.patreon.com/my-account"
+  // }
   // ],
   "keywords": [
     "iown-homecontrol",
@@ -27,7 +18,17 @@
     "somfy",
     "velux"
   ],
+  "license": "MIT",
+  "name": "iown-homecontrol",
+  "private": true,
+  "repository": {
+    "directory": ".vscode",
+    "type": "git",
+    "url": "https://github.com/velocet/iown-homecontrol.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "version": "0.6.9",
+  "data": "2024-05-01"
 }
