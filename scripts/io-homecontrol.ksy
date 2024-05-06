@@ -5,10 +5,10 @@ meta:
   endian: be
 doc: |
   describes a io-homecontrol packet (Layer 3; Network)
-  It starts with the SFD (Start Frame Delimiter) and end with the checksum (CRC-16)
+  It starts with the SFD (Start Frame Delimiter) and ends with a checksum (CRC-16)
   The encoding is big-endian (except the 16-bit checksum)
   example: ff 33 f8 00 00 00 7f 70 87 58 00 01 61 d4 00 80 c8 00 00 3b d5 05 52 68 75 49 9c 7e 72
-            |___|       |______| |______|                            |___|                   |___|
+           |___|       |______| |______|                            |___|                   |___|
             SFD         target   source                            counter                   crc
 seq:
   - id: sfd
