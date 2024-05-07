@@ -1,11 +1,14 @@
 bootloader
 Cozytouch
 Datasheets
+decompile
 Decompiled
 decompiler
+endregion
 espidf
 espressif
 ETSI
+GFSK
 Ghidra
 GPIO
 homecontrol
@@ -16,8 +19,10 @@ mkdocs
 Overkiz
 Pinout
 platformio
+prescaler
 raspberrypi
 Renode
+RSSI
 Somfy
 twoway
 Velocet
