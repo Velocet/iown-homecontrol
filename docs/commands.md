@@ -1045,7 +1045,7 @@ This data is from *Set&Go io* XML definitions.
 | 0xFFFD | 000 | rs100-debug                                                           |
 
 > ![NOTE]
-> You can find the unaltered data from the XML files and more on the [Set&Go io page](devices/Somfy/SetGo/README.md).
+> You can find the unaltered data from the XML files and more on the [Set&Go io page](devices/somfy/SetGo/README.md).
 
 ###### SIMU
 

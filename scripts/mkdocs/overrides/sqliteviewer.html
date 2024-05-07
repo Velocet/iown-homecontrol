@@ -1,0 +1,31 @@
+<!--
+  TODO: Notes about what this is and how it is used
+  https://squidfunk.github.io/mkdocs-material/customization/
+-->
+{% extends "base.html" %}
+
+{% block styles %}
+  <!-- Add styles that need to run before here -->
+  <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-bootstrap.min.css" rel="stylesheet">
+  {{ super() }}
+  <!-- Add styles that need to run afterwards here -->
+  <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-select2.min.css" rel="stylesheet">
+  <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-select2-bootstrap-5-theme.min.css" rel="stylesheet">
+  <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-main.css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+  <!-- Add scripts that need to run before here -->
+  {{ super() }}
+  <!-- Add scripts that need to run afterwards here -->
+  <script src="../../assets/javascripts/sqliteviewer/jquery-3.7.1.min.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/filereader.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/sql-wasm.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/select2.min.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/ace/ace.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/mindmup-editabletable.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/jszip.min.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/FileSaver.min.js"></script>
+  <script src="../../assets/javascripts/sqliteviewer/main.js?v=18"></script>
+{% endblock %}

@@ -47,8 +47,8 @@ nav:
   - Parameter Viewer: parameter/database/README.md
   - Reference:
       - Devices: devices.md
-      - Somfy Connectivity Kit: devices/Somfy/ConnectivityKit/README.md
-      - Somfy Izymo: devices/Somfy/Izymo/README.md
+      - Somfy Connectivity Kit: devices/somfy/ConnectivityKit/README.md
+      - Somfy Izymo: devices/Somfy/izymo/README.md
       - Somfy Smoove: devices/Somfy/Smoove/README.md
       - Somfy Set&Go: devices/Somfy/SetGo/README.md
       - Velux KLI31x: devices/Velux/KLI31x/README.md
@@ -57,10 +57,9 @@ nav:
       - Firmware: firmware.md
       - Si446x: reference/Si446x-Inside-EZRadioPRO/README.md
       - CC1021: radio-cc1021.md
-      - Box PINs: devices/Somfy/somfy-pin-to-box.md
+      - Box PINs: devices/somfy/somfy-pin-to-box.md
   - misc:
       - RTL-SDR: radio-rtlsdr.md
-      # - CC1021: radio-cc1021.md
   # - home: README.md
 
 plugins:
