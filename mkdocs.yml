@@ -1,36 +1,67 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: iown-homecontrol
+site_name: iown-homecontrol™ Documentation
 site_url: https://velocet.github.io/iown-homecontrol/
-site_description: io-homecontrol Documentation &amp; Implementation
-site_author: Velocet
-repo_name: '' # iown @ GitHub
+site_description: io-homecontrol Documentation and Implementation
+site_author: velocet
+repo_name: iown™
 repo_url: https://github.com/velocet/iown-homecontrol/
 edit_uri: blog/main/docs/ # edit/main/docs/
-copyright: '&copy; iown-nothing'
+copyright: '&copy; <a href="https://github.com/velocet/iown-homecontrol/">iown-homecontrol™</a>'
 site_dir: .cache/site # Output Folder: Put in '.cache' to unclutter structure
 exclude_docs: | # Files to exclude from the built site.
-  docs/datasheets/
-  docs/firmware/
-  docs/parameter/
-  docs/reference/
-  datasheets/
-  firmware/
-  parameter/
-  reference/
+  assets/images/patents
+  assets/images/README.md
+  assets/README.md
+  datasheets
+  firmware
+  parameter/database/JSON
+  parameter/Internald
+  parameter/IoHomecontrold
+  parameter/IoHomecontrolOVPd
+  parameter/OVPd
+  reference/SkitterIO
+  *.docx
+  *.heic
+  *.log
+  *.lua
+  *.module
+  *.pdf
+  *.pdn
+  *.psd
+  *.py
+  *.txt
+  *.xlsx
+  *.xml
+  *.zip
+  lunr.*.min.js
+  !lunr.en.min.js
+  !lunr.multi.min.js
+  !lunr.stemmer.support.min.js
 # draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
 nav:
-  - ⌂: README.md
   - Protocol:
       - Layer 1: radio.md
       - Layer 2: linklayer.md
       - Commands: commands.md
-      - Parameter: parameter.md
+      - Parameter: parameter/README.md
+  - Parameter Viewer: parameter/database/README.md
   - Reference:
       - Devices: devices.md
+      - Somfy Connectivity Kit: devices/Somfy/ConnectivityKit/README.md
+      - Somfy Izymo: devices/Somfy/Izymo/README.md
+      - Somfy Smoove: devices/Somfy/Smoove/README.md
+      - Somfy Set&Go: devices/Somfy/SetGo/README.md
+      - Velux KLI31x: devices/Velux/KLI31x/README.md
+      - Velux KLR200: devices/Velux/KLR200/README.md
+      - Atlantic Thermor: devices/misc/AtlanticThermor/README.md
       - Firmware: firmware.md
+      - Si446x: reference/Si446x-Inside-EZRadioPRO/README.md
+      - CC1021: radio-cc1021.md
+      - Box PINs: devices/Somfy/somfy-pin-to-box.md
   - misc:
       - RTL-SDR: radio-rtlsdr.md
-      - CC1021: radio-cc1021.md
+      # - CC1021: radio-cc1021.md
+  # - home: README.md
 
 plugins:
   - search
@@ -70,50 +101,69 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/MPEb7dTNdN
-      name: iown-Discord
+      # name: iown-Discord
     - icon: fontawesome/brands/telegram
       link: https://t.me/iownHomecontrol
-      name: iown-Telegram
+      # name: iown-Telegram
+    - icon: material/home
+      link: 'https://velocet.github.io/iown-homecontrol'
+    - icon: material/github
+      link: 'https://github.com/velocet/iown-homecontrol'
+#    - icon: material/twitter
+#      link: 'https://twitter.com/'
+  status:
+    beta: Documentation in beta
+    WIP: Documentation unfinished/wrong/incomplete
 
 extra_css:
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#content-area-width
   - assets/stylesheets/extra.css
+
 theme:
   name: material
+  custom_dir: scripts/mkdocs/overrides
   locale: en
   highlightjs: true
-  logo: assets/images/favicon.png
-  favicon: assets/images/favicon.png
+  # logo: assets/images/logo_filled.png
+  favicon: assets/images/favicon.ico
   font:
     text: Open Sans
     code: Source Code Pro
-  icon:
-    repo: fontawesome/brands/github
+  icon: # https://www.materialpalette.com/icons
     edit: material/pencil
-    logo: bootstrap/envelope-paper
+    logo: material/book-open-page-variant
+    repo: fontawesome/brands/github
   palette:
     primary: grey # blue grey
     accent: light blue
   features:
-    - content.action.edit
+    # - content.action.edit
+    # - content.code.annotate # Code Comment Subsitution .. senseless
     - header.autohide
     # - navigation.expand
-    # - navigation.footer
+    # - navigation.footer  # Disabled: Just takes real estate
     # - navigation.indexes # Not compatible with toc.integrate: sections cannot host TOC due to missing space.
     - navigation.path
     # - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.top
     - navigation.tracking
     - toc.follow
     - toc.integrate # TOC is always rendered as part of the navigation sidebar on the left
 
 markdown_extensions:
-  - tables
-  - toc:
-      permalink: true
-      title: topix
+  # - admonition
+  # - codehilite
+  # - tables
+  - toc
+      # permalink: " ¶" # add space before anchor link containing a symbol ¶ at the end of each headline
+      # title: topix    # title of the toc in the right navigation sidebar
+      # toc_depth: 3    # range of levels to be included in the toc
+  # - pymdownx.betterem
   - pymdownx.highlight
-  - pymdownx.inlinehilite
+  # - pymdownx.inlinehilite
+  # - pymdownx.saneheaders
   - pymdownx.smartsymbols
   - pymdownx.highlight:
       anchor_linenums: true
@@ -126,18 +176,17 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-            # - pymdownx.tasklist:
-            #     custom_checkbox: true
-            #     clickable_checkbox: false
-
+  # - pymdownx.tasklist:
+  #     custom_checkbox: true
+  #     clickable_checkbox: false
 
 validation:
   nav:
     omitted_files: info
-    not_found: info
+    not_found: warn
     absolute_links: info
   links:
     not_found: info
-    # anchors: info
+    anchors: info
     absolute_links: info
-    unrecognized_links: info
+    unrecognized_links: ignore

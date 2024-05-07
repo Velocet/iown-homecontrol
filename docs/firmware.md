@@ -4,12 +4,13 @@
 > If you can provide firmware images, you can share them here (file an issue) or via Discord/Telegram ;)_
 
 This document and it's corresponding folder provide information about the available firmware binaries.
-It does not hold information about reversing those binaries. Please refer to the [reverse-engineering.md](reverse eng) section and dont't forget to grab the provided SVDs...
+It does not hold information about reversing those binaries. Please refer to the reverse engineering section and dont't forget to grab the provided SVDs...
 
 Most of this stuff documents Somfy related images as there are no Velux images :(
 
 <!-- TODO Explain where/how to find, extract fw -->
 <!-- TODO Change SVD and map strings section correctly -->
+<!-- FIX sentences above -->
 
 ## Overview
 
@@ -19,7 +20,7 @@ Other firmware used by Overkiz is based on ContikiOS.
 
 - Somfy uses mostly STM32F101RCT6 in Gateways, Remotes and Actuators.
 - Velux uses mostly SiLabs EFR/EFM series.
-- Head over to the [Devices](DEVICES.md) section where this information is collected.
+- Head over to the [Devices](devices.md) section where this information is collected.
 
 - Somfy/Overkiz Firmware Naming Scheme: `$usage-[$type]-$mcu-$datetime.$ext`
 

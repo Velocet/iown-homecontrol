@@ -1,6 +1,10 @@
-// #include "em_device.h"
+---
+status: WIP
+---
+# CC1021
 
-#include <stddef.h>
+``` cpp
+#include "em_device.h"
 #include "ezradio_cmd.h"
 #include "ezradio_prop.h"
 #include "ezradio_api_lib.h"
@@ -9,17 +13,24 @@
 #include "ezradio_comm.h"
 #include "ezradio_hal.h"
 #include "ezradio_transmit_plugin.h"
-ezradiodrv_config.h
+#include "ezradiodrv_config.h"
+```
 
-Maybe I can add some more info to io-homecontrol and I need some help to calculate frequency from CC1021 from a old velux KUX100. I use a logic analyzer to sniffing the SPI infomation between mcu and CC1021.
-I think there are 6 channels. 3 Rx and 3 Tx channels and each Rx channel is connected to each Tx channel. mcu/cc1021 scan every Rx channel for 2.7 ms if there is data on an Rx channel the mcu/cc1021 changes to predetermined Tx channel.
+> Maybe I can add some more info to io-homecontrol and I need some help to calculate frequency from CC1021 from a old velux KUX100.
+>
+> I use a logic analyzer to sniffing the SPI infomation between mcu and CC1021.
+>
+> I think there are 6 channels. 3 Rx and 3 Tx channels and each Rx channel is connected to each Tx channel.
+>
+> mcu/cc1021 scan every Rx channel for 2.7 ms if there is data on an Rx channel the mcu/cc1021 changes to predetermined Tx channel.
 
 ## Init CC1021
 
 > AA = Config Registers Addr | DD = Data | W/R = Write/Read to/from CC1021
+>
 > Frequency register A is use for RX. Frequency register B is use for TX
 
-```
+``` log
 AA DD W/R
 04 3A W Frequency register 2A - 8 MSB of frequency control word A
 08 3A W Frequency register 2B - 8 MSB of frequency control word B
@@ -91,7 +102,7 @@ CC1021 RX channel 1
 04 3A = Frequency register 2A
 05 1C = Frequency register 1A
 06 7D = Frequency register 0A
->       wait 2.7 ms before changes to new Rx kanal if data on Rx channel changes Tx channel in CC1021 to
+>       wait 2.7 ms before changes to new Rx channel if data on Rx channel changes Tx channel in CC1021 to
 CC1021 TX channel 1
 08 3A = Frequency register 2B
 09 21 = Frequency register 1B
@@ -100,7 +111,7 @@ CC1021 RX channel 2
 04 3A = Frequency register 2A
 05 28 = Frequency register 1A
 06 A3 = Frequency register 0A
->       wait 2.7 ms before changes to new Rx kanal if data on Rx channel changes Tx channel in CC1021 to
+>       wait 2.7 ms before changes to new Rx channel if data on Rx channel changes Tx channel in CC1021 to
 CC1021 TX channel 2
 08 3A = Frequency register 2B
 09 2D = Frequency register 1B
@@ -109,7 +120,7 @@ CC1021 RX channel 3
 04 3A = Frequency register 2A
 05 38 = Frequency register 1A
 06 43 = Frequency register 0A
->       wait 2.7 ms before changes to new Rx kanal if data on Rx channel changes Tx channel in CC1021 to
+>       wait 2.7 ms before changes to new Rx channel if data on Rx channel changes Tx channel in CC1021 to
 CC1021 TX channel 3
 08 3A = Frequency register 2B
 09 3D = Frequency register 1B
@@ -117,4 +128,4 @@ CC1021 TX channel 3
 > Start Over
 ```
 
-Maybe someone can calculator the Rx/Tx frekvens from the hex code in Frequency register A/B from cc1021 datasheet. CC1021 use 14.7456 MHz Crystal oscillator.
+Maybe someone can calculator the Rx/Tx frequency from the hex code in Frequency register A/B from cc1021 data sheet. CC1021 use 14.7456 MHz Crystal oscillator.

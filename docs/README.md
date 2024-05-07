@@ -4,17 +4,13 @@ hide:
   - toc
   - path
 ---
-<div align="center" width="100%">
 
-![iown-homecontrol logo](assets/images/repository-open-graph.png)
-
-[![iown-homecontrol on Telegram](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![iown-homecontrol on Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
-
-</div>
-
----
+#
 
 <div align="center" width="100%">
+  <img src="assets/images/repository-open-graph.png" alt="iown-homecontrol logo"/><br/>
+  <a href="https://t.me/iownHomecontrol" target="_self"><img src="https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram" alt="iown-homecontrol on Telegram"/></a>
+  <a href="https://discord.gg/MPEb7dTNdN" target="_self"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord" alt="iown-homecontrol on Discord"/></a>
 
 ``` mermaid
 %%{init:{"theme":"neutral","fontFamily":"monospace","flowchart":{"curve":"natural"}}}%%
@@ -34,11 +30,15 @@ flowchart TB
     radio<--"NRZ"-->ant
   end
 ```
-<!-- TODO Short introduction on how to use/read this documentation -->
-
-## Naming Conventions & Wording <!-- Clean descriptions of explanations -->
 
 </div>
+
+<!-- TODO Short introduction on how to use/read this documentation -->
+<!-- TODO Clean descriptions of explanations -->
+
+---
+
+## Naming Conventions & Wording
 
 > [!NOTE]
 > Based on the official wording and [Ethernet Frame](https://en.wikipedia.org/wiki/Ethernet_frame) description.

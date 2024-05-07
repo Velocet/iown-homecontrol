@@ -10,6 +10,7 @@ The product only reacts to the required action if they match. This safety mechan
 # io-homecontrol Link Layer Specification
 
 There are at least two known protocols:
+
 - io homecontrol 1W
 - io homecontrol 2W
 
@@ -22,6 +23,7 @@ There are at least two known protocols:
 | Character coding | NRZ             |
 
 Settings:
+
 - Bitrate: 38400 bauds (baud/sec) = 38400 bits/s
   - Real Bitrate: 38400,9600 Bit/s (Bit/sec)
   - Bitrate Error: 1,0410 ppm
@@ -72,6 +74,7 @@ This is the standard io-homecontrol frame (byte positions in the header).
 
 - Minimum Length = 11 bytes (i.e. without any DATA)
 - Maximum Length = 32 bytes (i.e. maximum 21 bytes of DATA)
+  - 0b11111 = 31 = 0x1F
 
 From the decompilation:
   NodeAddress   : 0x0000
@@ -266,7 +269,7 @@ Addresses are also refered to as *Node ID* which resembles the MS-B of a typical
 
 ### CommandParameter
 
-See [Commands](COMMANDS.md) for command id reference.
+See [Commands](commands.md) for command id reference.
 
 #### CommandParameter Types
 
@@ -384,10 +387,10 @@ In 1-way mode, the controller does not get any answer. So this is the simplest d
 
 Actions:
 
-* Controller sends command 0x28 (discover) when entering discover mode
-* Device in pairing mode answers with command 0x29 (discover answer) and gives metadata to identify itself to the controller
-* Controller confirms having received discovery information from device
-* Devices acks confirmation
+- Controller sends command 0x28 (discover) when entering discover mode
+- Device in pairing mode answers with command 0x29 (discover answer) and gives metadata to identify itself to the controller
+- Controller confirms having received discovery information from device
+- Devices acks confirmation
 
 ```YAML
 # Discover request
@@ -423,15 +426,16 @@ The pairing process consists in transmitting the key. Authentication in adding a
 
 In both modes (1-way/2-ways), the transferred key is obfuscated using different methods.
 But both methods imply a shared key probably specified in the protocol documentation.
-This key is refferred to as **transfer key** and has the following value, probably hardcoded in the specification:
+This key is referred to as **transfer key** and has the following value, probably hardcoded in the specification:
 
 - `34C3466ED88F4E8E16AA473949884373` - As a UUID: `34C3466E-D88F-4E8E-16AA-47:39:49:88:43:73`
 
 Other Keys found in the io Gateway:
+
 - `SDNP io Actuator 1W Control Key = FD534F4D4659` = `0xFD SOMFY`
 - `4275696C64696E6720436F6E74726F6C` = `Building Control`
 
-**Note:** All Crypto functions are available in [ioCrypto.py](../scripts/ioCrypto.py)
+> **Note:** All Crypto functions are available in [Iown-ioCrypto.py](https://github.com/Velocet/iown-homecontrol/raw/main/scripts/Iown-ioCrypto.py)
 
 ### Initial Vector (IV) and AES-128 Encryption
 
@@ -503,7 +507,7 @@ In 1-way mode, the controller will send several times the command 0x30 with its 
 For node with address `abcdef`, the initial value will be:
 
 ```HEX
-ABCDEFABCDEFABCDEFABCDEFABCDEFAB
+  ABCDEFABCDEFABCDEFABCDEFABCDEFAB
 ```
 
 Furthermore, the 0x30 message is authenticated using a 1-way MAC embedded in the command itself. For the node `abcdef` with key `01020304050607080910111213141516` and sequence number 0x1234 the 0x30 message will be:
@@ -517,8 +521,8 @@ FC 00 00003F ABCDEF 30 7E60491F976ADF653DB0ED785E49A201 02 01 1234 19E81EC43D5E 
 **Note:** in examples below, the stack key used is `01020304050607080910111213141516`
 
 In 2-Way mode, there are 2 ways keys can be exchanged:
-* By pulling the key from a remote node
-* By pushing a key to a remote node
+- By pulling the key from a remote node
+- By pushing a key to a remote node
 
 It seems that when a new device is added to a stack, both methods are used. First, the controller will collect the already set device key and then use it to authenticate requests to push its stack key to the device.
 
@@ -526,10 +530,10 @@ It seems that when a new device is added to a stack, both methods are used. Firs
 
 Actions:
 
-* Right after initial discovery, the controller issues command 0x38 (launch key transfer). This command is not authenticated but submits a 6-byte long initial value to be used to encrypt the key used by the device
-* The device answers with command 0x32 (key transfer) and sends its key encrypted using the transfer key
-* The controller issues a command 0x3c (challenge request) to authenticate the previous command
-* The device answers to the challenge with command 0x3d and a response encrypted using the key transmitted just before in command 0x32
+- Right after initial discovery, the controller issues command 0x38 (launch key transfer). This command is not authenticated but submits a 6-byte long initial value to be used to encrypt the key used by the device
+- The device answers with command 0x32 (key transfer) and sends its key encrypted using the transfer key
+- The controller issues a command 0x3c (challenge request) to authenticate the previous command
+- The device answers to the challenge with command 0x3d and a response encrypted using the key transmitted just before in command 0x32
 
 Example (device key is `ABCDEF01020304050607080910111213`):
 
@@ -553,13 +557,13 @@ Example (device key is `ABCDEF01020304050607080910111213`):
 **Note:** stack key push to device has been observed after a bit of information exchange such as general information (0x54 and 0x56). Most of these commands are authenticated using 0x3c and 0x3d (see authentication below) and so are the push commands.
 
 Actions:
-* First, the controller asks the device a challenge using command 0x31 (ask challenge)
-* The device then answers using command 0x3c (challenge request) and a 6-byte long challenge
-* The controller sends the encrypted stack key to the device node with command 0x32 (key transfer) using the transfer key
-* The device asks the controller for authentication using 0x3c
-* The controller authenticates using its stack key (not the device key anymore) and command 0x3d
-* The device answers with command 0x33 to confirm that stack key has been received
-* To check if the stack key has properly been transferred, the controller sends the 0x36 command and authenticate to finally receive the address of the device in the 0x37 command
+- First, the controller asks the device a challenge using command 0x31 (ask challenge)
+- The device then answers using command 0x3c (challenge request) and a 6-byte long challenge
+- The controller sends the encrypted stack key to the device node with command 0x32 (key transfer) using the transfer key
+- The device asks the controller for authentication using 0x3c
+- The controller authenticates using its stack key (not the device key anymore) and command 0x3d
+- The device answers with command 0x33 to confirm that stack key has been received
+- To check if the stack key has properly been transferred, the controller sends the 0x36 command and authenticate to finally receive the address of the device in the 0x37 command
 
 Example:
 

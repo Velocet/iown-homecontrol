@@ -180,7 +180,7 @@ A command is built as follow:
 
 ### Parameter
 
-For detailed information on parameters see [Parameter](PARAMETER.md)
+For detailed information on parameters see [Parameter](README.md)
 
 > ![NOTE]
 > See also KLF200 API: `Appendix 2: List of actuator types and their use of Main Parameter and Functional Parameters`
@@ -1091,7 +1091,7 @@ This data is from *Set&Go io* XML definitions.
 
 Also called OEM ID. Each Manufacturer has their own ID:
 
-- 0x00 = All / Public / Generic
+- 0x00 = No Type = All nodes except controller
 - 0x01 = Velux
 - 0x02 = Somfy
 - 0x03 = Honeywell
@@ -1626,7 +1626,7 @@ No parameter. Destination device answers with 0x3C.
 - Encrypted 2-Way Key (16 bytes)
 
 > ![NOTE]
-> The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3C, see [LinkLayer](LINKLAYER.md)
+> The Key is encrypted and depends on a challenge submitted before using 0x38 or 0x3C, see [LinkLayer](linklayer.md)
 
 ### 33: Find Actuator Ack = Key Transfer Ack
 

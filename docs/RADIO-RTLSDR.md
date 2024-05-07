@@ -3,7 +3,7 @@
 This document helps you choose, configure and install everything you need to receive io-homecontrol signals with an SDR.
 
 > [!NOTE]
-> The description of the io-homecontrol signal can be found here: [Radio](RADIO.md).
+> The description of the io-homecontrol signal can be found here: [Radio](radio.md).
 
 ## Basics
 
@@ -104,7 +104,7 @@ Start receiving ioHome signals on channel 2 (1W/2W)
 
 #### Flex Decoder via Configuration File
 
-- Download [rtl_433.conf](../scripts/rtl_433/rtl_433.conf)
+- Download [rtl_433.conf](https://github.com/Velocet/iown-homecontrol/raw/main/scripts/rtl_433/rtl_433.conf)
 - Move *rtl_433.conf* next to your *rtl_433* executable
 - Just start *rtl_433*
 

@@ -4,24 +4,24 @@
 
 Analysis and Information about the Board Layout, PIN Definitions and ongoing efforts to "understand" the platform.
 
-| ![Somfy Connectivity Kit PCB Top View](pics/Somfy-ConnectivityKit-PCB-Top.jpg) |
+| ![Somfy Connectivity Kit PCB Top View](img/Somfy-ConnectivityKit-PCB-Top.jpg) |
 | :----------------------------------------------------------------------------: |
 | Somfy Connectivity Kit PCB Top View                                            |
 
 </div>
 
 > [!CAUTION]
-> When referencing PCB directions it is assumed that we are looking down at the PCB with the buttons facing towards you (like in the pictures).
+> When referencing PCB directions it is assumed that you are looking down at the PCB with the buttons facing towards you (like in the pictures).
 
 ## Hardware Overview
 
-- Espressif ESP32-WROVER-E N8R8 v2.1 Module
+- Espressif [ESP32-WROVER-E (N8R8) v2.1 Module](#esp32-module)
   - MCU: Espressif ESP32-D0WD v3
-  - ROM: XMC XM25QH64CHIQ: 8MB
-  - RAM: Espressif ESP-PSRAM64H: 8MB
-- Semtech SX1243 - Radio: 433 MHz (Somfy RTS, etc.)
-- STM32F101RCT6 with 256kB ROM and 32kB RAM
-  - Silicon Labs Si4461 REV2A1 - Radio: io-homecontrol
+  - ROM: [XMC XM25QH64CHIQ](#nor-flash-xm25qh64chiq) (8MB)
+  - RAM: Espressif ESP-PSRAM64H (8MB)
+- [STM32 F103 RCT6](#stm32f103) with 256kB ROM and 32kB RAM
+- [Silicon Labs Si4461 Rev2A1](#si4461) radio is used for io-homecontrol
+- [Semtech SX1243](#sx1243) radio chip is used for Somfy RTS (433MHz)
 
 <div align="center" width="100%">
 
@@ -53,6 +53,28 @@ end
 
 </div>
 
+### Apple HomeKit Support
+
+This is the log that shows up when you connect the device to your network.
+
+``` log
+Service Somfy Connectivity kit._hap._tcp.local. added
+type='_hap._tcp.local.'
+name='Somfy Connectivity kit._hap._tcp.local.'
+addresses=[b'\xc0\xa8\xbao'] # C0 A8 BA 6F
+server='MyHost.local.' port=31988
+properties={
+  b'c#': b'3'
+  b'ci': b'2'
+  b'ff': b'2'
+  b'id': b'C1:56:B3:DA:5D:96'
+  b'md': b'Connectivity kit'
+  b'pv': b'1.1'
+  b's#': b'35'
+  b'sf': b'0'
+  b'sh': b'1Aynbg==' (0x000C006E)
+```
+
 ### LED Colors
 
 The LED(s) display the product's operating mode or status.
@@ -63,11 +85,18 @@ The LED(s) display the product's operating mode or status.
 - Red Flashing: Not connected to Wifi or Server
 - White: Connected to Server
 
-## ESP32 Wrover-E Module
+## ESP32 Module
 
 Overkiz is using the official ESP bootloader and WebIOPi (Python) to test via serial.
 
-<details><summary>Somfy Connectivity Kit GPIO Summary</summary><div align="center" width="100%">
+<div align="center" width="100%">
+
+| ESP32-WROVER-E module without shield                                                                                     |
+| :----------------------------------------------------------------------------------------------------------------------: |
+| ![ESP32-WROVER-E module without shield](img/Somfy-ConnectivityKit-ESP32WroverE-Front.jpg)                                |
+| [ESP32 Pinout Reference: Which GPIO pins should you use?](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/) |
+
+</div><details><summary>ESP32 <> STM32 GPIO Interconnection Summary</summary><div align="center" width="100%">
 
 | ESP32<br>GPIO | STM32<br>PIN | DBG<br>PIN        | FUNCTION                                                                                                            |
 | :-----------: | :----------: | :---------------: | :-----------------------------------------------------------------------------------------------------------------  |
@@ -107,80 +136,56 @@ Overkiz is using the official ESP bootloader and WebIOPi (Python) to test via se
 | 2             |              | Strap             | `HSPI WP=WriteProtect` - Test1-Middle<br>*Strap*: 0 = BootMode                                                      |
 | 15            | 43`RX`       | DBG:Tx            | `HSPI CS` / `JTAG DO` - Test3-Top<br>*Strap*: 1 = Debug Log @ `UART TX`                                             |
 
-> [ESP32 GPIO Summary](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html#gpio-summary)
->
-> [SPI Explanation](https://randomnerdtutorials.com/esp32-spi-communication-arduino/) / [Boot Mode Selection](https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html)
+> [ESP32 GPIO Summary](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html#gpio-summary) | [SPI Explanation](https://randomnerdtutorials.com/esp32-spi-communication-arduino/) | [Boot Mode Selection](https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html)
 
 </div></details>
 
-<details><summary>ESP32 WROVER-E (ESP32-D0WD-V3) GPIO Summary</summary><div align="center" width="100%">
+There are two unknown "areas":
 
-| GPIO    | STRAP | Comments           |
-| ------: | :---: | :----------------- |
-| 00      | 1     | CLK_OUT1           |
-| `VSPI`  |       | `VSPI`             |
-| 05      | 1     | VSPICS             |
-| 18      |       | VSPICLK            |
-| 21      |       | VSPIHDA            |
-| 23      |       | VSPIDAT            |
-| 19      |       | VSPIQPI; U0CTS     |
-| 22      |       | VSPIWPT; U0RTS     |
-| `HSPI`  |       | `HSPI`             |
-| 02      | 0     | HSPIWP             |
-| 04      |       | HSPIHDA            |
-| 12      | 0     | JTAG:MTDI; HSPIQPI |
-| 15      | 1     | JTAG:MTDO; HSPICS  |
-| 13      |       | JTAG:MTCK; HSPIDAT |
-| 14      |       | JTAG:MTMS; HSPICLK |
-| 01      |       | U0TXD; CLK_OUT3    |
-| 03      |       | U0RXD; CLK_OUT2    |
-| `NoDef` |       | `NO DEFINITION`    |
-| 25-27   |       |                    |
-| 32-33   |       |                    |
-| `GPI`   |       | `INPUT ONLY`       |
-| 34-35   |       | GPI                |
-| 36      |       | GPI; SENSOR_VP     |
-| 37-38   |       | GPI                |
-| 39      |       | GPI; SENSOR_VN     |
-| `N/A`   |       | `NOT USABLE`       |
-| 06-11   |       | SPI0/1; ROM        |
-| 16-17   |       | SPI0/1; RAM        |
+- *IO26*, *IO27*: Connected to an unpopulated area which seems to hold a chip during testing (could be seen from the marker at the bottom of the right side).
+- *IO21*, *IO2*: Could be used for selection of the Boot Mode or load/start a special app since *IO2* is a *Strap Pin* and *IO21* could serve as a [Boot from Test Firmware](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/bootloader.html#boot-from-test-firmware) pin.
 
-> GPIO34-39 are input only and have no software-enabled pull-up/down!
+### ESP32 Boot Mode Selection and Jumper PINs
 
-</div></details>
+You can find two buttons at the bottom of the device which can be used to set a different operating mode. The ESP32 has it's own modes as does the STM32 have.
+The modes of the STM32 get directly triggered by the ESP32 and can't be set from the outside. The ESP32 has additional lines to set the `BOOT0` and`BOOT1` PINs of the STM32.
 
-### ESP32-WROVER-E module (ESP32-D0WD V3)
+The first table describes the PINs and the corresponding connection area on the Connectivity Kit PCB or the function for which it is (normally) used.
+Remember that the ESP32 has a mux matrix to assign any PIN to any function (eg. UART, SPI, etc.).
 
-<div align="center" width="100%">
+<details><summary>ESP32 Boot Mode and Jumper PINs</summary><div align="center" width="100%">
 
-| ESP32-WROVER-E module without shield                                                                                     |
-| :----------------------------------------------------------------------------------------------------------------------: |
-| ![ESP32-WROVER-E module without shield](pics/Somfy-ConnectivityKit-ESP32WroverE-Front.jpg)                               |
-| [ESP32 Pinout Reference: Which GPIO pins should you use?](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/) |
+| PIN  | FUNCTION         |
+| ---: | :--------------- |
+| IO5  | Button 1 RST     |
+| VP   | Button 2 PROG    |
+| -->  | -->              |
+| VN   | Jumper 1 Left    |
+| IO34 | Jumper 2 Left    |
+| IO35 | Jumper 3 Left    |
+| IO23 | Jumper 4 Bottom  |
+| IO0  | Jumper 5 Right   |
+| -->  | -->              |
+| TXD0 | UART Tx          |
+| RXD0 | UART Rx          |
+| IO26 | Debug 1          |
+| IO27 | Debug 1          |
+| IO21 | Debug 2          |
+| IO2  | Debug 2          |
+| IO14 | STM32 + JTAG TMS |
+| IO15 | STM32 + JTAG     |
+| IO18 | STM32 BOOT0      |
+| IO4  | STM32 RESET      |
 
-</div>
+**ESP32 Boot Mode Selection:**
 
-#### NOR Flash: XM25QH64CHIQ
+|  PIN |  STD  | BOOT  | Normal | Jumper |
+| ---: | :---: | :---: | :----: | :----: |
+| IO00 |   1   |   0   |   18   | YES    |
+| IO02 |   0   |   0   |   14   |        |
+| IO21 |   ?   |  13   |   14   |        |
 
-- XM25 = Company Prefix + SPI Flash Family
-- QH = Series: 2.3~3.6V, 4KB uniform-sector, Quad Mode
-- 64 = Density: 64 MBit
-- CHI = Version: SOP 208mil 8L Package + Temp. Range: Industrial (-40 - +85°C)
-- Q = QE Code
-
-> `QPI needs QE bit in Status Register-2 set. When QE=1, /WP => IO2 and /HOLD => IO3.`
-
-<details><summary>Flash Chip PIN Out and Connection Diagram</summary><div align="center" width="100%">
-
-| ![XM25QH64C Connection Diagram](pics/XM25QH64C-connectionDiagram.png) |
-| :-------------------------------------------------------------------: |
-| XM25QH64C Connection Diagram                                          |
-
-
-| ![XM25QH64C Connection Diagram](pics/XM25QH64C-pinOutAll.png) |
-| :-----------------------------------------------------------: |
-| XM25QH64C PIN Out                                             |
+> Jumper means the PIN is connected to the outside world and can be triggered. Either via debug interface or button.
 
 </div></details>
 
@@ -188,7 +193,7 @@ Overkiz is using the official ESP bootloader and WebIOPi (Python) to test via se
 
 Bootlogs from my somewhat broken board...
 
-<details><summary>Somfy Connectivity Kit ESP32 Bootlogs</summary>
+<details><summary>ESP32 Bootlogs</summary>
 
 ``` go
 etc Mon dd yyyy hh:mm:ss
@@ -224,63 +229,38 @@ load:0x3d234c30,len:-1713843249
 
 </details>
 
-There are two unknown "areas":
+### NOR Flash: XM25QH64CHIQ
 
-- *IO26*, *IO27*: Connected to an unpopulated area which seems to hold a chip during testing (could be seen from the marker at the bottom of the right side).
-- *IO21*, *IO2*: Could be used for selection of the Boot Mode or load/start a special app since *IO2* is a *Strap Pin* and *IO21* could serve as a [Boot from Test Firmware](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/bootloader.html#boot-from-test-firmware) pin.
+The flash chip sitting on the ESP32 Wrover-E module has 8MB and is connected via SPI.
 
-<div align="center" width="100%">
+- XM25 = Company Prefix + SPI Flash Family
+- QH = Series: 2.3~3.6V, 4KB uniform-sector, Quad Mode
+- 64 = Density: 64 MBit
+- CHI = Version: SOP 208mil 8L Package + Temp. Range: Industrial (-40 - +85°C)
+- Q = QE Code
 
-|      SPI<br>JTAG | MISO<br>MTDI | MOSI<br>MTCK | CLK<br>MTMS | CS<br>MTDO |
-| ---------------: | :----------: | :----------: | :---------: | :--------: |
-|        **V-SPI** |      19      |      23      |     18      |     05     |
-|        **H-SPI** |      12      |      13      |     14      |     15     |
-|         **JTAG** |      12      |      13      |     14      |     15     |
-| **Debug<br>Log** |              |              |             | 15 = High  |
+<details><summary>Flash PIN Out and Connection Diagram</summary><div align="center" width="100%">
 
-</div>
+| ![XM25QH64C Connection Diagram](img/XM25QH64C-connectionDiagram.png) |
+| :-------------------------------------------------------------------: |
+| XM25QH64C Connection Diagram                                          |
 
-### ESP32 Boot Mode Selection and Jumper PINs
+> *`QPI` needs `QE` bit in Status Register-2 set. When `QE=1`, `/WP` => `IO2` and `/HOLD` => `IO3.*`
 
-<div align="center" width="100%">
-
-|  PIN |  STD  | BOOT  | Normal | Jumper |
-| ---: | :---: | :---: | :----: | :----: |
-| IO00 |   1   |   0   |   18   | YES    |
-| IO02 |   0   |   0   |   14   |        |
-| IO21 |   ?   |  13   |   14   |        |
-
-</div>
-
-<details><summary>ESP32 Jumper PINs</summary><div align="center" width="100%">
-
-| PIN  | FUNCTION         |
-| ---: | :--------------- |
-| IO5  | Button 1 RST     |
-| VP   | Button 2 PROG    |
-| -->  | -->              |
-| VN   | Jumper 1 Left    |
-| IO34 | Jumper 2 Left    |
-| IO35 | Jumper 3 Left    |
-| IO23 | Jumper 4 Bottom  |
-| IO0  | Jumper 5 Right   |
-| -->  | -->              |
-| TXD0 | UART Tx          |
-| RXD0 | UART Rx          |
-| IO26 | Debug 1          |
-| IO27 | Debug 1          |
-| IO21 | Debug 2          |
-| IO2  | Debug 2          |
-| IO14 | STM32 + JTAG TMS |
-| IO15 | STM32 + JTAG     |
-| IO18 | STM32 BOOT0      |
-| IO4  | STM32 RESET      |
+| ![XM25QH64C Connection Diagram](img/XM25QH64C-pinOutAll.png) |
+| :-----------------------------------------------------------: |
+| XM25QH64C PIN Out                                             |
 
 </div></details>
 
-## STM32F103 Pin Out
+## STM32F103
 
-<details><summary>Somfy Connectivity Kit STM32 PIN Out</summary><div align="center" width="100%">
+The STM32 ioHC firmware knows different "modes". Since there are at least four unknown PINs that could be bridged my educated guess is these are used for boot mode selection ;>
+
+It is assumed that the STM32 runs the same ioHC firmware as all other boxes from Somfy/Overkiz.
+<!-- TODO More information about the firmware, chip and reverse engineering can be found here: -->
+
+<details><summary>STM32 PIN Out</summary><div align="center" width="100%">
 
 | STM32      | Si4462      | ESP32              | DBG         | FUNCTION                                                   |
 | :--------- | :---------: | :----------------: | :---------: | :--------------------------------------------------------- |
@@ -325,19 +305,7 @@ There are two unknown "areas":
 
 </div></details>
 
-The STM32 firmware knows different "modes" which it can recognize. Since there are at least four unknown Pins that could be bridged my educated guess is a boot mode selection ;>
-
-<div align="center" width="100%">
-
-| PIN Name AT91 = STM32   | Serial RF | Test | Update | Flash | Stack |
-| :---------------------- | :-------: | :--: | :----: | :---: | :---: |
-| PA3/PE10/PC09 = TEST_RF | 1         | 0    |        |       | 1     |
-| PA5/PE11/PC11 = BOOT0   | 0         | 0    | 0      | 1     | 0     |
-| PA6/PE12/PC17 = BOOT1   | 0         | 0    | 1      | 0     | 0     |
-
-</div>
-
-PIN names for STM32s with ioHC firmware extracted from AT91 DTBs (TaHoma/Cozytouch/etc.)
+### STM32 Debug Header
 
 <div align="center" width="100%">
 
@@ -392,15 +360,24 @@ stateDiagram
 }
 ```
 
+| PIN Name AT91 = STM32   | Serial RF | Test | Update | Flash | Stack |
+| :---------------------- | :-------: | :--: | :----: | :---: | :---: |
+| PA3/PE10/PC09 = TEST_RF | 1         | 0    |        |       | 1     |
+| PA5/PE11/PC11 = BOOT0   | 0         | 0    | 0      | 1     | 0     |
+| PA6/PE12/PC17 = BOOT1   | 0         | 0    | 1      | 0     | 0     |
+
+> PIN names for STM32s with ioHC firmware extracted from AT91 DTBs (TaHoma/Cozytouch/etc.)
+
 </div>
 
-### Si446x Pin Out
+## Si4461
 
-Interface: SPI
+Interface: SPI. GPIO are configured by the GPIO_PIN_CFG command 13h. A complete list of the GPIO options could be found in the API guide.
+<!-- TODO: link to si re page -->
 
 <div align="center" width="100%">
 
-| Si4462    | STM32     | DBG  | FUNCTION                                                         |
+| Si4461    | STM32     | DBG  | FUNCTION                                                         |
 | --------: | :-------: | :--: | :--------------------------------------------------------------: |
 | 9:`IO0`   | TODO      | TBD  | See `GPIO_PIN_CFG`<br/>**NOTE**: Could be shorted with 11:`nIRQ` |
 | 11:`nIRQ` | See 9:IO0 | TBD  | See `GPIO_PIN_CFG`<br/>**NOTE**: Could be shorted with 9:`IO0`   |
@@ -416,23 +393,9 @@ Interface: SPI
 
 </div>
 
-GPIO are configured by the GPIO_PIN_CFG command in address 13h. A complete list of the GPIO options could be found in the API guide.
+## SX1243
 
-<div align="center" width="100%">
-
-|       | SERIAL | I2C | SPI        | DESC                              |
-| ----: | -----: | --: | ---------: | --------------------------------- |
-| Clock |        | SCL | SCK/SCLK   |                                   |
-| Data  | TX     | SDA | SDI/MOSI   | MasterOutSlaveIn                  |
-| Data  | RX     |     | SDO/MISO   | MasterInSlaveOut                  |
-|       |        |     | CE/nSS/nCS | ChipEnable/SlaveSelect/ChipSelect |
-|       | WP     |     |            | WriteProtect                      |
-
-</div>
-
-### SX1243 Pin Out
-
-The Semtech SX1243 is used for Somfy RTS and connected via TWI (I2C).
+The Semtech SX1243 is used for Somfy RTS and connected via TWI (I2C) to the ESP32.
 
 <div align="center" width="100%">
 
