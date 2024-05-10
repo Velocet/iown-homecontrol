@@ -19,6 +19,7 @@
     "editor.indentSize": "tabSize",
     "editor.insertSpaces": true,
     "editor.tabSize": 2
+    // "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[yaml]": {
     "editor.detectIndentation": false,
@@ -112,7 +113,7 @@
   "debug.console.wordWrap": false,
   "debug.showInStatusBar": "always",
   "debug.showSubSessionsInToolBar": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.maxComputationTime": 0,
   "diffEditor.wordWrap": "off",
   "doxdocgen.generic.useGitUserEmail": true,
@@ -281,11 +282,14 @@
   "platformio-ide.autoCloseSerialMonitor": false,
   "platformio-ide.disablePIOHomeStartup": true,
   "problems.showCurrentInStatus": true,
+  "python.analysis.autoImportCompletions": false,
   "python.analysis.autoSearchPaths": false,
   "python.analysis.enablePytestSupport": false,
   "python.analysis.exclude": [
     "**/.cache/**",
+    "**/.git/**",
     "**/.pio/**",
+    "**/.private/**",
     "**/.trunk/*actions",
     "**/.trunk/*logs",
     "**/.trunk/*notifications",
@@ -297,7 +301,11 @@
     "**/site-packages/**",
     "**/site/**",
   ],
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.fixAll": [
+    "source.convertImportFormat",
+    "source.unusedImports"
+  ],
+  "python.analysis.typeCheckingMode": "standard",
   "python.testing.autoTestDiscoverOnSaveEnabled": false,
   "python.testing.promptToConfigure": false,
   "redhat.telemetry.enabled": false,
@@ -315,6 +323,7 @@
     "**/.cache/**": true,
     "**/.git/**": true,
     "**/.pio/**": true,
+    "**/.private/**": false,
     "**/.trunk/*actions": true,
     "**/.trunk/*logs": true,
     "**/.trunk/*notifications": true,

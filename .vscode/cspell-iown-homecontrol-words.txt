@@ -12,6 +12,8 @@ GFSK
 Ghidra
 GPIO
 homecontrol
+Interframe
+interpacket
 iohc
 iohome
 iown
@@ -19,12 +21,14 @@ mkdocs
 Overkiz
 Pinout
 platformio
+Postamble
 prescaler
 raspberrypi
 Renode
 RSSI
 Somfy
 twoway
+unmodulated
 Velocet
 Velux
 WROVER

@@ -1,28 +1,20 @@
-# Thank You! What does your PR document/implement/fix?
-
-<!-- Short_Description -->
+# PR Short Description
+<!-- What does your PR document/implement/fix? -->
 
 ## Environment
 
-- Framework
-  - [ ] Arduino
-  - [ ] ESP-IDF
-  - [ ] PlatformIO
+- [ ] Framework/
+  - [ ] Arduino / ESP-IDF
+  - [ ] Third-Party Lib (eg. RadioLib)
+  - [ ] PlatformIO / VSCode
 - Architecture
   - [ ] ESP32
   - [ ] ESP8266
   - [ ] RP2040
   - [ ] Other
-- Radio
-  - [ ] SX12xx
+- Radio Module
+  - [ ] SX126x
+  - [ ] SX127x
   - [ ] Si4xxx
-  - [ ] C11xx
+  - [ ] CC11xx
   - [ ] Other
-
-## Checklist
-
-- Documentation
-  - [ ] Valid Markdown which renders normally?
-  - [ ] Markdownlint?
-- Code
-  - [ ] Code formatted?
