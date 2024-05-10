@@ -1,3 +1,8 @@
+---
+title: iown-homecontrol - Data Link and Network Layer
+description: io-homecontrol protocol and data format specification
+icon: material/layers-triple
+---
 <!--
 All products and applications integrated into the system not only communicate with the remote control, but also with each other. io-homecontrol&reg; is based on radio communication and works in the frequency range from 868 to 870 megahertz.
 Before the sender and receiver communicate with each other, the availability of the channel is checked.
@@ -6,108 +11,73 @@ These properties ensure that every command given arrives at the product and is e
 When used for the first time, the remote control (transmitter) and product (receiver) exchange a 128-bit encryption code and combine it with a random number for each new action.
 A code is calculated from this, which the transmitter and receiver compare with each other.
 The product only reacts to the required action if they match. This safety mechanism prevents you from reacting to an external transmitter. The new application automatically searches for existing products and takes them into account in its promotions.
--->
-# io-homecontrol Link Layer Specification
-
-There are at least two known protocols:
-
-- io homecontrol 1W
-- io homecontrol 2W
-
-| Baud Rate        | 4800 bps        |
-| ---------------- | --------------- |
-| Data Bits        | 8               |
-| Parity           | Odd             |
-| Start Bit        | Logical Level 0 |
-| Stop Bit         | Logical Level 1 |
-| Character coding | NRZ             |
-
-Settings:
-
-- Bitrate: 38400 bauds (baud/sec) = 38400 bits/s
-  - Real Bitrate: 38400,9600 Bit/s (Bit/sec)
-  - Bitrate Error: 1,0410 ppm
-  - Step Bitrate(?): 26666
-
-2FSK knows is binary which means it knows two states and tells us that the bit rate is equal the symbol rate: 1 bit (rate) = 1 symbol/modulation rate.
-symbol rate = n baud (bd) = n symbols per second
-symbol rate = pulse rate = pulses per second
-
-**note** Captured frames should be stored as CSV/TSV files with the following header:
-
-```CSV
-MSG
-```
-
-```TSV
-```
-
-- Modes of Operation: 3 * 2 (Each Mode can be Low Power)
-  - Master
-  - Slave
-  - Beacon (Repeater)
-- 3 Layer
-  - Layer 1: RF Transmission - Bit Representation
-    - UART Encoded
-    - 38.400 bps
-    - 26us Symbolrate
-    - Repeated Key Duration: Frame is sent every 140 milliseconds
-  - Layer 2: Frame (Data Link)
-    - Preamble: 256 bit of alternating 1>0>1>0 ...
-    - SyncWord / Start Byte
-    - PACKET
-    - CRC
-  - Layer 3: Packet (Network):
-    - Header
-    - Address
-    - Payload
-    - Rolling Code
-    - HMAC
-
-time lag between two successive activations: 200 ms
-
-## Protocol Frame
 
 IoSerialNumber: 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
-
-This is the standard io-homecontrol frame (byte positions in the header).
-
-- Minimum Length = 11 bytes (i.e. without any DATA)
-- Maximum Length = 32 bytes (i.e. maximum 21 bytes of DATA)
-  - 0b11111 = 31 = 0x1F
-
-From the decompilation:
-  NodeAddress   : 0x0000
-  Header/CMD    : 0x0000
-  ManufacturerId: 0x00
-  PrivateCmd:     0x00
 
 OWS: Handles talking to Overkiz Cloud
 
 > `apps\var\lib\io-homecontrol\lua-storage\io\stack&646575`
 
-  ```SHELL
-  address=646575,
-     type=065476,
-  manufacturer=2,
-  StackKey=E9 94 BA CF E6 BE D7 66 76 30 EA E4 75 BA AE 95
-  ```
-<!-- PLAYAEREA
+```SHELL
+address=646575,
+    type=065476,
+manufacturer=2,
+StackKey=E9 94 BA CF E6 BE D7 66 76 30 EA E4 75 BA AE 95
+```
+PLAYAEREA
 
   address=64 65 75,
      type=06 54 76,
   address=  64 65  75,
      type= 06   54 76,
 
- -->
+34C3466ED88F4E8E16AA473949884373
 
-  34C3466ED88F4E8E16AA473949884373
+-->
 
-<kbd>Ctrl + S</kbd>
+# io-homecontrol Link Layer: Protocol and Format Specification
 
-&horbar;&mdash;——————————
+There are at least two known protocols with some kind of third protocol especially for OEMs ("EMS2) that gets triggered with a long unmodulated carrier wave...
 
+``` mermaid title="io-homecontrol Frame"
+---
+title: io-homecontrol Frame
+---
+%%{init:{"fontFamily":"monospace"}}%%
+block-beta
+columns 9
+  Frame["Frame: 1W"]:9
+  block:frame:9
+    cb1["CTRL<br/>BYTE1"]
+    cb2["CTRL<br/>BYTE2"]
+    sa["SOURCE<br/>NodeID"]
+    da["DEST<br/>NodeID"]
+    cmd["Command<br/>ID"]
+    data["Main<br/>Parameter"]
+    rc["Rolling<br/>Code"]
+    hmac["HMAC"]
+    crc["CRC"]
+  end
+  space:1
+  size["Size"]:7
+  space:1
+  checksum["CRC-16/KERMIT"]:8
+```
+<!--
+- io-homecontrol 1W
+- io-homecontrol 2W
+-->
 
+## Protocol Frame
+
+- Length
+  - Minimum: 11 bytes (i.e. without any DATA)
+  - Maximum: 32 bytes (i.e. maximum 21 bytes of DATA)
+    - `0b11111` = 31 = 0x1F
+
+&horbar;&mdash;——————————<kbd>R T F M</kbd>&horbar;&mdash;——————————
+
+<!--
 ```YAML
 [—————————————————————————— P A C K E T ——————————————————————————]
                  [—————————— F R A M E ——————————]
@@ -123,18 +93,11 @@ OWS: Handles talking to Overkiz Cloud
  FCS = Frame Check Sequence: CRC16-KERMIT over HEADER+TYPE+PAYLOAD
 ```
 
-- Media Layers:
-  - Bits: Physical (Signal and Binary Transmission)
-  - Frames: Data Link (MAC = Physical Addressing)
-  - Packets: Network (IP = Path and Addressing)
-
-| NAME | Preamble | Sync Word | Header | Payload | CRC      | Postamble |
-| :--: | :------: | :-------: | :----: | :-----: | :------: | :-------: |
-| SIZE | 52 Byte  | 2 Byte    | 1 Byte | 1 Byte  | 3 Byte   | 3 Byte    |
-| TYPE | 0-1-0 FM | UART      | UART   | 1 Byte  | 3 Byte   | 3 Byte    |
-|      | 55       | FF 33     | 00     | 00      | 00:00:00 | 00:00:00  |
-
-
+| NAME     | Sync<br/>Word | Header | MAC        | CMD    | Parameter | Rolling<br/>Code | MIC      | CRC      |
+| :------: | :-----------: | :----: | :--------: | :----: | :-------: | :--------------: | :------: | :------: |
+| **SIZE** | 2 Byte        | 2 Byte | 2 * 3 Byte | 1 Byte |           |                  | 3 Byte   | 3 Byte   |
+| **ENC**  | UART          | UART   | UART       |        | 1 Byte    |                  | 3 Byte   | 3 Byte   |
+|          | FF 33         | 00     | xx         |        | 00        |                  | 00:00:00 | 00:00:00 |
 
 | Name | Preamble | Sync<br>Word | Control<br>Byte<br>0 | Control<br>Byte<br>1 | Destination<br>Node<br>ID | Source<br>Node<br>ID | Data  | CRC     |
 | :--: | :------: | :----------: | :------------------: | :------------------: | :-----------------------: | :------------------: | :---: | :-----: |
@@ -195,41 +158,42 @@ isOneWay
     - 8: 111 TypeOfSegment
   - Example for Session Information: Indicate button press/released event
   - Button Press Threshold: 140ms
-  - NOTE: see [US7852765B2](https://patentimages.storage.googleapis.com/ad/fb/19/e32e0fd9ea606e/US7852765.pdf)
+  - **NOTE**: [US7852765B2](https://patentimages.storage.googleapis.com/ad/fb/19/e32e0fd9ea606e/US7852765.pdf) -->
 
-#### Control Byte 1
+## Control Byte 0 - Basic Frame Information
 
-Basic Frame information.
+<div align="center" width="100%">
 
 | **BIT**  | 7-6   | 5    | 4-0  |
 | :------: | :---: | :--: | :--: |
-| **NAME** | Order | Mode | Size |
+| **NAME** | Order | Protocol<br/>Mode | Size |
 
-- `Order`: Indicate Relationship (Logical and/or Temporal) between transmitted Orders.
+</div>
 
-| #   | bit`[7]` | bit`[6]` | Command Order Relationship<br/>(First/Last Frame in Session) |
-| --: | :------: | :------: | :----------------------------------------------------------- |
-| 0   | 0        | 0        | Single            = Last/First Session Frame:  No/No         |
-| 1   | 0        | 1        | Next in Series    = Last/First Session Frame:  No/Yes        |
-| 2   | 1        | 0        | Next in Parallel  = Last/First Session Frame: Yes/No         |
-| 3   | 1        | 1        | Command Group End = Last/First Session Frame: Yes/Yes        |
+- `Order`: Indicates Relationship (Logical and/or Temporal) between transmitted Orders.
+  | #   | bit`[7]` | bit`[6]` | Command Order Relationship<br/>(First/Last Frame in Session) |
+  | --: | :------: | :------: | :----------------------------------------------------------- |
+  | 0   | 0        | 0        | `Single            = Last/First Session Frame:  No/No`       |
+  | 1   | 0        | 1        | `Next in Series    = Last/First Session Frame:  No/Yes`      |
+  | 2   | 1        | 0        | `Next in Parallel  = Last/First Session Frame: Yes/No`       |
+  | 3   | 1        | 1        | `Command Group End = Last/First Session Frame: Yes/Yes`      |
 
-- [5] MODE `isOneWay`: Protocol Mode/Version
+- `isOneWay`: Protocol Mode
   - 0 = 2W = Two Way
   - 1 = 1W = One Way
 
-- Size: Frame Length in bytes, not including `Control Byte 1` and the `CRC`
+- `Size`: Frame Length in byte excluding `Control Byte 0` and the `CRC`
 
-### Control Byte 2
-
-Extended Frame Information.
+## Control Byte 1 - Extended Frame Information
 
 | **BIT**  | 7          | 6      | 5              | 4   | 3   | 2   | 1-0              |
 | :------: | :--------: | :----: | :------------: | :-: | :-: | :-: | :--------------: |
 | **NAME** | Use Beacon | Routed | Low Power Mode | Ack | ?   | ?   | Protocol Version |
 
+<!--
 > FrameData Segment
 > 7:3 = 32 codes of the signs or characters specifying the transaction or the action
+-->
 
 - Use Beacon (`isBeacon`): Repeater Mode = Allow routing the Frame through the Network
   - 0: Do Not use Beacon
@@ -241,36 +205,39 @@ Extended Frame Information.
 - Low Power Mode (`PowerSaveMode`): Indicates if Frame is sent to Device in Low Power Mode (LPM):
   - 0 = Destination Device is not in Low Power Mode
   - 1 = Destination Device is in Low Power Mode
-- Ack indicates if a response can be handled (2 Way Devices Only)
-  - 0 = NACK: 1-Way Device
-  - 1 = ACK: 2-Way Device
+- Ack indicates if a response can be handled (2W Devices Only)
+  - 0 = NACK: 1W Device
+  - 1 = ACK: 2W Device
 
+<!--
 - io-Membership Flag
 - RF Support in Node
 - CtrlByteManufCode
+-->
 
-### Addresses (NodeId)
+## Addresses (NodeId)
 
 Addresses are 3 bytes long and can range from `01 00 00` to `ff ff ff`.
 
 Addresses are also refered to as *Node ID* which resembles the MS-B of a typical MAC-Address. The Node Type is a numerical value defines which
 
-#### Destination Address
+### Destination Address
 
 - `00 00 3F` is broadcast
 - `00 00 3B` ??
 - `00 00 00` = Group
 - `FF FF FF` = Broadcast
 
-#### Source (Sender) Address
+### Source (Sender) Address
 
 - `FFFFFE` = SRC for P2P and BROADCAST
 - `FFFDFF` = RS485 (SDN) Setting Tool
 
-### CommandParameter
+## Command and Command Parameter
 
-See [Commands](commands.md) for command id reference.
+Go further down the rabbit hole -> [Commands](commands.md)
 
+<!--
 #### CommandParameter Types
 
 There exist different types of Parameter:
@@ -281,10 +248,11 @@ There exist different types of Parameter:
   - Stimuli
     - Somfy Key & Go 1w
     - Somfy Satellite 1w
+-->
 
 ### Data
 
-- Length
+- Data Length
   - Minimum =  0 bytes (no DATA)
   - Maximum = 21 bytes
 
@@ -292,52 +260,60 @@ Depending on the frame type it can correspond to raw data, io-homecontrol comman
 
 Note that in authenticated 1-Way frames, a 2-bytes sequence number and a 6-byte long message authentication code are appended:
 
+<div align="center" width="100%">
+
 |  X - Y |   (Y + 1) - (Y + 2)    |   (Y + 3) - (Y + 9)  |
 | :----: | :--------------------: | :------------------: |
 |  Data  |     Sequence number    |          MAC         |
 
-### CRC
+</div>
+
+## CRC
 
 After the payload, there is a 16-bit CRC with polynomial 0x(1)8408 over the data packet (i.e. length byte + payload). The CRC's initial value is 0 and it does not employ an XOR/NOT. The least significant byte of the CRC is transmitted first.
 
 The C# implementation shown here can be found in the Starter Kit software from Semtech for their SX12xx line of radios. Just use a .NET decompiler (dotPeek, ILSpy, etc.) and search for it:
 
-```CSHARP
-// This is real code that changes the packet and returns 0 ... i have no clue why they implemented this
-ushort ComputeCrc(byte[] packet){
-for (int i = 0; i < packet.Length; i++) {
-  packet[i]=(byte)((packet[i] * 0x802 & 0x22110 | packet[i] * 0x8020 & 0x88440) * 0x10101 >> 0x10);
-}
-return 0;
+``` csharp
+  // dumped ioHC CRC code from the Semtech SX12xx series software
+  ushort Crc(byte[] packet){
+    for (i=0; i<packet.Length; i++) {
+      packet[i]=(byte)((packet[i] * 0x802 & 0x22110 | packet[i] * 0x8020 & 0x88440) * 0x10101 >> 0x10);
+    }
+    return 0;
+  }
 ```
 
-## System (Stack) Key
+## Keys and Discovery
 
-Each two-ways controller has a stack or system key.
-This is an AES-128 key used to sign io frames with the trailing MAC.
+... and now for something completely different^^
+
+### System / Stack Key
+
+Each two-ways controller has a stack or system key. This is an AES-128 key used to sign io frames with the trailing MAC.
 
 Advanced Encryption Standard (AES) 128-bit block encryption/decryption with 128 bits key size.
 Electronic Code Book (ECB) and Cipher Block Chaining Mode 1 (CBC Mode 1) are supported.
-The AES engine is enabled on the ADF7023 by downloading the AES software module to program RAM.
+The AES engine is enabled on the ADF7022 by downloading the AES software module to program RAM.
 
+The key generation on Kizboxes is insecure because it relies on the LuaJIT `math.random`:
 
-The key generation on Kizboxes is insecure because it relies on the lua math.random :
-
-```LUA
--- seed
-kizbox_id = "xxxx-xxxx-xxxx" -- Kizbox serial
-math.randomseed(tonumber(string.gsub("1" .. kizbox_id, "-", "")) - os.time())
--- key generation
-key = {}
-keySize = 16 -- 128 bits
-for i = 1, keySize do
-    key[i] = math.random(0, 255)
-end
+``` lua title="Generate Key"
+  -- seed
+  kizbox_id = "xxxx-xxxx-xxxx" -- Kizbox serial
+  math.randomseed(tonumber(string.gsub("1" .. kizbox_id, "-", "")) - os.time())
+  -- key generation
+  key = {}
+  keySize = 16 -- 128 bits
+  for i = 1, keySize do
+      key[i] = math.random(0, 255)
+  end
 ```
 
 This mechanism only leaves roughly 31,536,000 keys possible if the serial number of the TaHoma and the year of setup are known (other calls to math.random are made so the actual number may be a bit above this figure but once the seed and the number of times math.random is called are figured out by an attacker, they can completly determine the key).
 
-## Discovery
+<!--
+### Discovery
 
 There are several discover types:
 
@@ -359,8 +335,9 @@ There are several discover types:
   - Discover Controller 1W
   - Discover Intermediate
   - Discover Private Somfy
+-->
 
-### One Way Discovery
+### 1W Discovery
 
 ``` mermaid
 sequenceDiagram
@@ -383,35 +360,33 @@ sequenceDiagram
 
 In 1-way mode, the controller does not get any answer. So this is the simplest discovery mode, it asks for exclusion using 0x39 and then sends its 1-W encrypted key using 0x30.
 
-### Two Way Discovery: Simple Discover
+### 2W Discovery: Simple Discover
 
-Actions:
-
-- Controller sends command 0x28 (discover) when entering discover mode
-- Device in pairing mode answers with command 0x29 (discover answer) and gives metadata to identify itself to the controller
+- Controller sends command `0x28` (discover) when entering discover mode
+- Device in pairing mode answers with command `0x29` (discover answer) and gives metadata to identify itself to the controller
 - Controller confirms having received discovery information from device
 - Devices acks confirmation
 
-```YAML
-# Discover request
-C8 00 00003B F00F00 28 1234
-# Discover answer: node type REMOTE_CONTROLLER, subtype 0, node address feefee, manufacturer Atlantic
-# multi info byte 0xcc, timestamp 0000
-D1 00 F00F00 FEEFEE 29 FFC0 FEEFEE 0C CC 0000 1234
-# Discover confirmation
-48 00 FEEFEE F00F00 2C 1234
-## Discover confirmation ack
-88 00 F00F00 FEEFEE 2D 1234
-```
-Must send a 0x38 key transfer, just after the 0x2d discover confirmation ack to effectivly have the device added
-```TEXT
-// Controller ask for key transfer using challenge 123456789ABC
-4E 04 FEEFEE F00F00 38 123456789ABC 23B6
+``` yml
+  # Discover request
+  C8 00 00003B F00F00 28 1234
+  # Discover answer: node type REMOTE_CONTROLLER, subtype 0, node address feefee, manufacturer Atlantic
+  # multi info byte 0xcc, timestamp 0000
+  D1 00 F00F00 FEEFEE 29 FFC0 FEEFEE 0C CC 0000 1234
+  # Discover confirmation
+  48 00 FEEFEE F00F00 2C 1234
+  ## Discover confirmation ack
+  88 00 F00F00 FEEFEE 2D 1234
 ```
 
-### 2-way: Specialized Discover
+Must send a `0x38` key transfer, just after the `0x2D` discover confirmation ack to effectivly have the device added
 
-Actions:
+``` yml
+  # Controller ask for key transfer using challenge 123456789ABC
+  4E 04 FEEFEE F00F00 38 123456789ABC 23B6
+```
+
+### 2W Discovery: Specialized Discover
 
 - Controller sends command 0x2a (specialized discover) with specific data not identified to this day
 - Device in pairing mode answers with 0x2b and same information fields as in 0x29
@@ -424,22 +399,24 @@ Before being able to communicate with authentication, io-homecontrol nodes must 
 
 The pairing process consists in transmitting the key. Authentication in adding and verifying challenges.
 
-In both modes (1-way/2-ways), the transferred key is obfuscated using different methods.
-But both methods imply a shared key probably specified in the protocol documentation.
+In both modes (1W/2W), the transferred key is obfuscated using different methods. But both methods imply a shared key probably specified in the protocol documentation.
+
 This key is referred to as **transfer key** and has the following value, probably hardcoded in the specification:
 
-- `34C3466ED88F4E8E16AA473949884373` - As a UUID: `34C3466E-D88F-4E8E-16AA-47:39:49:88:43:73`
+> [!IMPORTANT]
+>   `34C3466ED88F4E8E16AA473949884373`
 
 Other Keys found in the io Gateway:
 
 - `SDNP io Actuator 1W Control Key = FD534F4D4659` = `0xFD SOMFY`
 - `4275696C64696E6720436F6E74726F6C` = `Building Control`
 
-> **Note:** All Crypto functions are available in [Iown-ioCrypto.py](https://github.com/Velocet/iown-homecontrol/raw/main/scripts/Iown-ioCrypto.py)
+> [!TIP]
+> All Crypto functions are available in [Iown-ioCrypto.py](https://github.com/Velocet/iown-homecontrol/raw/main/scripts/Iown-ioCrypto.py)
 
 ### Initial Vector (IV) and AES-128 Encryption
 
-In all cases implying encryption, an Initial Vector (IV) is required to feed the AES algorithm using a mode similar to OFB or CFB.
+In all cases implying encryption, an *Initial Vector* (IV) is required to feed the AES algorithm using a mode similar to *OFB* or *CFB*.
 In fact, as all payloads are 128-bit long, there is no block chaining and the encryption process is the following:
 
 1. Generate IV
@@ -449,27 +426,28 @@ In fact, as all payloads are 128-bit long, there is no block chaining and the en
 - How To Generate IV:
   | **Mode**  | 0-7                    | 8-9             | 10-11                       | 12-15          |
   | :-------: | :--------------------: | :-------------: | :-------------------------: | :------------: |
-  | **1-Way** | First 8 byte of Payload | Checksum | Sequence Number             | Padding (0x55) |
-  | **2-Way** | First 8 byte of Payload | Checksum | Challenge (sent beforehand) |                |
+  | **1W** | First 8 byte of Payload | Checksum | Sequence Number             | Padding (0x55) |
+  | **2W** | First 8 byte of Payload | Checksum | Challenge (sent beforehand) |                |
 
   - Pad Payload if less than 8 byte with 0x55
   - Compute Checksum for each Frame byte:
-    ```python
+    ``` python
     # Checksum Return Value: 2 byte Tuple (byte 0 & byte 1)
     # Initialization Value for both bytes: 0
     def computeChecksum(frame_byte, chksum1, chksum2):
       tmpchksum = frame_byte ^ chksum2
       chksum2 = ((chksum1 & 0x7f) << 1) & 0xff
+
       if chksum1 & 0x80 == 0:
-        if tmpchksum >= 128:
-          chksum2 |= 1
+        if tmpchksum >= 128: chksum2 |= 1
         return (chksum2, (tmpchksum << 1) & 0xff)
-      if tmpchksum >= 128:
-        chksum2 |= 1
+
+      if tmpchksum >= 128: chksum2 |= 1
 
       return (chksum2 ^ 0x55, ((tmpchksum << 1) ^ 0x5b) & 0xff)
     ```
-    > **note** Check the initial value generation function for better understanding on how to use the checksum function.
+
+<!-- > **note** Check the initial value generation function for better understanding on how to use the checksum function! -->
 
 #### Example
 
@@ -478,7 +456,8 @@ In fact, as all payloads are 128-bit long, there is no block chaining and the en
 >   - Sequence Number: `0599`
 >
 > Padded Payload: `000143D200000055`
-> IV will be: `000143D2000000550500059955555555`
+>
+>     IV will be: `000143D2000000550500059955555555`
 >
 > In 2-way Mode, for the following exchange:
 >
@@ -487,154 +466,180 @@ In fact, as all payloads are 128-bit long, there is no block chaining and the en
 > Challenge Request: `0E00D35C1812195F 3C 123456789ABC A9C7`
 >
 
-The IV will be: `31555555555555550062123456789ABC`
+> IV will be: `31555555555555550062123456789ABC`
 
-Encryption with AES-128 follows the below process:
+Encryption with AES-128 follows this process:
 
-- IV is generated as described above
-- IV is encrypted using AES-128 and depending on the use case with either:
-  - Transfer Key
-  - Stack Key
-- If encrypting a Secret: The Secret is XORed with the Output of the previous Step.
-- If creating a MAC: The output of the previous Step is truncated to 6 bytes.
+  - IV is generated as described above
+  - IV is encrypted using AES-128 and depending on the use case with either:
+    - Transfer Key
+    - Stack Key
+  - If encrypting a Secret: The Secret is XORed with the Output of the previous Step.
+  - If creating a MAC: The output of the previous Step is truncated to 6 bytes.
 
 ### Key Exchange
 
-#### 1-Way Key Exchange
+#### 1W Key Exchange
 
 In 1-way mode, the controller will send several times the command 0x30 with its key encrypted with the transfer key listed above and an initial value that consists in its address repeated several times to build a 16-byte long value.
 
-For node with address `abcdef`, the initial value will be:
+For node with address `ABCDEF`, the initial value will be:
 
-```HEX
-  ABCDEFABCDEFABCDEFABCDEFABCDEFAB
-```
+> ``` ascii
+> ABCDEF ABCDEF ABCDEF ABCDEF ABCDEF AB
+> ```
 
-Furthermore, the 0x30 message is authenticated using a 1-way MAC embedded in the command itself. For the node `abcdef` with key `01020304050607080910111213141516` and sequence number 0x1234 the 0x30 message will be:
+Furthermore, the 0x30 message is authenticated using a 1W MAC embedded in the command itself. For the node `ABCDEF` with key `01020304050607080910111213141516` and sequence number `0x1234` the `0x30` message will be:
 
-```HEX
-FC 00 00003F ABCDEF 30 7E60491F976ADF653DB0ED785E49A201 02 01 1234 19E81EC43D5E 9BF2
-```
+> ``` ascii
+> FC 00 00003F ABCDEF 30 7E60491F976ADF653DB0ED785E49A201 02 01 1234 19E81EC43D5E 9BF2
+> ```
 
-#### 2-Way Key Exchange
+#### 2W Key Exchange
 
-**Note:** in examples below, the stack key used is `01020304050607080910111213141516`
+> [!NOTE]
+> In the examples below, the stack key used is `01020304050607080910111213141516`
 
 In 2-Way mode, there are 2 ways keys can be exchanged:
 - By pulling the key from a remote node
+  - **RCM: Receive Controller Mode**
 - By pushing a key to a remote node
+  - **TCM: Transmit Controller Mode**
 
 It seems that when a new device is added to a stack, both methods are used. First, the controller will collect the already set device key and then use it to authenticate requests to push its stack key to the device.
 
 ##### Pull
 
-Actions:
+- Actions:
+  - Right after initial discovery, the controller issues command 0x38 (launch key transfer). This command is not authenticated but submits a 6-byte long initial value to be used to encrypt the key used by the device
+  - The device answers with command 0x32 (key transfer) and sends its key encrypted using the transfer key
+  - The controller issues a command 0x3c (challenge request) to authenticate the previous command
+  - The device answers to the challenge with command 0x3d and a response encrypted using the key transmitted just before in command 0x32
 
-- Right after initial discovery, the controller issues command 0x38 (launch key transfer). This command is not authenticated but submits a 6-byte long initial value to be used to encrypt the key used by the device
-- The device answers with command 0x32 (key transfer) and sends its key encrypted using the transfer key
-- The controller issues a command 0x3c (challenge request) to authenticate the previous command
-- The device answers to the challenge with command 0x3d and a response encrypted using the key transmitted just before in command 0x32
+> Example Device key is `ABCDEF01020304050607080910111213`
 
-Example (device key is `ABCDEF01020304050607080910111213`):
+``` ascii
+  // Controller ask for key transfer using challenge 123456789ABC
+  4E 04 FEEFEE F00F00 38 123456789ABC 23B6
 
-```TEXT
-// Controller ask for key transfer using challenge 123456789ABC
-4E 04 FEEFEE F00F00 38 123456789ABC 23B6
-// Device creates an initial value based on last frame and the specified challenge
-// and use this initial value to encrypt its key before transmission
-18 04 F00F00 FEEFEE 32 EA425A7A182885D4EAEEFD416D625E01 6379
-// Controller challenges the device for command 0x32 (see authentication below)
-// Note: in real life, challenge will be different to the one specified in 0x38
-0E 00 FEEFEE F00F00 3C 123456789ABC 5EB1
-4E 00 FEEFEE F00F00 3C 123456789ABC EC2A
-// Device creates an initial value based on the 0x32 frame and challenge specified in 0x3c
-// It will use its own key to authenticate as it has not received one from the controller
-8E 00 F00F00 FEEFEE 3D 0AE519A73C99 2400
+  // Device creates an initial value based on last frame and the specified challenge
+  // and use this initial value to encrypt its key before transmission
+  18 04 F00F00 FEEFEE 32 EA425A7A182885D4EAEEFD416D625E01 6379
+
+  // Controller challenges the device for command 0x32 (see authentication below)
+  // Note: in real life, challenge will be different to the one specified in 0x38
+  0E 00 FEEFEE F00F00 3C 123456789ABC 5EB1
+  4E 00 FEEFEE F00F00 3C 123456789ABC EC2A
+
+  // Device creates an initial value based on the 0x32 frame and challenge specified in 0x3c
+  // It will use its own key to authenticate as it has not received one from the controller
+  8E 00 F00F00 FEEFEE 3D 0AE519A73C99 2400
 ```
 
 ##### Push
 
-**Note:** stack key push to device has been observed after a bit of information exchange such as general information (0x54 and 0x56). Most of these commands are authenticated using 0x3c and 0x3d (see authentication below) and so are the push commands.
+> [!NOTE]
+> Stack key push to device has been observed after a bit of information exchange such as general information (`0x54` and `0x56`).
+> Most of these commands are authenticated using `0x3C` and `0x3D` (see authentication below) and so are the push commands.
 
-Actions:
-- First, the controller asks the device a challenge using command 0x31 (ask challenge)
-- The device then answers using command 0x3c (challenge request) and a 6-byte long challenge
-- The controller sends the encrypted stack key to the device node with command 0x32 (key transfer) using the transfer key
-- The device asks the controller for authentication using 0x3c
-- The controller authenticates using its stack key (not the device key anymore) and command 0x3d
-- The device answers with command 0x33 to confirm that stack key has been received
-- To check if the stack key has properly been transferred, the controller sends the 0x36 command and authenticate to finally receive the address of the device in the 0x37 command
+- Actions:
+  - First, the controller asks the device a challenge using command `0x31` (ask challenge)
+  - The device then answers using command `0x3C` (challenge request) and a 6-byte long challenge
+  - The controller sends the encrypted stack key to the device node with command `0x32` (key transfer) using the transfer key
+  - The device asks the controller for authentication using `0x3C`
+  - The controller authenticates using its stack key (not the device key anymore) and command 0x3d
+  - The device answers with command `0x33` to confirm that stack key has been received
+  - To check if the stack key has properly been transferred, the controller sends the `0x36` command and authenticate to finally receive the address of the device in the `0x37` command
 
-Example:
+> Example
 
 ```TEXT
-// Send challenge request
-48 00 feefee f00f00 31 fb60
-// Challenge request
-0e 00 f00f00 feefee 3c 123456789abc 19db
-// Controller creates an initial value based on last frame and the specified challenge
-// and use this initial value to encrypt the stack key before transmission
-18 00 f00f00 feefee 32 102e49a16d3b69726f3192cf17534ad9 8043
-// Device challenges the controller for command 0x32 (see authentication below)
-// Note: in real life, challenge will be different to the one specified in previous 0x3c
-0e 00 f00f00 feefee 3c 123456789abc 19db
-// Controller answers to the challenge using the stack key
-0e 00 feefee f00f00 3d 8dc9d40dc7a4 f9e5
-// Device saves the stack key and sends a confirmation
-88 00 f00f00 feefee 33 5bfb
-// Controller checks if the device received the stack key by issuing a control command
-48 04 feefee f00f00 36 9a02
-// Device sends a challenge to the controller
-0e 00 f00f00 feefee 3c 123456789abc 19db
-// Controller answers the challenge for command 0x36
-0e 04 feefee f00f00 3d c7fdc0668818 b1e3
-// Device sends its address as answer in 0x37
-0b 04 f00f00 feefee 37 feefee 7ccf
+  // Send challenge request
+  48 00 FEEFEE F00F00 31 FB60
+
+  // Challenge request
+  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+
+  // Controller creates an initial value based on last frame and the specified challenge
+  // and use this initial value to encrypt the stack key before transmission
+  18 00 F00F00 FEEFEE 32 102E49A16D3B69726F3192CF17534AD9 8043
+
+  // Device challenges the controller for command 0x32 (see authentication below)
+  // Note: in real life, challenge will be different to the one specified in previous 0x3c
+  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+
+  // Controller answers to the challenge using the stack key
+  0E 00 FEEFEE F00F00 3D 8DC9D40DC7A4 F9E5
+
+  // Device saves the stack key and sends a confirmation
+  88 00 F00F00 FEEFEE 33 5BFB
+
+  // Controller checks if the device received the stack key by issuing a control command
+  48 04 FEEFEE F00F00 36 9A02
+
+  // Device sends a challenge to the controller
+  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+
+  // Controller answers the challenge for command 0x36
+  0E 04 FEEFEE F00F00 3D C7FDC0668818 B1E3
+
+  // Device sends its address as answer in 0x37
+  0B 04 F00F00 FEEFEE 37 FEEFEE 7CCF
 ```
 
 ### Authentication
 
-io-homecontrol frames are authenticated using AES-128 based MACs. There are differences between 1-way and 2-way modes. In both cases, the MAC is created by truncating the output of the AES-128 algorithm down to 6 bytes.
+io-homecontrol frames are authenticated using AES-128 based MACs. There are differences between 1W and 2W modes. In both cases, the MAC is created by truncating the output of the AES-128 algorithm down to 6 bytes.
 
-#### 1-Way Authentication
+#### 1W Authentication
 
-In 1-way mode, a signature of the frame is made using the stack key burned into the 1-way controller during manufacturing. This signature is appended to the frame along with a sequence number to prevent replay attacks.
+In 1W mode, a signature of the frame is made using the stack key burned into the 1W controller during manufacturing.
+This signature is appended to the frame along with a sequence number to prevent replay attacks.
 
 The data and sequence number are handled separately in the initial vector generation (i.e. the sequence number is not handled as frame data and not taken into account in the first part of the IV).
 
-#### 2-Way Authentication
+#### 2W Authentication
 
-In 2-way mode, a node will issue a 0x3C command frame with a 6-byte long challenge to commands received from other nodes. The asking node must provide a 0x3D command with the answer to the 6-byte long challenge (the answer is also 6-byte long). 2-way frames do not have any MAC or sequence number incorporated in the frame itself.
+In 2W mode, a node will issue a `0x3C` command frame with a 6-byte long challenge to commands received from other nodes.
+The asking node must provide a `0x3D` command with the answer to the 6-byte long challenge (the answer is also 6-byte long).
+2W frames do not have any MAC or sequence number incorporated in the frame itself.
 
-For example, here is a 2-way sequence of request/answer type:
+For example, here is a 2W sequence of request/answer type:
 
 ```TEXT
-// Send address request
-48 04 feefee f00f00 36 9a02
-// Challenge request
-0e 00 f00f00 feefee 3c 123456789abc 19db
-// Challenge answer
-0e 04 feefee f00f00 3d c7fdc0668818 b1e3
-// Address answer
-0b 04 f00f00 feefee 37 feefee 7ccf
+  // Send address request
+  48 04 FEEFEE F00F00 36 9A02
+
+  // Challenge request
+  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+
+  // Challenge answer
+  0E 04 FEEFEE F00F00 3D C7FDC0668818 B1E3
+
+  // Address answer
+  0B 04 F00F00 FEEFEE 37 FEEFEE 7CCF
 ```
 
-**Note:** There is a race condition vulnerability. In fact, it would be possible to spoof answers by answering faster than the legitimate device after a 0x3d frame. This allows authentication of the asking node but not authentication of the answering node...
+> [!CAUTION]
+> There is a race condition vulnerability: In fact, it would be possible to spoof answers by answering faster than the legitimate device after a 0x3d frame. This allows authentication of the asking node but not authentication of the answering node...
 
 The MAC is generated using a shared key between both nodes. This is referred as Stack Key in the firmware and System Key in the user interface. The same key is shared throughout the installation (by a 2-Way controller).
 
 Below is an extract of the MAC generation code:
 
-```python
-def create_2W_hmac(challenge, system_key, frame_data):
-  iv = constructInitialValue(frame_data, challenge)
-  cipher = aes.AES(system_key)
-  return cipher.encrypt_block(iv)[:6]
+``` python title="Generate MAC"
+  def create_2W_hmac(challenge, system_key, frame_data):
+
+    iv = constructInitialValue(frame_data, challenge)
+
+    cipher = aes.AES(system_key)
+
+    return cipher.encrypt_block(iv)[:6]
 ```
 
 The initial value is always created using data from the requesting command (see above for details on initial value generation).
 
-## Test and EMS Frames
+## Test/Calibration Data and EMS Frames
 
 ### EMS Frames
 
@@ -645,24 +650,28 @@ Sadly little is known about the EMS2 device and the protocol that is used in the
 
 ### Calibration Data
 
+Those values get send directly to the radio. Since they are always 3 byte and the numbers are just the right amount apart my assumption is that those values hold the frequencies.
+
 io Tests Terminal:  `0E5EC4 0ECD0B 0F5AD4`
 ideal RF STM32 CAL: `0E4EC4 0EBD0B 0F4AD4000000`
 io-homecontrol CAL: `0E4EC4 0EBD0B 0F4AD4` (default)
 
+More information can be found in STM32 section...
+
+<!--
 ### Test Frames
 
 > io Tests Terminal
 
-<!-- maybe those used codes are either plain C0 control codes:
+maybe those used codes are either plain C0 control codes:
 02 = STX = Start of Text
 03 = ETX = End of Text
 09 = HT  = Next Character
- -->
 
 - Template: `MP FP1 FP2 FP3 CKS`
   - MP: `02` + Command
   - FP1 - FP3: `09` + Data
-    - NOTE: It seems that only a maximum of 3 FPs is supported
+    - **NOTE**: It seems that only a maximum of 3 FPs is supported
   - CKS: `03` + 2 Byte CRC
 
 - Get HW Version: `02 474857 03 3539`
@@ -724,7 +733,9 @@ Possible Cancidates:
   - 5458 3D TX= Transmit=TransmitMode ("Permanent Emission")
     - 0 = Transmit Test Mode: 1
     - 1 = Transmit Test Mode: 2
-    - 2 = Transmit Preamble ("M55")
+    - 2 = Transmit Preamble ("M55") -->
+
+<!--
 T=%1
 T=M
 S=%1
@@ -930,4 +941,4 @@ sid,
 slave,
 test,
 virgin,
-wink_ack
+wink_ack -->

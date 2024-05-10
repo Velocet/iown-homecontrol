@@ -1,3 +1,9 @@
+---
+title: iown-homecontrol - Commands
+description: io-homecontrol commands and parameter
+icon: material/deathly-hallows
+---
+
 # Commands
 
 This document lists the known io-homecontrol "Command IDs" (CMD), their corresponding parameters and structure.
@@ -14,7 +20,7 @@ Commands are combined in groups of _Command Types_.
 
 ### Naming & Wording & Abbreviations
 
-<details><summary>Naming Conventions & Wording</summary>
+<details markdown><summary>Naming Conventions & Wording</summary>
 
 > Based on the official iohc wording and [Ethernet Frame](https://en.wikipedia.org/wiki/Ethernet_frame) description.
 
@@ -47,7 +53,7 @@ Commands are combined in groups of _Command Types_.
 
 </details>
 
-<details><summary>Abbreviations</summary>
+<details markdown><summary>Abbreviations</summary>
 
 > ![NOTE]
 > Those values are taken from the ioHome firmware and LuaJIT files and represent only official abbreviations.
@@ -97,7 +103,7 @@ Commands are combined in groups of _Command Types_.
 
 ### Device: Labels, Serial Numbers, QR Codes / Barcodes
 
-<details><summary>Labels, Serial Numbers, QR Codes / Barcodes</summary>
+<details markdown><summary>Labels, Serial Numbers, QR Codes / Barcodes</summary>
 
 Software Revision Is = Somfy=%d     S2IH=%d  POD=%d Rev=%d
 Hardware Revision Is = Type=0x%02X Month=%d Year=%d Rev=0x%02X
@@ -185,7 +191,7 @@ For detailed information on parameters see [Parameter](README.md)
 > ![NOTE]
 > See also KLF200 API: `Appendix 2: List of actuator types and their use of Main Parameter and Functional Parameters`
 
-<details><summary>Parameter Details</summary>
+<details markdown><summary>Parameter Details</summary>
 
 #### ACEI
 
@@ -327,7 +333,7 @@ Standard Parameter Values for Main and Functional Parameters (MP, FP)
 
 ##### Private Function IDs
 
-<details><summary>List of Private Function IDs</summary>
+<details markdown><summary>List of Private Function IDs</summary>
 
 This data is from *Set&Go io* XML definitions.
 
@@ -1113,7 +1119,7 @@ Also called OEM ID. Each Manufacturer has their own ID:
 
 #### Node Types & Node Sub Types
 
-<details><summary>List of Node Types & Node Sub Types</summary>
+<details markdown><summary>List of Node Types & Node Sub Types</summary>
 
 | HEX  | NOTATION | TYPE         | SUB TYPE | NAME                                                 |
 | :--: | -------: | :----------: | :------: | :--------------------------------------------------- |
@@ -1248,7 +1254,7 @@ Once a command is sent to a device it will remain locked at that priority level 
 
 ### Status Reply Values
 
-<details><summary>List of Status Replies</summary>
+<details markdown><summary>List of Status Replies</summary>
 
 | ID   | Name                                      | Meaning                                                        |
 | ---: | ----------------------------------------- | -------------------------------------------------------------- |

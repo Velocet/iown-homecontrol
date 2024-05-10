@@ -1,16 +1,18 @@
 ---
+title: iown-homecontrol
+description: io-homecontrol documentation and implementation
+icon: material/set-none
 hide:
   - navigation
   - toc
   - path
 ---
 
-#
+# &nbsp;
 
 <div align="center" width="100%">
-  <img src="assets/images/repository-open-graph.png" alt="iown-homecontrol logo"/><br/>
-  <a href="https://t.me/iownHomecontrol" target="_self"><img src="https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram" alt="iown-homecontrol on Telegram"/></a>
-  <a href="https://discord.gg/MPEb7dTNdN" target="_self"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord" alt="iown-homecontrol on Discord"/></a>
+<img src="./assets/images/repository-open-graph.png" alt="iown-homecontrol logo"/><br/>
+<a href="https://t.me/iownHomecontrol" target="_self"><img src="https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram" alt="iown-homecontrol @ Telegram"/></a>&nbsp;<a href="https://discord.gg/MPEb7dTNdN" target="_self"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord" alt="iown-homecontrol @ Discord"/></a>
 
 ``` mermaid
 %%{init:{"theme":"neutral","fontFamily":"monospace","flowchart":{"curve":"natural"}}}%%
@@ -62,8 +64,8 @@ flowchart TB
   - Programmed during manufacturing and "cannot be changed" (which is untrue as we will see later...).
   - Predefined ranges exist to differentiate manufacturers, types, etc.
   - Found on the device labels in plain text and as barcode/qr-code.
-  - > "NodeIDs are recycled on a 3 to 5 years basis, depending on the product sales."
-  - > "NodeID can be considered unique per installation/home."
+    > "NodeIDs are recycled on a 3 to 5 years basis, depending on the product sales."
+    > "NodeID can be considered unique per installation/home."
   - Broadcasts are valid OUI-48 when Bit-Reversed and then Bit-Inverted (see LSBF). 00:00:3F > Reverse > Invert = 03:FF:FF.
     - See: [Universal vs. Local Bit](https://en.wikipedia.org/wiki/MAC_address#Universal_vs._local_(U/L_bit))
     - Mentioned in SDN (Somfy Digital Network) documents and observable via SDN Frame Builder
@@ -72,15 +74,14 @@ flowchart TB
   - [CRC/CRC16-CCITT](https://srecord.sourceforge.net/crc16-ccitt.html) vs. [CRC16-KERMIT](https://reveng.sourceforge.io/crc-catalogue/16.htm#crc.cat.crc-16-kermit)
   - Check for yourself with reveng: `reveng.exe -m CRC-16/KERMIT -X -c "%*"`
 
-<!-- TODO Documentation/Project Layout Description
-<div align="center" width="100%">
+<div align="center" width="100%"><!-- TODO Documentation/Project Layout Description -->
 
 ## Project Layout
 
 </div>
 
-```SHELL
-scripts        # Random scripts and code snippets
-scripts/renode # ioHome STM32 Emulation!!! (Thanks Pascal!)
-```
--->
+> `scripts` - Random scripts and code snippets
+>
+> [`scripts/renode`](../scripts/renode/README.md) - ioHome Firmware STM32 Emulation!!! (Thanks @Priveyes!)
+>
+> [`scripts/kaitai`](../scripts/io-homecontrol.ksy) - ioHome Kaitai Struct with example!!! (Thanks @henrythasler! [#26](https://github.com/Velocet/iown-homecontrol/pull/26))

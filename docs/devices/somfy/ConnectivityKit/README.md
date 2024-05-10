@@ -57,7 +57,7 @@ end
 
 This is the log that shows up when you connect the device to your network.
 
-``` log
+``` log title="somfy_connectivity_kit-homekit.log"
 Service Somfy Connectivity kit._hap._tcp.local. added
 type='_hap._tcp.local.'
 name='Somfy Connectivity kit._hap._tcp.local.'
@@ -96,7 +96,7 @@ Overkiz is using the official ESP bootloader and WebIOPi (Python) to test via se
 | ![ESP32-WROVER-E module without shield](img/Somfy-ConnectivityKit-ESP32WroverE-Front.jpg)                                |
 | [ESP32 Pinout Reference: Which GPIO pins should you use?](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/) |
 
-</div><details><summary>ESP32 <> STM32 GPIO Interconnection Summary</summary><div align="center" width="100%">
+</div><details markdown><summary>ESP32 <> STM32 GPIO Interconnection Summary</summary><div align="center" width="100%">
 
 | ESP32<br>GPIO | STM32<br>PIN | DBG<br>PIN        | FUNCTION                                                                                                            |
 | :-----------: | :----------: | :---------------: | :-----------------------------------------------------------------------------------------------------------------  |
@@ -153,7 +153,7 @@ The modes of the STM32 get directly triggered by the ESP32 and can't be set from
 The first table describes the PINs and the corresponding connection area on the Connectivity Kit PCB or the function for which it is (normally) used.
 Remember that the ESP32 has a mux matrix to assign any PIN to any function (eg. UART, SPI, etc.).
 
-<details><summary>ESP32 Boot Mode and Jumper PINs</summary><div align="center" width="100%">
+<details markdown><summary>ESP32 Boot Mode and Jumper PINs</summary><div align="center" width="100%">
 
 | PIN  | FUNCTION         |
 | ---: | :--------------- |
@@ -191,14 +191,16 @@ Remember that the ESP32 has a mux matrix to assign any PIN to any function (eg. 
 
 ### ESP32 Bootloader
 
-Bootlogs from my somewhat broken board...
+Bootlogs from my somewhat broken board ...
 
-<details><summary>ESP32 Bootlogs</summary>
+<details markdown><summary>ESP32 Bootlogs</summary>
 
-``` go
+``` python title="esptool.py"
 etc Mon dd yyyy hh:mm:ss
 rst:0x0 (NO_MEAN),boot:0x0 (DOWNLOAD_BOOT(UART0/UART1/SDIO_FEI_FEO_V2))
 ets_main.c 404
+
+...
 
 etc Mon dd yyyy hh:mm:ss
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -209,12 +211,16 @@ load:0x3fff0018,len:4
 load:0x3fff001c,len:7960
 load:0x3d234c30,len:-1713843249
 1150 mmu set 00010000, pos 00010000
+
 ...
+
 etc Mon dd yyyy hh:mm:ss
 rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 flash read err, 988
 ets_main.c 384
+
 ...
+
 etc Mon dd yyyy hh:mm:ss
 rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
@@ -224,7 +230,6 @@ load:0x3fff0018,len:4
 load:0x3fff001c,len:7960
 load:0x3d234c30,len:-1713843249
 1150 mmu set 00010000, pos 00010000
-...
 ```
 
 </details>
@@ -239,7 +244,7 @@ The flash chip sitting on the ESP32 Wrover-E module has 8MB and is connected via
 - CHI = Version: SOP 208mil 8L Package + Temp. Range: Industrial (-40 - +85°C)
 - Q = QE Code
 
-<details><summary>Flash PIN Out and Connection Diagram</summary><div align="center" width="100%">
+<details markdown><summary>Flash PIN Out and Connection Diagram</summary><div align="center" width="100%">
 
 | ![XM25QH64C Connection Diagram](img/XM25QH64C-connectionDiagram.png) |
 | :-------------------------------------------------------------------: |
@@ -260,7 +265,7 @@ The STM32 ioHC firmware knows different "modes". Since there are at least four u
 It is assumed that the STM32 runs the same ioHC firmware as all other boxes from Somfy/Overkiz.
 <!-- TODO More information about the firmware, chip and reverse engineering can be found here: -->
 
-<details><summary>STM32 PIN Out</summary><div align="center" width="100%">
+<details markdown><summary>STM32 PIN Out</summary><div align="center" width="100%">
 
 | STM32      | Si4462      | ESP32              | DBG         | FUNCTION                                                   |
 | :--------- | :---------: | :----------------: | :---------: | :--------------------------------------------------------- |

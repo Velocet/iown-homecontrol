@@ -1,6 +1,6 @@
 <div align="center" width="100%">
 
-[![Join the iown-homecontrol Telegram Group](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![Join the iown-homecontrol Discord Server](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
+[![iown-homecontrol Telegram](https://img.shields.io/badge/Telegram-Join-5865F2?style=for-the-badge&logo=telegram)](https://t.me/iownHomecontrol) [![iown-homecontrol Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/MPEb7dTNdN)
 
 ---
 
@@ -35,11 +35,10 @@
 - [ ] [rtl_433](https://github.com/merbanan/rtl_433/blob/master/src/devices/somfy_iohc.c): Corrections
 - [X] ReWrite of crypto test in Python
 - [ ] Library
-  - [X] [RadioLib Fork](https://github.com/Velocet/RadioLib_IoHc)
   - [ ] 1W Library - Implementation Status: WIP
   - [ ] 2W Library - Implementation Status: WIP
   - [ ] Simple [MicroPython](https://micropython.org/) implementation for rapid testing/prototyping
-  - [ ] [Kaitai Struct](https://kaitai.io/) implementation for easier portablity: 30%
+  - [X] [Kaitai Struct](https://kaitai.io/) implementation for easier portablity: 90%
 - [X] High Level Abstraction (KLF200 API and Overkiz Cloud JSON...)
 - [ ] Bonus Points: Build a better/cheaper Somfy TaHoma with a LoRa32
   - [ ] Support for RTS ^^
@@ -49,11 +48,7 @@
 > [!IMPORTANT]
 > We need your help implementing the protocol! Please contact us!
 
-<div align="center" width="100%">
-
 ## Implementation
-
-</div>
 
 LoRa32 boards (HelTec/LilyGo) are the main target platform cause they work out of the box: Connect USB and flash via web interface (work in progress).
 
@@ -65,36 +60,27 @@ If you want to port the library to a non-ESP32 platform you should consider the 
 > [!TIP]
 > Got a RTL-SDR? Use [rtl_433](https://github.com/merbanan/rtl_433) to decode io-homecontrol: `rtl_433 -R 189 -f 868.9M -s 1000k -g 42.1`
 
-<div align="center" width="100%">
-
 ### Compatible Hardware
-
-</div>
 
 The recommended method is to use a LoRa32 board from HelTec or LilyGo. But there are many other boards, modules and combinations which work.
 
 Be aware to use a device with support for FSK modulation in the 868 MHz band. That's it.
 
-<!-- TODO Devices... don't forget the radiolib readme
-<div align="center" width="100%">
+<div align="center" width="100%"><!-- TODO Devices... don't forget the radiolib readme -->
 
 If not explicitly mentioned every board version is supported.
-| [HelTec](https://heltec.org/product-category/lora/lrnode/esp32-lora/)  | [LilyGo](https://www.lilygo.cc/collections/lora-or-gps)   | AdaFruit   | Other |
-|:------------: | :------------: | :------------: | :------------: |
-| [WiFi LoRa32](https://heltec.org/project/wifi-lora-32-v3/)   | LoRa32     | [ESP32 Feather](https://www.adafruit.com/product/5900)<br/>+<br/>FeatherWing [RFM69HCW](https://www.adafruit.com/product/3229)/[RFM95W](https://www.adafruit.com/product/3231)     | [FireBeetle ESP32](https://www.dfrobot.com/product-1590.html)<br/>+<br/>[LoRa 868MHz- Cover](https://www.dfrobot.com/product-1831.html)
-| [Wireless Bridge](https://heltec.org/project/wireless-bridge/)    | T-Beam     | | |
-| [Wireless Tracker](https://heltec.org/project/wireless-tracker/)    | T3-S3     |      | |
-| [Wireless Stick](https://heltec.org/project/wireless-stick-v3/)    | T-Watch S3     |     | |
-| [Wireless Stick Lite](https://heltec.org/project/wireless-stick-lite-v2/)    |      |      | |
-</div> -->
 
-<div align="center" width="100%">
-
-## Protocol <!-- TODO write a absolute minimal intro but with all information needed to have a basic understanding -->
+| [HelTec](https://heltec.org/product-category/lora/lrnode/esp32-lora/)     | [LilyGo](https://www.lilygo.cc/collections/lora-or-gps) | AdaFruit                                                                                                                                                                       | Other                                                                                                                                   |
+| :-----------------------------------------------------------------------: | :-----------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
+| [WiFi LoRa32](https://heltec.org/project/wifi-lora-32-v3/)                | LoRa32                                                  | [ESP32 Feather](https://www.adafruit.com/product/5900)<br/>+<br/>FeatherWing [RFM69HCW](https://www.adafruit.com/product/3229)/[RFM95W](https://www.adafruit.com/product/3231) | [FireBeetle ESP32](https://www.dfrobot.com/product-1590.html)<br/>+<br/>[LoRa 868MHz- Cover](https://www.dfrobot.com/product-1831.html) |
+| [Wireless Bridge](https://heltec.org/project/wireless-bridge/)            | T-Beam                                                  |                                                                                                                                                                                |                                                                                                                                         |
+| [Wireless Tracker](https://heltec.org/project/wireless-tracker/)          | T3-S3                                                   |                                                                                                                                                                                |                                                                                                                                         |
+| [Wireless Stick](https://heltec.org/project/wireless-stick-v3/)           | T-Watch S3                                              |                                                                                                                                                                                |                                                                                                                                         |
+| [Wireless Stick Lite](https://heltec.org/project/wireless-stick-lite-v2/) |                                                         |                                                                                                                                                                                |                                                                                                                                         |
 
 </div>
 
-<div align="center" width="100%">
+## Protocol <!-- TODO write a absolute minimal intro but with all information needed to have a basic understanding -->
 
 | Channel | Mode  | CENTER         | Start     | End       |
 | ------: | :---: | :------------: | :-------: | :-------: |
@@ -104,39 +90,33 @@ If not explicitly mentioned every board version is supported.
 
 io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes.
 
-</div>
-
 - 1W (OneWay): Uni-Directional (1 Channel)
 - 2W (TwoWay):  Bi-Directional (3 Channels)
 - Modulation: FSK with 19,2 kHz deviation (Encoding: NRZ)
 - Data/Baud Rate: 38400 bps (Encoding: UART 8N1)
 - Frequency Hopping (FHSS): 2,7ms (Patent: 3ms) per Channel
 
-<div align="center" width="100%">
-
 ### Protocol Details <!-- TODO: Link docs -->
 
-</div>
-
-- [Documentation Homepage](https://velocet.github.io/iown-homecontrol)
+- [Documentation](https://velocet.github.io/iown-homecontrol)
   - Layer 1: [Radio](docs/radio.md)
   - Layer 2: [Link Layer](docs/linklayer.md)
   - Layer 3: [Commands](docs/commands.md)
 
 ## Appendix
 
-<details><summary>Appendix</summary>
+<details markdown><summary>Appendix</summary>
 
 ### iohc Alliance Background & History
 
 Since this is not if interest for most people this is behind a collapsed section:
 
-<details><summary>iohc Alliance Background & History</summary><br/><br/>
+<details markdown><summary>iohc Alliance Background & History</summary><br/><br/>
 
 There is a low level software library thats accessible to members of the iohc alliance. Gateways ("Boxes") like the *TaHoma*/*Cozytouch*/etc. are just a "whiteware" product from *Overkiz*. The mobile apps are built by *Modulotech*. *Overkiz*, *Somfy* and *Modulotech* are owned by *Atlantic*.
 
 The first manufacturer id was given to *Velux*. The initial alliance consisted of *Velux*, *Somfy* and *Honeywell*. From looking at the timeline my best guess would be that Somfy "invented" a new protocol but needed a stronger partner to get a bigger market share for their newly invented protocol.
-<br/>
+
 The approached *Velux* and exchanged some patents. After their lawyers had a look at those patents they realized that *Honeywell* held some important patents without they would never make it to market. So they made them an offer to join the alliance in exchange for the patents as they predicted a big market share (Velux is the market leader in Europe). Honeywell only ever produced one gateway and seems to have implemented their own version of iohc named EvoHome (Protocol: Ramses II).
 
 > Fun Facts:
@@ -144,7 +124,9 @@ The approached *Velux* and exchanged some patents. After their lawyers had a loo
 > iohc is only really used in Europe. For the american market they use either RTS (433 MHz) or a 2.4GHz bastard implementation with a shitty range.
 >
 > From the first 12 iohc alliance members only two use iohc to this day: *Somfy* and *Velux*. Everyone else quickly realizied that using such an obscure protocol is a dead end with no benefits which is costing them a lot of money.
+
 <!-- TODO Link to oem devices´md -->
+
 - Overkiz KizBox/MiniBox Whiteware Examples
   - Cozytouch Branding: Atlantic, Thermor
   - Cotherm I-Vista
@@ -169,7 +151,7 @@ The approached *Velux* and exchanged some patents. After their lawyers had a loo
 
 #### iohc Quotes
 
-<details><summary>Quotes</summary>
+<details markdown><summary>Quotes</summary>
 
 Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course it is^^)
 
@@ -189,7 +171,7 @@ Taken from the FAQ on the io-homecontrol homepage (which is offline .. of course
 
 #### iohc History
 
-<details><summary>Quotes</summary>
+<details markdown><summary>Quotes</summary>
 
 - Initative was created in 2002
 - Launched in July 2005 by Somfy, Velux and Honeywell
@@ -210,7 +192,7 @@ The Trademark is held by VKR Holding A/S (Denmark) which also owns Velux. This e
 
 ### Links
 
-<details><summary>Links</summary>
+<details markdown><summary>Links</summary>
 
 - Online Discussions
   - [rtl_433: Add new decoder for Velux shutter remote control - io-homecontrol protocoll](https://github.com/merbanan/rtl_433/issues/1376)
@@ -229,17 +211,11 @@ The Trademark is held by VKR Holding A/S (Denmark) which also owns Velux. This e
 - [FLOSS @ Overkiz](https://floss.overkiz.com)
   - [Device Tree from a KizBox](https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/microchip/at91-kizbox.dts)
 
-</details></details>
-
-<div align="center" width="100%">
+</details></details><div align="center" width="100%">
 
 ---
 
 ## Contributors <!-- TODO Add all Names/Projects which helped -->
-
-</div>
-
-<div align="center" width="100%">
 
 **Thanks to everyone who helped in gathering all the information that makes up this repo!**
 

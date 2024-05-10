@@ -1,7 +1,8 @@
 ---
 template: sqliteviewer.html
-description: This file is used to load the io-homecontrol sqlite db inside the documentation.
-status: beta
+title: iown-command parameter viewer
+description: io-homecontrol device command parameter database viewer
+status: new
 hide:
   - navigation
   - toc

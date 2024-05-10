@@ -7,11 +7,11 @@
 {% block styles %}
   <!-- Add styles that need to run before here -->
   <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-bootstrap.min.css" rel="stylesheet">
-  {{ super() }}
-  <!-- Add styles that need to run afterwards here -->
   <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-select2.min.css" rel="stylesheet">
   <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-select2-bootstrap-5-theme.min.css" rel="stylesheet">
   <link href="../../assets/stylesheets/sqliteviewer/sqliteviewer-main.css" rel="stylesheet">
+  {{ super() }}
+  <!-- Add styles that need to run afterwards here -->
 {% endblock %}
 
 {% block scripts %}

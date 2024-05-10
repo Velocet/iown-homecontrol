@@ -2,7 +2,7 @@
   https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#content-area-width
 */
 .md-grid {
-  max-width: 80%;
+  max-width: 61.8%; /* https://en.wikipedia.org/wiki/Golden_ratio */
 }
 
 /*
@@ -22,8 +22,7 @@
 
 .md-status:hover:after {
   /*
-    Setting the text colour to white interfered with a hover effect,
-    causing the status tag to disappear on hover
+    Setting text to white interfered with a hover effect, causing the status to disappear on hover
   */
   background-color: var(--color-text-base);
 }

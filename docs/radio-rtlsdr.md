@@ -1,3 +1,7 @@
+---
+icon: material/ear-hearing
+---
+
 # Software Defined Radio (SDR)
 
 This document helps you choose, configure and install everything you need to receive io-homecontrol signals with an SDR.

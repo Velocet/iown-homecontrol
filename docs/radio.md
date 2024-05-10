@@ -1,4 +1,48 @@
-# io-homecontrol radio protocol description
+---
+title: iown-homecontrol - Radio Layer
+description: io-homecontrol signal specification
+icon: material/sine-wave # material/cosine-wave
+---
+<!--
+
+| Baud Rate        | 4800 bps        |
+| ---------------- | --------------- |
+| 38400 bps        | 8               |
+| Parity           | Odd             |
+| Start Bit        | Logical Level 0 |
+| Stop Bit         | Logical Level 1 |
+| Character coding | NRZ             |
+
+2FSK knows is binary which means it knows two states and tells us that the bit rate is equal the symbol rate: 1 bit (rate) = 1 symbol/modulation rate.
+symbol rate = n baud (bd) = n symbols per second
+symbol rate = pulse rate = pulses per second
+
+- Modes of Operation: 3 * 2 (Each Mode can be Low Power)
+  - Master
+  - Slave
+  - Beacon (Repeater)
+- 3 Layer
+  - Layer 1: RF Transmission - Bit Representation
+    - UART Encoded
+    - 38.400 bps
+    - 26us Symbolrate
+    - Repeated Key Duration: Frame is sent every 140 milliseconds
+  - Layer 2: Frame (Data Link)
+    - Preamble: 256 bit of alternating 1>0>1>0 ...
+    - SyncWord / Start Byte
+    - PACKET
+    - CRC
+  - Layer 3: Packet (Network):
+    - Header
+    - Address
+    - Payload
+    - Rolling Code
+    - HMAC
+
+time lag between two successive activations: 200 ms
+-->
+
+# io-homecontrol signal specification
 
 ## Physical specifications
 
@@ -35,57 +79,53 @@ Then, it sends the data packet's bytes. The first 5 least significant bits of th
 
 L, S and X are variable offsets/lengths. In packets found so far, S = 8 and X = 0.
 
-* [0] & 0x1F: length of payload (L), excluding this first byte and 2 trailing CRC bytes.
-* [0] & 0x20: iff set, there is a 8 byte suffix (S = 8). Otherwise, S = 0.
-* [0] & 0x40: unknown
-* [0] & 0x80: unknown
-* [1] & 0x03: iff == 0x03 and the next bytes equal 0B 01, then skip the next two bytes (X = 2). Otherwise, X = 0.
-* [1] & 0x04: unknown
-* [1] & 0x08: unknown
-* [1] & 0x10: unknown
-* [1] & 0x20: unknown
-* [1] & 0xC0: unknown; 2 bits seem to be related
-* [2:4]: ignored if equal to 0B 01 and [1] & 0x03 == 0x03
-* [X+2:X+5]: address (presumably destination?)
-* [X+5:X+8]: sender address
-* [X+8]: command/message code. The firmware dispatches on this byte.
-* [X+9:1+L-S]: application data
-* [1+L-S:1+L]: optional suffix
-    * [1+L-S+0]: unknown
-    * [1+L-S+1]: sequence number?
-    * [1+L-S+2:1+L-S+8]: 6 high entropy bytes.
+- [0] & 0x1F: length of payload (L), excluding this first byte and 2 trailing CRC bytes.
+- [0] & 0x20: iff set, there is a 8 byte suffix (S = 8). Otherwise, S = 0.
+- [0] & 0x40: unknown
+- [0] & 0x80: unknown
+- [1] & 0x03: iff == 0x03 and the next bytes equal 0B 01, then skip the next two bytes (X = 2). Otherwise, X = 0.
+- [1] & 0x04: unknown
+- [1] & 0x08: unknown
+- [1] & 0x10: unknown
+- [1] & 0x20: unknown
+- [1] & 0xC0: unknown; 2 bits seem to be related
+- [2:4]: ignored if equal to 0B 01 and [1] & 0x03 == 0x03
+- [X+2:X+5]: address (presumably destination?)
+- [X+5:X+8]: sender address
+- [X+8]: command/message code. The firmware dispatches on this byte.
+- [X+9:1+L-S]: application data
+- [1+L-S:1+L]: optional suffix
+  - [1+L-S+0]: unknown
+  - [1+L-S+1]: sequence number?
+  - [1+L-S+2:1+L-S+8]: 6 high entropy bytes.
 
 ## Address structure
 
 Addresses have a specific structure. It looks like there are several address classes. Some of the structure is parsed using the following algorithm:
-```
-int get_address_class(char (*address)[3])
-{
-  if (address[0] != 0) { // bits 0..8
-    return 13;
-  }
-  if (address[1] || (address[2] & 0xC0) != 0) // bits 8..18
-  {
+
+``` cpp
+int get_address_class(char (*address)[3]) {
+
+  if (address[0] != 0) { return 13; } // bits 0..8
+
+  if (address[1] || (address[2] & 0xC0) != 0) { // bits 8..18
     switch (address[2] & 0x3F) { // bits 18..24
-      case 0x3Bu: return 7;
-      case 0x3Cu: return 8;
-      case 0x3Du: return 9;
-      case 0x3Eu: return 10;
-      case 0x3Fu: return 11;
-      default: return 12;
+      case 0x3B: return  7;
+      case 0x3C: return  8;
+      case 0x3D: return  9;
+      case 0x3E: return 10;
+      case 0x3F: return 11;
+        default: return 12;
     }
   }
-  else
-  {
-    switch (address[2] & 0x3F) // bits 18..24
-    {
-    case 0: return 0;
-    default: return 1;
-    case 0x3Bu: return 2;
-    case 0x3Cu: return 3;
-    case 0x3Du: return 4;
-    case 0x3Eu: return 5;
-    case 0x3Fu: return 6; // broadcast?
+  else { switch (address[2] & 0x3F) { // bits 18..24
+    case 0x00: return 0;
+      default: return 1;
+    case 0x3B: return 2;
+    case 0x3C: return 3;
+    case 0x3D: return 4;
+    case 0x3E: return 5;
+    case 0x3F: return 6; // broadcast
     }
   }
 }

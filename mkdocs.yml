@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/docs/schema.json
 site_name: iown-homecontrol™ Documentation
 site_url: https://velocet.github.io/iown-homecontrol/
 site_description: io-homecontrol Documentation and Implementation
@@ -7,7 +7,7 @@ repo_name: iown™
 repo_url: https://github.com/velocet/iown-homecontrol/
 edit_uri: blog/main/docs/ # edit/main/docs/
 copyright: '&copy; <a href="https://github.com/velocet/iown-homecontrol/">iown-homecontrol™</a>'
-site_dir: .cache/site # Output Folder: Put in '.cache' to unclutter structure
+site_dir: .cache/site # output folder: put in '.cache' to unclutter structure
 exclude_docs: | # Files to exclude from the built site.
   assets/images/patents
   assets/images/README.md
@@ -19,7 +19,7 @@ exclude_docs: | # Files to exclude from the built site.
   parameter/IoHomecontrold
   parameter/IoHomecontrolOVPd
   parameter/OVPd
-  reference/SkitterIO
+  reference/skitter
   *.docx
   *.heic
   *.log
@@ -47,43 +47,38 @@ nav:
   - Parameter Viewer: parameter/database/README.md
   - Reference:
       - Devices: devices.md
-      - Somfy Connectivity Kit: devices/somfy/ConnectivityKit/README.md
-      - Somfy Izymo: devices/Somfy/izymo/README.md
-      - Somfy Smoove: devices/Somfy/Smoove/README.md
-      - Somfy Set&Go: devices/Somfy/SetGo/README.md
-      - Velux KLI31x: devices/Velux/KLI31x/README.md
-      - Velux KLR200: devices/Velux/KLR200/README.md
-      - Atlantic Thermor: devices/misc/AtlanticThermor/README.md
+      - Connectivity Kit: devices/somfy/connectivity_kit/README.md
+      - Somfy Izymo: devices/somfy/izymo/README.md
+      - Somfy Smoove: devices/somfy/smoove/README.md
+      - Somfy Set&Go: devices/somfy/set_go/README.md
+      - Velux KLI31x: devices/velux/KLI31x/README.md
+      - Velux KLR200: devices/velux/KLR200/README.md
+      - Atlantic Thermor: devices/misc/atlantic_thermor/README.md
       - Firmware: firmware.md
-      - Si446x: reference/Si446x-Inside-EZRadioPRO/README.md
-      - CC1021: radio-cc1021.md
-      - Box PINs: devices/somfy/somfy-pin-to-box.md
+      - Si446x: reference/si446x/README.md
+      - CC1021: radio_cc1021.md
+      - Box PINs: devices/somfy_gateway_pin_to_box.md
   - misc:
-      - RTL-SDR: radio-rtlsdr.md
+      - RTL-SDR: radio_rtlsdr.md
   # - home: README.md
 
 plugins:
-  - search
+  - search:
+      enabled: !ENV [GITHUB_ACTIONS, false]
+      lang: en
   - social:
-      enabled: !ENV [CI, false]
-      cards: !ENV [CI, false]
+      enabled: !ENV [GITHUB_ACTIONS, false]
+      cards: !ENV [GITHUB_ACTIONS, false]
       cards_layout_options:
         background_color: '#ABABAB'
         color: '#FEFEFE'
         font_family: Rubik
   - git-revision-date-localized:
-      type: timeago
+      fallback_to_build_date: true # Fall back to (incorrect) build time when git unavailable
       locale: en
-      # Enable fall back to mkdocs build time when git is not available.
-      # Date will be incorrect, but is acceptable to successfully build in environments with no access to GIT.
-      fallback_to_build_date: true
-      enabled: !ENV [CI, false]
+      type: timeago
   - privacy:
-      assets: true
-      assets_fetch: true
-      cache: true
-  - offline:
-      enabled: false
+      enabled: !ENV [GITHUB_ACTIONS, false]
 
 extra:
   homepage: https://velocet.github.io/iown-homecontrol
@@ -100,23 +95,25 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/MPEb7dTNdN
-      # name: iown-Discord
     - icon: fontawesome/brands/telegram
       link: https://t.me/iownHomecontrol
-      # name: iown-Telegram
     - icon: material/home
       link: 'https://velocet.github.io/iown-homecontrol'
     - icon: material/github
       link: 'https://github.com/velocet/iown-homecontrol'
-#    - icon: material/twitter
-#      link: 'https://twitter.com/'
-  status:
-    beta: Documentation in beta
-    WIP: Documentation unfinished/wrong/incomplete
+  status: # ☠❌❗❕❓❔
+    beta: Document in beta status
+    WIP: Document is unfinished
+    ❗: Document is wrong or incomplete
 
 extra_css:
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#content-area-width
   - assets/stylesheets/extra.css
+
+extra_javascript:
+  # https://squidfunk.github.io/mkdocs-material/reference/data-tables/
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js # sortable tables
+  - assets/javascripts/tablesort.js                         # sortable tables
 
 theme:
   name: material
@@ -128,64 +125,86 @@ theme:
   font:
     text: Open Sans
     code: Source Code Pro
-  icon: # https://www.materialpalette.com/icons
+  icon:   # https://www.materialpalette.com/icons
     edit: material/pencil
     logo: material/book-open-page-variant
     repo: fontawesome/brands/github
   palette:
-    primary: grey # blue grey
+    primary: grey      # blue grey
     accent: light blue
   features:
-    # - content.action.edit
-    # - content.code.annotate # Code Comment Subsitution .. senseless
-    - header.autohide
-    # - navigation.expand
-    # - navigation.footer  # Disabled: Just takes real estate
-    # - navigation.indexes # Not compatible with toc.integrate: sections cannot host TOC due to missing space.
-    - navigation.path
-    # - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.top
+    - content.action.edit
+    - content.code.copy       # button to copy code block to the clipboard
+    # - content.code.annotate # attach content to code block sections
+    - header.autohide         # header is automatically hidden when the user scrolls past a certain threshold
+    # - navigation.expand     # left sidebar will expand subsections by default
+    - navigation.footer       # show footer
+    # attach documents to sections for overview pages. rtfm
+    # - navigation.indexes    # NOTE: NOT toc.integrate compatible!
+    - navigation.instant          # behave like a Single Page Application
+    - navigation.instant.progress # show progress indicator on slow connections
+    - navigation.path         # render breadcrumbs above page title
+    - navigation.sections     # combine tabs and sections. sections are rendered for level 2 nav items.
+    - navigation.tabs         # header nav items
+    - navigation.tabs.sticky  # header nav items
+    - navigation.top          # back-to-top button
     - navigation.tracking
-    - toc.follow
-    - toc.integrate # TOC is always rendered as part of the navigation sidebar on the left
+    - search.highlight        # highlight all occurrences after following search link
+    - search.suggest          # display the likeliest completion for the last word
+    - toc.follow              # sidebar is automatically scrolled making active anchor always visible
+    - toc.integrate           # TOC is always rendered as part of the navigation sidebar on the left
 
 markdown_extensions:
-  # - admonition
-  # - codehilite
-  # - tables
-  - toc
-      # permalink: " ¶" # add space before anchor link containing a symbol ¶ at the end of each headline
-      # title: topix    # title of the toc in the right navigation sidebar
-      # toc_depth: 3    # range of levels to be included in the toc
-  # - pymdownx.betterem
-  - pymdownx.highlight
-  # - pymdownx.inlinehilite
-  # - pymdownx.saneheaders
-  - pymdownx.smartsymbols
-  - pymdownx.highlight:
-      anchor_linenums: true
-      use_pygments: true
-      pygments_lang_class: true
-      auto_title: true
-      linenums: false
-  - pymdownx.superfences:
+  # - admonition    # https://squidfunk.github.io/mkdocs-material/reference/admonitions
+  - attr_list     # HTML attributes / CSS classes for Markdown inline/block-level elements
+                    # https://squidfunk.github.io/mkdocs-material/reference/grids/#usage
+                    # https://squidfunk.github.io/mkdocs-material/reference/buttons/#adding-buttons
+  - github-callouts # needed to support GH alerts
+  - md_in_html      # wrap MD content with HTML elements. Needed for GH collapsible section
+  - tables          # markdown tables support
+  - toc:
+      toc_depth: 2          # toc levels to be included
+      permalink: false      # custom headline anchor link
+      title: -> agenda      # right navigation sidebar toc title
+  # - pymdownx.details      # collapsible call-outs (not needed: native github support)
+  # - pymdownx.smartsymbols # convert characters to symbols (eg. copyright symbol)
+  # - pymdownx.caret   # https://facelessuser.github.io/pymdown-extensions/extensions/caret/
+  # - pymdownx.mark    # https://facelessuser.github.io/pymdown-extensions/extensions/mark/
+  - pymdownx.tilde     # https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
+  - pymdownx.betterem  # emphasize using special characters (eg. **bold**, _italic_)
+  - pymdownx.saneheaders  # header only valid with space after hash
+  - pymdownx.inlinehilite # inline code block highlighting
+  - pymdownx.snippets     # embed files
+  - pymdownx.highlight:   # code block highlighting with SuperFences and InlineHilite
+      use_pygments: true        # code block highlighting during build or browser highlighter
+      pygments_lang_class: true # code block CSS class language identifyer
+      anchor_linenums: false    # wrap line numbers with anchor links
+      auto_title: true          # show code block title (``` $language title="$title")
+      line_spans: __span        # wrap code block with span (essential for line highlighting)
+      linenums: false           # code block line numbers
+  - pymdownx.superfences:       # code nesting inside each other (eg. admonitions, tabs, lists)
       custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
-  #     clickable_checkbox: false
+        - name: mermaid        # NOTE: mermaid prevents syntax highlighting!
+          class: mermaid       # NOTE: mermaid prevents syntax highlighting!
+          format: !!python/name:pymdownx.superfences.fence_code_format # NOTE: mermaid prevents syntax highlighting!
+  - pymdownx.tasklist:          # GitHub task lists
+      custom_checkbox: true     # checkbox style with icons
+      clickable_checkbox: false # clickable checkboxes
 
 validation:
   nav:
+    # Following pages exist in the 'docs' directory, but is not included in 'nav'.
     omitted_files: info
+    # Reference '...' is included in 'nav', which is not found in the documentation.
     not_found: warn
-    absolute_links: info
+    # Absolute path to '...' is included in the 'nav' configuration, which presumably points to an external resource.
+    absolute_links: warn
   links:
-    not_found: info
+    # Doc file '...' contains link ..., but the target is not found among documentation files.
+    not_found: warn
+    # Doc file '...' contains link ..., but there is no such anchor on this page.
     anchors: info
+    # Doc file '...' contains absolute link '...', it was left as is. Did you mean '...'?
     absolute_links: info
-    unrecognized_links: ignore
+    # Doc file '...' contains unrecognized link '...', it was left as is. Did you mean '...'?
+    unrecognized_links: info
