@@ -11,6 +11,9 @@
 >
 > Oh.. and every contribution is welcome! ... even if it doesn't align with the rules described here! ;)
 
+> [!TIP]
+> See also [Contributing to Open-Source Projects](https://openresource.dev/guide/contributing-to-open-source-projects)
+
 - [Project Structure](#project-structure)
   - [Documentation](#documentation)
 - [Contributing](#contributing)
