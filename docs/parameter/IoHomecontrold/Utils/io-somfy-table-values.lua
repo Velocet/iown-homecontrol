@@ -1,4 +1,4 @@
-﻿-- chunkname: @./gateway/io-somfy-table-values.module
+-- chunkname: @./gateway/io-somfy-table-values.module
 
 local TableValues = {}
 
