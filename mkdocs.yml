@@ -7,7 +7,7 @@ repo_name: iown™
 repo_url: https://github.com/velocet/iown-homecontrol/
 edit_uri: blog/main/docs/ # edit/main/docs/
 copyright: '&copy; <a href="https://github.com/velocet/iown-homecontrol/">iown-homecontrol™</a>'
-site_dir: .cache/site # output folder: put in '.cache' to unclutter structure
+# site_dir: .cache/site # output folder: put in '.cache' to unclutter structure
 exclude_docs: | # Files to exclude from the built site.
   assets/images/patents
   assets/images/README.md
@@ -19,7 +19,7 @@ exclude_docs: | # Files to exclude from the built site.
   parameter/IoHomecontrold
   parameter/IoHomecontrolOVPd
   parameter/OVPd
-  reference/skitter
+  reference/SkitterIO
   *.docx
   *.heic
   *.log
@@ -39,7 +39,7 @@ exclude_docs: | # Files to exclude from the built site.
   !lunr.stemmer.support.min.js
 # draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
 nav:
-  # - ⏏: README.md
+  # - Home: README.md
   - Protocol:
       - Layer 1: radio.md
       - Layer 2: linklayer.md
@@ -52,10 +52,9 @@ nav:
       - Somfy Izymo: devices/somfy/izymo/README.md
       - Somfy Smoove: devices/somfy/Smoove/README.md
       - Somfy Set&Go: devices/somfy/SetGo/README.md
-      - Velux:
-        - Velux: devices/Velux/README.md
-        - Velux KLI31x: devices/Velux/KLI31x/README.md
-        - Velux KLR200: devices/Velux/KLR200/README.md
+      - Velux Devices: devices/Velux/README.md
+      - Velux KLI31x: devices/Velux/KLI31x/README.md
+      - Velux KLR200: devices/Velux/KLR200/README.md
       - Atlantic Thermor: devices/misc/AtlanticThermor/README.md
       - Firmware: firmware.md
       - Si446x: reference/Si446x/README.md
