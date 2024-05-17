@@ -1,0 +1,28 @@
+/*
+  https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#content-area-width
+*/
+.md-grid {
+  max-width: 61.8%; /* https://en.wikipedia.org/wiki/Golden_ratio */
+}
+
+/*
+  https://www.starfallprojects.co.uk/blog/material-custom-status/#set-the-page-status
+*/
+.md-status--beta::after {
+    background-color: var(--color-background-dark);
+    border-radius: 0.2rem;
+    color: white;
+    content: "beta";
+    font-size: 0.5rem;
+    height: auto;
+    padding: 0.1rem;
+    -webkit-mask-image: none;
+    width: auto;
+}
+
+.md-status:hover:after {
+  /*
+    Setting text to white interfered with a hover effect, causing the status to disappear on hover
+  */
+  background-color: var(--color-text-base);
+}

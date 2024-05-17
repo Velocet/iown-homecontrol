@@ -1,0 +1,2204 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="io-homecontrol protocol and data format specification">
+      
+      
+        <meta name="author" content="velocet">
+      
+      
+        <link rel="canonical" href="https://velocet.github.io/iown-homecontrol/linklayer/">
+      
+      
+        <link rel="prev" href="../radio/">
+      
+      
+        <link rel="next" href="../commands/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+    
+    
+      
+        <title>iown-homecontrol - Data Link and Network Layer - iown-homecontrol™ Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.bfe0d362.css">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="iown-homecontrol - Data Link and Network Layer - iown-homecontrol™ Documentation" >
+      
+        <meta  property="og:description"  content="io-homecontrol protocol and data format specification" >
+      
+        <meta  property="og:image"  content="https://velocet.github.io/iown-homecontrol/assets/images/social/linklayer.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://velocet.github.io/iown-homecontrol/linklayer/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="iown-homecontrol - Data Link and Network Layer - iown-homecontrol™ Documentation" >
+      
+        <meta  name="twitter:description"  content="io-homecontrol protocol and data format specification" >
+      
+        <meta  name="twitter:image"  content="https://velocet.github.io/iown-homecontrol/assets/images/social/linklayer.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#io-homecontrol-link-layer-protocol-and-format-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://velocet.github.io/iown-homecontrol" title="iown-homecontrol™ Documentation" class="md-header__button md-logo" aria-label="iown-homecontrol™ Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            iown-homecontrol™ Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              iown-homecontrol - Data Link and Network Layer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/velocet/iown-homecontrol/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iown™
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../radio/" class="md-tabs__link">
+          
+  
+  Protocol
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../parameter/database/" class="md-tabs__link">
+        
+  
+    
+  
+  Parameter Viewer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../devices/" class="md-tabs__link">
+          
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../radio-rtlsdr/" class="md-tabs__link">
+          
+  
+  misc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://velocet.github.io/iown-homecontrol" title="iown-homecontrol™ Documentation" class="md-nav__button md-logo" aria-label="iown-homecontrol™ Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"/></svg>
+
+    </a>
+    iown-homecontrol™ Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/velocet/iown-homecontrol/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iown™
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Protocol
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Protocol
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radio/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 21c-3 0-4.19-4.24-5.45-8.72C10.14 9.04 9 5 7.5 5 4.11 5 4 11.93 4 12H2c0-.37.06-9 5.5-9 3 0 4.21 4.25 5.47 8.74C13.83 14.8 15 19 16.5 19c3.44 0 3.53-6.93 3.53-7h2c0 .37-.06 9-5.53 9Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Layer 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Layer 2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Layer 2
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="-> agenda">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      -> agenda
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol Frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-byte-0-basic-frame-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Byte 0 - Basic Frame Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-byte-1-extended-frame-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Byte 1 - Extended Frame Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addresses-nodeid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addresses (NodeId)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-and-command-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command and Command Parameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keys-and-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keys and Discovery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pairing-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pairing and Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testcalibration-data-and-ems-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test/Calibration Data and EMS Frames
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2 1 21h22L12 2m.75 9.47c1.81.4 2.95 2.2 2.55 4.03-.3 1.25-1.3 2.25-2.55 2.53v-6.56M11.25 18c-1.81-.4-2.95-2.2-2.55-4 .3-1.28 1.3-2.28 2.55-2.56V18m5.63-3.28A4.874 4.874 0 0 0 12.75 10V6.29L20.4 19.5h-7.33c2.22-.5 3.8-2.47 3.81-4.75v-.03m-5.63-8.43V10c-2.65.4-4.48 2.88-4.07 5.54.32 1.96 1.79 3.58 3.75 4.01H3.6l7.65-13.26Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10a2 2 0 0 1 2 2 2 2 0 0 1-.47 1.29L16.7 22h-2.13L12 14.93 9.43 22H7.3l3.17-8.71A2 2 0 0 1 10 12a2 2 0 0 1 2-2m0-2a4 4 0 0 0-4 4c0 .5.1 1 .28 1.46l-.88 2.4A6.026 6.026 0 0 1 6 12a6 6 0 0 1 6-6 6 6 0 0 1 6 6c0 1.47-.53 2.81-1.4 3.86l-.88-2.4C15.9 13 16 12.5 16 12a4 4 0 0 0-4-4m0-4a8 8 0 0 0-8 8c0 2.36 1 4.5 2.64 5.94l-.72 2A10.005 10.005 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10c0 3.23-1.54 6.11-3.92 7.94l-.72-2C19 16.5 20 14.36 20 12a8 8 0 0 0-8-8Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Parameter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parameter Viewer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Devices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/somfy/ConnectivityKit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectivity Kit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/somfy/izymo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Somfy Izymo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/somfy/Smoove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Somfy Smoove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/somfy/SetGo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Somfy Set&Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/Velux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Velux Devices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/Velux/KLI31x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Velux KLI31x
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/Velux/KLR200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Velux KLR200
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/misc/AtlanticThermor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atlantic Thermor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firmware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firmware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/Si446x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Si446x
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radio-cc1021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CC1021
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--WIP" title="Document is unfinished">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/somfy/somfy-pin-to-box/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Box PINs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radio-rtlsdr/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 20c-.29 0-.56-.06-.76-.15-.71-.35-1.21-.88-1.71-2.38-.53-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 11 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.93 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55.51.23 1.07.35 1.64.35a4 4 0 0 0 4-4h-2a2 2 0 0 1-2 2M7.64 2.64 6.22 1.22A10.965 10.965 0 0 0 3 9c0 3.04 1.23 5.79 3.22 7.78l1.41-1.41A8.952 8.952 0 0 1 5 9c0-2.5 1-4.74 2.64-6.36M11.5 9a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 16.5 9 2.5 2.5 0 0 0 14 6.5 2.5 2.5 0 0 0 11.5 9Z"/></svg>
+  
+  <span class="md-ellipsis">
+    RTL-SDR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/EMS2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EMS2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/velocet/iown-homecontrol/blog/main/docs/linklayer.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<!--
+All products and applications integrated into the system not only communicate with the remote control, but also with each other. io-homecontrol&reg; is based on radio communication and works in the frequency range from 868 to 870 megahertz.
+Before the sender and receiver communicate with each other, the availability of the channel is checked.
+If a bandwidth is overloaded or occupied, the application waits for the frequency to become free before communicating (Listen before Talk) or switches to one of the other channels (Adaptive Frequency Agility). io-homecontrol&reg; thus complies with the applicable European radio technology standard EN 300220.
+These properties ensure that every command given arrives at the product and is executed. io-homecontrol&reg; has a range of around 20 meters and penetrates walls and furnishings.
+When used for the first time, the remote control (transmitter) and product (receiver) exchange a 128-bit encryption code and combine it with a random number for each new action.
+A code is calculated from this, which the transmitter and receiver compare with each other.
+The product only reacts to the required action if they match. This safety mechanism prevents you from reacting to an external transmitter. The new application automatically searches for existing products and takes them into account in its promotions.
+
+IoSerialNumber: 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
+
+OWS: Handles talking to Overkiz Cloud
+
+> `apps\var\lib\io-homecontrol\lua-storage\io\stack&646575`
+
+<div class="language-SHELL highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-0-1"><span class="nv">address</span><span class="o">=</span><span class="m">646575</span>,
+</span><span id="__span-0-2"><span class="w">    </span><span class="nv">type</span><span class="o">=</span><span class="m">065476</span>,
+</span><span id="__span-0-3"><span class="nv">manufacturer</span><span class="o">=</span><span class="m">2</span>,
+</span><span id="__span-0-4"><span class="nv">StackKey</span><span class="o">=</span>E9<span class="w"> </span><span class="m">94</span><span class="w"> </span>BA<span class="w"> </span>CF<span class="w"> </span>E6<span class="w"> </span>BE<span class="w"> </span>D7<span class="w"> </span><span class="m">66</span><span class="w"> </span><span class="m">76</span><span class="w"> </span><span class="m">30</span><span class="w"> </span>EA<span class="w"> </span>E4<span class="w"> </span><span class="m">75</span><span class="w"> </span>BA<span class="w"> </span>AE<span class="w"> </span><span class="m">95</span>
+</span></code></pre></div>
+PLAYAEREA
+
+  address=64 65 75,
+     type=06 54 76,
+  address=  64 65  75,
+     type= 06   54 76,
+
+34C3466ED88F4E8E16AA473949884373
+
+-->
+
+<h1 id="io-homecontrol-link-layer-protocol-and-format-specification">io-homecontrol Link Layer: Protocol and Format Specification</h1>
+<p>There are at least two known protocols with some kind of third protocol especially for OEMs ("EMS2) that gets triggered with a long unmodulated carrier wave...</p>
+<div class="language-text highlight"><span class="filename">io-homecontrol Frame</span><pre><span></span><code><span id="__span-1-1">---
+</span><span id="__span-1-2">title: io-homecontrol Frame
+</span><span id="__span-1-3">---
+</span><span id="__span-1-4">%%{init:{&quot;fontFamily&quot;:&quot;monospace&quot;}}%%
+</span><span id="__span-1-5">block-beta
+</span><span id="__span-1-6">columns 9
+</span><span id="__span-1-7">  Frame[&quot;Frame: 1W&quot;]:9
+</span><span id="__span-1-8">  block:frame:9
+</span><span id="__span-1-9">    cb1[&quot;CTRL&lt;br/&gt;BYTE1&quot;]
+</span><span id="__span-1-10">    cb2[&quot;CTRL&lt;br/&gt;BYTE2&quot;]
+</span><span id="__span-1-11">    sa[&quot;SOURCE&lt;br/&gt;NodeID&quot;]
+</span><span id="__span-1-12">    da[&quot;DEST&lt;br/&gt;NodeID&quot;]
+</span><span id="__span-1-13">    cmd[&quot;Command&lt;br/&gt;ID&quot;]
+</span><span id="__span-1-14">    data[&quot;Main&lt;br/&gt;Parameter&quot;]
+</span><span id="__span-1-15">    rc[&quot;Rolling&lt;br/&gt;Code&quot;]
+</span><span id="__span-1-16">    hmac[&quot;HMAC&quot;]
+</span><span id="__span-1-17">    crc[&quot;CRC&quot;]
+</span><span id="__span-1-18">  end
+</span><span id="__span-1-19">  space:1
+</span><span id="__span-1-20">  size[&quot;Size&quot;]:7
+</span><span id="__span-1-21">  space:1
+</span><span id="__span-1-22">  checksum[&quot;CRC-16/KERMIT&quot;]:8
+</span></code></pre></div>
+<!--
+- io-homecontrol 1W
+- io-homecontrol 2W
+-->
+
+<h2 id="protocol-frame">Protocol Frame</h2>
+<ul>
+<li>Length</li>
+<li>Minimum: 11 bytes (i.e. without any DATA)</li>
+<li>Maximum: 32 bytes (i.e. maximum 21 bytes of DATA)<ul>
+<li><code>0b11111</code> = 31 = 0x1F</li>
+</ul>
+</li>
+</ul>
+<p>getMasterAddress
+getRSSILevel
+getNodeAddress
+getFrameType
+getCtrlByte0
+getCtrlByte1
+getCtrlByteManufCode
+getCtrlByteProtocolVersion
+getCommand
+getData
+isOneWay
+getDataLen</p>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><span id="__span-2-1"><span class="n">Message_GetBroadcastType</span><span class="w"> </span><span class="p">(</span><span class="n">node_id_t</span><span class="w"> </span><span class="n">NODE_ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2">
+</span><span id="__span-2-3"><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mh">0xD</span><span class="p">;</span>
+</span><span id="__span-2-4">
+</span><span id="__span-2-5"><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xC0</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x3F</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3B</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0x7</span><span class="p">;</span>
+</span><span id="__span-2-8"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3C</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0x8</span><span class="p">;</span>
+</span><span id="__span-2-9"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3D</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0x9</span><span class="p">;</span>
+</span><span id="__span-2-10"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3E</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0xA</span><span class="p">;</span>
+</span><span id="__span-2-11"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3F</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0xB</span><span class="p">;</span>
+</span><span id="__span-2-12"><span class="w">      </span><span class="k">default</span><span class="o">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mh">0xC</span><span class="p">;</span>
+</span><span id="__span-2-13"><span class="w">  </span><span class="p">}}</span>
+</span><span id="__span-2-14">
+</span><span id="__span-2-15"><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-16"><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">0x3A</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-17"><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-18"><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-19"><span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-20"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3B</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-2-21"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3C</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-2-22"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3D</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-2-23"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mh">0x3E</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-2-24"><span class="w">      </span><span class="k">default</span><span class="o">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+</span><span id="__span-2-25"><span class="w">  </span><span class="p">}}}</span>
+</span><span id="__span-2-26"><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="n">NODE_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></code></pre></div>
+<p>&horbar;&mdash;——————————<kbd>R T F M</kbd>&horbar;&mdash;——————————</p>
+<!--
+<div class="language-YAML highlight"><span class="filename">YAML</span><pre><span></span><code><span id="__span-3-1"><span class="p p-Indicator">[</span><span class="nv">—————————————————————————— P A C K E T ——————————————————————————</span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-2"><span class="w">                 </span><span class="p p-Indicator">[</span><span class="nv">—————————— F R A M E ——————————</span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-3"><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">PREAMBLE</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">SFD</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">HEADER</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">TYPE</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">PAYLOAD</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">CRC</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">POSTAMBLE</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">InterFrameGap</span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-4"><span class="w">                                              </span><span class="p p-Indicator">[</span><span class="w">    </span><span class="nv">D A T A</span><span class="w">    </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ENUM</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w">   </span><span class="nv">H M A C</span><span class="w">  </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">F C S</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-5">
+</span><span id="__span-3-6"><span class="p p-Indicator">[</span><span class="nv">55....55  FF33</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">F6 00 00003F 708758</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">00</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">01 61 D200 00 00</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3BD2</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">E6B62CEF54C8</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">A9 37</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-7"><span class="w"> </span><span class="nv">PREAMBLE  SYNC   MT LP SRCADR DSTADR CM MAIN F1 F2 ENUM MACMACMACMAC CODE</span>
+</span><span id="__span-3-8">
+</span><span id="__span-3-9"><span class="w"> </span><span class="nv">Bit Sequence = Preamble + Sync Word (SFD)</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">Follows Long PPDU Format (128 bits Preamble/Sync + 16 bits SFD/Sync Word)</span>
+</span><span id="__span-3-10"><span class="w"> </span><span class="nv">Preamble = Used for Synchronisation</span>
+</span><span id="__span-3-11"><span class="w"> </span><span class="nv">SFD = Start Frame Delimiter</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">Indicates Start of Frame</span>
+</span><span id="__span-3-12"><span class="w"> </span><span class="nv">FCS = Frame Check Sequence</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">CRC16-KERMIT over HEADER+TYPE+PAYLOAD</span>
+</span></code></pre></div>
+
+| NAME     | Sync<br/>Word | Header | MAC        | CMD    | Parameter | Rolling<br/>Code | MIC      | CRC      |
+| :------: | :-----------: | :----: | :--------: | :----: | :-------: | :--------------: | :------: | :------: |
+| **SIZE** | 2 Byte        | 2 Byte | 2 * 3 Byte | 1 Byte |           |                  | 3 Byte   | 3 Byte   |
+| **ENC**  | UART          | UART   | UART       |        | 1 Byte    |                  | 3 Byte   | 3 Byte   |
+|          | FF 33         | 00     | xx         |        | 00        |                  | 00:00:00 | 00:00:00 |
+
+| Name | Preamble | Sync<br>Word | Control<br>Byte<br>0 | Control<br>Byte<br>1 | Destination<br>Node<br>ID | Source<br>Node<br>ID | Data  | CRC     |
+| :--: | :------: | :----------: | :------------------: | :------------------: | :-----------------------: | :------------------: | :---: | :-----: |
+| Byte |          |              | 0                    | 1                    | 2 - 4                     | 5 - 7                | 9 - n | (n-1)-n |
+
+- Preamble
+- Sync Word = Network ID (= Frame Type?)
+
+CtrlByteManufCode
+FrameType
+Command
+Data
+DataLen
+isOneWay
+
+### Header > Frame Control Bytes
+
+| Behavior                            | Bit 1 | Bit 0 |
+| :---------------------------------- | :---: | :---: |
+| Single Command                      | 0     | 0     |
+| Next Command to Execute in Series   | 0     | 1     |
+| Next Command to Execute in Parallel | 1     | 0     |
+| End of Group of Commands            | 1     | 1     |
+
+| Instruction                          | Bit 2 | Bit 1 | Bit 0 |
+| :----------------------------------- | :---: | :---: | :---: |
+| End of macro-program                 | 0     | 0     | 0     |
+| Immediate Execution                  | 0     | 0     | 1     |
+| Parallel Execution & Function AND    | 0     | 1     | 0     |
+| Parallel Execution & Function OR     | 0     | 1     | 1     |
+| Parallel Execution & Function NO AND | 1     | 0     | 0     |
+| Test                                 | 1     | 0     | 1     |
+| Skip                                 | 1     | 1     | 0     |
+| Time Delay                           | 1     | 1     | 1     |
+
+> FrameType Segment: Same 3bit + 5bit Format could also be used for CommandIDs, Parameter, etc.
+> - 3bit (SegmentType) + 5bit (SegmentData)
+> - 3bit (SegmentType) + 5bit (SegmentLength)
+
+0b000 = 0 = "UNKNOWN"
+0b001 = 1 = "ACTUATOR" isOneWay
+0b010 = 2 = "SENSOR"
+0b011 = 3 = "VIDEO_SYSTEM" isOneWay
+0b100 = 4 = "REMOTE_CONTROLLER"
+0b101 = 5 = "PROTOCOL_GATEWAY" isOneWay
+0b110 = 6 = "INFRASTRUCTURE_COMPONENT"
+0b111 = 7 = "GROUP" isOneWay
+
+- First 3bit define the *Session Information* or `FrameType`
+  - FrameTypes:
+    - 1: 000 FrameType_Identification
+    - 2: 001 FrameType_Parameter
+    - 3: 010 FrameType_ParameterValue / Transaction
+    - 4: 011 FrameType_Unknown / Action
+    - 5: 100 TypeOfSegment
+    - 6: 101 TypeOfSegment
+    - 7: 110 TypeOfSegment
+    - 8: 111 TypeOfSegment
+  - Example for Session Information: Indicate button press/released event
+  - Button Press Threshold: 140ms
+  - **NOTE**: [US7852765B2](https://patentimages.storage.googleapis.com/ad/fb/19/e32e0fd9ea606e/US7852765.pdf) -->
+
+<h2 id="control-byte-0-basic-frame-information">Control Byte 0 - Basic Frame Information</h2>
+<div align="center" width="100%">
+
+| **BIT**  | 7-6   | 5    | 4-0  |
+| :------: | :---: | :--: | :--: |
+| **NAME** | Order | Protocol<br/>Mode | Size |
+
+</div>
+
+<ul>
+<li>
+<p><code>Order</code>: Indicates Relationship (Logical and/or Temporal) between transmitted Orders.
+  | #   | bit<code>[7]</code> | bit<code>[6]</code> | Command Order Relationship<br/>(First/Last Frame in Session) |
+  | --: | :------: | :------: | :----------------------------------------------------------- |
+  | 0   | 0        | 0        | <code>Single            = Last/First Session Frame:  No/No</code>       |
+  | 1   | 0        | 1        | <code>Next in Series    = Last/First Session Frame:  No/Yes</code>      |
+  | 2   | 1        | 0        | <code>Next in Parallel  = Last/First Session Frame: Yes/No</code>       |
+  | 3   | 1        | 1        | <code>Command Group End = Last/First Session Frame: Yes/Yes</code>      |</p>
+</li>
+<li>
+<p><code>isOneWay</code>: Protocol Mode</p>
+</li>
+<li>0 = 2W = Two Way</li>
+<li>
+<p>1 = 1W = One Way</p>
+</li>
+<li>
+<p><code>Size</code>: Frame Length in byte excluding <code>Control Byte 0</code> and the <code>CRC</code></p>
+</li>
+</ul>
+<h2 id="control-byte-1-extended-frame-information">Control Byte 1 - Extended Frame Information</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>BIT</strong></th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1-0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>NAME</strong></td>
+<td style="text-align: center;">Use Beacon</td>
+<td style="text-align: center;">Routed</td>
+<td style="text-align: center;">Low Power Mode</td>
+<td style="text-align: center;">Ack</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">Protocol Version</td>
+</tr>
+</tbody>
+</table>
+<!--
+> FrameData Segment
+> 7:3 = 32 codes of the signs or characters specifying the transaction or the action
+-->
+
+<ul>
+<li>Use Beacon (<code>isBeacon</code>): Repeater Mode = Allow routing the Frame through the Network</li>
+<li>0: Do Not use Beacon</li>
+<li>1: Use Beacon</li>
+<li><strong>Note</strong>: Max. 1 Hop!</li>
+<li>Routed (<code>isRouted</code>): Indicates if Frame has already been routed through a Beacon (Repeater)</li>
+<li>0 frame has not been routed</li>
+<li>1 frame has been routed</li>
+<li>Low Power Mode (<code>PowerSaveMode</code>): Indicates if Frame is sent to Device in Low Power Mode (LPM):</li>
+<li>0 = Destination Device is not in Low Power Mode</li>
+<li>1 = Destination Device is in Low Power Mode</li>
+<li>Ack indicates if a response can be handled (2W Devices Only)</li>
+<li>0 = NACK: 1W Device</li>
+<li>1 = ACK: 2W Device</li>
+</ul>
+<!--
+- io-Membership Flag
+- RF Support in Node
+- CtrlByteManufCode
+-->
+
+<h2 id="addresses-nodeid">Addresses (NodeId)</h2>
+<p>Addresses are 3 bytes long and can range from <code>01 00 00</code> to <code>ff ff ff</code>.</p>
+<p>Addresses are also refered to as <em>Node ID</em> which resembles the MS-B of a typical MAC-Address. The Node Type is a numerical value defines which</p>
+<h3 id="destination-address">Destination Address</h3>
+<ul>
+<li><code>00 00 3F</code> is broadcast</li>
+<li><code>00 00 3B</code> ??</li>
+<li><code>00 00 00</code> = Group</li>
+<li><code>FF FF FF</code> = Broadcast</li>
+</ul>
+<h3 id="source-sender-address">Source (Sender) Address</h3>
+<ul>
+<li><code>FFFFFE</code> = SRC for P2P and BROADCAST</li>
+<li><code>FFFDFF</code> = RS485 (SDN) Setting Tool</li>
+</ul>
+<h2 id="command-and-command-parameter">Command and Command Parameter</h2>
+<p>Go further down the rabbit hole -&gt; <a href="../commands/">Commands</a></p>
+<!--
+#### CommandParameter Types
+
+There exist different types of Parameter:
+
+- Main
+  - Functional
+- Private
+  - Stimuli
+    - Somfy Key & Go 1w
+    - Somfy Satellite 1w
+-->
+
+<h3 id="data">Data</h3>
+<ul>
+<li>Data Length</li>
+<li>Minimum =  0 bytes (no DATA)</li>
+<li>Maximum = 21 bytes</li>
+</ul>
+<p>Depending on the frame type it can correspond to raw data, io-homecontrol command parameters or manufacturer-specific data.</p>
+<p>Note that in authenticated 1-Way frames, a 2-bytes sequence number and a 6-byte long message authentication code are appended:</p>
+<div align="center" width="100%">
+
+|  X - Y |   (Y + 1) - (Y + 2)    |   (Y + 3) - (Y + 9)  |
+| :----: | :--------------------: | :------------------: |
+|  Data  |     Sequence number    |          MAC         |
+
+</div>
+
+<h2 id="crc">CRC</h2>
+<p>After the payload, there is a 16-bit CRC with polynomial 0x(1)8408 over the data packet (i.e. length byte + payload). The CRC's initial value is 0 and it does not employ an XOR/NOT. The least significant byte of the CRC is transmitted first.</p>
+<p>The C# implementation shown here can be found in the Starter Kit software from Semtech for their SX12xx line of radios. Just use a .NET decompiler (dotPeek, ILSpy, etc.) and search for it:</p>
+<div class="language-csharp highlight"><span class="filename">C#</span><pre><span></span><code><span id="__span-4-1"><span class="w">  </span><span class="c1">// dumped ioHC CRC code from the Semtech SX12xx series software</span>
+</span><span id="__span-4-2"><span class="w">  </span><span class="kt">ushort</span><span class="w"> </span><span class="nf">Crc</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">packet</span><span class="p">){</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">packet</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><span class="w">      </span><span class="n">packet</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="kt">byte</span><span class="p">)((</span><span class="n">packet</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0</span><span class="n">x802</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">0</span><span class="n">x22110</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">packet</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0</span><span class="n">x8020</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">0</span><span class="n">x88440</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0</span><span class="n">x10101</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="m">0</span><span class="n">x10</span><span class="p">);</span>
+</span><span id="__span-4-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-4-7"><span class="w">  </span><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="keys-and-discovery">Keys and Discovery</h2>
+<p>... and now for something completely different^^</p>
+<h3 id="system-stack-key">System / Stack Key</h3>
+<p>Each two-ways controller has a stack or system key. This is an AES-128 key used to sign io frames with the trailing MAC.</p>
+<p>Advanced Encryption Standard (AES) 128-bit block encryption/decryption with 128 bits key size.
+Electronic Code Book (ECB) and Cipher Block Chaining Mode 1 (CBC Mode 1) are supported.
+The AES engine is enabled on the ADF7022 by downloading the AES software module to program RAM.</p>
+<p>The key generation on Kizboxes is insecure because it relies on the LuaJIT <code>math.random</code>:</p>
+<div class="language-lua highlight"><span class="filename">Generate Key</span><pre><span></span><code><span id="__span-5-1">  <span class="c1">-- seed</span>
+</span><span id="__span-5-2">  <span class="n">kizbox_id</span> <span class="o">=</span> <span class="s2">&quot;xxxx-xxxx-xxxx&quot;</span> <span class="c1">-- Kizbox serial</span>
+</span><span id="__span-5-3">  <span class="nb">math.randomseed</span><span class="p">(</span><span class="nb">tonumber</span><span class="p">(</span><span class="nb">string.gsub</span><span class="p">(</span><span class="s2">&quot;1&quot;</span> <span class="o">..</span> <span class="n">kizbox_id</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="o">-</span> <span class="nb">os.time</span><span class="p">())</span>
+</span><span id="__span-5-4">  <span class="c1">-- key generation</span>
+</span><span id="__span-5-5">  <span class="n">key</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-5-6">  <span class="n">keySize</span> <span class="o">=</span> <span class="mi">16</span> <span class="c1">-- 128 bits</span>
+</span><span id="__span-5-7">  <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">keySize</span> <span class="kr">do</span>
+</span><span id="__span-5-8">      <span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+</span><span id="__span-5-9">  <span class="kr">end</span>
+</span></code></pre></div>
+<p>This mechanism only leaves roughly 31,536,000 keys possible if the serial number of the TaHoma and the year of setup are known (other calls to math.random are made so the actual number may be a bit above this figure but once the seed and the number of times math.random is called are figured out by an attacker, they can completly determine the key).</p>
+<!--
+### Discovery
+
+There are several discover types:
+
+- Discover Sensor
+  - Discover Sensor Simple
+  - Discover Sensor Simple IO
+  - Discover Sensor Generic
+  - Discover Sensor Generic Pulse Sensor
+- Discover Actuator
+  - Discover Actuator Simple
+  - Discover Actuator Simple with Wink
+  - Discover Actuator OVP
+  - Discover Actuator 1W
+  - Discover Actuator In System
+  - Discover Actuator Without Setup ("Virgin")
+- Discover
+  - Discover Simple
+  - Discover Controller
+  - Discover Controller 1W
+  - Discover Intermediate
+  - Discover Private Somfy
+-->
+
+<h3 id="1w-discovery">1W Discovery</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant 1W as Remote
+    participant 2W as Actuator
+    Note over 1W,2W: 1-Way Discovery
+    1W-&gt;&gt;2W: Command ID: 0x39&lt;br/&gt;Remove 1-Way Remote
+    activate 2W
+    loop 0x39
+        2W-&gt;&gt;2W: Remove&lt;br/&gt;1-Way Key
+    end
+    deactivate 2W
+    1W--&gt;&gt;2W: Command ID: 0x30&lt;br/&gt;Send Encrypted 1-Way Key
+    activate 2W
+    loop 0x30
+        2W-&gt;&gt;2W: Store&lt;br/&gt;1-Way Key
+    end
+    deactivate 2W</code></pre>
+<p>In 1-way mode, the controller does not get any answer. So this is the simplest discovery mode, it asks for exclusion using 0x39 and then sends its 1-W encrypted key using 0x30.</p>
+<h3 id="2w-discovery-simple-discover">2W Discovery: Simple Discover</h3>
+<ul>
+<li>Controller sends command <code>0x28</code> (discover) when entering discover mode</li>
+<li>Device in pairing mode answers with command <code>0x29</code> (discover answer) and gives metadata to identify itself to the controller</li>
+<li>Controller confirms having received discovery information from device</li>
+<li>Devices acks confirmation</li>
+</ul>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-6-1">  # Discover request
+</span><span id="__span-6-2">  C8 00 00003B F00F00 28 1234
+</span><span id="__span-6-3">  # Discover answer: node type REMOTE_CONTROLLER, subtype 0, node address feefee, manufacturer Atlantic
+</span><span id="__span-6-4">  # multi info byte 0xcc, timestamp 0000
+</span><span id="__span-6-5">  D1 00 F00F00 FEEFEE 29 FFC0 FEEFEE 0C CC 0000 1234
+</span><span id="__span-6-6">  # Discover confirmation
+</span><span id="__span-6-7">  48 00 FEEFEE F00F00 2C 1234
+</span><span id="__span-6-8">  ## Discover confirmation ack
+</span><span id="__span-6-9">  88 00 F00F00 FEEFEE 2D 1234
+</span></code></pre></div>
+<p>Must send a <code>0x38</code> key transfer, just after the <code>0x2D</code> discover confirmation ack to effectivly have the device added</p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-7-1">  # Controller ask for key transfer using challenge 123456789ABC
+</span><span id="__span-7-2">  4E 04 FEEFEE F00F00 38 123456789ABC 23B6
+</span></code></pre></div>
+<h3 id="2w-discovery-specialized-discover">2W Discovery: Specialized Discover</h3>
+<ul>
+<li>Controller sends command 0x2a (specialized discover) with specific data not identified to this day</li>
+<li>Device in pairing mode answers with 0x2b and same information fields as in 0x29</li>
+<li>Controller and device exchange 0x2c and 0x2d just like in the general discover</li>
+<li>Controller sends command 0x36, authenticates and expects an address in 0x37 answer (see 2-way key exchange push below)</li>
+</ul>
+<h2 id="pairing-and-authentication">Pairing and Authentication</h2>
+<p>Before being able to communicate with authentication, io-homecontrol nodes must share a common secret as the security of the protocol relies on a symmetric encryption algorithm.</p>
+<p>The pairing process consists in transmitting the key. Authentication in adding and verifying challenges.</p>
+<p>In both modes (1W/2W), the transferred key is obfuscated using different methods. But both methods imply a shared key probably specified in the protocol documentation.</p>
+<p>This key is referred to as <strong>transfer key</strong> and has the following value, probably hardcoded in the specification:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code>34C3466ED88F4E8E16AA473949884373</code></p>
+</div>
+<p>Other Keys found in the io Gateway:</p>
+<ul>
+<li><code>SDNP io Actuator 1W Control Key = FD534F4D4659</code> = <code>0xFD SOMFY</code></li>
+<li><code>4275696C64696E6720436F6E74726F6C</code> = <code>Building Control</code></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All Crypto functions are available in <a href="https://github.com/Velocet/iown-homecontrol/raw/main/scripts/Iown-ioCrypto.py">Iown-ioCrypto.py</a></p>
+</div>
+<h3 id="initial-vector-iv-and-aes-128-encryption">Initial Vector (IV) and AES-128 Encryption</h3>
+<p>In all cases implying encryption, an <em>Initial Vector</em> (IV) is required to feed the AES algorithm using a mode similar to <em>OFB</em> or <em>CFB</em>.
+In fact, as all payloads are 128-bit long, there is no block chaining and the encryption process is the following:</p>
+<ol>
+<li>Generate IV</li>
+<li>Encrypt IV with Transfer or System Key (depending on data) using AES-128</li>
+<li>
+<p>XOR encrypted IV with the Secret for Transmission</p>
+</li>
+<li>
+<p>How To Generate IV:
+  | <strong>Mode</strong>  | 0-7                    | 8-9             | 10-11                       | 12-15          |
+  | :-------: | :--------------------: | :-------------: | :-------------------------: | :------------: |
+  | <strong>1W</strong> | First 8 byte of Payload | Checksum | Sequence Number             | Padding (0x55) |
+  | <strong>2W</strong> | First 8 byte of Payload | Checksum | Challenge (sent beforehand) |                |</p>
+</li>
+<li>
+<p>Pad Payload if less than 8 byte with 0x55</p>
+</li>
+<li>Compute Checksum for each Frame byte:
+    <div class="language-python highlight"><span class="filename">Python</span><pre><span></span><code><span id="__span-8-1"><span class="c1"># Checksum Return Value: 2 byte Tuple (byte 0 &amp; byte 1)</span>
+</span><span id="__span-8-2"><span class="c1"># Initialization Value for both bytes: 0</span>
+</span><span id="__span-8-3"><span class="k">def</span> <span class="nf">computeChecksum</span><span class="p">(</span><span class="n">frame_byte</span><span class="p">,</span> <span class="n">chksum1</span><span class="p">,</span> <span class="n">chksum2</span><span class="p">):</span>
+</span><span id="__span-8-4">  <span class="n">tmpchksum</span> <span class="o">=</span> <span class="n">frame_byte</span> <span class="o">^</span> <span class="n">chksum2</span>
+</span><span id="__span-8-5">  <span class="n">chksum2</span> <span class="o">=</span> <span class="p">((</span><span class="n">chksum1</span> <span class="o">&amp;</span> <span class="mh">0x7f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span>
+</span><span id="__span-8-6">
+</span><span id="__span-8-7">  <span class="k">if</span> <span class="n">chksum1</span> <span class="o">&amp;</span> <span class="mh">0x80</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-8-8">    <span class="k">if</span> <span class="n">tmpchksum</span> <span class="o">&gt;=</span> <span class="mi">128</span><span class="p">:</span> <span class="n">chksum2</span> <span class="o">|=</span> <span class="mi">1</span>
+</span><span id="__span-8-9">    <span class="k">return</span> <span class="p">(</span><span class="n">chksum2</span><span class="p">,</span> <span class="p">(</span><span class="n">tmpchksum</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span>
+</span><span id="__span-8-10">
+</span><span id="__span-8-11">  <span class="k">if</span> <span class="n">tmpchksum</span> <span class="o">&gt;=</span> <span class="mi">128</span><span class="p">:</span> <span class="n">chksum2</span> <span class="o">|=</span> <span class="mi">1</span>
+</span><span id="__span-8-12">
+</span><span id="__span-8-13">  <span class="k">return</span> <span class="p">(</span><span class="n">chksum2</span> <span class="o">^</span> <span class="mh">0x55</span><span class="p">,</span> <span class="p">((</span><span class="n">tmpchksum</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x5b</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span>
+</span></code></pre></div></li>
+</ol>
+<!-- > **note** Check the initial value generation function for better understanding on how to use the checksum function! -->
+
+<h4 id="example">Example</h4>
+<blockquote>
+<ul>
+<li>Frame: <code>F6 00 00003F 385762 000143D2000000 0599 123456789ABC 5FB0</code></li>
+<li>Payload: <code>000143D2000000</code> (7 byte =&gt; needs 1 byte padding with 0x55)</li>
+<li>Sequence Number: <code>0599</code></li>
+</ul>
+<p>Padded Payload: <code>000143D200000055</code></p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code>IV will be: `000143D2000000550500059955555555`
+</code></pre></div>
+<p>In 2-way Mode, for the following exchange:</p>
+<p>Ask Challenge: <code>480012195FD35C18 31 28E3</code></p>
+<p>Challenge Request: <code>0E00D35C1812195F 3C 123456789ABC A9C7</code>
+</p>
+<p>IV will be: <code>31555555555555550062123456789ABC</code></p>
+</blockquote>
+<p>Encryption with AES-128 follows this process:</p>
+<ul>
+<li>IV is generated as described above</li>
+<li>IV is encrypted using AES-128 and depending on the use case with either:<ul>
+<li>Transfer Key</li>
+<li>Stack Key</li>
+</ul>
+</li>
+<li>If encrypting a Secret: The Secret is XORed with the Output of the previous Step.</li>
+<li>If creating a MAC: The output of the previous Step is truncated to 6 bytes.</li>
+</ul>
+<h3 id="key-exchange">Key Exchange</h3>
+<h4 id="1w-key-exchange">1W Key Exchange</h4>
+<p>In 1-way mode, the controller will send several times the command 0x30 with its key encrypted with the transfer key listed above and an initial value that consists in its address repeated several times to build a 16-byte long value.</p>
+<p>For node with address <code>ABCDEF</code>, the initial value will be:</p>
+<blockquote>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-9-1">ABCDEF ABCDEF ABCDEF ABCDEF ABCDEF AB
+</span></code></pre></div>
+</blockquote>
+<p>Furthermore, the 0x30 message is authenticated using a 1W MAC embedded in the command itself. For the node <code>ABCDEF</code> with key <code>01020304050607080910111213141516</code> and sequence number <code>0x1234</code> the <code>0x30</code> message will be:</p>
+<blockquote>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-10-1">FC 00 00003F ABCDEF 30 7E60491F976ADF653DB0ED785E49A201 02 01 1234 19E81EC43D5E 9BF2
+</span></code></pre></div>
+</blockquote>
+<h4 id="2w-key-exchange">2W Key Exchange</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the examples below, the stack key used is <code>01020304050607080910111213141516</code></p>
+</div>
+<p>In 2-Way mode, there are 2 ways keys can be exchanged:
+- By pulling the key from a remote node
+  - <strong>RCM: Receive Controller Mode</strong>
+- By pushing a key to a remote node
+  - <strong>TCM: Transmit Controller Mode</strong></p>
+<p>It seems that when a new device is added to a stack, both methods are used. First, the controller will collect the already set device key and then use it to authenticate requests to push its stack key to the device.</p>
+<h5 id="pull">Pull</h5>
+<ul>
+<li>Actions:</li>
+<li>Right after initial discovery, the controller issues command 0x38 (launch key transfer). This command is not authenticated but submits a 6-byte long initial value to be used to encrypt the key used by the device</li>
+<li>The device answers with command 0x32 (key transfer) and sends its key encrypted using the transfer key</li>
+<li>The controller issues a command 0x3c (challenge request) to authenticate the previous command</li>
+<li>The device answers to the challenge with command 0x3d and a response encrypted using the key transmitted just before in command 0x32</li>
+</ul>
+<blockquote>
+<p>Example Device key is <code>ABCDEF01020304050607080910111213</code></p>
+</blockquote>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-11-1">  // Controller ask for key transfer using challenge 123456789ABC
+</span><span id="__span-11-2">  4E 04 FEEFEE F00F00 38 123456789ABC 23B6
+</span><span id="__span-11-3">
+</span><span id="__span-11-4">  // Device creates an initial value based on last frame and the specified challenge
+</span><span id="__span-11-5">  // and use this initial value to encrypt its key before transmission
+</span><span id="__span-11-6">  18 04 F00F00 FEEFEE 32 EA425A7A182885D4EAEEFD416D625E01 6379
+</span><span id="__span-11-7">
+</span><span id="__span-11-8">  // Controller challenges the device for command 0x32 (see authentication below)
+</span><span id="__span-11-9">  // Note: in real life, challenge will be different to the one specified in 0x38
+</span><span id="__span-11-10">  0E 00 FEEFEE F00F00 3C 123456789ABC 5EB1
+</span><span id="__span-11-11">  4E 00 FEEFEE F00F00 3C 123456789ABC EC2A
+</span><span id="__span-11-12">
+</span><span id="__span-11-13">  // Device creates an initial value based on the 0x32 frame and challenge specified in 0x3c
+</span><span id="__span-11-14">  // It will use its own key to authenticate as it has not received one from the controller
+</span><span id="__span-11-15">  8E 00 F00F00 FEEFEE 3D 0AE519A73C99 2400
+</span></code></pre></div>
+<h5 id="push">Push</h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Stack key push to device has been observed after a bit of information exchange such as general information (<code>0x54</code> and <code>0x56</code>).
+Most of these commands are authenticated using <code>0x3C</code> and <code>0x3D</code> (see authentication below) and so are the push commands.</p>
+</div>
+<ul>
+<li>Actions:</li>
+<li>First, the controller asks the device a challenge using command <code>0x31</code> (ask challenge)</li>
+<li>The device then answers using command <code>0x3C</code> (challenge request) and a 6-byte long challenge</li>
+<li>The controller sends the encrypted stack key to the device node with command <code>0x32</code> (key transfer) using the transfer key</li>
+<li>The device asks the controller for authentication using <code>0x3C</code></li>
+<li>The controller authenticates using its stack key (not the device key anymore) and command 0x3d</li>
+<li>The device answers with command <code>0x33</code> to confirm that stack key has been received</li>
+<li>To check if the stack key has properly been transferred, the controller sends the <code>0x36</code> command and authenticate to finally receive the address of the device in the <code>0x37</code> command</li>
+</ul>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="language-TEXT highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-12-1">  // Send challenge request
+</span><span id="__span-12-2">  48 00 FEEFEE F00F00 31 FB60
+</span><span id="__span-12-3">
+</span><span id="__span-12-4">  // Challenge request
+</span><span id="__span-12-5">  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+</span><span id="__span-12-6">
+</span><span id="__span-12-7">  // Controller creates an initial value based on last frame and the specified challenge
+</span><span id="__span-12-8">  // and use this initial value to encrypt the stack key before transmission
+</span><span id="__span-12-9">  18 00 F00F00 FEEFEE 32 102E49A16D3B69726F3192CF17534AD9 8043
+</span><span id="__span-12-10">
+</span><span id="__span-12-11">  // Device challenges the controller for command 0x32 (see authentication below)
+</span><span id="__span-12-12">  // Note: in real life, challenge will be different to the one specified in previous 0x3c
+</span><span id="__span-12-13">  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+</span><span id="__span-12-14">
+</span><span id="__span-12-15">  // Controller answers to the challenge using the stack key
+</span><span id="__span-12-16">  0E 00 FEEFEE F00F00 3D 8DC9D40DC7A4 F9E5
+</span><span id="__span-12-17">
+</span><span id="__span-12-18">  // Device saves the stack key and sends a confirmation
+</span><span id="__span-12-19">  88 00 F00F00 FEEFEE 33 5BFB
+</span><span id="__span-12-20">
+</span><span id="__span-12-21">  // Controller checks if the device received the stack key by issuing a control command
+</span><span id="__span-12-22">  48 04 FEEFEE F00F00 36 9A02
+</span><span id="__span-12-23">
+</span><span id="__span-12-24">  // Device sends a challenge to the controller
+</span><span id="__span-12-25">  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+</span><span id="__span-12-26">
+</span><span id="__span-12-27">  // Controller answers the challenge for command 0x36
+</span><span id="__span-12-28">  0E 04 FEEFEE F00F00 3D C7FDC0668818 B1E3
+</span><span id="__span-12-29">
+</span><span id="__span-12-30">  // Device sends its address as answer in 0x37
+</span><span id="__span-12-31">  0B 04 F00F00 FEEFEE 37 FEEFEE 7CCF
+</span></code></pre></div>
+<h3 id="authentication">Authentication</h3>
+<p>io-homecontrol frames are authenticated using AES-128 based MACs. There are differences between 1W and 2W modes. In both cases, the MAC is created by truncating the output of the AES-128 algorithm down to 6 bytes.</p>
+<h4 id="1w-authentication">1W Authentication</h4>
+<p>In 1W mode, a signature of the frame is made using the stack key burned into the 1W controller during manufacturing.
+This signature is appended to the frame along with a sequence number to prevent replay attacks.</p>
+<p>The data and sequence number are handled separately in the initial vector generation (i.e. the sequence number is not handled as frame data and not taken into account in the first part of the IV).</p>
+<h4 id="2w-authentication">2W Authentication</h4>
+<p>In 2W mode, a node will issue a <code>0x3C</code> command frame with a 6-byte long challenge to commands received from other nodes.
+The asking node must provide a <code>0x3D</code> command with the answer to the 6-byte long challenge (the answer is also 6-byte long).
+2W frames do not have any MAC or sequence number incorporated in the frame itself.</p>
+<p>For example, here is a 2W sequence of request/answer type:</p>
+<div class="language-TEXT highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-13-1">  // Send address request
+</span><span id="__span-13-2">  48 04 FEEFEE F00F00 36 9A02
+</span><span id="__span-13-3">
+</span><span id="__span-13-4">  // Challenge request
+</span><span id="__span-13-5">  0E 00 F00F00 FEEFEE 3C 123456789ABC 19DB
+</span><span id="__span-13-6">
+</span><span id="__span-13-7">  // Challenge answer
+</span><span id="__span-13-8">  0E 04 FEEFEE F00F00 3D C7FDC0668818 B1E3
+</span><span id="__span-13-9">
+</span><span id="__span-13-10">  // Address answer
+</span><span id="__span-13-11">  0B 04 F00F00 FEEFEE 37 FEEFEE 7CCF
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>There is a race condition vulnerability: In fact, it would be possible to spoof answers by answering faster than the legitimate device after a 0x3d frame. This allows authentication of the asking node but not authentication of the answering node...</p>
+</div>
+<p>The MAC is generated using a shared key between both nodes. This is referred as Stack Key in the firmware and System Key in the user interface. The same key is shared throughout the installation (by a 2-Way controller).</p>
+<p>Below is an extract of the MAC generation code:</p>
+<div class="language-python highlight"><span class="filename">Generate MAC</span><pre><span></span><code><span id="__span-14-1">  <span class="k">def</span> <span class="nf">create_2W_hmac</span><span class="p">(</span><span class="n">challenge</span><span class="p">,</span> <span class="n">system_key</span><span class="p">,</span> <span class="n">frame_data</span><span class="p">):</span>
+</span><span id="__span-14-2">
+</span><span id="__span-14-3">    <span class="n">iv</span> <span class="o">=</span> <span class="n">constructInitialValue</span><span class="p">(</span><span class="n">frame_data</span><span class="p">,</span> <span class="n">challenge</span><span class="p">)</span>
+</span><span id="__span-14-4">
+</span><span id="__span-14-5">    <span class="n">cipher</span> <span class="o">=</span> <span class="n">aes</span><span class="o">.</span><span class="n">AES</span><span class="p">(</span><span class="n">system_key</span><span class="p">)</span>
+</span><span id="__span-14-6">
+</span><span id="__span-14-7">    <span class="k">return</span> <span class="n">cipher</span><span class="o">.</span><span class="n">encrypt_block</span><span class="p">(</span><span class="n">iv</span><span class="p">)[:</span><span class="mi">6</span><span class="p">]</span>
+</span></code></pre></div>
+<p>The initial value is always created using data from the requesting command (see above for details on initial value generation).</p>
+<h2 id="testcalibration-data-and-ems-frames">Test/Calibration Data and EMS Frames</h2>
+<h3 id="ems-frames">EMS Frames</h3>
+<p>Sadly little is known about the EMS2 device and the protocol that is used in the factory to program io-homecontrol devices.</p>
+<blockquote>
+<p>EMS frames in binary, first 0 is D then frame in binary
+EMS_STOP_BECAUSE_SINE_WAVE_IS_MISSING</p>
+</blockquote>
+<h3 id="calibration-data">Calibration Data</h3>
+<p>Those values get send directly to the radio. Since they are always 3 byte and the numbers are just the right amount apart my assumption is that those values hold the frequencies.</p>
+<p>io Tests Terminal:  <code>0E5EC4 0ECD0B 0F5AD4</code>
+ideal RF STM32 CAL: <code>0E4EC4 0EBD0B 0F4AD4000000</code>
+io-homecontrol CAL: <code>0E4EC4 0EBD0B 0F4AD4</code> (default)</p>
+<p>More information can be found in STM32 section...</p>
+<!--
+### Test Frames
+
+> io Tests Terminal
+
+maybe those used codes are either plain C0 control codes:
+02 = STX = Start of Text
+03 = ETX = End of Text
+09 = HT  = Next Character
+
+- Template: `MP FP1 FP2 FP3 CKS`
+  - MP: `02` + Command
+  - FP1 - FP3: `09` + Data
+    - **NOTE**: It seems that only a maximum of 3 FPs is supported
+  - CKS: `03` + 2 Byte CRC
+
+- Get HW Version: `02 474857 03 3539`
+- CKS Error:      `02 475357 03 3431`
+- Get SW Version: `02 475357 03 3432`
+
+- RFT TX=0 C=0: `02 524654 09 54583D30 09 433D30 03 3045`
+- RFT TX=0 C=1: `02 524654 09 54583D30 09 433D31 03 3046`
+- RFT TX=0 C=2: `02 524654 09 54583D30 09 433D32 03 3043`
+
+- RFT TX=1 Channel 1: `02 524654 09 54583D31 09 433D30 03 3046`
+- RFT TX=1 Channel 2: `02 524654 09 54583D31 09 433D31 03 3045`
+- RFT TX=1 Channel 3: `02 524654 09 54583D31 09 433D32 03 3044`
+
+- RFT TX=2 (Preamble) Channel 1:             `02 524654 09 54583D32 09 433D30       03 3043`
+- RFT TX=2 (Preamble) Channel 2:             `02 524654 09 54583D32 09 433D31       03 3044`
+- RFT TX=2 (Preamble) Channel 3:             `02 524654 09 54583D32 09 433D32       03 3045`
+- RFT TX=2 (Preamble) Channel 1 Timed 1s/1s: `02 524654 09 54583D32 09 433D30 09 54 03 3531`
+- RFT TX=2 (Preamble) Channel 2 Timed 1s/1s: `02 524654 09 54583D32 09 433D31 09 54 03 3530`
+- RFT TX=2 (Preamble) Channel 3 Timed 1s/1s: `02 524654 09 54583D32 09 433D32 09 54 03 3533`
+
+- RFT RX LBT  Channel 1: `02 524654 09 52583D30 09 433D30 03 3038`
+- RFT RX LBT  Channel 2: `02 524654 09 52583D30 09 433D31 03 3039`
+- RFT RX LBT  Channel 3: `02 524654 09 52583D30 09 433D32 03 3041`
+- RFT RX Data Channel 1: `02 524654 09 52583D31 09 433D30 03 3039`
+- RFT RX Data Channel 2: `02 524654 09 52583D31 09 433D31 03 3038`
+- RFT RX Data Channel 3: `02 524654 09 52583D31 09 433D32 03 3042`
+
+- RFT CAL Read:          `02 524654 09 43414C   09 5244   03 3139`
+- RFT CAL Write `0E5EC4 0ECD0B 0F5AD4`:
+                         `02 524654 09 43414C 09 57523D 304535454334304543443042304635414434 03 3337`
+- RFT OFF:               `02 524654 09 4F4646 03 3037`
+- CMD unknown:           `02 575357           03 3532`
+
+> Manual Order
+
+Possible Cancidates:
+- CW
+- CCW
+
+- Command ID: 02 = Manual Order
+  - Command Parameter IDs:
+    - 03 + 2 Byte: CKS = ChecKSum
+    - 09 + n Byte: MP/FP ID
+
+- Parameter IDs for Manual Order:
+  - 433D    C=  Channel=ChannelNumber (eg.: C=0)
+  - 4341 4C CAL Calibrate Radio
+    - Calibration Data: `FF FF FF FF FF FF FF FF FF`
+  - 443D    D=
+  - 4F46 46 OFF Switch Off
+  - 523D    R=  Receive (??)
+  - 5244    RD  Read
+  - 5243 3D RC= Status
+  - 5258 3D RX= Receive=ReceiveMode
+    - 0 = Listen Before Talk (LBT)
+    - 1 = Receive Raw Data
+  - 54       T   Signal: Timed 1s/1s
+  - 5458 3D TX= Transmit=TransmitMode ("Permanent Emission")
+    - 0 = Transmit Test Mode: 1
+    - 1 = Transmit Test Mode: 2
+    - 2 = Transmit Preamble ("M55") -->
+
+<!--
+T=%1
+T=M
+S=%1
+S=D
+R=%1
+P=1
+
+ M=
+LP=
+LS=
+AP=
+AS=
+
+TX=
+WR=
+RX=
+RD=
+
+SS=
+LP=
+LS=
+AP=
+AS=
+
+BSY
+GSW
+GHW
+BOM
+RFT
+NTK
+NGV
+NNB
+RSS
+FGT
+G2A
+S2A
+G2K
+S2K
+MOC
+MDV
+MDI
+MPA
+MUP
+WIN
+MGO
+MGS
+MGL
+AMK
+RCM
+MGN
+MSN
+MGD
+RAV
+GMA
+SMA
+D1C
+G1C
+R1C
+A1C
+G1K
+S1K
+M1P
+M1U
+M1G
+
+- 57523D WR= - WRite=Data
+- 413143 A1C - > A1C, D1C, G1C, R1C
+- 414D4B AMK
+- 424F4D BOM
+- 425359 BSY - BuSY (???)
+- 443143 D1C - > A1C, D1C, G1C, R1C
+- 445453 DTS - Data Transport Service
+- 464754 FGT
+- 473143 G1C - A1C, D1C, G1C, R1C
+- 47314B G1K - <> S1K
+- 473241 G2A - <> S2A
+- 47324B G2K - <> S2K
+- 474857 GHW - Get Hardware Version
+- 474D41 GMA - Get MA (???) <> SMA
+- 475357 GSW - Get Software Version
+- 4D3147 M1G - ???
+- 4D3150 M1P - ???
+- 4D3155 M1U - ???
+- 4D4449 MDI - ???
+- 4D4456 MDV - ???
+- 4D4744 MGD - ???
+- 4D474C MGL - ???
+- 4D474E MGN - ???
+- 4D474F MGO - ???
+- 4D4753 MGS - ???
+- 4D4F43 MOC - ???
+- 4D5041 MPA - ???
+- 4D534E MSN - ???
+- 4D5550 MUP - ???
+- 4E4756 NGV
+- 4E4E42 NNB
+- 4E544B NTK
+- 523143 R1C - > A1C, D1C, G1C, R1C
+- 524156 RAV
+- 52434D RCM - Receive Config Mode
+- 524654 RFT - Radio (RF) Test
+- 525353 RSS - Read Signed Raw Value
+- 53314B S1K - <> G1K
+- 533241 S2A - <> G2A
+- 53324B S2K - <> G2K
+- 534D41 SMA - Set MA (???) <> GMA
+- 57494E WIN - Wink (???)
+- 575357 WSW - Write Signed Raw Value (???) > HSW?
+,1W=
+,2W=
+,act=
+,actuator=
+,add=
+,address=
+afunc,act=
+afunc,grp=
+,afunc_ack=
+,astate_ack=
+,chan=
+,cmd=
+,cmd=reset,
+,cmd=receiveconfigmode=
+,cmd=set,autoslavemode=
+,configmode=
+,slavemode=
+,iomode=
+,fp1=
+,fp2=
+,fp3=
+,key=
+,len=
+,max_discovered_nodes=
+,max_paired_nodes=
+,preamble,
+,prot=
+,req,
+,req,slavemode,
+,req,swversion,
+,res=
+,reset=startup,
+,RF_busy,
+,RF_ProtocolFatalError
+,RSSI=
+,sens=
+,stack_dead,
+,swversion=
+,sys_id=
+,tpos=
+,reverse_ack=
+,verify_ack
+,version_ack=
+,virgin_ack=
+
+actdata=
+add=
+busylevel=
+chan=
+grp=
+key=
+
+rem,grp=
+
+astate,act=
+delete,act=
+req_version,act=
+rev,act=
+verify,act=
+virgin_sfy,act=
+virgin,act=
+wink,act=
+
+actuator,
+add,
+all_add,
+delete_all,
+disc_
+eof_full
+key,
+master,
+max_discovered_nodes,
+max_paired_nodes,
+nack
+
+nack_addr
+nack_appli_busy
+nack_auth
+nack_CRC
+nack_full
+nack_grp
+no_more
+rssi_off
+rssi_on
+
+noanswer
+only,actuator,
+pair,actuator,
+system,actuator,
+random,
+rssi,
+sens,
+set,
+sid,
+slave,
+test,
+virgin,
+wink_ack -->
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-05-17T16:18:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-05-17</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../radio/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Layer 1">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Layer 1
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Commands">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Commands
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <a href="https://github.com/velocet/iown-homecontrol/">iown-homecontrol™</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/MPEb7dTNdN" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://t.me/iownHomecontrol" target="_blank" rel="noopener" title="t.me" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8Zm114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.452 10.452 0 0 1 3.53 6.716 43.765 43.765 0 0 1 .417 9.769Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://velocet.github.io/iown-homecontrol" target="_blank" rel="noopener" title="velocet.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/velocet/iown-homecontrol" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.copy", "header.autohide", "navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../assets/external/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../assets/javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    background: #f5f5f5;
+}
+
+.drag {
+    background-color: lightblue;
+}
+
+#header {
+    background: #A0CFFF;
+    color: #3474A8;
+}
+
+#dropzone {
+    height: 450px;
+    cursor: pointer;
+}
+
+#output-box {
+    display: none;
+}
+
+.ace_hidden-cursors {
+    opacity: 0;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #F5F5E7;
+}
+
+#data {
+    margin-bottom: 0;
+}
+
+#data th span {
+    cursor: help;
+}
+
+#data th, #data td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

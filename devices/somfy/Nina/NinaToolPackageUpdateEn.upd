@@ -1,0 +1,15 @@
+;aiu;
+
+[NinaTool Package 4.0.0.0]
+Name = NinaTool Package 4.0.0.0
+ProductVersion = 4.0.0.0
+URL = http://ninatool.somfy.com/download/package/NinaTool_Package_v4.0.0.0.exe
+Size = 20200432
+MD5 = 86517ab80ce6f61d217125225aa5b077
+ServerFileName = NinaTool_Package_v4.0.0.0.exe
+RegistryKey = HKLM\SOFTWARE\Somfy\NinaTool\PackageVersion
+Version = 4.0.0.0
+DescriptionHtml = NinaTool delivery to update (<b><font color="#FF0000">Mandatory</font></b>):
+Description = NinaTool delivery to update (Mandatory):
+Description1 = - Nina io (B09 software version)
+Description2 = - Nina Timer io (B09 software version)
