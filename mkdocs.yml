@@ -30,7 +30,7 @@ exclude_docs: | # Files to exclude from the built site.
   *.psd
   *.py
   *.txt
-  *.xlsx
+  !*.xlsx
   *.xml
   *.zip
   lunr.*.min.js
@@ -39,6 +39,7 @@ exclude_docs: | # Files to exclude from the built site.
   !lunr.stemmer.support.min.js
 # draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
 nav:
+  - ⏏: README.md
   - Protocol:
       - Layer 1: radio.md
       - Layer 2: linklayer.md
@@ -47,20 +48,22 @@ nav:
   - Parameter Viewer: parameter/database/README.md
   - Reference:
       - Devices: devices.md
-      - Connectivity Kit: devices/somfy/connectivity_kit/README.md
+      - Connectivity Kit: devices/somfy/ConnectivityKit/README.md
       - Somfy Izymo: devices/somfy/izymo/README.md
-      - Somfy Smoove: devices/somfy/smoove/README.md
-      - Somfy Set&Go: devices/somfy/set_go/README.md
-      - Velux KLI31x: devices/velux/KLI31x/README.md
-      - Velux KLR200: devices/velux/KLR200/README.md
-      - Atlantic Thermor: devices/misc/atlantic_thermor/README.md
+      - Somfy Smoove: devices/somfy/Smoove/README.md
+      - Somfy Set&Go: devices/somfy/SetGo/README.md
+      - Velux:
+        - Velux: devices/velux/README.md
+        - Velux KLI31x: devices/velux/KLI31x/README.md
+        - Velux KLR200: devices/velux/KLR200/README.md
+      - Atlantic Thermor: devices/misc/AtlanticThermor/README.md
       - Firmware: firmware.md
-      - Si446x: reference/si446x/README.md
-      - CC1021: radio_cc1021.md
-      - Box PINs: devices/somfy_gateway_pin_to_box.md
+      - Si446x: reference/Si446x/README.md
+      - CC1021: radio-cc1021.md
+      - Box PINs: devices/somfy/somfy-pin-to-box.md
   - misc:
-      - RTL-SDR: radio_rtlsdr.md
-  # - home: README.md
+      - RTL-SDR: radio-rtlsdr.md
+      - EMS2: reference/EMS2.md
 
 plugins:
   - search:

@@ -75,6 +75,49 @@ columns 9
   - Maximum: 32 bytes (i.e. maximum 21 bytes of DATA)
     - `0b11111` = 31 = 0x1F
 
+getMasterAddress
+getRSSILevel
+getNodeAddress
+getFrameType
+getCtrlByte0
+getCtrlByte1
+getCtrlByteManufCode
+getCtrlByteProtocolVersion
+getCommand
+getData
+isOneWay
+getDataLen
+
+
+``` c
+Message_GetBroadcastType (node_id_t NODE_ID) {
+
+  if(NODE_ID[0]) return 0xD;
+
+  if(NODE_ID[1] || (NODE_ID[2] & 0xC0) != 0) {
+  switch (NODE_ID[2] & 0x3F) {
+    case 0x3B:   return 0x7;
+    case 0x3C:   return 0x8;
+    case 0x3D:   return 0x9;
+    case 0x3E:   return 0xA;
+    case 0x3F:   return 0xB;
+      default:   return 0xC;
+  }}
+
+  else if (NODE_ID[2]) {
+  if(NODE_ID[2] <= 0x3A) {
+                 return 1; }
+  else {
+  switch (NODE_ID[2]) {
+    case 0x3B:   return 2;
+    case 0x3C:   return 3;
+    case 0x3D:   return 4;
+    case 0x3E:   return 5;
+      default:   return 6;
+  }}}
+                 return NODE_ID[2]
+```
+
 &horbar;&mdash;——————————<kbd>R T F M</kbd>&horbar;&mdash;——————————
 
 <!--

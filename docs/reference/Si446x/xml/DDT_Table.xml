@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DDT_Table>
+
+  <!-- EZRadioPRO2PLUS-->
+
+  <!-- TX -->
+
+  <CDT_Record>
+    <Type>Si4060</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4063</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4060</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4063</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4060</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4063</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <!-- RX -->
+
+  <CDT_Record>
+    <Type>Si4362</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4362</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4362</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <!-- TRX -->
+
+  <CDT_Record>
+    <Type>Si4438</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4460</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4461</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4463</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4467</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4468</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4438</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4460</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4461</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4463</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4467</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4468</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4438</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4460</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4461</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4463</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4467</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4468</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A2</Revision>
+  </CDT_Record>
+
+  <!-- EZRadio2PLUS-->
+
+  <!-- Transmitter -->
+
+  <CDT_Record>
+    <Type>Si4055</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <!-- Receiver -->
+
+  <CDT_Record>
+    <Type>Si4355</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4355</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4355</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <!-- Transceiver -->
+
+  <CDT_Record>
+    <Type>Si4455</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4455</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4455</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <!-- EZRadioPRO2-->
+
+  <!-- TX -->
+
+  <CDT_Record>
+    <Type>Si4060</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4063</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- Receiver -->
+
+  <CDT_Record>
+    <Type>Si4362</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- Transceiver -->
+
+  <CDT_Record>
+    <Type>Si4438</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4460</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4461</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4463</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4464</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4460</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4461</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4463</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4464</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- EZRadio2-->
+
+  <!-- Receiver -->
+
+  <CDT_Record>
+    <Type>Si4355</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- Transceiver -->
+
+  <CDT_Record>
+    <Type>Si4455</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- Wireless MCU -->
+
+  <!-- Transceiver -->
+
+  <CDT_Record>
+    <Type>Si1060</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1061</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1062</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1063</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1064</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1065</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1080</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1081</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1082</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1083</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1084</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1085</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>NextGenEZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <!-- EZRadioPRO and EZRadio -->
+
+  <!-- Transmitters: -->
+
+  <CDT_Record>
+    <Type>Si4012</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>C2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4020</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>I1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4021</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4022</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4030</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4030</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4030</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4031</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4031</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4031</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4032</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>V2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4032</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4032</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4033</Type>
+    <RfOperation>Transmitter</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4310</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4313</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4320</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>J1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4322</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4330</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4330</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4330</Type>
+    <RfOperation>Receiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <!-- Transceivers: -->
+  <CDT_Record>
+    <Type>Si4420</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>D1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4421</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <!--<CDT_Record>
+    <Type>Si4421</Type>
+    <RfOperation>Transceiver</RfOperation>    <System>WirelessChip</System>
+    <Family>EZRadio</Family>
+    <Revision>A1</Revision>
+  </CDT_Record>-->
+
+  <CDT_Record>
+    <Type>Si4430</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4430</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4430</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4431</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>A0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4431</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4431</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+
+  <CDT_Record>
+    <Type>Si4432</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>V3</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4432</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>V2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4432</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B0</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4432</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessChip</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1000</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1001</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1002</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1003</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1004</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1005</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1010</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1011</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1012</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1013</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1014</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1015</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B1</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si4520</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadio</Family>
+    <Revision>Z4</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1020</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1021</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1022</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1023</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1024</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1025</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1026</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1027</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1030</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1031</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1032</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1033</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1034</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1035</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1036</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+  <CDT_Record>
+    <Type>Si1037</Type>
+    <RfOperation>Transceiver</RfOperation>
+    <System>WirelessMCU</System>
+    <Family>EZRadioPRO</Family>
+    <Revision>B2</Revision>
+  </CDT_Record>
+
+</DDT_Table>

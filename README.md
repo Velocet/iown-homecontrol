@@ -90,8 +90,8 @@ If not explicitly mentioned every board version is supported.
 
 io-homecontrol (iohc) is a half-duplex protocol in the 868 MHz band with 2 modes.
 
-- 1W (OneWay): Uni-Directional (1 Channel)
-- 2W (TwoWay):  Bi-Directional (3 Channels)
+- ↑ 1W (OneWay): Uni-Directional (1 Channel)
+- ⇅ 2W (TwoWay):  Bi-Directional (3 Channels)
 - Modulation: FSK with 19,2 kHz deviation (Encoding: NRZ)
 - Data/Baud Rate: 38400 bps (Encoding: UART 8N1)
 - Frequency Hopping (FHSS): 2,7ms (Patent: 3ms) per Channel
