@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-issue-forms.json
+
+name: Feature/Fix Request
+description: "Request a feature or documentation fix."
+title: "[feat]: "
+labels: ["enhancement"]
+
+# TODO https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically
+# projects: ['iown-homecontrol/1', 'iown-homecontrol/44']
+
+assignees:
+  - Velocet
+
+body:
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "Description of the feature you're suggesting."
+      description: |
+        Please describe your feature request in as many details as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: anything-else
+    attributes:
+      label: Anything else?
+      description: If anything else you want to share.

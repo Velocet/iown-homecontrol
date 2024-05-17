@@ -1,12 +1,26 @@
 # io-homecontrol Devices
 
+This page lists devices for which their internal hardware (eg.: MCU, SoC, RF, etc.) is known.
+
 <!-- TODO Link to sub pages for the different products with more indepth knowledge -->
 
-# OEM Hardware <!-- TODO make table with mcus, etc. -->
+## OEM Hardware <!-- TODO make table with mcus, etc. -->
 
 List of supported OEM hardware including pictures and hardware description (if available).
 
-## Somfy
+### Velux
+
+See [Velux](devices/velux/README.md).
+
+### Somfy
+
+The default password for animeo products is `somfy`.
+
+- Info Snippets
+  - Factory Codes
+    - 000000 (+ A+S Buttons at once)
+    - 0000
+    - 12345
 
 - Situo 1 io (1W) (via [reddit](https://www.reddit.com/r/AskElectronics/comments/cz8trb/need_help_identifying_rf_ic_nr3_x6_046/))
   - MCU: STM8L151C8U6 GH22C VG CHN 723 (UART: 38834 Baud = 38400, the difference is related to the STM8's internal clock)
@@ -15,7 +29,7 @@ List of supported OEM hardware including pictures and hardware description (if a
   - MCU: STM32F101RCT6
   - RF: Si4461
 
-### LED Colors and Button Functions
+#### LED Colors and Button Functions
 
 The LED(s) display the product's operating mode or status.
 
@@ -70,73 +84,6 @@ The LED(s) display the product's operating mode or status.
 - Bottom LED:
   - Red = Offline
   - White = Online
-
-## Velux
-
-### Hardware
-
-- Velux Solar Powered Blinds (SSL)
-  - Version from 2012: [Akkutausch beim VELUX INTEGRA® SOLAR SSL](https://hartgeloetet.blogspot.com/2017/04/akkutausch-beim-velux-integra-solar-ssl.html)
-  - Renesas D78F1144: 16-bit uC (78K0R/Kx3-Family), 128kB Flash, 8kB RAM
-  - Analog Devices ADF7020
-- Velux KLF 200
-  - MCU: EFM32 Giant Gecko ([EFM32GG990F1024G-E-BGA112](https://www.silabs.com/documents/public/data-sheets/efm32gg-datasheet.pdf)) 48 MHz ARM Cortex-M3, 1024KB Flash, 128KB RAM
-    - 256Mbit NOR FLASH
-  - MCU: STM32F427IIH6 - STM32 High-performance advanced line, 180 MHz Arm Cortex-M4 with DSP/FPU, 2MB Flash, Chrom-ART Accelerator, FMC with SDRAM
-    - 256Mbit NOR FLASH
-  - RF: Analog Devices ADF7022
-  - WiFi: SP-7DZX
-    - RF Front End 2.4GHz: CC2590
-    - RF Low Power 2.4GHz: AT86RF233
-  - MCU: [STM32F427II-H6](https://www.st.com/en/microcontrollers-microprocessors/stm32f427ii.html) = ARM Cortex-M4 with DSP & FPU, 2MB Flash, 180MHz
-  - Ethernet Controller: W5500
-
-### Product Range
-
-- Naming Scheme: ABC nnn (nAB Cnn DD)
-  - ABC nnn
-  - n = / AB = | C = / nn = | DD = Region (WW > WorldWide / EU > Europe / US > US of A)
-- VELUX INTEGRA® (ioHc) Products
-  - roof windows GGL (----21), GGU (----21)
-  - Solar roof windows GGL (----30), GGU (----30)
-  - flat roof window CVP (3MX A02)
-  - modular skylight HVC (3MA A01, 3MA A02, 3MA A03, 3MA A04, 3MA A05)
-  - conversion kit KMX 100 (3MG A01, 3UC A02, 3LA A01, 3LR A01) for roof windows GGL, GGU
-  - conversion kit KMX 200 (3MX A01, 3LA A01, 3LR A01) for roof windows GHL, GHU, GPL, GPU, GTL, GTU, VKU
-  - Solar conversion kits KSX 100 (3SM B01, 3SD B01, 3LR A01), KSX 100K (3SM BK01, 3LR A02) for roof windows GGL, GGU
-  - Control pad KLR 200 (3LR A02)
-- KLF  50 - Wall Switch
-- KLF 100 - Interface (see [Controling Velux Windows With Fibaro](https://k2aab.com/home-automation/sub-page-1/controling-velux-windows-with-fibaro/))
-- KLF 200 - Internet Gateway/Interface
-- KRX 100 - (2w) Remote Controller with Screen (KLF 102 > 3LF D02)
-- KLR 100 - (2w) Remote Control with Screen
-- KLR 200 - (2w) Remote Control Pad
-- KUX 100 - (1w) Remote Control (long, like KLF 31x)
-- KUX 110 - (2w) Controller for wired products (via 24V +/-) via io-Homecontrol (KUX 100 successor)
-- KLI 310 - (1w) Wall Mounted Remote Control for Universal Usage
-- KLI 311 - (1w) Wall Mounted Remote Control for Window
-- KLI 312 - (1w) Wall Mounted Remote Control for Inner Sun Blind
-- [KLI 313 - (1w) Wall Mounted Remote Control for Outer Sun Blind](devices/Velux/KLI31x/README.md)
-- KIX 300 - Package: KIG 300, Raumklimasensor, Abwesenheitsschalter
-  - VELUX ACTIVE indoor climate control KIX 300
-  - Gateway KLG 300/3LG E01/NXG01E
-  - Climate Sensor KLA 300/3LA E06/NXS01
-  - Departure Switch KLN 300/3LN E01/NXD01E
-- KIG 300 - Internet Gateway NXG01E / NXG01C / NXS01 / NXD01E
-- KRD 100 - Remote Socket (1w)
-- KMX 100 - UNKNOWN
-- KMX 200 - UNKNOWN
-- KLA 130 - UNKNOWN
-
-This page lists devices for which their internal hardware (eg.: MCU, SoC, RF, etc.) is known.
-
-The default password for animeo products is `somfy`.
-
-- Info Snippets
-  - Factory Codes
-    - 000000 (+ A+S Buttons at once)
-    - 0000
-    - 12345
 
 ## MAC, UUIDs and other known values to identify products
 
@@ -439,111 +386,6 @@ This program can be found under extras.
 - Analog Devices (ADI): ADF7020BCPZ
 - Microchip MCQE128C
 - HC161 - Generic Counter
-
-## Velux
-
-- Controls
-  - KLR 100
-    - > 2W remote for up to 200 electrical products. Display makes it possible to select and operate individual products, a group or all products simultaneously. Also time programming is possible.
-  - KLI 110
-    - > The wall mounted control switch can be used for individual operation of one motor or simultaneous operation of several motors of the same product type using 1-way RF. The installation is wireless by battery power.
-  - KRX 100
-    - > VELUX ACTIVE climate control: Provides a naturally balanced indoor climate. It opens and closes the Roller Shutters and other sun screening products automatically as climatic conditions change. The benefi t is prevention from overheating in summer and intelligent insulation on demand in winter.
-  - KLA 130
-    - > The additional solar sensor is used as a supplement to VELUX ACTIVE climate control KRX 100, when the sun screening products face different geographical orientations.
-  - KLF 050
-    - > The switch interface KLF 050 can be used for basic operation of io-homecontrol® compatible electrical products by means of a wide range of standard wall switches. This will enable the user to choose a wall switch design for operating the products that matches the other wall switches in the house.
-  - KLF 100
-    - > Interface KLF 100 is used when io-homecontrol labelled products are to be controlled by external control devices that are not io-homecontrol compatible as e.g. external sensors or BUS systems. The interface can activate one product or a group of selected io-homecontrol® compatible products of the same product type.
-- Power Supplies
-  - KUX 100
-    - > The control system KUX 100 is used for electrical operation of one electrical product in a VELUX roof window. The control system consists of a control unit and a 1-way remote control. It can be used with VELUX electric window operators as well as decoration and sun screening products.
-  - KLC 500
-    - > The control unit KLC 500 is used for operation of up to 5 electrical products of the same product type in VELUX roof windows. The products are operated via an io-homecontrol® activation control. It can be used with VELUX electric window operators as well as decoration and sun screening products.
-- Roller Shutters And Blinds
-  - SML & SSL
-    - > Electrically operated roller shutter SML/SSL (solar) for outside of roof window. Functions: For total comfort: Optimal heat protection, total black-out, security, extra insulation, noise reduction, privacy, protection of the window/pane.
-  - MML & MSL
-    - > Electrically operated awning blind MML/MSL (solar) for outside of window. Functions: Heat protection: Effective heat protection, net fabric allows light into the room and preserves the view outside.
-  - DML & DSL
-    - > Electrically operated blackout blind DML/DSL (solar) for roof windows. Functions: Black-out: 100% black-out, stepless positioning, improves insulation.
-  - RML & RSL
-    - > Electrically operated roller blinds RML/RSL (solar) for roof windows. Functions: Regulation of light: Diffuses light, provides basic privacy and control of sunlight, decoration. Installs.
-  - FML & FMG
-    - > Electrically operated pleated blind for roof windows. FMG flat roof windows (CFP/CVP). Functions: Softening of light: Optimum daylight control, decoration, sun screening, privacy.
-  - PML
-    - > Electrically operated Venetian blind for roof windows. The Venetian blind has the following functions: Control of sunlight: Optimum light adjustment, cordless operation, control of direction and intensity of sunlight, privacy, decoration.
-- Other & Sets (xxX)
-  - KRA 100
-    - > Frame lights KRA 100 consist of two halogen spots designed as downlights for use with the electrically operated roof windows GGL INTEGRA® and GGU INTEGRA® or manually operated VELUX roof windows equipped with electrical conversion kits KMX 100 or KMX 200. The frame lights include two halogen spots, dimmer with cable and fi tting parts.
-  - KRD 100
-    - > Adapter KRD 100 makes 230 V electrical appliances, e.g. lamps, that are not based on io-homecontrol technology compatible with the io-homecontrol platform. One or more electrical appliances connected to the adapter can be operated (switched on/off) with a io-homecontrol activation control.
-  - KMX 100
-    - > Electrical window operator – conversion kit
-  - KMG 100
-    - > Electrical window operator
-  - KMX 200
-    - > Electrical window operator – conversion kit
-  - KSX 100
-    - > Solar powered window operator
-
-- Velux Bootloader Decryption Key
-  ```uint8_t decryptionKey[] = {0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C};```
-
-3LR
-  KLR 200
-  KLR 100 (Stabfernbedienung Weiß/Silber)
-    KMX 100
-    KMX 200
-3UR
-  KUX 100 Medium Stabfernbedienung
-3LI
-  KLI 310/311/312/313
-3SM (neu)/3MG (alt)
-  KSX 100 (Motor)
-- 3LF
-  - KLF 050
-  - KLF 200 (Internet Gateway)
-    - 3LF D03 WW
-    - Model-BE-RC009-02
-    - 35BM08B - 6594 B801 2B21 003D
-    - KLF 200 WW
-    - SSID: VELUX_KLF_84C3
-    - Password: 2Em29uN76b
-    - WiFi mac: 74-7A-90-8A-84-C3
-    - LAN mac: 64-61-84-00-A8-36
-
-- Velux KLR 200
-  - SRAM: 8MBit, 3.3V, 55ns - [ISSI IS62WV51216BLL-55BLI/55BI](https://www.issi.com/WW/pdf/62WV51216ALL.pdf)
-  - [Micron MT29F4G16ABADAH4 NW197](https://media-www.micron.com/-/media/client/global/documents/products/technical-note/nand-flash/tn_29_68_60_series_otp_operations.pdf)
-  - NAND Flash: 4Gb,16bits,3.3V,SPI/ASync
-
-- KLG 300 Gateway
-  - QR Code Payload: Ethernet MAC,  WiFi MAC, UUID, Code
-
-```REGEX
-^P(\d{1,}W|T(\d{1,}H(\d{1,}M(\d{1,}S)?)?|\d{1,}M(\d{1,}S)?|\d{1,}S)|(\d{1,}D|\d{1,}M(\d{1,}D)?|\d{1,}Y(\d{1,}M(\d{1,}D)?)?)(T(\d{1,}H(\d{1,}M(\d{1,}S)?)?|\d{1,}M(\d{1,}S)?|\d{1,}S))?)#$
-^([+-]?\d{4,6})-?(\d\d)-?(\d\d)(?:[ T](\d\d)(?::?(\d\d)(?::?(\d\d)(?:[.,](\d+))?)?)?( ?[zZ]| ?([-+])(\d\d)(?::?(\d\d))?)?)?$8
-```
-
-### Solar Motor PCB
-
-PCB Markings: 833436 (Sticker), 833431/04 (PCB Print)
-
-```ASCII
-  1  0  0  0  1  0
-      __       __---SOLAR
-  |  |  |  |  |  |
-  |  |  |  |  |  |
-  |  |__|  |_____|
-  |  GRND  |     |
-  |4-P-I-N |  |  |
-  |  |  |  |  |  |
-  R  S  B  G  SOLAR
-  1  2  3  4
-     |  |  |
-     |__|__|
-```
 
 ## Other Vendors
 

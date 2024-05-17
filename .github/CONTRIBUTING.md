@@ -11,9 +11,6 @@
 >
 > Oh.. and every contribution is welcome! ... even if it doesn't align with the rules described here! ;)
 
-> [!TIP]
-> See also [Contributing to Open-Source Projects](https://openresource.dev/guide/contributing-to-open-source-projects)
-
 - [Project Structure](#project-structure)
   - [Documentation](#documentation)
 - [Contributing](#contributing)
@@ -67,7 +64,7 @@
       └───protocols  - RadioLib Protocol Implementation
 ```
 
-## Documentation
+## Documentation <!-- TODO show simple examples (or link to them) for Alerts -->
 
 - Use Markdownlint if possible.
 - Use GitHub/MkDocs features like
@@ -75,13 +72,16 @@
   - Alerts
   - etc.
 
-<!-- TODO show simple examples (or link to them) for Alerts -->
-
 <div align="center" width="100%">
 
 ## Contributing
 
 </div>
+
+- Links
+  - [Contributing to Open-Source Projects](https://openresource.dev/guide/contributing-to-open-source-projects)
+  - Pro Git Book - GitHub: [Contributing to a Project](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
+  - Pro Git Book - Git: [Contributing to a Project](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)
 
 ### Filing Issues
 
@@ -159,8 +159,7 @@ This project is mainly developed on Windows, however a few potential gotchas nee
   - Update Git config: `git config --system core.longpaths true`
   - [Enable Long Paths via PowerShell](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later):
     ``` powershell
-    New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name
-    "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+    New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
     ```
 
 ### Visual Studio Code
@@ -178,22 +177,24 @@ When a task is currently running, it can be restarted by opening the command pal
 
 <!-- TODO The available tasks are:
 
-Task | Description
--- | --
-Task1 | Description1
+  | Task  | Description  |
+  | ----- | ------------ |
+  | Task1 | Description1 |
 -->
 
 ### Settings and Linter
 
-- **Always** use VSCodes `settings.json` to declare external/extra config files (eg. `pyproject.toml`) wherever possible. This helps devs which don't use VSCode to work with this repo.
+- **Always** use VSC `settings.json` to declare external/extra config files (eg. `pyproject.toml`) wherever possible. This helps devs which don't use VSC to work with this repo.
 - If the linter supports it, put a dot at the beginning of the file name.
 
 ### C++
 
-[CppCoreGuideLines]: https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md
+- Links
+  - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/)
+  - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
 - All C++ code must be formatted according to the .clang-format file in the root of the project.
-- If in doubt, consult the [C++ Core Guidelines][CppCoreGuidelines]. If the guidelines have an answer, and it works for you, just pick that.
+- If in doubt, consult the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/). If the guidelines have an answer, and it works for you, just pick that.
 - Use Doxygen doc-blocks copiously.
 - All things equal, prefer standard C++ constructs over Boost constructs (see also Boost guidelines).
 - Given the option, prefer C++ lambdas over std::bind, and just don't use boost::bind.
@@ -202,11 +203,19 @@ Task1 | Description1
 - Include include files in the following order: Local headers, other UHD headers, 3rd-party library headers, Boost headers, standard headers. The rationale is to include from most to least specific. Note that clang-format will do this for you.
 - Feel free to use modern C/C++ features even if they were not used before! Just make sure they work with the used compilers and dependencies.
 
+#### Functions
+
+All functions follow the same format: `iown_(function)_(action)_(set or get)_(parameter)`
+
 #### CMake
 
 - CMake commands are written in lowercase.
 
 ### Python
+
+- Links
+  - [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+  - [Think Python, 3rd edition](https://allendowney.github.io/ThinkPython/)
 
 - Target the latest Python Version. At time of writing this is Python 3.12.
 - Use Python 3 constructs.

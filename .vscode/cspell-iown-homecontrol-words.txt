@@ -12,6 +12,7 @@ GFSK
 Ghidra
 GPIO
 homecontrol
+INTEGRA
 Interframe
 interpacket
 iohc

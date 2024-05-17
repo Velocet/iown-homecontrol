@@ -1,0 +1,209 @@
+{
+  // Place iown-homecontrol workspace snippets here.
+  //
+  //  Each snippet is defined under a snippet name and has a prefix, body and description.
+  //  The prefix is what is used to trigger the snippet and the body will be expanded and inserted.
+  //  Possible variables are:
+  //    $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  //    Placeholders with the same ids are connected.
+  //
+  "Collapsed Section": { // https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+    "prefix": "details",
+    "scope": "cpp",
+    "body": [
+      "",
+      "<details><summary>${1:summary}</summary>",
+      "",
+      "${2:content}",
+      "",
+      "</details>",
+      "",
+    ],
+    "description": "create collapsed section that the reader can choose to expand"
+  },
+
+  //region CPP
+  "for": {
+    "prefix": "for",
+    "scope": "cpp",
+    "body": [
+      "for (${size_t} ${i} = ${1:0}; ${i} < ${2:length}; ${i}++) {",
+      "\t$3",
+      "}"
+    ],
+    "description": "for loop"
+  },
+  "do": {
+    "prefix": "do",
+    "scope": "cpp",
+    "body": [
+      "do {",
+      "\t$1",
+      "} while($2);"
+    ],
+    "description": "do...while loop"
+  },
+  "while": {
+    "prefix": "while",
+    "scope": "cpp",
+    "body": [
+      "while ($1) {",
+      "\t$2",
+      "}"
+    ],
+    "description": "while loop"
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "scope": "cpp",
+    "body": [
+      "for(auto ${item} : ${collection}) {",
+      "\t$1",
+      "}"
+    ],
+    "description": "range-based for loop"
+  },
+  "if": {
+    "prefix": "if",
+    "scope": "cpp",
+    "body": [
+      "if ($1) {",
+      "\t$2",
+      "} else {",
+      "\t$3",
+      "}"
+    ],
+    "description": "if-else statement"
+  },
+  "ifel": {
+    "prefix": "ifel",
+    "scope": "cpp",
+    "body": [
+      "if ($1) {",
+      "\t$2",
+      "}",
+      "else if ($1) {",
+      "\t$3",
+      "}",
+      "else {",
+      "\t$4",
+      "}"
+    ],
+    "description": "if-elseif-else statement"
+  },
+  "enum": {
+    "prefix": "enum",
+    "scope": "cpp",
+    "body": [
+      "enum ${MyEnum} {",
+      "\t$1",
+      "};"
+    ],
+    "description": "enum"
+  },
+  "class": {
+    "prefix": "class",
+    "scope": "cpp",
+    "body": [
+      "class ${MyClass} {",
+      "",
+      "public:",
+      "\t${MyClass}() = default;",
+      "\t${MyClass}(${MyClass} &&) = default;",
+      "\t${MyClass}(const ${MyClass} &) = default;",
+      "\t${MyClass} &operator=(${MyClass} &&) = default;",
+      "\t${MyClass} &operator=(const ${MyClass} &) = default;",
+      "\t~${MyClass}() = default;",
+      "",
+      "private:",
+      "\t$1",
+      "",
+      "};"
+    ],
+    "description": "class with inline constructor/destructor"
+  },
+  "namespace": {
+    "prefix": "namespace",
+    "scope": "cpp",
+    "body": [
+      "namespace ${MyNamespace} {",
+      "\t$1",
+      "}"
+    ],
+    "description": "namespace"
+  },
+  "#ifdef": {
+    "prefix": "#ifd",
+    "scope": "cpp",
+    "body": [
+      "#if defined ($1)",
+      "\t$2",
+      "#endif // $1"
+    ],
+    "description": "#ifdef"
+  },
+  "#ifndef": {
+    "prefix": "#ifnd",
+    "scope": "cpp",
+    "body": [
+      "#if not defined ($1)",
+      "\t$2",
+      "#endif // !$1"
+    ],
+    "description": "#ifndef"
+  },
+  "struct": {
+    "prefix": "struct",
+    "scope": "cpp",
+    "body": [
+      "struct ${struct} {",
+      "\t$1",
+      "};"
+    ],
+    "description": "struct"
+  },
+  "switch": {
+    "prefix": "switch",
+    "scope": "cpp",
+    "body": [
+      "switch (${switch}) {",
+      "\tcase ${case}:\t",
+      "\tdefault:\t",
+      "\t\tbreak;$1",
+      "}"
+    ],
+    "description": "switch statement"
+  },
+  "try": {
+    "prefix": "try",
+    "scope": "cpp",
+    "body": [
+      "try {",
+      "\t",
+      "}",
+      "catch (const std::exception&) {",
+      "\t$1",
+      "}"
+    ],
+    "description": "try catch"
+  },
+  "union": {
+    "prefix": "union",
+    "scope": "cpp",
+    "body": [
+      "union ${MyUnion} {",
+      "\t$1",
+      "};"
+    ],
+    "description": "union"
+  },
+  "#def": {
+    "prefix": "#def",
+    "scope": "cpp",
+    "body": [
+      "#define $1 \t\t($2)"
+    ],
+    "description": "#define"
+  }
+  //endregion cpp
+}

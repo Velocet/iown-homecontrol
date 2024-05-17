@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-issue-forms.json
+
+name: Bug Report
+description: "File a iown-homecontrol&#8482; bug."
+title: "[bug]: "
+labels: ["bug", "triage"]
+
+# TODO https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically
+# projects: ['iown-homecontrol/1', 'iown-homecontrol/44']
+
+assignees:
+  - Velocet
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        "<div align='center'>
+
+        *All fields are optional but it is appreciated if you use them.*
+
+        </div>"
+
+  - type: textarea
+    id: report
+    attributes:
+      label: Describe the bug.
+      description: "A clear and concise description of what the bug is and the situation around it."
+      placeholder: Don't forget to give some context...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: board_id
+    attributes:
+      label: Board
+      description: Used board?
+      multiple: false
+      options:
+        - DIY Build
+        - HelTec
+        - LilyGo
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Attach your debug logs here
+      render: log
+
+  - type: textarea
+    attributes:
+      label: Context & Attachments
+      # placeholder:
+      description: | # Links? References? Images? Post any context to better understand your issue.
+        > [!TIP]
+        > Attach images or logs by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
