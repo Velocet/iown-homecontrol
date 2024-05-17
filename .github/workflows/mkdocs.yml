@@ -13,6 +13,7 @@
 # - Cache Python/pip and MkDocs
 # - Install/Update MkDocs dependencies
 #
+---
 name: MkDocs
 
 on:
@@ -32,27 +33,22 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-
       - name: Checkout Repo
         uses: actions/checkout@v4
-
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
       - name: Python Setup
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # use latest Python3 version
-          check-latest: true    # use latest version
+          python-version: '3.11' # use latest Python3 version
+          # check-latest: true    # use latest version
           # cache: pip            # cache pip dependencies
-
       # - name: Export cache_id
       #   run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
       #- name: Cache MkDocs
       #  uses: actions/cache@v4
       #  id: mkdocs-material-cache
@@ -62,12 +58,10 @@ jobs:
       #    path: .cache
       #    restore-keys: |
       #      mkdocs-material-
-
       #- name: Cache Hit State
       #  if: ${{ steps.mkdocs-material-cache.outputs.cache-hit != 'true' }}
       #  continue-on-error: true
       #  run: echo "No Cache Hit!"
-
       - name: Pip Upgrade
         continue-on-error: true
         run: python -m pip install --upgrade --no-input pip
@@ -77,14 +71,11 @@ jobs:
       - name: MkDocs Dependencies
         continue-on-error: true
         run: pip install --upgrade --no-input $(mkdocs --no-color --quiet get-deps)
-
       #- name: Upgrade Packages
       #  continue-on-error: true
       #  pip list --outdated --no-color | tail --lines=+3 | cut --delimiter=" " --fields=1 | xargs --max-args=1 pip install --upgrade --quiet --quiet --quiet
-
       - name: MkDocs Deploy
         run: mkdocs gh-deploy --force
-
 # Disable MkDocs Cache as this repo isn't running a standard installation
 #        id: mkdocs-material-cache
 #        env: cache-name: mkdocs-material-cache
