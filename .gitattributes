@@ -6,7 +6,7 @@
 #   But since there are still encoding fuckups this has to be enforced
 
 # Auto detect text files and perform LF normalization
-* text=auto
+* text=auto eol=lf
 
 # Force text files to be normalized and converted to LF line endings on checkout
 #* text eol=lf

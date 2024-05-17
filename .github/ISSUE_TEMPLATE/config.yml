@@ -1,4 +1,8 @@
 # yaml-language-server: $schema=https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/github-issue-config.json
+
+# Customize the issue template chooser that people see when creating a new issue.
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
+
 ---
 blank_issues_enabled: true
 contact_links:
@@ -11,5 +15,3 @@ contact_links:
   - name: Documentation
     url: https://velocet.github.io/iown-homecontrol
     about: View the Documentation as a reference for your issue
-# Customize the issue template chooser that people see when creating a new issue.
-# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
