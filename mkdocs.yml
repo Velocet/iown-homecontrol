@@ -39,7 +39,7 @@ exclude_docs: | # Files to exclude from the built site.
   !lunr.stemmer.support.min.js
 # draft_docs: # Draft files are available during 'mkdocs serve' but not in 'mkdocs build'.
 nav:
-  - ⏏: README.md
+  # - ⏏: README.md
   - Protocol:
       - Layer 1: radio.md
       - Layer 2: linklayer.md
@@ -53,9 +53,9 @@ nav:
       - Somfy Smoove: devices/somfy/Smoove/README.md
       - Somfy Set&Go: devices/somfy/SetGo/README.md
       - Velux:
-        - Velux: devices/velux/README.md
-        - Velux KLI31x: devices/velux/KLI31x/README.md
-        - Velux KLR200: devices/velux/KLR200/README.md
+        - Velux: devices/Velux/README.md
+        - Velux KLI31x: devices/Velux/KLI31x/README.md
+        - Velux KLR200: devices/Velux/KLR200/README.md
       - Atlantic Thermor: devices/misc/AtlanticThermor/README.md
       - Firmware: firmware.md
       - Si446x: reference/Si446x/README.md
